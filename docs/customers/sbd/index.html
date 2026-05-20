@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>San Bernardino International Airport · Airwai customer story</title>
+<meta name="description" content="How SBD moved from reactive airfield operations to AI-driven predictive maintenance with LAIRA and ArcGIS. Featured by Esri." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --chalk: #FAFAF7;
+  --ink: #16181B;
+  --federal-navy: #0E1A33;
+  --signal-lime: #D8FF3C;
+  --stone: #6B6B70;
+  --rule: #E3E1DC;
+  --rule-strong: #C9C4BB;
+  --surface-warm: #F4F0E8;
+  --surface-cool: #EEEBE3;
+  --container: 1240px;
+  --margin: 56px;
+  --font-primary: "Söhne", "Inter", system-ui, sans-serif;
+  --font-mono: "Suisse Screen", "JetBrains Mono", ui-monospace, monospace;
+  --font-utility: "Suisse Int'l", "Inter", system-ui, sans-serif;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--chalk); color: var(--ink); font-family: var(--font-primary); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+.container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 var(--margin); }
+@media (max-width: 900px) { :root { --margin: 24px; } }
+
+.display-xl { font-size: clamp(44px, 6.5vw, 88px); line-height: 1.0; font-weight: 700; letter-spacing: -0.028em; }
+.display-lg { font-size: clamp(36px, 4.5vw, 64px); line-height: 1.05; font-weight: 700; letter-spacing: -0.024em; }
+.display-md { font-size: clamp(28px, 3.2vw, 44px); line-height: 1.1; font-weight: 700; letter-spacing: -0.02em; }
+.body-lg { font-size: 18px; line-height: 1.6; font-weight: 400; }
+.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.navy { color: var(--federal-navy); }
+
+section { position: relative; padding: clamp(72px, 10vw, 128px) 0; border-bottom: 1px solid var(--rule); }
+section.warm { background: var(--surface-warm); }
+section.cool { background: var(--surface-cool); }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 14px;
+  font-family: var(--font-utility); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--stone);
+  margin-bottom: 40px;
+}
+.eyebrow::before { content: ""; display: block; width: 32px; height: 1px; background: var(--federal-navy); }
+
+.grid-12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 32px; }
+.col-5 { grid-column: span 5; } .col-6 { grid-column: span 6; } .col-7 { grid-column: span 7; } .col-12 { grid-column: span 12; }
+@media (max-width: 900px) { .grid-12 > [class*="col-"] { grid-column: span 12; } }
+
+nav.site-nav { border-bottom: 1px solid var(--rule); background: var(--chalk); position: sticky; top: 0; z-index: 50; }
+nav.site-nav .row { max-width: var(--container); margin: 0 auto; padding: 18px var(--margin); display: flex; align-items: center; justify-content: space-between; }
+nav.site-nav .wordmark { width: 140px; height: auto; }
+nav.site-nav .links { display: flex; gap: 32px; align-items: center; }
+nav.site-nav .links a { font-size: 14px; font-weight: 500; color: var(--ink); text-decoration: none; letter-spacing: -0.005em; }
+nav.site-nav .links a:hover { color: var(--federal-navy); }
+nav.site-nav .links .cta { background: var(--federal-navy); color: var(--chalk); padding: 10px 18px; border: 1px solid var(--federal-navy); font-weight: 500; }
+nav.site-nav .links .cta:hover { background: var(--ink); border-color: var(--ink); color: var(--chalk); }
+@media (max-width: 900px) { nav.site-nav .links a:not(.cta) { display: none; } }
+
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; font-size: 14px; font-weight: 500; letter-spacing: -0.005em; text-decoration: none; border: 1px solid var(--federal-navy); transition: all 200ms var(--ease); }
+.btn.primary { background: var(--federal-navy); color: var(--chalk); }
+.btn.primary:hover { background: var(--ink); border-color: var(--ink); }
+.btn.secondary { background: transparent; color: var(--federal-navy); }
+.btn.secondary:hover { background: var(--federal-navy); color: var(--chalk); }
+.cta-row { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 32px; }
+
+.stat-band { margin-top: 64px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+@media (max-width: 900px) { .stat-band { grid-template-columns: repeat(2, 1fr); } }
+.stat { border-top: 2px solid var(--ink); padding-top: 20px; }
+.stat .num { font-family: var(--font-primary); font-size: clamp(28px, 4vw, 44px); line-height: 1; font-weight: 700; letter-spacing: -0.024em; color: var(--ink); font-variant-numeric: tabular-nums; }
+.stat .label { margin-top: 12px; font-size: 13px; color: var(--ink); line-height: 1.5; font-weight: 500; }
+.stat .cite { margin-top: 4px; font-family: var(--font-mono); font-size: 11px; color: var(--stone); }
+
+.quote-block { margin-top: 40px; padding: 28px 32px; border-left: 3px solid var(--federal-navy); background: var(--surface-warm); }
+.quote-block .q { font-size: 18px; line-height: 1.5; color: var(--ink); font-style: italic; }
+.quote-block .q::before { content: "\201C"; } .quote-block .q::after { content: "\201D"; }
+.quote-block .attr { margin-top: 12px; font-family: var(--font-mono); font-size: 12px; color: var(--stone); letter-spacing: 0.04em; }
+.quote-block .attr strong { color: var(--ink); font-weight: 500; }
+
+.spec-table { margin-top: 32px; border-top: 1px solid var(--rule); }
+.spec-table .row { display: grid; grid-template-columns: 220px 1fr; gap: 24px; padding: 12px 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
+.spec-table .k { font-family: var(--font-utility); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--stone); font-weight: 500; }
+.spec-table .v { font-family: var(--font-mono); font-size: 13px; color: var(--ink); }
+
+footer.site-footer { background: var(--chalk); color: var(--ink); padding: 64px 0 32px; border-top: 1px solid var(--rule); }
+footer .grid-12 { align-items: start; }
+footer .wordmark { width: 180px; height: auto; display: block; }
+footer .description { margin-top: 20px; font-size: 14px; color: var(--stone); line-height: 1.6; max-width: 320px; }
+footer .col-label { font-family: var(--font-utility); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--federal-navy); margin-bottom: 18px; font-weight: 500; }
+footer ul.foot-links { list-style: none; padding: 0; }
+footer ul.foot-links li { padding: 5px 0; font-size: 14px; }
+footer ul.foot-links a { color: var(--ink); text-decoration: none; }
+footer ul.foot-links a:hover { color: var(--federal-navy); }
+footer .bottom-strip { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 12px; color: var(--stone); }
+footer .bottom-strip .copyright { font-family: var(--font-mono); letter-spacing: 0.04em; }
+footer .bottom-strip .legal { display: flex; gap: 20px; flex-wrap: wrap; }
+footer .bottom-strip .legal a { color: var(--stone); text-decoration: none; }
+footer .bottom-strip .tagline-foot { font-family: var(--font-primary); font-weight: 600; font-size: 13px; color: var(--federal-navy); }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="row">
+    <a href="/"><img class="wordmark" src="/assets/airwai-wordmark.svg" alt="AIRWAI" /></a>
+    <div class="links">
+      <a href="/laira/">LAIRA</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="/customers/">Customers</a>
+      <a href="/company/">Company</a>
+      <a href="https://docs.airwai.com">Docs</a>
+      <a href="/pricing/#scope" class="cta">Schedule a pilot</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">Customer story &middot; Featured by Esri</p>
+    <h1 class="display-xl">San Bernardino<br/>International Airport<span class="navy">.</span></h1>
+    <p class="body-lg" style="margin-top: 32px; max-width: 720px; color: var(--ink); opacity: 0.82;">How SBD moved from reactive airfield operations to AI-driven predictive maintenance with LAIRA and ArcGIS &mdash; a continuous-scan capture and inspection workflow running on the airport&rsquo;s own operations vehicles.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="/pricing/#scope">Schedule a pilot &rarr;</a>
+      <a class="btn secondary" href="https://www.esri.com/en-us/lg/industry/transportation/stories/san-bernardino-international-airport-arcgis-airfield-operations" target="_blank" rel="noopener noreferrer">Read Esri&rsquo;s case study &uarr;</a>
+    </div>
+
+    <div class="stat-band">
+      <div class="stat">
+        <div class="num">3&ndash;7&times;</div>
+        <div class="label">More anomalies vs. manual</div>
+        <div class="cite">Esri case study</div>
+      </div>
+      <div class="stat">
+        <div class="num">2M+</div>
+        <div class="label">Data points per pass</div>
+        <div class="cite">Continuous scan &middot; 55 mph</div>
+      </div>
+      <div class="stat">
+        <div class="num">50%+</div>
+        <div class="label">Faster field validation</div>
+        <div class="cite">Esri case study</div>
+      </div>
+      <div class="stat">
+        <div class="num">Part 139</div>
+        <div class="label">FAA compliance baseline</div>
+        <div class="cite">Established 2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="grid-12" style="gap: 48px;">
+      <div class="col-5">
+        <p class="eyebrow">The problem</p>
+        <h2 class="display-md">Manual airfield inspection tops out at 20&ndash;40 observations per shift<span class="navy">.</span></h2>
+      </div>
+      <div class="col-7">
+        <p class="body-lg" style="color: var(--ink); opacity: 0.82;">Before LAIRA, SBD&rsquo;s airfield inspection workflow looked like every other Part 139 airport&rsquo;s: certified inspectors driving the airfield by hand, recording observations on paper logs, transcribing to spreadsheets at end of shift. Coverage was inconsistent across shifts and weather; early-stage defects routinely went undetected; data was fragmented across formats that didn&rsquo;t roll up into a maintenance plan.</p>
+        <p class="body-lg" style="color: var(--ink); opacity: 0.82; margin-top: 20px;">The constraint wasn&rsquo;t the inspectors. The constraint was the medium: a single human observer captures 20&ndash;40 observations per shift. The airfield generates orders of magnitude more data than that.</p>
+
+        <div class="quote-block">
+          <p class="q">Manual inspections produced only 20&ndash;40 observations per shift with inconsistent results, leaving defects undetected and fragmented across logs.</p>
+          <p class="attr">&mdash; <strong>Esri case study</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="warm">
+  <div class="container">
+    <p class="eyebrow">The solution</p>
+    <h2 class="display-md">LAIRA captures continuously. ArcGIS makes it actionable<span class="navy">.</span></h2>
+    <p class="body-lg" style="margin-top: 24px; max-width: 760px; color: var(--ink); opacity: 0.82;">SBD partnered with Airwai to deploy LAIRA &mdash; the Layered Autonomous Inference and Reasoning Agent platform &mdash; integrated directly into the airport&rsquo;s existing Esri ArcGIS stack. The rig mounts on operations vehicles already in service; capture happens passively as the vehicle drives. Every pass writes ~2 million data points to the cloud, runs them through edge-AI inference, and publishes geo-tagged anomalies straight into the airport&rsquo;s ArcGIS Online environment. ArcGIS Field Maps directs maintenance crews to prioritized repair locations. ArcGIS Dashboards give airport leadership real-time operational oversight across the entire airfield.</p>
+
+    <div class="quote-block" style="margin-top: 48px;">
+      <p class="q">By deploying AI-driven airfield intelligence within our GIS environment, airports can move from reactive operations to predictive, data-led management.</p>
+      <p class="attr">&mdash; <strong>Mike Burrows</strong> &middot; CEO &middot; San Bernardino International Airport</p>
+    </div>
+
+    <div class="quote-block" style="margin-top: 24px;">
+      <p class="q">Our team has a consistent, objective baseline across shifts and conditions, strengthening our compliance posture without adding burden to staff.</p>
+      <p class="attr">&mdash; <strong>Jonathan Galvan</strong> &middot; Manager &middot; San Bernardino International Airport</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <p class="eyebrow">What&rsquo;s running at SBD today</p>
+    <h2 class="display-md">Operational, continuous, and integrated into the existing workflow<span class="navy">.</span></h2>
+
+    <div class="spec-table">
+      <div class="row">
+        <span class="k">Capture cadence</span>
+        <span class="v">Weekly operator drives &middot; airfield surfaces + groundside corridors</span>
+      </div>
+      <div class="row">
+        <span class="k">Sensor platform</span>
+        <span class="v">LAIRA Rig &middot; 128-channel LiDAR &middot; 4K RGB &middot; RTK GNSS &middot; 6-axis IMU + VIO &middot; NVIDIA edge inference</span>
+      </div>
+      <div class="row">
+        <span class="k">Detection categories</span>
+        <span class="v">Pavement distress &middot; FOD &middot; vegetation encroachment &middot; marking degradation</span>
+      </div>
+      <div class="row">
+        <span class="k">Output destination</span>
+        <span class="v">ArcGIS Online feature service &middot; Field Maps &middot; Dashboards</span>
+      </div>
+      <div class="row">
+        <span class="k">Standards mapping</span>
+        <span class="v">FAA AC 150/5320-17 &middot; ASTM D5340 PCI &middot; MUTCD Part 3 markings</span>
+      </div>
+      <div class="row">
+        <span class="k">Deployment role</span>
+        <span class="v">Beta operating partner &middot; since 2025</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cool">
+  <div class="container">
+    <div class="grid-12" style="align-items: center; gap: 48px;">
+      <div class="col-7">
+        <p class="eyebrow">Next step</p>
+        <h2 class="display-md">Schedule a 30-day pilot on your airfield<span class="navy">.</span></h2>
+        <p class="body-lg" style="margin-top: 24px; color: var(--ink); opacity: 0.82;">A pilot is one corridor, your operations vehicle, and your existing ArcGIS endpoint. Output is an audit-ready section report against ASTM&nbsp;D5340 + FAA&nbsp;AC 150/5320-17, delivered in 30 days.</p>
+      </div>
+      <div class="col-5">
+        <div class="cta-row">
+          <a class="btn primary" href="/pricing/#scope">Schedule a pilot &rarr;</a>
+          <a class="btn secondary" href="https://www.esri.com/en-us/lg/industry/transportation/stories/san-bernardino-international-airport-arcgis-airfield-operations" target="_blank" rel="noopener noreferrer">Read Esri&rsquo;s case study &uarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="grid-12">
+      <div class="col-5">
+        <img class="wordmark" src="/assets/airwai-wordmark.svg" alt="AIRWAI" />
+        <p class="description">Airwai is the autonomous civil engineer for critical infrastructure. A software platform that turns inspection data into audit-ready engineering decisions for pavement and physical assets at airports, military installations, and other secure sites.</p>
+      </div>
+      <div class="col-7" style="text-align: right;">
+        <a class="btn primary" href="/pricing/#scope">Schedule a pilot &rarr;</a>
+      </div>
+    </div>
+    <div class="bottom-strip">
+      <span class="copyright">&copy; 2024&ndash;2026 Airwai, Inc. All rights reserved.</span>
+      <div class="legal">
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Service</a>
+        <a href="/cookies/">Cookie Preferences</a>
+      </div>
+      <span class="tagline-foot">Airwai: the autonomous civil engineer.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

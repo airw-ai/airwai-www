@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pricing &amp; procurement — Airwai</title>
+<meta name="description" content="Annual LAIRA contracts with 30-day deployment. Direct subscription sale, federal-ready under FAR Part 12, SBIR Phase III, and multi-year service agreement. ArcGIS-native, NDAA-compliant, audit-traced." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+ * AIRWAI · PRICING + PROCUREMENT
+ * Brand v2 · light-default · direct-sale framing
+ * Site nav + footer are rendered by airwai-theme-v2 (page-pricing.php).
+ * ============================================================ */
+
+:root {
+  --chalk: #FAFAF7;
+  --ink: #16181B;
+  --federal-navy: #0E1A33;
+  --signal-lime: #D8FF3C;
+  --stone: #6B6B70;
+  --rule: #E3E1DC;
+  --rule-strong: #C9C4BB;
+  --surface-warm: #F4F0E8;
+  --surface-cool: #EEEBE3;
+
+  --container: 1180px;
+  --margin: 64px;
+
+  --font-primary: "Söhne", "Inter", "Helvetica Neue", system-ui, sans-serif;
+  --font-mono: "Suisse Screen", "JetBrains Mono", ui-monospace, monospace;
+  --font-utility: "Suisse Int'l", "Inter", system-ui, sans-serif;
+
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--chalk);
+  color: var(--ink);
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 var(--margin); }
+@media (max-width: 900px) { :root { --margin: 24px; } }
+
+/* Type */
+.display-2xl { font-size: clamp(48px, 8vw, 96px); line-height: 0.96; font-weight: 700; letter-spacing: -0.032em; }
+.display-xl  { font-size: clamp(40px, 6vw, 72px); line-height: 1.02; font-weight: 700; letter-spacing: -0.028em; }
+.display-lg  { font-size: clamp(32px, 4.5vw, 56px); line-height: 1.05; font-weight: 700; letter-spacing: -0.022em; }
+.display-md  { font-size: clamp(26px, 3vw, 40px); line-height: 1.1; font-weight: 700; letter-spacing: -0.018em; }
+.display-sm  { font-size: clamp(22px, 2.2vw, 28px); line-height: 1.2; font-weight: 600; letter-spacing: -0.014em; }
+.body-lg { font-size: 18px; line-height: 1.6; font-weight: 400; }
+.body { font-size: 16px; line-height: 1.6; font-weight: 400; }
+
+.ui-label {
+  font-family: var(--font-utility);
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--stone);
+}
+.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.navy { color: var(--federal-navy); }
+.stone { color: var(--stone); }
+
+/* Sections */
+section {
+  position: relative;
+  padding: clamp(72px, 10vw, 128px) 0;
+  border-bottom: 1px solid var(--rule);
+}
+section.warm { background: var(--surface-warm); }
+section.cool { background: var(--surface-cool); }
+section.dark {
+  background: var(--federal-navy);
+  color: var(--chalk);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+section.dark .eyebrow { color: rgba(255,255,255,0.7); }
+section.dark .eyebrow::before { background: var(--signal-lime); }
+section.dark h2 .navy { color: var(--signal-lime); }
+section.dark .body-lg { color: rgba(255,255,255,0.85); }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 14px;
+  font-family: var(--font-utility);
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 40px;
+}
+.eyebrow::before { content: ""; display: block; width: 32px; height: 1px; background: var(--federal-navy); }
+
+.grid-12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 32px; }
+.col-3 { grid-column: span 3; } .col-4 { grid-column: span 4; } .col-5 { grid-column: span 5; }
+.col-6 { grid-column: span 6; } .col-7 { grid-column: span 7; } .col-8 { grid-column: span 8; }
+@media (max-width: 900px) { .grid-12 > [class*="col-"] { grid-column: span 12; } }
+
+/* Hero */
+.hero { padding: clamp(72px, 10vw, 128px) 0; }
+.hero h1 { color: var(--ink); }
+.hero h1 .accent { color: var(--federal-navy); }
+.hero .subhead { margin-top: 32px; max-width: 760px; color: var(--ink); opacity: 0.78; font-size: clamp(18px, 1.6vw, 22px); line-height: 1.5; }
+.hero .cta-row { margin-top: 48px; display: flex; gap: 16px; flex-wrap: wrap; }
+
+/* ===========================================================
+ * PRIMARY PRODUCT CARD — LAIRA Rig (full-width, dark, the buy)
+ * =========================================================== */
+.rig-card {
+  background: var(--federal-navy);
+  color: var(--chalk);
+  padding: clamp(40px, 5vw, 64px);
+  border: 1px solid var(--federal-navy);
+  position: relative;
+  margin-top: 56px;
+}
+.rig-card::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--signal-lime);
+}
+.rig-card .meta-row {
+  display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+  font-family: var(--font-utility); font-size: 11px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  margin-bottom: 32px;
+}
+.rig-card .meta-row .badge {
+  color: var(--signal-lime); font-weight: 500;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.rig-card .meta-row .badge::before {
+  content: ""; width: 7px; height: 7px; background: var(--signal-lime);
+  display: inline-block;
+}
+.rig-card .meta-row .status { color: rgba(255,255,255,0.5); }
+.rig-card h2 {
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.04; font-weight: 700; letter-spacing: -0.026em;
+  color: var(--chalk); margin-bottom: 20px;
+}
+.rig-card .lede {
+  font-size: clamp(17px, 1.6vw, 21px); line-height: 1.5;
+  color: rgba(255,255,255,0.82); max-width: 720px; margin-bottom: 48px;
+}
+.rig-card .rig-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px;
+  border-top: 1px solid rgba(255,255,255,0.18); padding-top: 40px;
+}
+@media (max-width: 900px) { .rig-card .rig-grid { grid-template-columns: 1fr; gap: 32px; } }
+.rig-card .col-label {
+  font-family: var(--font-utility); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--signal-lime); margin-bottom: 18px;
+}
+.rig-card ul { list-style: none; padding: 0; margin: 0; }
+.rig-card ul li {
+  padding: 7px 0; font-size: 15px; line-height: 1.55;
+  color: rgba(255,255,255,0.88);
+  display: flex; align-items: flex-start; gap: 12px;
+}
+.rig-card ul li::before {
+  content: ""; width: 5px; height: 5px; background: var(--signal-lime);
+  display: inline-block; margin-top: 8px; flex-shrink: 0;
+}
+.rig-card .cta-row { margin-top: 48px; }
+.rig-card .anchor-note {
+  margin-top: 32px; padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.18);
+  font-family: var(--font-mono); font-size: 12px;
+  color: rgba(255,255,255,0.6); letter-spacing: 0.04em;
+}
+
+/* ===========================================================
+ * ROADMAP TIERS — Vision Lite + Capture (smaller, muted)
+ * =========================================================== */
+.roadmap-row {
+  margin-top: 40px;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+}
+@media (max-width: 900px) { .roadmap-row { grid-template-columns: 1fr; } }
+.roadmap-card {
+  background: var(--chalk);
+  border: 1px solid var(--rule);
+  padding: 28px 28px 32px;
+}
+.roadmap-card .badge {
+  font-family: var(--font-utility); font-size: 10px;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--stone);
+  font-weight: 500; margin-bottom: 10px;
+}
+.roadmap-card h3 {
+  font-size: 22px; font-weight: 700; letter-spacing: -0.014em;
+  line-height: 1.1; color: var(--ink); margin-bottom: 8px;
+}
+.roadmap-card .status {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--federal-navy); letter-spacing: 0.04em;
+  margin-bottom: 20px; font-weight: 500;
+}
+.roadmap-card p {
+  font-size: 14px; line-height: 1.55; color: var(--stone);
+  margin-bottom: 24px;
+}
+.roadmap-card .ea-link {
+  font-family: var(--font-utility); font-size: 12px;
+  font-weight: 500; letter-spacing: 0.04em;
+  color: var(--federal-navy); text-decoration: none;
+  border-bottom: 1px solid var(--rule-strong); padding-bottom: 2px;
+  transition: border-color 200ms var(--ease);
+}
+.roadmap-card .ea-link:hover { border-color: var(--federal-navy); }
+
+/* ===========================================================
+ * PROCUREMENT PATHWAYS
+ * =========================================================== */
+.pathway-grid {
+  margin-top: 48px;
+  border-top: 2px solid var(--ink);
+}
+.pathway-row {
+  display: grid; grid-template-columns: 1fr 2fr; gap: 32px;
+  padding: 24px 0; border-bottom: 1px solid var(--rule);
+  align-items: start;
+}
+@media (max-width: 700px) {
+  .pathway-row { grid-template-columns: 1fr; gap: 8px; }
+}
+.pathway-row .k {
+  font-family: var(--font-utility);
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink);
+}
+.pathway-row .k .ref {
+  display: block; margin-top: 4px;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 400;
+  letter-spacing: 0.04em; text-transform: none;
+  color: var(--federal-navy);
+}
+.pathway-row .v {
+  font-size: 15px; line-height: 1.6; color: var(--ink);
+}
+.pathway-row.status-pending .k { color: var(--stone); }
+.pathway-row.status-pending .v { color: var(--stone); }
+
+.pathway-status-header {
+  font-family: var(--font-utility);
+  font-size: 11px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--stone);
+  margin: 40px 0 -8px;
+}
+
+/* ===========================================================
+ * WHAT SHIPS — deliverable + timeline + proof
+ * =========================================================== */
+.deliverable-list {
+  list-style: none; padding: 0; margin: 24px 0 0;
+}
+.deliverable-list li {
+  padding: 14px 0; border-top: 1px solid var(--rule);
+  display: flex; gap: 16px; align-items: flex-start;
+  font-size: 16px; line-height: 1.55; color: var(--ink);
+}
+.deliverable-list li::before {
+  content: ""; width: 6px; height: 6px;
+  background: var(--federal-navy);
+  margin-top: 9px; flex-shrink: 0;
+}
+.deliverable-list li:last-child { border-bottom: 1px solid var(--rule); }
+
+.timeline {
+  margin-top: 40px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+}
+@media (max-width: 700px) { .timeline { grid-template-columns: repeat(2, 1fr); } }
+.timeline .step {
+  border-top: 2px solid var(--ink); padding-top: 16px;
+}
+.timeline .step .n {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--federal-navy); letter-spacing: 0.18em;
+  text-transform: uppercase; margin-bottom: 8px;
+}
+.timeline .step h4 {
+  font-size: 17px; font-weight: 600; letter-spacing: -0.01em;
+  line-height: 1.25; color: var(--ink); margin-bottom: 8px;
+}
+.timeline .step p {
+  font-size: 13px; line-height: 1.55; color: var(--stone);
+}
+
+.proof-block {
+  margin-top: 56px;
+  padding: 32px 36px;
+  display: flex; align-items: center; gap: 32px;
+  background: var(--surface-warm);
+  border: 1px solid var(--rule-strong);
+  border-left: 3px solid var(--federal-navy);
+  text-decoration: none;
+  color: var(--ink);
+  transition: background 200ms var(--ease);
+}
+.proof-block:hover { background: var(--chalk); }
+.proof-block .label {
+  font-family: var(--font-utility); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--federal-navy); margin-bottom: 6px;
+}
+.proof-block .headline {
+  font-family: var(--font-primary); font-size: 19px;
+  font-weight: 600; line-height: 1.3; color: var(--ink);
+  letter-spacing: -0.012em;
+}
+.proof-block .content { flex: 1; }
+.proof-block .arrow {
+  font-family: var(--font-mono); font-size: 24px;
+  color: var(--federal-navy); margin-left: auto; flex-shrink: 0;
+  transition: transform 200ms var(--ease);
+}
+.proof-block:hover .arrow { transform: translate(4px, -4px); }
+@media (max-width: 700px) {
+  .proof-block { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .proof-block .arrow { margin-left: 0; }
+}
+
+/* ===========================================================
+ * FAQ
+ * =========================================================== */
+.faq-list {
+  margin-top: 24px;
+  border-top: 2px solid var(--ink);
+}
+.faq-list details {
+  border-bottom: 1px solid var(--rule);
+}
+.faq-list details summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 24px 0;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 24px;
+  font-family: var(--font-primary);
+  font-size: 17px; font-weight: 600; letter-spacing: -0.008em;
+  line-height: 1.35; color: var(--ink);
+}
+.faq-list details summary::-webkit-details-marker { display: none; }
+.faq-list details summary::after {
+  content: "+"; font-family: var(--font-mono);
+  font-size: 24px; color: var(--federal-navy);
+  font-weight: 400; line-height: 1;
+  flex-shrink: 0;
+  transition: transform 200ms var(--ease);
+}
+.faq-list details[open] summary::after { transform: rotate(45deg); }
+.faq-list details .answer {
+  padding: 0 0 24px;
+  font-size: 15px; line-height: 1.65; color: var(--ink);
+  opacity: 0.82; max-width: 760px;
+}
+.faq-list details .answer p + p { margin-top: 12px; }
+.faq-list details .answer .mono-key {
+  font-family: var(--font-mono); font-size: 13px;
+  color: var(--federal-navy);
+}
+
+/* ===========================================================
+ * SCOPE FORM
+ * =========================================================== */
+.form-block {
+  padding: 32px;
+  border: 1px solid var(--rule);
+  background: var(--surface-warm);
+}
+.form-block .ui-label { color: var(--federal-navy); }
+.form-block .embed-note {
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 13px; color: var(--stone); line-height: 1.6;
+}
+
+/* CTA buttons */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 20px;
+  font-size: 14px; font-weight: 500; letter-spacing: 0.02em;
+  text-decoration: none;
+  border: 1px solid var(--federal-navy);
+  transition: background 200ms var(--ease), color 200ms var(--ease);
+}
+.btn.primary { background: var(--federal-navy); color: var(--chalk); }
+.btn.primary:hover { background: var(--ink); border-color: var(--ink); }
+.btn.secondary { background: transparent; color: var(--federal-navy); }
+.btn.secondary:hover { background: var(--federal-navy); color: var(--chalk); }
+
+/* CTA on dark surfaces */
+.btn.lime-primary {
+  background: var(--signal-lime); color: var(--federal-navy);
+  border-color: var(--signal-lime);
+}
+.btn.lime-primary:hover { background: var(--chalk); border-color: var(--chalk); }
+.btn.lime-secondary {
+  background: transparent; color: var(--signal-lime);
+  border-color: var(--signal-lime);
+}
+.btn.lime-secondary:hover {
+  background: var(--signal-lime); color: var(--federal-navy);
+}
+
+/* Print (PDF leave-behind) */
+@media print {
+  :root { --margin: 0.5in; }
+  @page { size: letter portrait; margin: 0.5in; }
+  body { background: white; color: var(--ink); font-size: 10pt; line-height: 1.5; }
+  section { background: white !important; color: var(--ink) !important; padding: 18pt 0; page-break-inside: avoid; border-bottom: 1px solid var(--rule); }
+  section.warm, section.cool, section.dark { background: white !important; color: var(--ink) !important; }
+  .rig-card { background: white !important; color: var(--ink) !important; border-color: var(--rule) !important; }
+  .rig-card h2, .rig-card ul li { color: var(--ink) !important; }
+  .rig-card .meta-row .badge, .rig-card .col-label { color: var(--federal-navy) !important; }
+  .rig-card ul li::before { background: var(--federal-navy) !important; }
+  .display-xl { font-size: 36pt; }
+  .display-lg { font-size: 28pt; }
+  .display-md { font-size: 20pt; }
+  .btn { display: none; }
+  .faq-list details { break-inside: avoid; }
+  .faq-list details:not([open]) .answer { display: block; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<!-- 1. HERO — direct sale framing -->
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">Pricing &middot; Procurement</p>
+    <h1 class="display-xl">Annual contracts.<br/>30-day deployment<span class="navy">.</span></h1>
+    <p class="subhead">Direct subscription sale. Federal-ready under FAR Part 12 commercial-item, SBIR Phase III, and multi-year service agreement. The form below routes to the federal accounts lead — we respond inside two business days.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="#scope">Start a contract scope &rarr;</a>
+      <a class="btn secondary" href="/customers/sbd/">See the SBD deployment</a>
+    </div>
+  </div>
+</section>
+
+<!-- 2. THE PRODUCT — Rig (primary, full-width) + Roadmap pair -->
+<section class="warm">
+  <div class="container">
+    <p class="eyebrow">The product</p>
+    <h2 class="display-lg">Sensor-agnostic platform.<br/>Three ways to ingest<span class="navy">.</span></h2>
+
+    <!-- Primary: LAIRA Rig -->
+    <article class="rig-card">
+      <div class="meta-row">
+        <span class="badge">Available now</span>
+        <span class="status">Annual subscription &middot; vehicle-mounted</span>
+      </div>
+      <h2>LAIRA Rig</h2>
+      <p class="lede">The compliance-grade tier. COTS sensor stack mounts to your operations vehicle. Continuous-scan capture, edge-first inference, ArcGIS-native publishing. Outputs audit-traced to D6433, D5340, 23 CFR Part 490, PROWAG, and MUTCD.</p>
+
+      <div class="rig-grid">
+        <div>
+          <div class="col-label">What's included</div>
+          <ul>
+            <li>Compliance-grade output (D6433 / D5340 / 23 CFR 490 / PROWAG / MUTCD)</li>
+            <li>COTS sensor stack: 128-channel LiDAR + GNSS/INS + camera</li>
+            <li>Edge inference under 200&nbsp;ms; no cloud dependency at ingest</li>
+            <li>ArcGIS-native feature-service publishing to your tenant</li>
+            <li>Annual platform license &middot; on-site install &middot; support &middot; updates</li>
+          </ul>
+        </div>
+        <div>
+          <div class="col-label">Buyer fit</div>
+          <ul>
+            <li>Federal contracting officers running DAF / DoW pavement networks</li>
+            <li>State DOT pavement-management programs</li>
+            <li>FAA Part 139 airports needing audit-ready PCI deliverables</li>
+            <li>AEC primes owning the pre-bid baseline</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn lime-primary" href="#scope">Start a contract scope &rarr;</a>
+        <a class="btn lime-secondary" href="/customers/sbd/">See SBD deployment</a>
+      </div>
+
+      <p class="anchor-note">Annual subscription replaces the up-front capital expenditure of a single-purpose ARAN-class survey vehicle. One contract covers platform, install, and support.</p>
+    </article>
+
+    <!-- Roadmap: Vision Lite + Capture -->
+    <p class="ui-label" style="margin-top: 64px; margin-bottom: 20px;">Roadmap &middot; early-access cohorts</p>
+
+    <div class="roadmap-row">
+
+      <article class="roadmap-card">
+        <div class="badge">Cloud SaaS</div>
+        <h3>Vision Lite</h3>
+        <div class="status">In active development &middot; design partners</div>
+        <p>Customer-supplied video ingest, cloud inference, screening-grade output. Converts archived corridor footage into LAIRA-ready data without a rig install. Intended for AEC teams entering the LAIRA platform via existing assets.</p>
+        <a class="ea-link" href="#scope">Express early-access interest &rarr;</a>
+      </article>
+
+      <article class="roadmap-card">
+        <div class="badge">iOS</div>
+        <h3>Capture</h3>
+        <div class="status">In active development &middot; design partners</div>
+        <p>iPhone Pro plus ruggedized mount, per-device subscription, field-inspector workflow. Screening-grade output published ArcGIS-native. For walk-through workflows where vehicle install is not practical.</p>
+        <a class="ea-link" href="#scope">Express early-access interest &rarr;</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 3. PROCUREMENT PATHWAYS -->
+<section>
+  <div class="container">
+    <p class="eyebrow">How buyers procure LAIRA</p>
+    <h2 class="display-lg">Procurement vehicles, named<span class="navy">.</span></h2>
+    <p class="body-lg" style="margin-top: 20px; max-width: 760px; color: var(--ink); opacity: 0.78;">A federal KO doesn&rsquo;t buy software; they execute a contract under a buying authority. Airwai is structured to be bought under the vehicles your contracting officer already knows how to run.</p>
+
+    <div class="pathway-grid">
+
+      <div class="pathway-row">
+        <div class="k">Commercial Item<span class="ref">FAR Part 12 &middot; subpart 12.207</span></div>
+        <div class="v">Direct subscription purchase under commercial-item rules. Fastest path. NDAA-compliant by construction; covered-foreign-technology vetted under &sect;889. No GSA schedule required.</div>
+      </div>
+
+      <div class="pathway-row">
+        <div class="k">Simplified Acquisition<span class="ref">FAR Part 13 &middot; micro &amp; SAP</span></div>
+        <div class="v">Micro-purchase up to $15K (P-card), SAP up to $250K. Useful for first install, partial-year scope, or single-installation procurement before a multi-year vehicle is in place.</div>
+      </div>
+
+      <div class="pathway-row">
+        <div class="k">SBIR Phase III<span class="ref">15 U.S.C. &sect;638</span></div>
+        <div class="v">Sole-source continuation pathway. Available for qualifying agencies with prior SBIR work. Carries the SBIR data-rights protection through deployment.</div>
+      </div>
+
+      <div class="pathway-row">
+        <div class="k">Multi-year service<span class="ref">FAR 17.1 &middot; option years</span></div>
+        <div class="v">Annual base year with option years. Standard structure for ongoing customers — runs the subscription on a procurement vehicle the agency already understands.</div>
+      </div>
+
+      <div class="pathway-row">
+        <div class="k">State DOT purchase<span class="ref">State procurement code</span></div>
+        <div class="v">Direct purchase against pavement-management line items. Subscription billable as a service under the operations side of the capital + ops budget.</div>
+      </div>
+
+      <div class="pathway-row">
+        <div class="k">AEC subcontract<span class="ref">Prime &rarr; sub task</span></div>
+        <div class="v">Assigned task under an AEC prime&rsquo;s contract with the end customer. Used where the prime owns the relationship and Airwai delivers the data layer.</div>
+      </div>
+
+      <p class="pathway-status-header">In development</p>
+
+      <div class="pathway-row status-pending">
+        <div class="k">GSA MAS<span class="ref">Schedule pending</span></div>
+        <div class="v">Available via teaming agreement with a Schedule-holding partner in the interim. Reach out for the current routing.</div>
+      </div>
+
+      <div class="pathway-row status-pending">
+        <div class="k">OTA<span class="ref">AFWERX / DIU</span></div>
+        <div class="v">Prototype-to-production OTA pathways available for qualifying programs. Discuss program fit on the scope call.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 4. WHAT SHIPS -->
+<section class="warm">
+  <div class="container">
+    <div class="grid-12" style="gap: 48px; align-items: start;">
+      <div class="col-5">
+        <p class="eyebrow">What ships</p>
+        <h2 class="display-lg">A working deliverable<br/>by week four<span class="navy">.</span></h2>
+        <p class="body-lg" style="margin-top: 24px; color: var(--ink); opacity: 0.82;">Every contract produces the same artifact: an ArcGIS-published feature service of detected anomalies on your scoped surface, audit-traced back to the standard it implements. No PDF reports. No spreadsheet hand-off. The data is the deliverable.</p>
+      </div>
+
+      <div class="col-7">
+        <ul class="deliverable-list">
+          <li>ArcGIS feature service hosted in <strong>your tenant</strong>, with detection geometries, attributes, and citation metadata</li>
+          <li>Citation chain &mdash; every detection traces to its standard section (e.g., D6433 &sect;X1.14) and the sensor measurement that produced it</li>
+          <li>PCI-equivalent severity grading aligned to ASTM D6433 / D5340 and FHWA 23 CFR Part 490</li>
+          <li>PROWAG and MUTCD compliance attributes on sidewalk + marking surfaces</li>
+          <li>Re-audit cadence on your schedule &mdash; quarterly, semi-annual, or event-driven (post-construction, post-storm)</li>
+          <li>Operator dashboard with delta-tracking against prior scans</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="timeline">
+      <div class="step">
+        <div class="n">Week 1</div>
+        <h4>Install</h4>
+        <p>On-site rig install on your operations vehicle. One day per vehicle, conducted by Airwai engineers.</p>
+      </div>
+      <div class="step">
+        <div class="n">Week 2&ndash;3</div>
+        <h4>Scan</h4>
+        <p>Continuous-scan capture across your scoped surface. Edge inference runs on-rig at ingest.</p>
+      </div>
+      <div class="step">
+        <div class="n">Week 3&ndash;4</div>
+        <h4>Audit-trace</h4>
+        <p>Citation chain assembled, severity grading applied, deliverable QA'd against the contract scope.</p>
+      </div>
+      <div class="step">
+        <div class="n">Week 4</div>
+        <h4>Publish</h4>
+        <p>Feature service published to your ArcGIS tenant. Re-audit cadence begins on schedule.</p>
+      </div>
+    </div>
+
+    <!-- Proof -->
+    <a class="proof-block" href="/customers/sbd/">
+      <div class="content">
+        <div class="label">Deployed &middot; featured by Esri</div>
+        <div class="headline">San Bernardino International Airport &mdash; LAIRA running on the airport&rsquo;s ops vehicles, ArcGIS-published, in operation today.</div>
+      </div>
+      <span class="arrow">&#8599;</span>
+    </a>
+  </div>
+</section>
+
+<!-- 5. FAQ -->
+<section>
+  <div class="container">
+    <p class="eyebrow">Procurement &amp; contracting</p>
+    <h2 class="display-lg">What contracting officers ask<span class="navy">.</span></h2>
+
+    <div class="faq-list">
+
+      <details>
+        <summary>What does a typical contract look like?</summary>
+        <div class="answer">
+          <p>Annual base year with option years. Multi-year service-contract structure that rolls under FAR Part 12 commercial-item terms. The contract covers platform, on-site install, support, and ongoing updates. Re-audit cadence is set in the SOW.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>How does the install actually work?</summary>
+        <div class="answer">
+          <p>Airwai engineers deploy the rig on your operations vehicle on-site. One day per vehicle. The rig is sensor-agnostic and bolts to standard roof or bed mounting points. No vehicle retrofit, no body modification, no permanent attachment required.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Who owns the data?</summary>
+        <div class="answer">
+          <p>You do. Outputs publish to your ArcGIS feature service, in your tenant, on your storage. Airwai retains no copy of customer data without explicit written authorization. SBIR-protected data rights apply where contracts are executed under SBIR Phase III.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Is the supply chain NDAA-compliant?</summary>
+        <div class="answer">
+          <p>Yes. COTS hardware stack vetted against &sect;889 covered-foreign-technology restrictions. No prohibited equipment, period. Component-level supply chain documentation available under NDA on request.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Who else is deployed?</summary>
+        <div class="answer">
+          <p>San Bernardino International Airport &mdash; the customer story is public and was featured by Esri. Additional deployments are confirmed under NDA and available on request during the scope call.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Can we run a validation engagement before signing the full contract?</summary>
+        <div class="answer">
+          <p>Yes &mdash; if your acquisition rules require it. A 30-day scoped engagement on one corridor, one apron, or one parking lot can be executed under SAP / P-card thresholds, with the engagement fee credited toward the Year 1 contract value when the customer moves to the full agreement. Most customers buy directly.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What about insurance, indemnification, and standard reps?</summary>
+        <div class="answer">
+          <p>Commercial general liability, errors &amp; omissions, and cyber coverage in place. Airwai accepts standard federal acquisition reps and certifications. Mutual indemnification on commercial contracts; federal reps standard under FAR 52.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What happens at renewal?</summary>
+        <div class="answer">
+          <p>Annual renewal at the option-year structure agreed in the base contract. Scope adjustments (more vehicles, more surfaces, expanded cadence) go through a written contract mod &mdash; not a re-negotiation. Customers running multi-year agreements see no per-renewal contracting drag.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- 6. SCOPE CONVERSATION FORM -->
+<section id="scope" class="warm">
+  <div class="container">
+    <div class="grid-12" style="gap: 48px; align-items: start;">
+      <div class="col-5">
+        <p class="eyebrow">Start a contract scope</p>
+        <h2 class="display-lg">Tell us about the network.<br/>We&rsquo;ll respond in two business days<span class="navy">.</span></h2>
+        <p class="body-lg" style="margin-top: 24px; color: var(--ink); opacity: 0.82;">The form routes to the federal accounts lead. We&rsquo;ll schedule a 30-minute scope call to align on surface, vehicle, timeline, and procurement vehicle. You&rsquo;ll leave the call with a draft scope of work and a Year-1 contract structure.</p>
+        <p class="body-lg" style="margin-top: 20px; color: var(--ink); opacity: 0.82;">No purchase order required up front. No spec-sheet shopping. One scope conversation, one defensible deliverable.</p>
+      </div>
+      <div class="col-7">
+        <div class="form-block">
+          <p class="ui-label">HubSpot form embed</p>
+          <p class="embed-note">Replace this block with the HubSpot form embed code. Fields: Name &middot; Organization &middot; Role &middot; Email &middot; Phone (optional) &middot; Surface of interest (roadway / sidewalk / both / airfield / portfolio) &middot; Procurement vehicle preference &middot; Notes. Posts to HubSpot CRM with form ID configured in WP admin.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

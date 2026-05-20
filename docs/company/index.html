@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Company — Airwai</title>
+<meta name="description" content="Airwai is building the autonomous civil engineer for critical infrastructure. Audit-ready engineering decisions for pavement and physical assets at military installations and other secure sites." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+ * AIRWAI · COMPANY PAGE
+ * Brand v2 · light-default · one dark security moment
+ * Site nav + footer are rendered by airwai-theme-v2 (page-company.php).
+ * ============================================================ */
+
+:root {
+  --chalk: #FAFAF7;
+  --ink: #16181B;
+  --federal-navy: #0E1A33;
+  --signal-lime: #D8FF3C;
+  --stone: #6B6B70;
+  --rule: #E3E1DC;
+  --rule-strong: #C9C4BB;
+  --surface-warm: #F4F0E8;
+  --surface-cool: #EEEBE3;
+
+  --container: 1180px;
+  --margin: 64px;
+
+  --font-primary: "Söhne", "Inter", "Helvetica Neue", system-ui, sans-serif;
+  --font-mono: "Suisse Screen", "JetBrains Mono", ui-monospace, monospace;
+  --font-utility: "Suisse Int'l", "Inter", system-ui, sans-serif;
+
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--chalk);
+  color: var(--ink);
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 var(--margin); }
+@media (max-width: 900px) { :root { --margin: 24px; } }
+
+/* Type */
+.display-2xl { font-size: clamp(48px, 8vw, 96px); line-height: 0.96; font-weight: 700; letter-spacing: -0.032em; }
+.display-xl  { font-size: clamp(40px, 6vw, 72px); line-height: 1.02; font-weight: 700; letter-spacing: -0.028em; }
+.display-lg  { font-size: clamp(32px, 4.5vw, 56px); line-height: 1.05; font-weight: 700; letter-spacing: -0.022em; }
+.display-md  { font-size: clamp(26px, 3vw, 40px); line-height: 1.1; font-weight: 700; letter-spacing: -0.018em; }
+.display-sm  { font-size: clamp(22px, 2.2vw, 28px); line-height: 1.2; font-weight: 600; letter-spacing: -0.014em; }
+.body-lg { font-size: 18px; line-height: 1.6; font-weight: 400; }
+.body { font-size: 16px; line-height: 1.6; font-weight: 400; }
+
+.ui-label {
+  font-family: var(--font-utility);
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--stone);
+}
+.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.navy { color: var(--federal-navy); }
+.stone { color: var(--stone); }
+
+/* Sections */
+section {
+  position: relative;
+  padding: clamp(72px, 10vw, 128px) 0;
+  border-bottom: 1px solid var(--rule);
+}
+section.warm { background: var(--surface-warm); }
+section.cool { background: var(--surface-cool); }
+section.dark {
+  background: var(--federal-navy);
+  color: var(--chalk);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+section.dark .eyebrow { color: rgba(255,255,255,0.7); }
+section.dark .eyebrow::before { background: var(--signal-lime); }
+section.dark h2 .navy { color: var(--signal-lime); }
+section.dark .body-lg { color: rgba(255,255,255,0.85); }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 14px;
+  font-family: var(--font-utility);
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 40px;
+}
+.eyebrow::before { content: ""; display: block; width: 32px; height: 1px; background: var(--federal-navy); }
+
+.grid-12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 32px; }
+.col-3 { grid-column: span 3; } .col-4 { grid-column: span 4; } .col-5 { grid-column: span 5; }
+.col-6 { grid-column: span 6; } .col-7 { grid-column: span 7; } .col-8 { grid-column: span 8; }
+@media (max-width: 900px) { .grid-12 > [class*="col-"] { grid-column: span 12; } }
+
+/* Hero */
+.hero { padding: clamp(72px, 10vw, 128px) 0; }
+.hero h1 { color: var(--ink); }
+.hero .subhead { margin-top: 32px; max-width: 760px; color: var(--ink); opacity: 0.78; }
+
+/* Values cards — typographic, no boxes */
+.value-card {
+  border-top: 2px solid var(--ink);
+  padding-top: 20px;
+}
+.value-card .n {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--federal-navy);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.value-card h3 {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+.value-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink);
+  opacity: 0.78;
+}
+
+/* Security spec list — key/value rows on dark */
+.security-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.security-list li {
+  border-top: 1px solid rgba(255,255,255,0.18);
+  padding: 20px 0;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 32px;
+  align-items: start;
+}
+.security-list li:last-child { border-bottom: 1px solid rgba(255,255,255,0.18); }
+.security-list .k {
+  font-family: var(--font-utility);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--signal-lime);
+  font-weight: 500;
+}
+.security-list .v {
+  font-size: 15px;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.6;
+}
+@media (max-width: 700px) {
+  .security-list li { grid-template-columns: 1fr; gap: 8px; }
+}
+
+/* Federal registration block */
+.fed-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
+@media (max-width: 700px) { .fed-grid { grid-template-columns: repeat(2, 1fr); } }
+.fed-grid .item .ui-label { margin-bottom: 8px; }
+.fed-grid .item .mono { font-size: 18px; color: var(--federal-navy); font-weight: 500; }
+.fed-grid .item .mono.compact { font-size: 14px; color: var(--ink); }
+
+/* CTA buttons */
+.cta-row { margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border: 1px solid var(--federal-navy);
+  transition: background 200ms var(--ease), color 200ms var(--ease);
+}
+.btn.primary { background: var(--federal-navy); color: var(--chalk); }
+.btn.primary:hover { background: var(--ink); border-color: var(--ink); }
+.btn.secondary { background: transparent; color: var(--federal-navy); }
+.btn.secondary:hover { background: var(--federal-navy); color: var(--chalk); }
+
+/* Print (PDF leave-behind) */
+@media print {
+  :root { --margin: 0.5in; }
+  @page { size: letter portrait; margin: 0.5in; }
+  body { background: white; color: var(--ink); font-size: 10pt; line-height: 1.5; }
+  section { background: white !important; color: var(--ink) !important; padding: 18pt 0; page-break-inside: avoid; border-bottom: 1px solid var(--rule); }
+  section.warm, section.cool, section.dark { background: white !important; color: var(--ink) !important; }
+  section.dark .body-lg { color: var(--ink) !important; }
+  section.dark .security-list .k { color: var(--federal-navy) !important; }
+  section.dark .security-list .v { color: var(--ink) !important; }
+  section.dark .security-list li { border-color: var(--rule) !important; }
+  section.dark h2 { color: var(--ink) !important; }
+  section.dark h2 .navy { color: var(--federal-navy) !important; }
+  .display-xl { font-size: 36pt; }
+  .display-lg { font-size: 28pt; }
+  .display-md { font-size: 20pt; }
+  .btn { display: none; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<!-- 1. HERO -->
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">Company</p>
+    <h1 class="display-xl">We&rsquo;re building the<br/>autonomous civil engineer<br/>for critical infrastructure<span class="navy">.</span></h1>
+    <p class="body-lg subhead">Audit-ready engineering decisions from inspection data, for pavement and physical assets at military installations and other secure sites.</p>
+  </div>
+</section>
+
+<!-- 2. THESIS -->
+<section>
+  <div class="container">
+    <div class="grid-12" style="gap: 48px; align-items: start;">
+      <div class="col-5">
+        <p class="eyebrow">Thesis</p>
+        <h2 class="display-lg">The data is the asset.<br/>The platform is the leverage<span class="navy">.</span></h2>
+      </div>
+      <div class="col-7">
+        <p class="body-lg" style="color: var(--ink); opacity: 0.82;">Airwai is a software platform. The rig is one of three ingest tiers &mdash; the value is the engineering decision, not the device. Every output cites its standard. Every claim terminates at a public source. The condition data we produce on day one is the asset on day five hundred.</p>
+        <p class="body-lg" style="color: var(--ink); opacity: 0.82; margin-top: 20px;">We sell defensible outcomes &mdash; not sensors. Federal contracting officers, state DOT engineers, and AEC primes don&rsquo;t buy a model. They buy a deliverable that survives the audit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. VALUES -->
+<section class="warm">
+  <div class="container">
+    <p class="eyebrow">How we operate</p>
+    <h2 class="display-lg">Confident. Specific.<br/>Citation-forward<span class="navy">.</span></h2>
+
+    <div class="grid-12" style="margin-top: 64px; gap: 32px;">
+      <div class="col-4">
+        <div class="value-card">
+          <div class="n">01 &middot; Evidence over assertion</div>
+          <h3>Name the standard. Name the sensor. Name the resolution.</h3>
+          <p>Every measurement cites the section it implements (ASTM D6433 &sect;X1.14, 23 CFR Part 490, UFC 3-260). If a claim doesn&rsquo;t terminate at a public source, it doesn&rsquo;t ship.</p>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="value-card">
+          <div class="n">02 &middot; Decisive, not severe</div>
+          <h3>Software for the engineer responsible when the audit lands.</h3>
+          <p>Generous space, decisive answers, no hand-waving. The brand carries institutional weight without trading away clarity. We build for the buyer who has to defend the deliverable in writing.</p>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="value-card">
+          <div class="n">03 &middot; Contrarian where earned</div>
+          <h3>ARAN-class incumbents are roadway-only. The default is paper.</h3>
+          <p>Sidewalk, curb-ramp, and marking inspection is a separate procurement today. LAIRA collapses three procurements into one &mdash; and produces output ArcGIS-native, not a PDF.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. SECURITY POSTURE — the one dark moment -->
+<section class="dark">
+  <div class="container">
+    <p class="eyebrow">Security posture</p>
+    <h2 class="display-lg" style="color: var(--chalk);">Built for secure sites<br/>from the ground up<span class="navy">.</span></h2>
+
+    <div class="grid-12" style="margin-top: 56px; gap: 32px; align-items: start;">
+      <div class="col-5">
+        <p class="body-lg">Secure-site customers don&rsquo;t have the luxury of trial-and-error procurement. Airwai is built to clear federal acquisition review on its first pass &mdash; supply chain, data tenancy, and operational posture.</p>
+      </div>
+      <div class="col-7">
+        <ul class="security-list">
+          <li>
+            <span class="k">NDAA-compliant</span>
+            <span class="v">COTS hardware stack vetted against &sect;889 covered-foreign-technology restrictions. No prohibited equipment, period.</span>
+          </li>
+          <li>
+            <span class="k">Edge-first inference</span>
+            <span class="v">Detection runs on-rig at the airfield. No internet dependency during ingest, no telemetry off-site without operator authorization.</span>
+          </li>
+          <li>
+            <span class="k">Customer-owned data</span>
+            <span class="v">Outputs publish to your ArcGIS feature service, your tenant, your storage. Airwai is the platform &mdash; the data is yours.</span>
+          </li>
+          <li>
+            <span class="k">Citation chain</span>
+            <span class="v">Every detection traces to a standard section and a sensor measurement. Auditors and contracting officers can verify any claim end-to-end.</span>
+          </li>
+          <li>
+            <span class="k">US-based team</span>
+            <span class="v">Delaware C-Corp, California-headquartered, US-citizen team for any work touching CUI or controlled-installation data.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. MISSION · DoW + INFRASTRUCTURE -->
+<section>
+  <div class="container">
+    <div class="grid-12" style="gap: 48px; align-items: start;">
+      <div class="col-5">
+        <p class="eyebrow">The mission</p>
+        <h2 class="display-lg">Intelligence for the<br/>infrastructure that matters<span class="navy">.</span></h2>
+      </div>
+      <div class="col-7">
+        <p class="body-lg" style="color: var(--ink); opacity: 0.82;">We operate at airfields, military installations, and roadway networks that carry national-level operations. The condition of that infrastructure is a national-security data layer &mdash; not a paperwork artifact.</p>
+        <p class="body-lg" style="color: var(--ink); opacity: 0.82; margin-top: 20px;">Department of War installations alone manage thousands of miles of runway, taxiway, apron, and access pavement. The current default is hand-walked inspections on a slow cadence, paper records, and reactive maintenance. We&rsquo;re building the platform that turns continuous-scan data into decisions, in the workflow operators already use.</p>
+        <p class="body-lg" style="color: var(--ink); opacity: 0.82; margin-top: 20px;">The same pattern carries through to FAA Part 139 airports, state DOTs, and AEC primes who own the pre-design baseline. One platform, sensor-agnostic, citation-chained, audit-ready by construction.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. FEDERAL REGISTRATION -->
+<section class="warm">
+  <div class="container">
+    <p class="eyebrow">Federal registration</p>
+    <h2 class="display-md">SAM.gov registered. NDAA-compliant<span class="navy">.</span></h2>
+    <div class="fed-grid">
+      <div class="item"><p class="ui-label">UEI</p><p class="mono">YAD4JA8BN6N6</p></div>
+      <div class="item"><p class="ui-label">CAGE</p><p class="mono">07Z17</p></div>
+      <div class="item"><p class="ui-label">NAICS</p><p class="mono">541330</p></div>
+      <div class="item"><p class="ui-label">Entity</p><p class="mono compact">Delaware C-Corp &middot; Small Business</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. CTA -->
+<section>
+  <div class="container">
+    <div class="grid-12" style="gap: 48px; align-items: center;">
+      <div class="col-6">
+        <p class="eyebrow">Engage</p>
+        <h2 class="display-md">Pilot. Procure. Partner<span class="navy">.</span></h2>
+      </div>
+      <div class="col-6">
+        <p class="body-lg" style="color: var(--ink); opacity: 0.82; margin-bottom: 32px;">A pilot is one corridor, one parking lot, or one apron &mdash; run on your operations vehicle, delivered to your existing ArcGIS endpoint, in 30 days.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="/pricing/#schedule">Schedule a pilot &rarr;</a>
+          <a class="btn secondary" href="mailto:gov@airwai.com">Federal contracting &middot; DoW</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
