@@ -283,6 +283,24 @@ nav.site-nav .links .cta:hover { background: var(--ink); border-color: var(--ink
 .airwai-footer-legal a:hover { color: var(--federal-navy); }
 .airwai-footer-tagline { font-family: var(--font-primary); font-style: italic; color: var(--federal-navy); font-size: 13px; }
 @media (max-width: 700px) { .airwai-footer-bottom { flex-direction: column; align-items: flex-start; } }
+
+/* ============================================================
+ * DARK-CANVAS OVERRIDES (for hero.dark, cta.dark, etc.)
+ * ============================================================ */
+.hero.dark h1 { color: var(--chalk); }
+.hero.dark h1 .navy { color: var(--signal-lime); }
+.hero.dark .subhead { color: rgba(255,255,255,0.82); }
+
+section.dark .eyebrow { color: rgba(255,255,255,0.7); }
+section.dark .body-lg { color: var(--chalk); }
+section.dark h2 .navy { color: var(--signal-lime); }
+section.dark h2 { color: var(--chalk); }
+
+/* Buttons on dark canvas — flip to lime accents */
+section.dark .btn.primary { background: var(--signal-lime); color: var(--federal-navy); border-color: var(--signal-lime); }
+section.dark .btn.primary:hover { background: var(--chalk); border-color: var(--chalk); color: var(--ink); }
+section.dark .btn.secondary { background: transparent; color: var(--signal-lime); border-color: var(--signal-lime); }
+section.dark .btn.secondary:hover { background: var(--signal-lime); color: var(--federal-navy); border-color: var(--signal-lime); }
 </style>
 </head>
 <body>
@@ -303,7 +321,7 @@ nav.site-nav .links .cta:hover { background: var(--ink); border-color: var(--ink
 
 
 <!-- 1. HERO -->
-<section class="hero">
+<section class="hero dark">
   <div class="container">
     <p class="eyebrow">Company</p>
     <h1 class="display-xl">We&rsquo;re building the<br/>autonomous civil engineer<br/>for critical infrastructure<span class="navy">.</span></h1>
@@ -312,7 +330,7 @@ nav.site-nav .links .cta:hover { background: var(--ink); border-color: var(--ink
 </section>
 
 <!-- 2. THESIS -->
-<section class="cool">
+<section>
   <div class="container">
     <div class="grid-12" style="gap: 48px; align-items: start;">
       <div class="col-5">
@@ -398,7 +416,7 @@ nav.site-nav .links .cta:hover { background: var(--ink); border-color: var(--ink
 </section>
 
 <!-- 5. MISSION · DoW + INFRASTRUCTURE -->
-<section>
+<section class="cool">
   <div class="container">
     <div class="grid-12" style="gap: 48px; align-items: start;">
       <div class="col-5">
@@ -429,7 +447,7 @@ nav.site-nav .links .cta:hover { background: var(--ink); border-color: var(--ink
 </section>
 
 <!-- 7. CTA -->
-<section>
+<section class="dark">
   <div class="container">
     <div class="grid-12" style="gap: 48px; align-items: center;">
       <div class="col-6">
