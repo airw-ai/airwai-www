@@ -28,7 +28,7 @@
   --surface-warm: #F4F0E8;
   --surface-cool: #EEEBE3;
 
-  --container: 1180px;
+  --container: 1366px;
   --margin: 64px;
 
   --font-primary: "Söhne", "Inter", "Helvetica Neue", system-ui, sans-serif;
@@ -448,33 +448,67 @@ nav.site-nav .links .cta { background: var(--federal-navy); color: var(--chalk);
 nav.site-nav .links .cta:hover { background: var(--ink); border-color: var(--ink); color: var(--chalk); }
 @media (max-width: 900px) { nav.site-nav .links a:not(.cta) { display: none; } }
 
+
+
 /* ============================================================
- * FOOTER
+ * FOOTER — mirrors docs.airwai.com 1:1
+ * Anchor brand column (5fr) + 3 equal info columns (2fr each)
+ * Container max-width 1400px on large screens
  * ============================================================ */
-footer.site-footer { background: var(--chalk); color: var(--ink); padding: 80px 0 32px; border-top: 1px solid var(--rule); }
-footer .grid-12 { align-items: start; }
-footer .wordmark { width: 180px; height: auto; display: block; }
-footer .description { margin-top: 20px; font-size: 14px; color: var(--stone); line-height: 1.6; max-width: 320px; }
-footer .col-label { font-family: var(--font-utility); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--federal-navy); margin-bottom: 18px; font-weight: 500; }
-footer ul.foot-links { list-style: none; padding: 0; }
-footer ul.foot-links li { padding: 5px 0; font-size: 14px; display: flex; align-items: baseline; gap: 8px; }
-footer ul.foot-links a { color: var(--ink); text-decoration: none; transition: color 200ms var(--ease); }
-footer ul.foot-links a:hover { color: var(--federal-navy); }
-footer ul.foot-links.mono li { font-family: var(--font-mono); font-size: 12px; color: var(--ink); letter-spacing: 0.02em; }
-footer ul.foot-links.mono .key { color: var(--federal-navy); margin-left: 4px; font-weight: 500; }
-footer address { font-style: normal; font-size: 14px; color: var(--ink); line-height: 1.7; }
-footer address a { color: var(--ink); text-decoration: none; }
-footer address a:hover { color: var(--federal-navy); }
-footer .social { margin-top: 20px; display: flex; gap: 12px; }
-footer .social a { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid var(--rule-strong); color: var(--ink); text-decoration: none; transition: all 200ms var(--ease); }
-footer .social a:hover { background: var(--federal-navy); color: var(--chalk); border-color: var(--federal-navy); }
-footer .social svg { width: 16px; height: 16px; }
-footer .bottom-strip { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 12px; color: var(--stone); }
-footer .bottom-strip .copyright { font-family: var(--font-mono); letter-spacing: 0.04em; }
-footer .bottom-strip .legal { display: flex; gap: 20px; flex-wrap: wrap; }
-footer .bottom-strip .legal a { color: var(--stone); text-decoration: none; font-size: 12px; transition: color 200ms var(--ease); }
-footer .bottom-strip .legal a:hover { color: var(--federal-navy); }
-footer .bottom-strip .tagline-foot { font-family: var(--font-primary); font-weight: 600; font-size: 13px; letter-spacing: -0.005em; color: var(--federal-navy); }
+.airwai-site-footer { background: var(--chalk); color: var(--ink); padding: 80px 0 32px; border-top: 1px solid var(--rule); font-family: var(--font-primary); }
+.airwai-footer-container { width: 100%; max-width: 85rem; margin: 0 auto; padding: 0 3.5rem; box-sizing: border-box; }
+@media (max-width: 900px) { .airwai-footer-container { padding: 0 1.5rem; } .airwai-site-footer { padding: 56px 0 24px; } }
+@media (min-width: 76.25em) { .airwai-footer-container { max-width: 1400px; padding: 0 40px; } }
+.airwai-footer-grid { display: grid; grid-template-columns: 5fr 2fr 2fr 2fr; gap: 48px; align-items: start; }
+@media (max-width: 900px) { .airwai-footer-grid { grid-template-columns: 1fr; gap: 40px; } }
+.airwai-footer-wordmark { width: 180px; height: auto; display: block; }
+.airwai-footer-description { margin-top: 20px; font-size: 14px; color: var(--stone); line-height: 1.6; max-width: 320px; }
+.airwai-footer-label { font-family: var(--font-utility); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--federal-navy); margin-bottom: 18px; font-weight: 500; }
+.airwai-footer-links { list-style: none; padding: 0; margin: 0; }
+.airwai-footer-links li { padding: 5px 0; font-size: 14px; display: flex; align-items: baseline; gap: 8px; }
+.airwai-footer-links a { color: var(--ink); text-decoration: none; transition: color 200ms var(--ease); }
+.airwai-footer-links a:hover { color: var(--federal-navy); }
+.airwai-footer-links--mono li { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--stone); justify-content: flex-start; gap: 10px; }
+.airwai-footer-key { color: var(--federal-navy); font-weight: 500; }
+.airwai-footer-address { font-style: normal; font-size: 14px; color: var(--ink); line-height: 1.7; }
+.airwai-footer-address a { color: var(--ink); text-decoration: none; }
+.airwai-footer-address a:hover { color: var(--federal-navy); }
+.airwai-footer-social { margin-top: 20px; display: flex; gap: 12px; }
+.airwai-footer-social a { width: 36px; height: 36px; border: 1px solid var(--rule); display: inline-flex; align-items: center; justify-content: center; color: var(--ink); transition: background 200ms var(--ease), color 200ms var(--ease), border-color 200ms var(--ease); }
+.airwai-footer-social a:hover { background: var(--federal-navy); color: var(--chalk); border-color: var(--federal-navy); }
+.airwai-footer-social svg { width: 16px; height: 16px; }
+.airwai-footer-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--rule); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-size: 12px; color: var(--stone); }
+.airwai-footer-copyright { font-family: var(--font-mono); letter-spacing: 0.04em; }
+.airwai-footer-legal { display: flex; gap: 20px; flex-wrap: wrap; }
+.airwai-footer-legal a { color: var(--stone); text-decoration: none; font-family: var(--font-utility); font-size: 12px; }
+.airwai-footer-legal a:hover { color: var(--federal-navy); }
+.airwai-footer-tagline { font-family: var(--font-primary); font-style: italic; color: var(--federal-navy); font-size: 13px; }
+@media (max-width: 700px) { .airwai-footer-bottom { flex-direction: column; align-items: flex-start; } }
+
+/* ============================================================
+ * DARK-CANVAS OVERRIDES (for hero.dark, cta.dark, etc.)
+ * !important is needed throughout because wireframes use inline
+ * color/opacity styles assuming a light canvas.
+ * ============================================================ */
+.hero.dark h1 { color: var(--chalk) !important; }
+.hero.dark h1 .navy { color: var(--signal-lime) !important; }
+.hero.dark .subhead { color: rgba(255,255,255,0.82) !important; opacity: 1 !important; }
+
+section.dark p { color: rgba(255,255,255,0.88) !important; opacity: 1 !important; }
+section.dark p.eyebrow,
+section.dark .eyebrow { color: rgba(255,255,255,0.7) !important; }
+section.dark .body-lg { color: rgba(255,255,255,0.88) !important; opacity: 1 !important; }
+section.dark h2 .navy { color: var(--signal-lime) !important; }
+section.dark h2 { color: var(--chalk) !important; }
+section.dark h3 { color: var(--chalk) !important; }
+section.dark a { color: var(--chalk); }
+section.dark a:hover { color: var(--signal-lime); }
+
+/* Buttons on dark canvas — flip to lime accents */
+section.dark .btn.primary { background: var(--signal-lime); color: var(--federal-navy); border-color: var(--signal-lime); }
+section.dark .btn.primary:hover { background: var(--chalk); border-color: var(--chalk); color: var(--ink); }
+section.dark .btn.secondary { background: transparent; color: var(--signal-lime); border-color: var(--signal-lime); }
+section.dark .btn.secondary:hover { background: var(--signal-lime); color: var(--federal-navy); border-color: var(--signal-lime); }
 </style>
 </head>
 <body>
@@ -495,7 +529,7 @@ footer .bottom-strip .tagline-foot { font-family: var(--font-primary); font-weig
 
 
 <!-- 1. HERO — direct sale framing -->
-<section class="hero">
+<section class="hero dark">
   <div class="container">
     <p class="eyebrow">Pricing &middot; Procurement</p>
     <h1 class="display-xl">Annual contracts.<br/>30-day deployment<span class="navy">.</span></h1>
@@ -633,7 +667,7 @@ footer .bottom-strip .tagline-foot { font-family: var(--font-primary); font-weig
 </section>
 
 <!-- 4. WHAT SHIPS -->
-<section class="warm">
+<section class="dark">
   <div class="container">
     <div class="grid-12" style="gap: 48px; align-items: start;">
       <div class="col-5">
@@ -758,7 +792,7 @@ footer .bottom-strip .tagline-foot { font-family: var(--font-primary); font-weig
 </section>
 
 <!-- 6. SCOPE CONVERSATION FORM -->
-<section id="scope" class="warm">
+<section id="scope" class="dark">
   <div class="container">
     <div class="grid-12" style="gap: 48px; align-items: start;">
       <div class="col-5">
@@ -776,68 +810,61 @@ footer .bottom-strip .tagline-foot { font-family: var(--font-primary); font-weig
     </div>
   </div>
 </section>
-
-
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="grid-12">
-
-      <!-- Col 1: Wordmark + description -->
-      <div class="col-4">
-        <img class="wordmark" src="../assets/airwai-wordmark.svg" alt="AIRWAI" />
-        <p class="description">Airwai is the autonomous civil engineer for critical infrastructure. A software platform that turns inspection data into audit-ready engineering decisions for pavement and physical assets at airports, military installations, and other secure sites.</p>
+<!-- FOOTER — mirrors docs.airwai.com -->
+<footer class="airwai-site-footer">
+  <div class="airwai-footer-container">
+    <div class="airwai-footer-grid">
+      <div class="airwai-footer-col airwai-footer-col--brand">
+        <img class="airwai-footer-wordmark" src="../assets/airwai-wordmark.svg" alt="AIRWAI" />
+        <p class="airwai-footer-description">
+          Airwai is the autonomous civil engineer for critical infrastructure. A software platform that turns inspection data into audit-ready engineering decisions for pavement and physical assets at military installations and other secure sites.
+        </p>
       </div>
-
-      <!-- Col 2: Company -->
-      <div class="col-2">
-        <div class="col-label">Company</div>
-        <ul class="foot-links">
+      <div class="airwai-footer-col airwai-footer-col--company">
+        <div class="airwai-footer-label">Company</div>
+        <ul class="airwai-footer-links">
           <li><a href="/company/">About</a></li>
           <li><a href="/customers/">Customers</a></li>
+          <li><a href="https://docs.airwai.com">Documentation</a></li>
         </ul>
       </div>
-
-      <!-- Col 3: Federal -->
-      <div class="col-3">
-        <div class="col-label">Federal</div>
-        <ul class="foot-links mono">
-          <li>UEI<span class="key">YAD4JA8BN6N6</span></li>
-          <li>CAGE<span class="key">07Z17</span></li>
-          <li>NAICS<span class="key">541330</span></li>
-          <li>SAM.gov<span class="key">Registered</span></li>
-          <li>NDAA<span class="key">Compliant</span></li>
+      <div class="airwai-footer-col airwai-footer-col--federal">
+        <div class="airwai-footer-label">Federal</div>
+        <ul class="airwai-footer-links airwai-footer-links--mono">
+          <li>UEI<span class="airwai-footer-key">YAD4JA8BN6N6</span></li>
+          <li>CAGE<span class="airwai-footer-key">07Z17</span></li>
+          <li>NAICS<span class="airwai-footer-key">541330</span></li>
+          <li>SAM.gov<span class="airwai-footer-key">Registered</span></li>
+          <li>NDAA<span class="airwai-footer-key">Compliant</span></li>
         </ul>
       </div>
-
-      <!-- Col 4: Contact -->
-      <div class="col-3">
-        <div class="col-label">Contact</div>
-        <address>
-          <a href="mailto:info@airwai.com">info@airwai.com</a><br/>
-          <a href="mailto:gov@airwai.com">gov@airwai.com</a><br/>
-          (619) 964-4116
+      <div class="airwai-footer-col airwai-footer-col--contact">
+        <div class="airwai-footer-label">Contact</div>
+        <address class="airwai-footer-address">
+          13214 Crenshaw Blvd<br/>
+          Gardena, CA 90249
         </address>
-        <div class="social">
+        <div class="airwai-footer-social">
           <a href="https://www.linkedin.com/company/airwai" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
           </a>
           <a href="https://www.youtube.com/@airwai" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
           </a>
+          <a href="https://github.com/airw-ai" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.4 3-.405 1.02.005 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          </a>
         </div>
       </div>
     </div>
-
-    <!-- Bottom strip -->
-    <div class="bottom-strip">
-      <span class="copyright">&copy; 2024&ndash;2026 Airwai, Inc. All rights reserved.</span>
-      <div class="legal">
+    <div class="airwai-footer-bottom">
+      <span class="airwai-footer-copyright">&copy; 2024&ndash;2026 Airwai, Inc. All rights reserved.</span>
+      <div class="airwai-footer-legal">
         <a href="/privacy/">Privacy Policy</a>
         <a href="/terms/">Terms of Service</a>
         <a href="/cookies/">Cookie Preferences</a>
       </div>
-      <span class="tagline-foot">Airwai: the autonomous civil engineer.</span>
+      <span class="airwai-footer-tagline">Airwai: the autonomous civil engineer.</span>
     </div>
   </div>
 </footer>
