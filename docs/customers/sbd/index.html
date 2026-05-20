@@ -44,6 +44,9 @@ body { background: var(--chalk); color: var(--ink); font-family: var(--font-prim
 section { position: relative; padding: clamp(72px, 10vw, 128px) 0; border-bottom: 1px solid var(--rule); }
 section.warm { background: var(--surface-warm); }
 section.cool { background: var(--surface-cool); }
+section.dark { background: var(--federal-navy); color: var(--chalk); border-bottom: 1px solid rgba(255,255,255,0.08); }
+section.dark .eyebrow::before { background: var(--signal-lime); }
+section.dark .navy { color: var(--signal-lime); }
 
 .eyebrow {
   display: inline-flex; align-items: center; gap: 14px;
