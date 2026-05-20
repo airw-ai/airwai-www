@@ -28,7 +28,7 @@
   --surface-warm: #F4F0E8;
   --surface-cool: #EEEBE3;
 
-  --container: 1180px;
+  --container: 1200px;
   --margin: 64px;
 
   --font-primary: "Söhne", "Inter", "Helvetica Neue", system-ui, sans-serif;
@@ -256,6 +256,9 @@ footer .bottom-strip .legal { display: flex; gap: 20px; flex-wrap: wrap; }
 footer .bottom-strip .legal a { color: var(--stone); text-decoration: none; font-size: 12px; transition: color 200ms var(--ease); }
 footer .bottom-strip .legal a:hover { color: var(--federal-navy); }
 footer .bottom-strip .tagline-foot { font-family: var(--font-primary); font-weight: 600; font-size: 13px; letter-spacing: -0.005em; color: var(--federal-navy); }
+
+/* Footer container is wider than body container per design */
+footer.site-footer .container { max-width: 1440px; }
 </style>
 </head>
 <body>
