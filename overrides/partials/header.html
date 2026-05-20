@@ -1,0 +1,142 @@
+{#-
+  Airwai docs header — mirrors airwai-theme-v2/style.css .site-nav.
+  Adds:
+    - top meta strip (LIVE · last-update) above the header
+    - "Schedule a pilot" CTA button anchored top-right
+-#}
+
+{# Top meta strip — signature SBD-style top bar #}
+<div class="airwai-top-meta">
+  <div class="airwai-top-meta__inner">
+    <span class="airwai-top-meta__item airwai-top-meta__item--live">Live</span>
+    <span class="airwai-top-meta__sep">·</span>
+    <span class="airwai-top-meta__item">docs.airwai.com</span>
+    <span class="airwai-top-meta__right">
+      Last update
+      <span class="airwai-top-meta__date">{{ build_date_utc.strftime('%Y-%m-%d') if build_date_utc else config.copyright[-4:] }}</span>
+    </span>
+  </div>
+</div>
+
+{# Header — based on Material's stock header.html, with CTA added on the right #}
+{% set class = "md-header" %}
+{% if "navigation.tabs.sticky" in features %}
+  {% set class = class ~ " md-header--shadow md-header--lifted" %}
+{% elif "navigation.tabs" not in features %}
+  {% set class = class ~ " md-header--shadow" %}
+{% endif %}
+
+<header class="{{ class }}" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="{{ lang.t('header') }}">
+
+    {# Logo #}
+    <a
+      href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}"
+      title="{{ config.site_name | e }}"
+      class="md-header__button md-logo"
+      aria-label="{{ config.site_name }}"
+      data-md-component="logo"
+    >
+      {% include "partials/logo.html" %}
+    </a>
+
+    {# Drawer toggle for mobile #}
+    <label class="md-header__button md-icon" for="__drawer">
+      {% set icon = config.theme.icon.menu or "material/menu" %}
+      {% include ".icons/" ~ icon ~ ".svg" %}
+    </label>
+
+    {# Top-level nav rendered inline alongside the logo. Mirrors
+       .nav-menu from airwai-theme-v2/style.css — same designer's hand.
+       Pushed to the right via margin-left: auto in CSS so it hugs
+       the search + CTA cluster. #}
+    <ul class="airwai-nav-menu" role="list">
+      {% for nav_item in nav %}
+        {% if nav_item.children or nav_item.url %}
+          {% set link_url = nav_item.url if nav_item.url else (nav_item.children[0].url if nav_item.children else "") %}
+          <li class="airwai-nav-menu__item{% if nav_item.active %} airwai-nav-menu__item--active{% endif %}">
+            <a href="{{ link_url | url }}">{{ nav_item.title }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+    {# Color palette switcher (we don't expose it, but keep for parity) #}
+    {% if not config.theme.palette is mapping %}
+      <form class="md-header__option" data-md-component="palette">
+        {% for option in config.theme.palette %}
+          {% set primary = option.primary | replace(" ", "-") | lower %}
+          {% set accent  = option.accent  | replace(" ", "-") | lower %}
+          <input
+            class="md-option"
+            data-md-color-media="{{ option.media }}"
+            data-md-color-scheme="{{ option.scheme }}"
+            data-md-color-primary="{{ primary }}"
+            data-md-color-accent="{{ accent }}"
+            {% if option.toggle %}
+            aria-label="{{ option.toggle.name }}"
+            {% else %}
+            aria-hidden="true"
+            {% endif %}
+            type="radio"
+            name="__palette"
+            id="__palette_{{ loop.index }}"
+          />
+          {% if option.toggle %}
+            <label
+              class="md-header__button md-icon"
+              title="{{ option.toggle.name }}"
+              for="__palette_{{ loop.index0 or loop.length }}"
+              hidden
+            >
+              {% include ".icons/" ~ option.toggle.icon ~ ".svg" %}
+            </label>
+          {% endif %}
+        {% endfor %}
+      </form>
+    {% endif %}
+
+    {# Site language selector — unused but kept for parity #}
+    {% if config.extra.alternate %}
+      <div class="md-header__option">
+        <div class="md-select">
+          {% set icon = config.theme.icon.alternate or "material/translate" %}
+          <button class="md-header__button md-icon" aria-label="{{ lang.t('select.language') }}">
+            {% include ".icons/" ~ icon ~ ".svg" %}
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              {% for alt in config.extra.alternate %}
+                <li class="md-select__item">
+                  <a href="{{ alt.link | url }}" hreflang="{{ alt.lang }}" class="md-select__link">{{ alt.name }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    {# Search is removed from the navbar. The overlay markup lives in
+       overrides/main.html (block: site) so it can still be triggered by
+       ⌘K / Ctrl+K and by the hero search card on the homepage. #}
+
+    {# Repo icon #}
+    {% if config.repo_url %}
+      <div class="md-header__source">
+        {% include "partials/source.html" %}
+      </div>
+    {% endif %}
+
+    {# Airwai CTA — matches .nav-cta in airwai-theme-v2/style.css #}
+    <a
+      class="airwai-nav-cta"
+      href="https://airwai.com/pricing/#schedule"
+      target="_blank"
+      rel="noopener"
+    >
+      Schedule a pilot
+      <span class="airwai-nav-cta__arrow" aria-hidden="true">&rarr;</span>
+    </a>
+  </nav>
+</header>

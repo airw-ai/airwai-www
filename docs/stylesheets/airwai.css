@@ -1,0 +1,1546 @@
+/* ============================================================
+   AIRWAI v2 BRAND APPLIED TO MKDOCS MATERIAL
+   Sourced from:
+     - airwai-theme-v2/style.css (WP theme)
+     - Marketing/Customers/sbd.html (canonical v2 page)
+     - Design System/tokens/brand-tokens.v2.css
+
+   Design intent: this docs site should feel like the same
+   designer made airwai.com/customers/sbd. Material's chrome is
+   re-skinned hard — sharp corners, hairline rules, generous
+   vertical rhythm, navy-bar eyebrow utility labels, and the
+   SBD capability-row card pattern.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* Brand tokens (parity with airwai-theme-v2 + sbd.html) */
+  --airwai-chalk: #FAFAF7;
+  --airwai-ink: #16181B;
+  --airwai-federal-navy: #0E1A33;
+  --airwai-signal-lime: #D8FF3C;
+  --airwai-stone: #6B6B70;
+  --airwai-rule: #E3E1DC;
+  --airwai-rule-strong: #C9C4BB;
+  --airwai-surface-warm: #F4F0E8;
+  --airwai-surface-cool: #EEEBE3;
+  --airwai-surface-dark: #1A2540;
+  --airwai-critical: #B91C1C;
+
+  --airwai-font-primary: "Söhne", "Inter", "Helvetica Neue", system-ui, sans-serif;
+  --airwai-font-utility: "Suisse Int'l", "Inter", system-ui, sans-serif;
+  --airwai-font-mono: "Suisse Screen", "JetBrains Mono", "SF Mono", "Menlo", monospace;
+
+  --airwai-ease: cubic-bezier(0.2, 0, 0, 1);
+
+  /* Material overrides */
+  --md-primary-fg-color: var(--airwai-federal-navy);
+  --md-primary-fg-color--light: #1a2a4d;
+  --md-primary-fg-color--dark: #08101f;
+  --md-primary-bg-color: #ffffff;
+  --md-primary-bg-color--light: rgba(255, 255, 255, 0.7);
+
+  --md-accent-fg-color: var(--airwai-federal-navy);
+  --md-accent-fg-color--transparent: rgba(14, 26, 51, 0.06);
+  --md-accent-bg-color: var(--airwai-federal-navy);
+
+  --md-typeset-a-color: var(--airwai-federal-navy);
+
+  --md-default-fg-color: var(--airwai-ink);
+  --md-default-fg-color--light: #3a3c3f;
+  --md-default-fg-color--lighter: var(--airwai-stone);
+  --md-default-fg-color--lightest: var(--airwai-rule);
+  --md-default-bg-color: var(--airwai-chalk);
+
+  --md-code-bg-color: var(--airwai-surface-warm);
+  --md-code-fg-color: var(--airwai-ink);
+
+  --md-footer-bg-color: var(--airwai-chalk);
+  --md-footer-bg-color--dark: var(--airwai-chalk);
+  --md-footer-fg-color: var(--airwai-ink);
+  --md-footer-fg-color--light: var(--airwai-stone);
+  --md-footer-fg-color--lighter: var(--airwai-stone);
+}
+
+/* ----------------------------------------------------------
+   1. ZERO RADIUS DISCIPLINE
+   Brand is sharp-cornered. Strip Material's defaults.
+   ---------------------------------------------------------- */
+
+.md-typeset table:not([class]),
+.md-typeset pre,
+.md-typeset pre > code,
+.md-typeset code,
+.md-typeset .admonition,
+.md-typeset details,
+.md-typeset .grid.cards > ul > li,
+.md-typeset .md-button,
+.md-search__form,
+.md-search__input,
+.md-tabs__link,
+.md-typeset blockquote,
+.airwai-hero,
+.airwai-eyebrow,
+.airwai-stat,
+.airwai-grid > * {
+  border-radius: 0 !important;
+}
+
+/* ----------------------------------------------------------
+   2. TYPOGRAPHY
+   ---------------------------------------------------------- */
+
+body, .md-typeset {
+  font-family: var(--airwai-font-primary);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.md-typeset p {
+  line-height: 1.65;
+}
+
+.md-typeset li {
+  line-height: 1.6;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+  font-family: var(--airwai-font-primary);
+  color: var(--airwai-ink);
+}
+
+/* Universal body-content type lock: every header in the article
+   column renders at 16px, matching paragraph and list text — UNLESS
+   the header directly introduces a data table (compliance matrices,
+   spec tables). Table-preceding headers stay prominent at 20px
+   bold to keep tables scannable. */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.45;
+  letter-spacing: -0.005em;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  padding-top: 0;
+  border-top: none;
+}
+
+.md-typeset h1 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* Table-preceding headers stay big — use :has() to match h2/h3
+   that are immediately followed by a table, optionally with an
+   intervening paragraph (intro text). */
+.md-typeset h2:has(+ table),
+.md-typeset h3:has(+ table),
+.md-typeset h2:has(+ p + table),
+.md-typeset h3:has(+ p + table),
+.md-typeset h2:has(+ p + p + table),
+.md-typeset h3:has(+ p + p + table) {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.014em;
+  line-height: 1.2;
+  margin-top: 3rem;
+  margin-bottom: 0.85rem;
+}
+
+/* ----------------------------------------------------------
+   3. EYEBROW UTILITY LABEL (SBD's signature)
+   Use in Markdown as:  <p class="airwai-eyebrow">Section name</p>
+   Or wrap multiple labels with .airwai-eyebrow on each.
+   ---------------------------------------------------------- */
+
+.airwai-eyebrow,
+.md-typeset .airwai-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--airwai-font-utility);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--airwai-stone);
+  margin: 0 0 1.5rem;
+}
+
+.airwai-eyebrow::before,
+.md-typeset .airwai-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: var(--airwai-federal-navy);
+  flex-shrink: 0;
+}
+
+/* On dark surfaces (hero), the bar + text shift to Signal Lime */
+.airwai-hero .airwai-eyebrow {
+  color: var(--airwai-signal-lime);
+}
+.airwai-hero .airwai-eyebrow::before {
+  background: var(--airwai-signal-lime);
+}
+
+/* ----------------------------------------------------------
+   4. HEADER — single-row LIGHT chalk, mirrors .site-nav
+   ---------------------------------------------------------- */
+
+.md-header {
+  background-color: var(--airwai-chalk);
+  color: var(--airwai-ink);
+  border-bottom: 1px solid var(--airwai-rule);
+  box-shadow: none;
+  padding: 6px 0;
+}
+
+/* Material's scroll-state shadow was rendering as a second hairline
+   under the .md-header border-bottom — visible double layer. Kill it. */
+.md-header[data-md-state="shadow"] {
+  box-shadow: none;
+}
+
+.md-header__inner {
+  padding: 0 var(--md-grid-padding, 1rem);
+}
+
+/* Hide the duplicate "Airwai Documentation" site_name in the
+   header — the wordmark already shows the brand. Keep the
+   page-title topic (which only displays on scroll, as a sticky
+   indicator of current page). */
+/* Hide Material's site-name + page-title block entirely. Wordmark
+   is the brand mark; the inline nav menu shows where you are. */
+.md-header__title {
+  display: none;
+}
+
+.md-header__button {
+  color: var(--airwai-ink);
+}
+
+.md-header::after {
+  display: none;
+}
+
+/* Logo — 140px WIDE (≈58px tall), matches .site-nav .brand img in
+   airwai-theme-v2/style.css. Material's stock .md-header__button.md-logo
+   sets height: 1.2rem which scales to ~26px at desktop, so we need
+   high-specificity overrides + !important to win. */
+.md-header .md-logo {
+  margin-right: 1.5rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  height: auto;
+}
+
+.md-header .md-logo img,
+.md-header .md-logo svg,
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  width: 140px !important;
+  height: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  aspect-ratio: 320 / 132;
+  display: block;
+}
+
+/* Header chrome — mirrors .site-nav from the WP theme:
+   18px top/bottom padding, 1px chalk-rule bottom border, sticky. */
+.md-header {
+  padding: 18px 0;
+  min-height: 0;
+}
+
+.md-header__inner {
+  align-items: center;
+  min-height: 0;
+}
+
+/* Tabs row is no longer rendered (nav is inline in the header).
+   Hide any residual .md-tabs that Material's JS might inject. */
+.md-tabs { display: none; }
+
+/* Inline top-level nav menu — 1:1 with .nav-menu in
+   airwai-theme-v2/style.css. Sits to the right of the logo, hugging
+   the search + CTA cluster. */
+.airwai-nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 auto;
+}
+
+.airwai-nav-menu__item a {
+  font-family: var(--airwai-font-primary);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--airwai-ink);
+  text-decoration: none;
+  letter-spacing: -0.005em;
+  padding: 6px 0;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: color 200ms var(--airwai-ease);
+}
+
+.airwai-nav-menu__item a:hover {
+  color: var(--airwai-federal-navy);
+}
+
+.airwai-nav-menu__item--active a {
+  color: var(--airwai-federal-navy);
+}
+
+.airwai-nav-menu__item--active a::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--airwai-federal-navy);
+  margin-top: 6px;
+}
+
+@media (max-width: 900px) {
+  .airwai-nav-menu { display: none; }
+}
+
+/* Hide the GitHub source link in the header — it's redundant with
+   the GitHub icon in the footer social row, and removing it frees
+   horizontal space for the wordmark and CTA. */
+.md-header__source {
+  display: none;
+}
+
+/* Search — compact inline input, light surface */
+.md-search__form {
+  background-color: var(--airwai-surface-warm);
+  border: 1px solid var(--airwai-rule);
+  width: 180px;
+  height: 36px;
+  transition: width 200ms var(--airwai-ease), background-color 150ms;
+}
+
+.md-search__form:hover {
+  background-color: var(--airwai-surface-cool);
+}
+
+[data-md-toggle="search"]:checked ~ .md-header .md-search__form {
+  background-color: #ffffff;
+  border-color: var(--airwai-federal-navy);
+  width: 280px;
+}
+
+.md-search__input {
+  color: var(--airwai-ink);
+  background-color: transparent;
+  font-size: 13px;
+}
+
+.md-search__input::placeholder {
+  color: var(--airwai-stone);
+  font-size: 13px;
+}
+
+.md-search__icon {
+  color: var(--airwai-stone);
+}
+
+.md-search__icon:hover {
+  color: var(--airwai-federal-navy);
+}
+
+.md-search {
+  margin: 0;
+}
+
+/* ----------------------------------------------------------
+   5. SIDEBAR NAV — flat 16px body type, no hairline rules,
+   no bar prefixes, no active-link indicator. Hierarchy is
+   carried by weight + color only. Right rail removed entirely.
+   ---------------------------------------------------------- */
+
+/* Right rail completely hidden */
+.md-sidebar--secondary {
+  display: none !important;
+}
+
+/* Primary sidebar top title (e.g. "Airwai Documentation") — small
+   Suisse Int'l label, no underline, no bar prefix. */
+.md-nav--primary > .md-nav__title,
+.md-sidebar--primary .md-nav--primary > .md-nav__title {
+  font-family: var(--airwai-font-utility);
+  font-weight: 500;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--airwai-stone);
+  display: block;
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.4rem;
+  border-bottom: none;
+}
+
+.md-nav--primary > .md-nav__title::before {
+  display: none;
+}
+
+/* Section group headers (Aviation, Roads & Highways, etc.) — body
+   16px, semibold for hierarchy, no underline, no bar prefix. */
+.md-nav__item--section > .md-nav__link,
+.md-nav__item--nested > .md-nav__link {
+  font-family: var(--airwai-font-primary);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--airwai-ink);
+  letter-spacing: -0.005em;
+  padding: 0.5rem 0;
+  margin-top: 0.4rem;
+  margin-bottom: 0.2rem;
+  border-bottom: none;
+  text-transform: none;
+  display: block;
+  line-height: 1.4;
+}
+
+.md-nav__item--section > .md-nav__link::before,
+.md-nav__item--nested > .md-nav__link::before {
+  display: none;
+}
+
+.md-nav__item--section > .md-nav__link:hover,
+.md-nav__item--nested > .md-nav__link:hover {
+  color: var(--airwai-federal-navy);
+}
+
+/* Regular page links — body 16px regular weight */
+.md-nav__link {
+  font-family: var(--airwai-font-primary);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--airwai-ink);
+  padding: 0.35rem 0;
+}
+
+.md-nav__link:hover {
+  color: var(--airwai-federal-navy);
+}
+
+/* Active link — color + weight only, no left-bar indicator. */
+.md-nav__link--active,
+.md-nav__link[aria-current="page"] {
+  font-weight: 600;
+  color: var(--airwai-federal-navy);
+}
+
+.md-nav__link--active::before,
+.md-nav__link[aria-current="page"]::before {
+  display: none;
+}
+
+/* Right rail rules removed — .md-sidebar--secondary { display: none }
+   above kills the entire pane; no per-element styling needed. */
+
+/* ----------------------------------------------------------
+   6. CONTENT WIDTH + SPACING
+
+   Page-edge gutter pattern lifted from sbd.html / brand-guide.html
+   ( --margin: 48-80px ). Apply it to every .md-grid wrapper
+   (header inner, tabs inner, main inner) so there is consistent
+   inset from the viewport edge at every breakpoint.
+
+   Desktop math (>= 76.25em), all values in absolute px:
+     1400  outer grid cap (border-box, includes padding)
+   −   64  left page gutter
+   −   64  right page gutter
+   = 1272  inner usable
+   −  110  sidebar primary
+   −  110  sidebar secondary
+   = 1052  center reading column   ✓
+   ---------------------------------------------------------- */
+
+* { box-sizing: border-box; }
+
+.md-grid {
+  max-width: 85rem;
+  padding-left: 24px;
+  padding-right: 24px;
+  box-sizing: border-box;
+}
+
+.md-content {
+  max-width: none;
+}
+
+.md-content__inner {
+  margin: 0 1.2rem 1.5rem;
+  padding-top: 2rem;
+}
+
+.md-main__inner {
+  margin-top: 1.5rem;
+}
+
+/* Sidebars: room to breathe at all breakpoints */
+.md-sidebar {
+  padding: 1.5rem 0;
+}
+
+.md-sidebar__scrollwrap {
+  margin: 0;
+}
+
+.md-sidebar__inner {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+/* Desktop: explicit px to bypass Material's 137.5% root scaling.
+
+   Math (right sidebar removed — content expands to fill):
+       1400  outer grid cap (border-box, includes padding)
+     −   24  left page gutter
+     −   24  right page gutter
+     = 1352  inner usable
+     −  150  sidebar primary
+     = 1202  reading column
+*/
+@media (min-width: 76.25em) {
+  .md-grid {
+    max-width: 1400px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .md-sidebar--primary {
+    width: 150px;
+  }
+
+  .md-content {
+    /* Content expands into the space the right rail used to occupy */
+    max-width: 1202px;
+  }
+
+  .md-content__inner {
+    margin: 0 32px 32px;
+    padding-top: 40px;
+  }
+
+  .md-sidebar--primary .md-sidebar__inner {
+    padding-left: 0;
+    padding-right: 20px;
+  }
+}
+
+/* Lock body type to 16px regardless of Material's root scaling */
+@media (min-width: 76.25em) {
+  .md-typeset {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .md-typeset p {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .md-typeset li {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}
+
+/* ----------------------------------------------------------
+   7. TABLES — flat, navy header, alternating warm rows
+   ---------------------------------------------------------- */
+
+.md-typeset table:not([class]) {
+  border: 1px solid var(--airwai-rule);
+  box-shadow: none;
+  font-size: 0.78rem;
+  display: table;
+  width: 100%;
+}
+
+/* Header is now a typographic statement: 2px Ink top-rule + Ink
+   uppercase — same treatment as .airwai-stat. Reads as "data band"
+   not "Material table chrome", and stacked tables stop looking
+   like striped admin panels. */
+.md-typeset table:not([class]) th {
+  background-color: var(--airwai-chalk);
+  color: var(--airwai-ink);
+  font-family: var(--airwai-font-utility);
+  font-weight: 600;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.85rem 0.85rem 0.7rem;
+  vertical-align: middle;
+  border: none;
+  border-bottom: 1px solid var(--airwai-rule-strong);
+}
+
+.md-typeset table:not([class]) thead {
+  border-top: 2px solid var(--airwai-ink);
+}
+
+.md-typeset table:not([class]) th a {
+  color: var(--airwai-ink);
+  text-decoration: none;
+}
+
+/* Breathing room between stacked tables */
+.md-typeset table:not([class]) + h2,
+.md-typeset table:not([class]) + h3,
+.md-typeset table:not([class]) + p + table {
+  margin-top: 1rem;
+}
+
+.md-typeset table:not([class]) {
+  margin-bottom: 2rem;
+}
+
+.md-typeset table:not([class]) td {
+  padding: 0.6rem 0.85rem;
+  vertical-align: top;
+  border-top: 1px solid var(--airwai-rule);
+}
+
+.md-typeset table:not([class]) tbody tr:nth-child(even) {
+  background-color: var(--airwai-surface-warm);
+}
+
+.md-typeset table:not([class]) tbody tr:hover {
+  background-color: var(--airwai-surface-cool);
+}
+
+.md-typeset table:not([class]) td p {
+  margin: 0;
+}
+
+.md-typeset table:not([class]) td:last-child {
+  text-align: center;
+  white-space: nowrap;
+  font-size: 0.95rem;
+}
+
+/* ----------------------------------------------------------
+   8. LINKS — Federal Navy underline on light surfaces
+   ---------------------------------------------------------- */
+
+.md-typeset a {
+  color: var(--airwai-federal-navy);
+  text-decoration: underline;
+  text-decoration-color: var(--airwai-federal-navy);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  transition: background-color 150ms, color 150ms;
+}
+
+.md-typeset a:hover {
+  background-color: var(--airwai-surface-warm);
+  color: var(--airwai-ink);
+  text-decoration-color: var(--airwai-ink);
+}
+
+.md-header a,
+.md-tabs a,
+.md-nav a,
+.md-footer a,
+.md-typeset .md-button {
+  text-decoration: none;
+}
+
+.md-nav a:hover {
+  color: var(--airwai-federal-navy);
+  background: transparent;
+}
+
+/* ----------------------------------------------------------
+   9. HERO — dark-canvas, Signal Lime accent
+   ---------------------------------------------------------- */
+
+.airwai-hero {
+  margin: -2rem -1.6rem 3rem;
+  padding: 5rem 2.75rem 4.5rem;
+  background: var(--airwai-federal-navy);
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 76.25em) {
+  .airwai-hero {
+    margin: -40px -40px 40px;
+    padding: 80px 56px 64px;
+  }
+}
+
+.airwai-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--airwai-signal-lime);
+}
+
+.airwai-hero h1 {
+  font-family: var(--airwai-font-primary);
+  font-weight: 700;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1.02;
+  color: #ffffff;
+  letter-spacing: -0.028em;
+  margin: 0 0 1rem;
+  border: none;
+}
+
+.airwai-hero .airwai-hero-tagline {
+  font-family: var(--airwai-font-utility);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--airwai-signal-lime);
+  margin: 0 0 2rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.airwai-hero .airwai-hero-tagline::before {
+  content: "";
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: var(--airwai-signal-lime);
+}
+
+.airwai-hero p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  max-width: 44rem;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0 0 0.75rem;
+}
+
+/* Constrain hero inner content so wide-viewport copy doesn't sprawl */
+.airwai-hero__inner {
+  max-width: 720px;
+}
+
+/* Hero CTA row — mirrors SBD .cta-row pattern */
+.airwai-hero-cta-row {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Default: light-surface treatment — Federal Navy bordered button */
+.md-typeset a.airwai-btn,
+a.airwai-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  border: 1px solid var(--airwai-federal-navy);
+  border-radius: 0;
+  background: transparent;
+  color: var(--airwai-federal-navy);
+  transition: background 200ms var(--airwai-ease), color 200ms var(--airwai-ease), border-color 200ms var(--airwai-ease);
+  font-family: var(--airwai-font-primary);
+}
+
+.md-typeset a.airwai-btn:hover,
+a.airwai-btn:hover {
+  background: var(--airwai-federal-navy);
+  color: var(--airwai-chalk);
+  text-decoration: none;
+}
+
+.md-typeset a.airwai-btn--primary,
+a.airwai-btn--primary {
+  background: var(--airwai-federal-navy);
+  color: var(--airwai-chalk);
+}
+
+.md-typeset a.airwai-btn--primary:hover,
+a.airwai-btn--primary:hover {
+  background: var(--airwai-ink);
+  border-color: var(--airwai-ink);
+}
+
+/* On dark hero surface, buttons flip to Signal Lime */
+.airwai-hero .airwai-btn,
+.md-typeset .airwai-hero a.airwai-btn {
+  border-color: var(--airwai-signal-lime);
+  background: transparent;
+  color: var(--airwai-signal-lime);
+}
+
+.airwai-hero .airwai-btn:hover,
+.md-typeset .airwai-hero a.airwai-btn:hover {
+  background: var(--airwai-signal-lime);
+  color: var(--airwai-federal-navy);
+}
+
+.airwai-hero .airwai-btn--primary,
+.md-typeset .airwai-hero a.airwai-btn--primary {
+  background: var(--airwai-signal-lime);
+  color: var(--airwai-federal-navy);
+}
+
+.airwai-hero .airwai-btn--primary:hover,
+.md-typeset .airwai-hero a.airwai-btn--primary:hover {
+  background: var(--airwai-chalk);
+  border-color: var(--airwai-chalk);
+  color: var(--airwai-federal-navy);
+}
+
+/* ----------------------------------------------------------
+   21. TOP META BAR — signature SBD top strip
+   ---------------------------------------------------------- */
+
+.airwai-top-meta {
+  background: var(--airwai-ink);
+  color: var(--airwai-chalk);
+  font-family: var(--airwai-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.airwai-top-meta__inner {
+  max-width: 85rem;
+  margin: 0 auto;
+  padding: 10px 3.5rem;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: rgba(250, 250, 247, 0.7);
+}
+
+@media (max-width: 900px) {
+  .airwai-top-meta__inner { padding: 8px 1.5rem; gap: 10px; }
+}
+
+@media (min-width: 76.25em) {
+  .airwai-top-meta__inner {
+    max-width: 1400px;
+    padding: 10px 40px;
+  }
+}
+
+.airwai-top-meta__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.airwai-top-meta__sep {
+  opacity: 0.4;
+}
+
+.airwai-top-meta__item--live {
+  color: var(--airwai-signal-lime);
+}
+
+.airwai-top-meta__item--live::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  background: var(--airwai-signal-lime);
+  display: inline-block;
+  animation: airwai-pulse 2.4s infinite var(--airwai-ease);
+}
+
+@keyframes airwai-pulse {
+  0%, 70%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.airwai-top-meta__right {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(250, 250, 247, 0.55);
+}
+
+.airwai-top-meta__date {
+  color: var(--airwai-chalk);
+}
+
+@media (max-width: 700px) {
+  .airwai-top-meta__inner > .airwai-top-meta__sep,
+  .airwai-top-meta__inner > .airwai-top-meta__item:not(.airwai-top-meta__item--live):not(:nth-child(3)) {
+    display: none;
+  }
+}
+
+/* ----------------------------------------------------------
+   22. HEADER CTA — matches .nav-cta in airwai-theme-v2/style.css
+   ---------------------------------------------------------- */
+
+/* Header CTA — 1:1 with .nav-cta in airwai-theme-v2/style.css:
+   Federal Navy fill, 14px font, 10px/18px padding, hover-to-Ink. */
+.airwai-nav-cta {
+  display: inline-flex;
+  align-items: center;
+  background: var(--airwai-federal-navy);
+  color: var(--airwai-chalk);
+  padding: 10px 18px;
+  border: 1px solid var(--airwai-federal-navy);
+  font-family: var(--airwai-font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.005em;
+  text-decoration: none;
+  border-radius: 0;
+  transition: background 200ms var(--airwai-ease), border-color 200ms var(--airwai-ease), color 200ms var(--airwai-ease);
+  margin-left: 32px;
+  white-space: nowrap;
+}
+
+.airwai-nav-cta:hover {
+  background: var(--airwai-ink);
+  border-color: var(--airwai-ink);
+  color: var(--airwai-chalk);
+}
+
+/* Hide the arrow span the partial renders — website CTA has no arrow */
+.airwai-nav-cta__arrow {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .airwai-nav-cta { display: none; }
+}
+
+/* ----------------------------------------------------------
+   23. SEARCH — wider focus, mobile padding
+   ---------------------------------------------------------- */
+
+[data-md-toggle="search"]:checked ~ .md-header .md-search__form,
+[data-md-toggle="search"]:checked ~ .md-header .md-search__inner {
+  width: 25rem;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .md-header__inner {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* ----------------------------------------------------------
+   10. CARDS — capability-row pattern from sbd.html
+   1px hairlines on rule background, flat, no shadow, no radius
+   ---------------------------------------------------------- */
+
+.md-typeset .grid.cards > ul,
+.md-typeset .grid > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1px;
+  background: var(--airwai-rule);
+  border: 1px solid var(--airwai-rule);
+  padding: 0;
+  margin: 2rem 0;
+  list-style: none;
+}
+
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid > ul > li {
+  border: none;
+  border-radius: 0;
+  padding: 1.75rem 1.5rem;
+  background: var(--airwai-chalk);
+  transition: background 180ms var(--airwai-ease);
+  position: relative;
+  margin: 0;
+  list-style: none;
+}
+
+.md-typeset .grid.cards > ul > li::before {
+  display: none;
+}
+
+.md-typeset .grid.cards > ul > li:hover,
+.md-typeset .grid > ul > li:hover {
+  background: var(--airwai-surface-warm);
+  box-shadow: none;
+}
+
+.md-typeset .grid.cards > ul > li > p:first-child,
+.md-typeset .grid > ul > li > p:first-child {
+  font-family: var(--airwai-font-mono);
+  font-size: 10px;
+  color: var(--airwai-federal-navy);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.md-typeset .grid.cards > ul > li > p:first-child > .twemoji svg,
+.md-typeset .grid.cards > ul > li > p:first-child > .twemoji {
+  height: 1rem;
+  width: 1rem;
+  color: var(--airwai-federal-navy);
+  vertical-align: -0.15em;
+}
+
+.md-typeset .grid.cards .twemoji.lg {
+  color: var(--airwai-federal-navy);
+  height: 1rem;
+  width: 1rem;
+}
+
+.md-typeset .grid.cards > ul > li > p:nth-child(2) {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--airwai-stone);
+}
+
+.md-typeset .grid.cards > ul > li hr {
+  display: none;
+}
+
+/* ----------------------------------------------------------
+   11. STAT BAND — SBD's typographic data treatment
+   Use in Markdown:
+     <div class="airwai-stat-band" markdown>
+       <div class="airwai-stat" markdown>
+         <span class="airwai-stat-num">64</span>
+         <span class="airwai-stat-label">Compliance matrices</span>
+       </div>
+       ...
+     </div>
+   ---------------------------------------------------------- */
+
+.airwai-stat-band {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 32px;
+  margin: 2.5rem 0;
+}
+
+.airwai-stat {
+  border-top: 2px solid var(--airwai-ink);
+  padding-top: 1.25rem;
+}
+
+.airwai-stat-num {
+  display: block;
+  font-family: var(--airwai-font-primary);
+  font-size: clamp(40px, 5.5vw, 64px);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.026em;
+  color: var(--airwai-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.airwai-stat-label {
+  display: block;
+  margin-top: 0.85rem;
+  font-size: 14px;
+  color: var(--airwai-ink);
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.airwai-stat-cite {
+  display: block;
+  margin-top: 0.35rem;
+  font-family: var(--airwai-font-mono);
+  font-size: 11px;
+  color: var(--airwai-stone);
+  letter-spacing: 0.02em;
+}
+
+/* ----------------------------------------------------------
+   12. ADMONITIONS — flat, navy left-bar (Stone for .note)
+   ---------------------------------------------------------- */
+
+.md-typeset .admonition,
+.md-typeset details {
+  border: 1px solid var(--airwai-rule);
+  border-left: 3px solid var(--airwai-federal-navy);
+  border-radius: 0;
+  font-size: 0.8rem;
+  box-shadow: none;
+  background: var(--airwai-chalk);
+}
+
+.md-typeset .admonition.note,
+.md-typeset details.note {
+  border-left-color: var(--airwai-stone);
+}
+
+.md-typeset .admonition-title,
+.md-typeset summary {
+  font-family: var(--airwai-font-utility);
+  font-weight: 600;
+  background-color: var(--airwai-surface-warm) !important;
+  color: var(--airwai-ink) !important;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+}
+
+.md-typeset .admonition-title::before,
+.md-typeset summary::before {
+  background-color: var(--airwai-federal-navy) !important;
+}
+
+.md-typeset .admonition.note > .admonition-title,
+.md-typeset details.note > summary {
+  background-color: var(--airwai-surface-cool) !important;
+}
+
+/* ----------------------------------------------------------
+   13. CODE — flat, hairline border, no radius
+   ---------------------------------------------------------- */
+
+.md-typeset code {
+  font-family: var(--airwai-font-mono);
+  font-size: 0.82em;
+  background-color: var(--airwai-surface-warm);
+  color: var(--airwai-ink);
+  border-radius: 0;
+  padding: 0.1em 0.35em;
+}
+
+.md-typeset pre > code {
+  border-radius: 0;
+  border: 1px solid var(--airwai-rule);
+  background-color: #fbfaf6;
+  padding: 1rem 1.25rem;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.md-typeset .highlight pre {
+  border-radius: 0;
+}
+
+/* ----------------------------------------------------------
+   14. BUTTONS — sharp, navy-bordered (SBD pattern)
+   ---------------------------------------------------------- */
+
+.md-typeset .md-button {
+  border-radius: 0;
+  border: 1px solid var(--airwai-federal-navy);
+  background: transparent;
+  color: var(--airwai-federal-navy);
+  font-family: var(--airwai-font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  padding: 12px 20px;
+  transition: background 200ms var(--airwai-ease), color 200ms var(--airwai-ease);
+  text-transform: none;
+}
+
+.md-typeset .md-button:hover {
+  background: var(--airwai-federal-navy);
+  color: var(--airwai-chalk);
+}
+
+.md-typeset .md-button--primary {
+  background: var(--airwai-federal-navy);
+  color: var(--airwai-chalk);
+}
+
+.md-typeset .md-button--primary:hover {
+  background: var(--airwai-ink);
+  border-color: var(--airwai-ink);
+}
+
+/* ----------------------------------------------------------
+   15. SEARCH
+   ---------------------------------------------------------- */
+
+.md-search__input {
+  background-color: rgba(255, 255, 255, 0.12);
+  font-family: var(--airwai-font-utility);
+  border-radius: 0;
+}
+
+.md-search__input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.md-search__input:hover,
+[data-md-toggle="search"]:checked ~ .md-header .md-search__input {
+  background-color: rgba(255, 255, 255, 0.18);
+}
+
+/* ----------------------------------------------------------
+   16. FOOTER — 1:1 with airwai-theme-v2/functions.php
+   Four columns (col-4 · col-2 · col-3 · col-3) on Chalk canvas,
+   bottom strip with copyright · legal links · tagline.
+   ---------------------------------------------------------- */
+
+/* Hide Material's default footer entirely; we render our own. */
+.md-footer { display: none; }
+
+.airwai-site-footer {
+  background: var(--airwai-chalk);
+  color: var(--airwai-ink);
+  padding: 80px 0 32px;
+  border-top: 1px solid var(--airwai-rule);
+  font-family: var(--airwai-font-primary);
+}
+
+.airwai-footer-container {
+  width: 100%;
+  max-width: 85rem;
+  margin: 0 auto;
+  padding: 0 3.5rem;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .airwai-footer-container { padding: 0 1.5rem; }
+  .airwai-site-footer { padding: 56px 0 24px; }
+}
+
+@media (min-width: 76.25em) {
+  .airwai-footer-container {
+    max-width: 1400px;
+    padding: 0 40px;
+  }
+}
+
+/* Footer grid: wide brand column anchors the left; the three info
+   columns (Company, Federal, Contact) are equal-width so they
+   space evenly across the remaining 7 of 12 tracks. The 48px gap
+   is wider than the 32px content gap so the columns read as
+   "site chrome" not "article body". */
+.airwai-footer-grid {
+  display: grid;
+  grid-template-columns: 5fr 2fr 2fr 2fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.airwai-footer-col--brand    { /* anchor column */ }
+.airwai-footer-col--company  { /* equal info col */ }
+.airwai-footer-col--federal  { /* equal info col */ }
+.airwai-footer-col--contact  { /* equal info col */ }
+
+@media (max-width: 900px) {
+  .airwai-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.airwai-footer-wordmark {
+  width: 180px;
+  height: auto;
+  display: block;
+}
+
+.airwai-footer-description {
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--airwai-stone);
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+.airwai-footer-label {
+  font-family: var(--airwai-font-utility);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--airwai-federal-navy);
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+
+.airwai-footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.airwai-footer-links li {
+  padding: 5px 0;
+  font-size: 14px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.airwai-footer-links a {
+  color: var(--airwai-ink);
+  text-decoration: none;
+  transition: color 200ms var(--airwai-ease);
+}
+
+.airwai-footer-links a:hover {
+  color: var(--airwai-federal-navy);
+}
+
+.airwai-footer-badge {
+  display: inline-block;
+  font-family: var(--airwai-font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--airwai-stone);
+  border: 1px solid var(--airwai-rule);
+  padding: 2px 6px;
+}
+
+.airwai-footer-links--mono li {
+  font-family: var(--airwai-font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--airwai-stone);
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.airwai-footer-key {
+  color: var(--airwai-federal-navy);
+  font-weight: 500;
+}
+
+.airwai-footer-address {
+  font-style: normal;
+  font-size: 14px;
+  color: var(--airwai-ink);
+  line-height: 1.7;
+}
+
+.airwai-footer-address a {
+  color: var(--airwai-ink);
+  text-decoration: none;
+}
+
+.airwai-footer-address a:hover {
+  color: var(--airwai-federal-navy);
+}
+
+.airwai-footer-social {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+}
+
+.airwai-footer-social a {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--airwai-rule);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--airwai-ink);
+  transition: background 200ms var(--airwai-ease), color 200ms var(--airwai-ease), border-color 200ms var(--airwai-ease);
+}
+
+.airwai-footer-social a:hover {
+  background: var(--airwai-federal-navy);
+  color: var(--airwai-chalk);
+  border-color: var(--airwai-federal-navy);
+}
+
+.airwai-footer-social svg {
+  width: 16px;
+  height: 16px;
+}
+
+.airwai-footer-bottom {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--airwai-rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--airwai-stone);
+}
+
+.airwai-footer-copyright {
+  font-family: var(--airwai-font-mono);
+  letter-spacing: 0.04em;
+}
+
+.airwai-footer-legal {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.airwai-footer-legal a {
+  color: var(--airwai-stone);
+  text-decoration: none;
+  font-family: var(--airwai-font-utility);
+  font-size: 12px;
+}
+
+.airwai-footer-legal a:hover {
+  color: var(--airwai-federal-navy);
+}
+
+.airwai-footer-tagline {
+  font-family: var(--airwai-font-primary);
+  font-style: italic;
+  color: var(--airwai-federal-navy);
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  .airwai-footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Prev / next page strip — thin, brand-tonal */
+.airwai-prevnext {
+  background: var(--airwai-chalk);
+  border-top: 1px solid var(--airwai-rule);
+  border-bottom: 1px solid var(--airwai-rule);
+}
+
+.airwai-prevnext__inner {
+  max-width: 85rem;
+  margin: 0 auto;
+  padding: 24px 3.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .airwai-prevnext__inner { padding: 20px 1.5rem; }
+}
+
+@media (min-width: 76.25em) {
+  .airwai-prevnext__inner {
+    max-width: 1400px;
+    padding: 24px 40px;
+  }
+}
+
+.airwai-prevnext__link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--airwai-ink);
+  transition: color 200ms var(--airwai-ease);
+}
+
+.airwai-prevnext__link--next {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.airwai-prevnext__link:hover {
+  color: var(--airwai-federal-navy);
+}
+
+.airwai-prevnext__direction {
+  font-family: var(--airwai-font-utility);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--airwai-stone);
+  margin-bottom: 6px;
+}
+
+.airwai-prevnext__title {
+  font-family: var(--airwai-font-primary);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.008em;
+}
+
+/* ----------------------------------------------------------
+   17. BREADCRUMB / PATH / TAGS
+   ---------------------------------------------------------- */
+
+.md-nav__path {
+  font-family: var(--airwai-font-mono);
+  font-size: 0.72rem;
+  color: var(--airwai-stone);
+  letter-spacing: 0.02em;
+}
+
+/* ----------------------------------------------------------
+   18. BLOCKQUOTES — 3px Federal Navy left-bar (SBD lead pattern)
+   ---------------------------------------------------------- */
+
+.md-typeset blockquote {
+  border-left: 3px solid var(--airwai-federal-navy);
+  color: var(--airwai-ink);
+  padding-left: 1.25rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  font-style: normal;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 1.5rem 0;
+}
+
+/* ----------------------------------------------------------
+   19. HORIZONTAL RULES — hairline only
+   ---------------------------------------------------------- */
+
+.md-typeset hr {
+  border: none;
+  border-top: 1px solid var(--airwai-rule);
+  margin: 2.5rem 0;
+}
+
+/* ----------------------------------------------------------
+   20. LIST DENSITY
+   ---------------------------------------------------------- */
+
+.md-typeset ul li,
+.md-typeset ol li {
+  margin-bottom: 0.4rem;
+}
+
+.md-typeset ul li:last-child,
+.md-typeset ol li:last-child {
+  margin-bottom: 0;
+}
