@@ -412,6 +412,25 @@ section.dark .btn.primary { background: var(--signal-lime); color: var(--federal
 section.dark .btn.primary:hover { background: var(--chalk); border-color: var(--chalk); color: var(--ink); }
 section.dark .btn.secondary { background: transparent; color: var(--signal-lime); border-color: var(--signal-lime); }
 section.dark .btn.secondary:hover { background: var(--signal-lime); color: var(--federal-navy); border-color: var(--signal-lime); }
+
+/* Stat band on dark canvas */
+section.dark .stat { border-top-color: var(--signal-lime) !important; }
+section.dark .stat .num { color: var(--chalk) !important; }
+section.dark .stat .label { color: rgba(255,255,255,0.88) !important; }
+section.dark .stat .cite { color: rgba(255,255,255,0.6) !important; }
+
+/* Hero accent span on dark canvas */
+.hero.dark h1 .accent { color: var(--signal-lime) !important; }
+
+/* Pillar elements on light (non-dark) canvas */
+section:not(.dark) .pillar { border-top-color: var(--federal-navy); }
+section:not(.dark) .pillar .n { color: var(--federal-navy); }
+section:not(.dark) .pillar h3 { color: var(--ink); }
+section:not(.dark) .pillar p { color: var(--stone); }
+section:not(.dark) .pillar p strong { color: var(--ink); }
+
+/* Segment grid on dark canvas — cards stay chalk-light, only the grid gap/borders adjust */
+section.dark .segment-grid { background: rgba(255,255,255,0.08) !important; border-color: rgba(255,255,255,0.18) !important; }
 </style>
 </head>
 <body>
@@ -483,7 +502,7 @@ section.dark .btn.secondary:hover { background: var(--signal-lime); color: var(-
 <!-- ============================================================
  * THREE PILLARS — DARK section (cognitive break)
  * ============================================================ -->
-<section class="dark">
+<section>
   <div class="container">
     <p class="eyebrow">How it's different</p>
     <h2 class="display-lg" style="max-width: 920px; color: var(--chalk);">Three procurements collapse to one<span class="navy">.</span></h2>
@@ -568,7 +587,7 @@ section.dark .btn.secondary:hover { background: var(--signal-lime); color: var(-
 <!-- ============================================================
  * SEGMENT GRID
  * ============================================================ -->
-<section class="cool">
+<section class="dark">
   <div class="container">
     <p class="eyebrow">Who it's for</p>
     <h2 class="display-lg">Built for the people responsible<br/>when the audit lands<span class="navy">.</span></h2>
