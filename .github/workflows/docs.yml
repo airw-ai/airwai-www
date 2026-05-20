@@ -19,6 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Build site
+        run: python3 build.py
       - uses: actions/upload-pages-artifact@v3
         with:
           path: docs
