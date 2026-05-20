@@ -286,15 +286,22 @@ nav.site-nav .links .cta:hover { background: var(--ink); border-color: var(--ink
 
 /* ============================================================
  * DARK-CANVAS OVERRIDES (for hero.dark, cta.dark, etc.)
+ * !important is needed throughout because wireframes use inline
+ * color/opacity styles assuming a light canvas.
  * ============================================================ */
-.hero.dark h1 { color: var(--chalk); }
-.hero.dark h1 .navy { color: var(--signal-lime); }
-.hero.dark .subhead { color: rgba(255,255,255,0.82); }
+.hero.dark h1 { color: var(--chalk) !important; }
+.hero.dark h1 .navy { color: var(--signal-lime) !important; }
+.hero.dark .subhead { color: rgba(255,255,255,0.82) !important; opacity: 1 !important; }
 
-section.dark .eyebrow { color: rgba(255,255,255,0.7); }
-section.dark .body-lg { color: var(--chalk); }
-section.dark h2 .navy { color: var(--signal-lime); }
-section.dark h2 { color: var(--chalk); }
+section.dark p { color: rgba(255,255,255,0.88) !important; opacity: 1 !important; }
+section.dark p.eyebrow,
+section.dark .eyebrow { color: rgba(255,255,255,0.7) !important; }
+section.dark .body-lg { color: rgba(255,255,255,0.88) !important; opacity: 1 !important; }
+section.dark h2 .navy { color: var(--signal-lime) !important; }
+section.dark h2 { color: var(--chalk) !important; }
+section.dark h3 { color: var(--chalk) !important; }
+section.dark a { color: var(--chalk); }
+section.dark a:hover { color: var(--signal-lime); }
 
 /* Buttons on dark canvas — flip to lime accents */
 section.dark .btn.primary { background: var(--signal-lime); color: var(--federal-navy); border-color: var(--signal-lime); }
