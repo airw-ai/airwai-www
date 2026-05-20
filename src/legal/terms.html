@@ -5,40 +5,6 @@ body-class: legal-page
 @meta-end -->
 
 <style>
-:root {
-  --chalk: #FAFAF7;
-  --ink: #16181B;
-  --federal-navy: #0E1A33;
-  --signal-lime: #D8FF3C;
-  --stone: #6B6B70;
-  --rule: #E3E1DC;
-  --rule-strong: #C9C4BB;
-  --surface-warm: #F4F0E8;
-  --surface-cool: #EEEBE3;
-  --container: 1240px;
-  --margin: 56px;
-  --font-primary: "Söhne", "Inter", system-ui, sans-serif;
-  --font-mono: "Suisse Screen", "JetBrains Mono", ui-monospace, monospace;
-  --font-utility: "Suisse Int'l", "Inter", system-ui, sans-serif;
-  --ease: cubic-bezier(0.2, 0, 0, 1);
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { background: var(--chalk); color: var(--ink); font-family: var(--font-primary); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-.container { width: 100%; max-width: 820px; margin: 0 auto; padding: 0 var(--margin); }
-@media (max-width: 900px) { :root { --margin: 24px; } }
-
-.display-lg { font-size: clamp(36px, 4.5vw, 64px); line-height: 1.05; font-weight: 700; letter-spacing: -0.024em; }
-.body-lg { font-size: 17px; line-height: 1.7; font-weight: 400; }
-.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
-.navy { color: var(--federal-navy); }
-
-section { padding: clamp(56px, 8vw, 96px) 0; }
-section.cool { background: var(--surface-cool); }
-
-.eyebrow { display: inline-flex; align-items: center; gap: 14px; font-family: var(--font-utility); font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--stone); margin-bottom: 32px; }
-.eyebrow::before { content: ""; display: block; width: 32px; height: 1px; background: var(--federal-navy); }
-
 .legal-body { margin-top: 40px; }
 .legal-body h2 { font-size: 22px; font-weight: 600; letter-spacing: -0.012em; line-height: 1.3; color: var(--ink); margin: 40px 0 16px; padding-top: 24px; border-top: 1px solid var(--rule); }
 .legal-body h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
@@ -50,55 +16,8 @@ section.cool { background: var(--surface-cool); }
 .legal-body table th { font-family: var(--font-utility); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); font-weight: 500; }
 .legal-body strong { font-weight: 600; color: var(--ink); }
 .legal-body code { font-family: var(--font-mono); font-size: 13px; background: var(--surface-warm); padding: 2px 6px; border: 1px solid var(--rule); color: var(--federal-navy); }
-
 .meta-row { margin-top: 24px; padding: 14px 20px; background: var(--surface-warm); border-left: 3px solid var(--federal-navy); font-family: var(--font-mono); font-size: 12px; color: var(--stone); letter-spacing: 0.04em; }
 .meta-row strong { color: var(--ink); font-weight: 500; }
-
-nav.site-nav { border-bottom: 1px solid var(--rule); background: var(--chalk); position: sticky; top: 0; z-index: 50; }
-nav.site-nav .row { max-width: var(--container); width: 100%; margin: 0 auto; padding: 18px var(--margin); display: flex; align-items: center; justify-content: space-between; }
-nav.site-nav .wordmark { width: 140px; height: auto; }
-nav.site-nav .links { display: flex; gap: 32px; align-items: center; }
-nav.site-nav .links a { font-size: 14px; font-weight: 500; color: var(--ink); text-decoration: none; }
-nav.site-nav .links a:hover { color: var(--federal-navy); }
-nav.site-nav .links .cta { background: var(--federal-navy); color: var(--chalk); padding: 10px 18px; border: 1px solid var(--federal-navy); font-weight: 500; }
-nav.site-nav .links .cta:hover { background: var(--ink); border-color: var(--ink); }
-@media (max-width: 900px) { nav.site-nav .links a:not(.cta) { display: none; } }
-
-
-/* ============================================================
- * FOOTER — mirrors docs.airwai.com 1:1
- * Anchor brand column (5fr) + 3 equal info columns (2fr each)
- * Container max-width 1400px on large screens
- * ============================================================ */
-.airwai-site-footer { background: var(--chalk); color: var(--ink); padding: 80px 0 32px; border-top: 1px solid var(--rule); font-family: var(--font-primary); }
-.airwai-footer-container { width: 100%; max-width: 85rem; margin: 0 auto; padding: 0 3.5rem; box-sizing: border-box; }
-@media (max-width: 900px) { .airwai-footer-container { padding: 0 1.5rem; } .airwai-site-footer { padding: 56px 0 24px; } }
-@media (min-width: 76.25em) { .airwai-footer-container { max-width: 1400px; padding: 0 40px; } }
-.airwai-footer-grid { display: grid; grid-template-columns: 5fr 2fr 2fr 2fr; gap: 48px; align-items: start; }
-@media (max-width: 900px) { .airwai-footer-grid { grid-template-columns: 1fr; gap: 40px; } }
-.airwai-footer-wordmark { width: 180px; height: auto; display: block; }
-.airwai-footer-description { margin-top: 20px; font-size: 14px; color: var(--stone); line-height: 1.6; max-width: 320px; }
-.airwai-footer-label { font-family: var(--font-utility); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--federal-navy); margin-bottom: 18px; font-weight: 500; }
-.airwai-footer-links { list-style: none; padding: 0; margin: 0; }
-.airwai-footer-links li { padding: 5px 0; font-size: 14px; display: flex; align-items: baseline; gap: 8px; }
-.airwai-footer-links a { color: var(--ink); text-decoration: none; transition: color 200ms var(--ease); }
-.airwai-footer-links a:hover { color: var(--federal-navy); }
-.airwai-footer-links--mono li { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--stone); justify-content: flex-start; gap: 10px; }
-.airwai-footer-key { color: var(--federal-navy); font-weight: 500; }
-.airwai-footer-address { font-style: normal; font-size: 14px; color: var(--ink); line-height: 1.7; }
-.airwai-footer-address a { color: var(--ink); text-decoration: none; }
-.airwai-footer-address a:hover { color: var(--federal-navy); }
-.airwai-footer-social { margin-top: 20px; display: flex; gap: 12px; }
-.airwai-footer-social a { width: 36px; height: 36px; border: 1px solid var(--rule); display: inline-flex; align-items: center; justify-content: center; color: var(--ink); transition: background 200ms var(--ease), color 200ms var(--ease), border-color 200ms var(--ease); }
-.airwai-footer-social a:hover { background: var(--federal-navy); color: var(--chalk); border-color: var(--federal-navy); }
-.airwai-footer-social svg { width: 16px; height: 16px; }
-.airwai-footer-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--rule); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-size: 12px; color: var(--stone); }
-.airwai-footer-copyright { font-family: var(--font-mono); letter-spacing: 0.04em; }
-.airwai-footer-legal { display: flex; gap: 20px; flex-wrap: wrap; }
-.airwai-footer-legal a { color: var(--stone); text-decoration: none; font-family: var(--font-utility); font-size: 12px; }
-.airwai-footer-legal a:hover { color: var(--federal-navy); }
-.airwai-footer-tagline { font-family: var(--font-primary); font-style: italic; color: var(--federal-navy); font-size: 13px; }
-@media (max-width: 700px) { .airwai-footer-bottom { flex-direction: column; align-items: flex-start; } }
 </style>
 
 <section>

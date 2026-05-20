@@ -12,90 +12,6 @@
 <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
 <link rel="stylesheet" href="../assets/airwai.css">
 <style>
-/* ============================================================
- * AIRWAI · /customers WIREFRAME · v2
- * Hero · logo wall · 4 expanded customer cards · CTA · footer
- * AUDIENCE: DoW airfield management · AEC engineering business units
- * VOICE: customer-first proof. No investor language.
- * ============================================================ */
-
-:root {
-  --chalk: #FAFAF7;
-  --ink: #16181B;
-  --federal-navy: #0E1A33;
-  --signal-lime: #D8FF3C;
-  --stone: #6B6B70;
-  --rule: #E3E1DC;
-  --rule-strong: #C9C4BB;
-  --surface-warm: #F4F0E8;
-  --surface-cool: #EEEBE3;
-  --surface-dark: #1A2540;
-  --critical: #B91C1C;
-
-  --container: 1366px;
-  --margin: 56px;
-
-  --font-primary: "Söhne", "Inter", system-ui, sans-serif;
-  --font-mono: "Suisse Screen", "JetBrains Mono", ui-monospace, monospace;
-  --font-utility: "Suisse Int'l", "Inter", system-ui, sans-serif;
-
-  --ease: cubic-bezier(0.2, 0, 0, 1);
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--chalk);
-  color: var(--ink);
-  font-family: var(--font-primary);
-  font-size: 16px;
-  line-height: 1.55;
-  -webkit-font-smoothing: antialiased;
-}
-
-.container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 var(--margin); }
-@media (max-width: 900px) { :root { --margin: 24px; } }
-
-/* Type */
-.display-xl  { font-size: clamp(44px, 6.5vw, 88px); line-height: 1.0; font-weight: 700; letter-spacing: -0.028em; }
-.display-lg  { font-size: clamp(36px, 4.5vw, 64px); line-height: 1.05; font-weight: 700; letter-spacing: -0.024em; }
-.display-md  { font-size: clamp(28px, 3.2vw, 44px); line-height: 1.1; font-weight: 700; letter-spacing: -0.02em; }
-.display-sm  { font-size: clamp(22px, 2.2vw, 32px); line-height: 1.18; font-weight: 600; letter-spacing: -0.014em; }
-.body-lg { font-size: 18px; line-height: 1.6; font-weight: 400; }
-.ui-label { font-family: var(--font-utility); font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--stone); }
-.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
-.navy { color: var(--federal-navy); }
-
-/* Sections */
-section { position: relative; padding: clamp(72px, 10vw, 128px) 0; border-bottom: 1px solid var(--rule); }
-section.warm { background: var(--surface-warm); }
-section.cool { background: var(--surface-cool); }
-section.dark {
-  background: var(--federal-navy);
-  color: var(--chalk);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-section.dark .ui-label { color: rgba(255,255,255,0.55); }
-section.dark .eyebrow { color: rgba(255,255,255,0.7); }
-section.dark .eyebrow::before { background: var(--signal-lime); }
-section.dark .navy { color: var(--signal-lime); }
-
-.eyebrow {
-  display: inline-flex; align-items: center; gap: 14px;
-  font-family: var(--font-utility);
-  font-size: 11px; font-weight: 500;
-  letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--stone);
-  margin-bottom: 40px;
-}
-.eyebrow::before { content: ""; display: block; width: 32px; height: 1px; background: var(--federal-navy); }
-
-.grid-12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 32px; }
-.col-3 { grid-column: span 3; } .col-4 { grid-column: span 4; } .col-5 { grid-column: span 5; }
-.col-6 { grid-column: span 6; } .col-7 { grid-column: span 7; } .col-8 { grid-column: span 8; }
-@media (max-width: 900px) { .grid-12 > [class*="col-"] { grid-column: span 12; } }
-
-/* Placeholders */
 .placeholder {
   background: var(--surface-warm);
   border: 1px dashed var(--rule-strong);
@@ -112,74 +28,16 @@ section.dark .navy { color: var(--signal-lime); }
 section.dark .placeholder { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.18); }
 section.dark .placeholder-label { background: var(--surface-dark); color: var(--signal-lime); border-color: rgba(255,255,255,0.15); }
 section.dark .placeholder-desc { color: rgba(255,255,255,0.55); }
-
 .ph-hero { aspect-ratio: 16/10; }
 .ph-square { aspect-ratio: 1/1; }
 .ph-wide { aspect-ratio: 21/9; }
 .ph-customer { aspect-ratio: 4/3; }
-
-.btn {
-  display: inline-flex; align-items: center; gap: 10px;
-  padding: 14px 22px; font-size: 14px; font-weight: 500; letter-spacing: -0.005em;
-  text-decoration: none; border: 1px solid var(--federal-navy);
-  transition: all 200ms var(--ease);
-}
-.btn.primary { background: var(--federal-navy); color: var(--chalk); }
-.btn.primary:hover { background: var(--ink); border-color: var(--ink); }
-.btn.secondary { background: transparent; color: var(--federal-navy); }
-.btn.secondary:hover { background: var(--federal-navy); color: var(--chalk); }
-section.dark .btn.primary { background: var(--signal-lime); color: var(--ink); border-color: var(--signal-lime); }
-section.dark .btn.primary:hover { background: var(--chalk); border-color: var(--chalk); }
-section.dark .btn.secondary { color: var(--chalk); border-color: rgba(255,255,255,0.4); }
-section.dark .btn.secondary:hover { background: var(--chalk); color: var(--ink); border-color: var(--chalk); }
-
-/* ============================================================
- * NAV
- * ============================================================ */
-nav.site-nav {
-  border-bottom: 1px solid var(--rule);
-  background: var(--chalk);
-  position: sticky; top: 0; z-index: 50;
-}
-nav.site-nav .row {
-  max-width: var(--container); margin: 0 auto;
-  padding: 18px var(--margin);
-  display: flex; align-items: center; justify-content: space-between;
-}
-nav.site-nav .wordmark { width: 140px; height: auto; }
-nav.site-nav .links { display: flex; gap: 32px; align-items: center; }
-nav.site-nav .links a {
-  font-size: 14px; font-weight: 500; color: var(--ink);
-  text-decoration: none; letter-spacing: -0.005em;
-}
-nav.site-nav .links a:hover { color: var(--federal-navy); }
 nav.site-nav .links a.active { color: var(--federal-navy); }
 nav.site-nav .links a.active::after {
   content: ""; display: block; width: 100%; height: 2px;
   background: var(--federal-navy); margin-top: 6px;
 }
-nav.site-nav .links .cta {
-  background: var(--federal-navy); color: var(--chalk);
-  padding: 10px 18px; border: 1px solid var(--federal-navy); font-weight: 500;
-}
-nav.site-nav .links .cta:hover { background: var(--ink); border-color: var(--ink); }
 nav.site-nav .links .cta::after { display: none; }
-@media (max-width: 900px) {
-  nav.site-nav .links a:not(.cta) { display: none; }
-}
-
-/* ============================================================
- * HERO
- * ============================================================ */
-.hero { padding: clamp(72px, 10vw, 120px) 0; }
-.hero h1 { color: var(--ink); }
-.hero h1 .accent { color: var(--federal-navy); }
-.hero .subhead { margin-top: 32px; max-width: 760px; color: var(--ink); opacity: 0.78; font-size: clamp(18px, 1.6vw, 22px); line-height: 1.5; }
-.hero .cta-row { margin-top: 48px; display: flex; gap: 16px; flex-wrap: wrap; }
-
-/* ============================================================
- * LOGO WALL
- * ============================================================ */
 .logo-wall-section {
   padding: clamp(56px, 6vw, 80px) 0;
   background: var(--surface-warm);
@@ -197,7 +55,6 @@ nav.site-nav .links .cta::after { display: none; }
 }
 @media (max-width: 900px) { .logo-wall { grid-template-columns: repeat(2, 1fr); gap: 24px; } }
 @media (max-width: 600px) { .logo-wall { grid-template-columns: 1fr; } }
-
 .logo-cell {
   height: 80px;
   background: var(--chalk);
@@ -225,7 +82,6 @@ nav.site-nav .links .cta::after { display: none; }
   text-transform: uppercase;
   margin-top: 4px;
 }
-
 .logo-wall-meta {
   margin-top: 24px;
   display: flex;
@@ -238,17 +94,12 @@ nav.site-nav .links .cta::after { display: none; }
   letter-spacing: 0.04em;
 }
 .logo-wall-meta .key { color: var(--federal-navy); font-weight: 500; }
-
-/* ============================================================
- * CUSTOMER CARD (full-bleed alternating)
- * ============================================================ */
 .customer-section {
   padding: clamp(80px, 11vw, 140px) 0;
 }
 .customer-section.reversed .customer-card { grid-template-columns: 5fr 7fr; }
 .customer-section.reversed .customer-card .visual { order: 2; }
 .customer-section.reversed .customer-card .content { order: 1; }
-
 .customer-card {
   display: grid;
   grid-template-columns: 7fr 5fr;
@@ -261,11 +112,9 @@ nav.site-nav .links .cta::after { display: none; }
   .customer-section.reversed .customer-card .visual,
   .customer-section.reversed .customer-card .content { order: unset; }
 }
-
 .customer-card .visual .placeholder {
   aspect-ratio: 4/3;
 }
-
 .customer-card .tag-row {
   display: flex; gap: 12px; flex-wrap: wrap;
   margin-bottom: 24px;
@@ -285,7 +134,6 @@ section.dark .customer-card .tag {
 section.dark .customer-card .tag.stage {
   background: var(--signal-lime); color: var(--ink); border-color: var(--signal-lime);
 }
-
 .customer-card .name {
   font-family: var(--font-primary);
   font-size: clamp(32px, 4vw, 56px);
@@ -297,7 +145,6 @@ section.dark .customer-card .tag.stage {
 section.dark .customer-card .name { color: var(--chalk); }
 .customer-card .name .navy { color: var(--federal-navy); }
 section.dark .customer-card .name .navy { color: var(--signal-lime); }
-
 .customer-card .descriptor {
   font-family: var(--font-utility);
   font-size: 13px;
@@ -306,7 +153,6 @@ section.dark .customer-card .name .navy { color: var(--signal-lime); }
   margin-top: 12px;
 }
 section.dark .customer-card .descriptor { color: rgba(255,255,255,0.6); }
-
 .customer-card .what {
   margin-top: 24px;
   font-size: 16px;
@@ -316,7 +162,6 @@ section.dark .customer-card .descriptor { color: rgba(255,255,255,0.6); }
   max-width: 560px;
 }
 section.dark .customer-card .what { color: rgba(255,255,255,0.85); opacity: 1; }
-
 .customer-card .metric-row {
   margin-top: 32px;
   display: grid;
@@ -324,7 +169,6 @@ section.dark .customer-card .what { color: rgba(255,255,255,0.85); opacity: 1; }
   gap: 24px;
 }
 @media (max-width: 600px) { .customer-card .metric-row { grid-template-columns: repeat(2, 1fr); } }
-
 .customer-card .metric {
   border-top: 1px solid var(--rule);
   padding-top: 14px;
@@ -346,7 +190,6 @@ section.dark .customer-card .metric .v { color: var(--signal-lime); }
   line-height: 1.4;
 }
 section.dark .customer-card .metric .l { color: rgba(255,255,255,0.65); }
-
 .customer-card .quote-block {
   margin-top: 32px;
   padding: 20px 24px;
@@ -394,7 +237,6 @@ section.dark .customer-card .quote-block .q { color: var(--chalk); }
 section.dark .customer-card .quote-block .attr { color: rgba(255,255,255,0.6); }
 .customer-card .quote-block .attr strong { color: var(--ink); font-weight: 500; }
 section.dark .customer-card .quote-block .attr strong { color: var(--chalk); }
-
 .customer-card .quote-pending {
   display: inline-block;
   margin-top: 10px;
@@ -412,7 +254,6 @@ section.dark .customer-card .quote-pending {
   border-color: var(--signal-lime);
   color: var(--signal-lime);
 }
-
 .customer-card .cta-link {
   margin-top: 32px;
   display: inline-flex;
@@ -429,85 +270,8 @@ section.dark .customer-card .quote-pending {
 }
 .customer-card .cta-link:hover { gap: 16px; }
 section.dark .customer-card .cta-link { color: var(--signal-lime); border-bottom-color: var(--signal-lime); }
-
-/* ============================================================
- * CTA
- * ============================================================ */
 .cta-block .body-lg { margin-top: 24px; max-width: 680px; }
-
-/* ============================================================
- * FOOTER (emulates airwai.com)
- * ============================================================ */
 footer .grid-12 { align-items: start; }
-
-/* ============================================================
- * FOOTER — mirrors docs.airwai.com 1:1
- * Anchor brand column (5fr) + 3 equal info columns (2fr each)
- * Container max-width 1400px on large screens
- * ============================================================ */
-.airwai-site-footer { background: var(--chalk); color: var(--ink); padding: 80px 0 32px; border-top: 1px solid var(--rule); font-family: var(--font-primary); }
-.airwai-footer-container { width: 100%; max-width: 85rem; margin: 0 auto; padding: 0 3.5rem; box-sizing: border-box; }
-@media (max-width: 900px) { .airwai-footer-container { padding: 0 1.5rem; } .airwai-site-footer { padding: 56px 0 24px; } }
-@media (min-width: 76.25em) { .airwai-footer-container { max-width: 1400px; padding: 0 40px; } }
-.airwai-footer-grid { display: grid; grid-template-columns: 5fr 2fr 2fr 2fr; gap: 48px; align-items: start; }
-@media (max-width: 900px) { .airwai-footer-grid { grid-template-columns: 1fr; gap: 40px; } }
-.airwai-footer-wordmark { width: 180px; height: auto; display: block; }
-.airwai-footer-description { margin-top: 20px; font-size: 14px; color: var(--stone); line-height: 1.6; max-width: 320px; }
-.airwai-footer-label { font-family: var(--font-utility); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--federal-navy); margin-bottom: 18px; font-weight: 500; }
-.airwai-footer-links { list-style: none; padding: 0; margin: 0; }
-.airwai-footer-links li { padding: 5px 0; font-size: 14px; display: flex; align-items: baseline; gap: 8px; }
-.airwai-footer-links a { color: var(--ink); text-decoration: none; transition: color 200ms var(--ease); }
-.airwai-footer-links a:hover { color: var(--federal-navy); }
-.airwai-footer-links--mono li { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--stone); justify-content: flex-start; gap: 10px; }
-.airwai-footer-key { color: var(--federal-navy); font-weight: 500; }
-.airwai-footer-address { font-style: normal; font-size: 14px; color: var(--ink); line-height: 1.7; }
-.airwai-footer-address a { color: var(--ink); text-decoration: none; }
-.airwai-footer-address a:hover { color: var(--federal-navy); }
-.airwai-footer-social { margin-top: 20px; display: flex; gap: 12px; }
-.airwai-footer-social a { width: 36px; height: 36px; border: 1px solid var(--rule); display: inline-flex; align-items: center; justify-content: center; color: var(--ink); transition: background 200ms var(--ease), color 200ms var(--ease), border-color 200ms var(--ease); }
-.airwai-footer-social a:hover { background: var(--federal-navy); color: var(--chalk); border-color: var(--federal-navy); }
-.airwai-footer-social svg { width: 16px; height: 16px; }
-.airwai-footer-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--rule); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-size: 12px; color: var(--stone); }
-.airwai-footer-copyright { font-family: var(--font-mono); letter-spacing: 0.04em; }
-.airwai-footer-legal { display: flex; gap: 20px; flex-wrap: wrap; }
-.airwai-footer-legal a { color: var(--stone); text-decoration: none; font-family: var(--font-utility); font-size: 12px; }
-.airwai-footer-legal a:hover { color: var(--federal-navy); }
-.airwai-footer-tagline { font-family: var(--font-primary); font-style: italic; color: var(--federal-navy); font-size: 13px; }
-@media (max-width: 700px) { .airwai-footer-bottom { flex-direction: column; align-items: flex-start; } }
-
-/* ============================================================
- * DARK-CANVAS OVERRIDES (for hero.dark, cta.dark, etc.)
- * !important is needed throughout because wireframes use inline
- * color/opacity styles assuming a light canvas.
- * ============================================================ */
-.hero.dark h1 { color: var(--chalk) !important; }
-.hero.dark h1 .navy { color: var(--signal-lime) !important; }
-.hero.dark .subhead { color: rgba(255,255,255,0.82) !important; opacity: 1 !important; }
-
-section.dark p { color: rgba(255,255,255,0.88) !important; opacity: 1 !important; }
-section.dark p.eyebrow,
-section.dark .eyebrow { color: rgba(255,255,255,0.7) !important; }
-section.dark .body-lg { color: rgba(255,255,255,0.88) !important; opacity: 1 !important; }
-section.dark h2 .navy { color: var(--signal-lime) !important; }
-section.dark h2 { color: var(--chalk) !important; }
-section.dark h3 { color: var(--chalk) !important; }
-section.dark a { color: var(--chalk); }
-section.dark a:hover { color: var(--signal-lime); }
-
-/* Buttons on dark canvas — flip to lime accents */
-section.dark .btn.primary { background: var(--signal-lime); color: var(--federal-navy); border-color: var(--signal-lime); }
-section.dark .btn.primary:hover { background: var(--chalk); border-color: var(--chalk); color: var(--ink); }
-section.dark .btn.secondary { background: transparent; color: var(--signal-lime); border-color: var(--signal-lime); }
-section.dark .btn.secondary:hover { background: var(--signal-lime); color: var(--federal-navy); border-color: var(--signal-lime); }
-
-/* Stat band on dark canvas */
-section.dark .stat { border-top-color: var(--signal-lime) !important; }
-section.dark .stat .num { color: var(--chalk) !important; }
-section.dark .stat .label { color: rgba(255,255,255,0.88) !important; }
-section.dark .stat .cite { color: rgba(255,255,255,0.6) !important; }
-
-/* Hero accent span on dark canvas */
-.hero.dark h1 .accent { color: var(--signal-lime) !important; }
 </style>
 </head>
 <body>
