@@ -1,0 +1,129 @@
+<!-- @meta
+title: Brand · Airwai
+description: Airwai brand guidelines — logo, color, typography, and voice for the autonomous civil engineer for critical infrastructure.
+@meta-end -->
+
+<style>
+.brand-intro { max-width: 46rem; margin-top: 28px; }
+.section-eyebrow { margin-bottom: 18px; }
+
+/* logo */
+.logo-stage { background: var(--surface-warm); border: 1px solid var(--rule); border-radius: 12px;
+  padding: 72px; display: flex; align-items: center; justify-content: center; margin-top: 40px; }
+.logo-stage.dark { background: var(--federal-navy); border-color: var(--federal-navy); }
+.logo-stage img { width: 300px; max-width: 70%; height: auto; }
+.logo-dl { margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap; }
+.logo-rules { margin-top: 56px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+@media (max-width: 760px) { .logo-rules { grid-template-columns: 1fr; } }
+.rule-card { border-top: 2px solid var(--ink); padding-top: 16px; }
+.rule-card .k { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--federal-navy); margin-bottom: 8px; }
+.rule-card p { font-size: 14px; line-height: 1.55; color: var(--ink); opacity: 0.82; }
+
+/* color */
+.swatch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 22px; margin-top: 48px; }
+.swatch .chip { height: 116px; border-radius: 8px; border: 1px solid var(--rule); }
+.swatch .nm { margin-top: 14px; font-weight: 600; font-size: 15px; color: var(--ink); }
+.swatch .hex { font-family: var(--font-mono); font-size: 13px; color: var(--stone); margin-top: 2px; }
+.swatch .use { font-size: 12.5px; color: var(--stone); margin-top: 6px; line-height: 1.45; }
+
+/* type */
+.type-spec { border-top: 2px solid var(--ink); padding-top: 22px; margin-top: 44px; }
+.type-spec .label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--federal-navy); }
+.type-spec .specimen { font-size: clamp(40px, 6vw, 64px); font-weight: 700; letter-spacing: -0.022em; line-height: 1.0; margin-top: 18px; color: var(--ink); }
+.type-spec .specimen.mono { font-family: var(--font-mono); font-weight: 500; font-size: clamp(26px, 3.4vw, 38px); letter-spacing: 0; }
+.type-spec .meta { margin-top: 18px; font-size: 15px; color: var(--stone); line-height: 1.6; max-width: 38rem; }
+.type-spec .meta b { color: var(--ink); font-weight: 600; }
+
+/* voice */
+.voice-row { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+@media (max-width: 900px) { .voice-row { grid-template-columns: 1fr; } }
+.voice .k { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--signal-lime); margin-bottom: 12px; }
+.voice h3 { font-size: 20px; font-weight: 600; color: var(--chalk); margin-bottom: 10px; letter-spacing: -0.01em; }
+.voice p { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.78); }
+</style>
+
+<!-- HERO -->
+<section class="dark">
+  <div class="container">
+    <p class="eyebrow">Brand</p>
+    <h1 class="display-xl">The autonomous<br>civil engineer.</h1>
+    <p class="body-lg brand-intro">Airwai's brand system — logo, color, type, and voice. One canonical source so every surface, from a customer report to airwai.com, reads as one company. <span class="navy">Intelligence for critical infrastructure.</span></p>
+  </div>
+</section>
+
+<!-- LOGO -->
+<section>
+  <div class="container">
+    <p class="eyebrow section-eyebrow">Logo</p>
+    <h2 class="display-md">The wordmark</h2>
+    <p class="body-lg" style="max-width:42rem; margin-top:20px; color:var(--stone);">The AIRWAI wordmark is the primary mark. Ink on light backgrounds; the chalk (white) wordmark on dark Federal-Navy heros and bands.</p>
+
+    <div class="logo-stage">
+      <img src="../assets/airwai-wordmark.svg" alt="AIRWAI wordmark" />
+    </div>
+    <div class="logo-dl">
+      <a class="btn primary" href="../assets/airwai-wordmark.svg" download>Download SVG</a>
+      <a class="btn secondary" href="/contact/">Request full logo pack</a>
+    </div>
+
+    <div class="logo-rules">
+      <div class="rule-card"><div class="k">Safe area</div><p>Keep clearance equal to the letterform height on every side. Never crowd the mark with text or graphics.</p></div>
+      <div class="rule-card"><div class="k">Don't recolor</div><p>Ink-on-light or chalk-on-navy only. No gradients, no off-brand fills, no drop shadows.</p></div>
+      <div class="rule-card"><div class="k">Don't distort</div><p>Preserve the aspect ratio. Scale proportionally; never stretch, condense, or rotate.</p></div>
+      <div class="rule-card"><div class="k">Contrast</div><p>Place only on backgrounds that hold legibility. On busy imagery, use a solid navy or chalk field behind the mark.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- COLOR -->
+<section class="warm">
+  <div class="container">
+    <p class="eyebrow section-eyebrow">Color</p>
+    <h2 class="display-md">Palette</h2>
+    <p class="body-lg" style="max-width:42rem; margin-top:20px; color:var(--stone);">Federal Navy and Chalk carry the system. Signal Lime is the live-data accent — used on dark canvases only, never as text on a light background.</p>
+
+    <div class="swatch-grid">
+      <div class="swatch"><div class="chip" style="background:#0E1A33;"></div><div class="nm">Federal Navy</div><div class="hex">#0E1A33</div><div class="use">Dark canvas, CTA, link, primary accent on light</div></div>
+      <div class="swatch"><div class="chip" style="background:#D8FF3C;"></div><div class="nm">Signal Lime</div><div class="hex">#D8FF3C</div><div class="use">Dark-canvas accent / live-data marker only</div></div>
+      <div class="swatch"><div class="chip" style="background:#FAFAF7;"></div><div class="nm">Chalk</div><div class="hex">#FAFAF7</div><div class="use">Primary canvas</div></div>
+      <div class="swatch"><div class="chip" style="background:#16181B;"></div><div class="nm">Ink</div><div class="hex">#16181B</div><div class="use">Body text on light</div></div>
+      <div class="swatch"><div class="chip" style="background:#6B6B70;"></div><div class="nm">Stone</div><div class="hex">#6B6B70</div><div class="use">Secondary text, labels</div></div>
+      <div class="swatch"><div class="chip" style="background:#F4F0E8;"></div><div class="nm">Surface Warm</div><div class="hex">#F4F0E8</div><div class="use">Light panels, insets</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TYPE -->
+<section>
+  <div class="container">
+    <p class="eyebrow section-eyebrow">Typography</p>
+    <h2 class="display-md">Type</h2>
+
+    <div class="type-spec">
+      <div class="label">Headline + body — Inter</div>
+      <div class="specimen">From reactive to predictive</div>
+      <p class="meta">Inter carries headlines and body. (<b>Söhne</b> is the licensed primary in production design tools; Inter is the canonical web + render-safe face.) Weights: 400 / 500 / 600 / 700.</p>
+    </div>
+
+    <div class="type-spec">
+      <div class="label">Mono + labels — JetBrains Mono</div>
+      <div class="specimen mono">2&ndash;10 cm RTK · &lt;200 ms</div>
+      <p class="meta">JetBrains Mono sets data, specs, doc-markers, and eyebrow labels (uppercase, wide tracking). (<b>Suisse Screen</b> in licensed contexts.)</p>
+    </div>
+  </div>
+</section>
+
+<!-- VOICE -->
+<section class="dark">
+  <div class="container">
+    <p class="eyebrow section-eyebrow">Voice</p>
+    <h2 class="display-md">How Airwai sounds</h2>
+    <p class="body-lg" style="max-width:42rem; margin-top:20px;">Tagline, fixed wording and punctuation: <span class="navy">Airwai: the autonomous civil engineer.</span></p>
+
+    <div class="voice-row">
+      <div class="voice"><div class="k">Confident, not boastful</div><h3>State what it does.</h3><p>"Real-time FOD detection on every operator drive." Not "revolutionary AI that changes everything."</p></div>
+      <div class="voice"><div class="k">Specific, not buzzwordy</div><h3>Name the standard.</h3><p>Cite the standard (ASTM D5340, UFC 3-260), the sensor, the accuracy (2&ndash;10 cm RTK). Specifics earn trust with engineers.</p></div>
+      <div class="voice"><div class="k">Operational, not aspirational</div><h3>Describe what runs today.</h3><p>What the system does now, with customers already running it — not what it will do someday.</p></div>
+    </div>
+  </div>
+</section>
