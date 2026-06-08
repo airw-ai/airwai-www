@@ -80,6 +80,20 @@ def extract_style(text):
     return m.group(0), text[:m.start()] + text[m.end():]
 
 
+def strip_hidden(text):
+    """Remove <!-- @hidden ... --> ... <!-- @hidden-end --> blocks entirely.
+
+    Keeps unapproved/embargoed content (e.g., a customer reference pending
+    publish permission) in the source tree while ensuring it is absent from
+    the published output — not even present as an HTML comment that
+    view-source would expose. To restore the content, delete the marker pair
+    and rebuild.
+    """
+    return re.sub(
+        r"<!--\s*@hidden\b.*?@hidden-end\s*-->\s*", "", text, flags=re.DOTALL
+    )
+
+
 def output_path(src_path):
     """Map src/<rel>.html → docs/<rel>/index.html (with legal/ folder stripped)."""
     rel = src_path.relative_to(SRC)
@@ -106,6 +120,7 @@ def build_page(src_path, base_tpl, nav_tpl, footer_tpl):
     text = read(src_path)
     meta, text = parse_meta(text)
     style, text = extract_style(text)
+    text = strip_hidden(text)
 
     out_path = output_path(src_path)
     out_path.parent.mkdir(parents=True, exist_ok=True)
