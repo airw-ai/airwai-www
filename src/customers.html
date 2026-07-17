@@ -48,15 +48,16 @@ nav.site-nav .links .cta::after { display: none; }
 @media (max-width: 900px) { .logo-wall { grid-template-columns: repeat(2, 1fr); gap: 24px; } }
 @media (max-width: 600px) { .logo-wall { grid-template-columns: 1fr; } }
 .logo-cell {
-  height: 80px;
+  height: 92px;
   background: var(--chalk);
-  border: 1px dashed var(--rule-strong);
+  border: 1px solid var(--rule);
   display: flex; align-items: center; justify-content: center;
   flex-direction: column;
   padding: 12px;
   text-align: center;
   position: relative;
 }
+.logo-cell img { max-width: 82%; max-height: 40px; object-fit: contain; display: block; }
 .logo-cell .ph-name {
   font-family: var(--font-mono);
   font-size: 10px;
@@ -290,19 +291,19 @@ footer .grid-12 { align-items: start; }
 
     <div class="logo-wall">
       <div class="logo-cell">
-        <div class="ph-name">US Air Force<br/>WPAFB seal</div>
+        <img src="../assets/media/logos/wpafb.jpg" alt="Wright-Patterson Air Force Base" />
         <div class="ph-type">DoW</div>
       </div>
       <div class="logo-cell">
-        <div class="ph-name">SBD International<br/>Airport logo</div>
+        <img src="../assets/media/logos/sbd.png" alt="San Bernardino International Airport" />
         <div class="ph-type">Commercial &middot; Esri-featured</div>
       </div>
       <div class="logo-cell">
-        <div class="ph-name">Esri</div>
+        <img src="../assets/media/logos/esri.webp" alt="Esri" />
         <div class="ph-type">Channel partner</div>
       </div>
       <div class="logo-cell">
-        <div class="ph-name">Moog Inc.</div>
+        <img src="../assets/media/logos/moog.png" alt="Moog Inc." />
         <div class="ph-type">Defense aviation</div>
       </div>
       <!-- @hidden: Haskell logo — customer ref not yet approved for public site. Restore when Amir confirms with Ashley. -->
@@ -328,7 +329,7 @@ footer .grid-12 { align-items: start; }
     <article class="customer-card">
 
       <div class="visual">
-        <img src="{{ASSET_PREFIX}}assets/media/customer-wpafb.jpg" alt="LAIRA operator running the airfield inspection from a truck cab at Wright-Patterson AFB" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;" />
+        <img src="../assets/media/customer-wpafb.jpg" alt="LAIRA operator running the airfield inspection from a truck cab at Wright-Patterson AFB" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;" />
       </div>
 
       <div class="content">
@@ -371,7 +372,7 @@ footer .grid-12 { align-items: start; }
     <article class="customer-card">
 
       <div class="visual">
-        <img src="{{ASSET_PREFIX}}assets/media/sbd-esri.jpg" alt="San Bernardino airfield condition data in Esri ArcGIS" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block; border:1px solid var(--rule);" />
+        <img src="../assets/media/sbd-esri.jpg" alt="San Bernardino airfield condition data in Esri ArcGIS" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block; border:1px solid var(--rule);" />
       </div>
 
       <div class="content">
@@ -460,7 +461,7 @@ footer .grid-12 { align-items: start; }
     <article class="customer-card">
 
       <div class="visual">
-        <img src="{{ASSET_PREFIX}}assets/media/airfield-runway.jpg" alt="LAIRA scanning a military airfield runway" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block; border:1px solid var(--rule);" />
+        <img src="../assets/media/airfield-runway.jpg" alt="LAIRA scanning a military airfield runway" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block; border:1px solid var(--rule);" />
       </div>
 
       <div class="content">
