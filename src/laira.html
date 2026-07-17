@@ -91,7 +91,7 @@ section.dark .stat .num.signal { color: var(--signal-lime); }
   max-width: 820px;
 }
 .pain-close strong { color: var(--federal-navy); font-weight: 600; }
-.tier-row { margin-top: 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.tier-row { margin-top: 48px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 @media (max-width: 900px) { .tier-row { grid-template-columns: 1fr; } }
 .tier {
   background: var(--chalk);
@@ -398,9 +398,9 @@ footer .grid-12 { align-items: start; }
   <div class="container">
     <div class="grid-12" style="align-items: center; gap: 48px;">
       <div class="col-7">
-        <p class="eyebrow">For DoW airfield management &middot; AEC engineering teams</p>
-        <h1 class="display-xl">Three procurements<br/>collapse to <span class="accent">one.</span></h1>
-        <p class="subhead">If your team is running manual airfield inspections, contracting per-mile pavement data, or commissioning sidewalk and ADA surveys separately &mdash; LAIRA replaces all three with one continuous capture and audit-ready output published directly to your ArcGIS environment.</p>
+        <p class="eyebrow">For Part 139 airports &middot; DoW airfield management &middot; AEC engineering teams</p>
+        <h1 class="display-xl">The mandated work,<br/>done by the <span class="accent">machine.</span></h1>
+        <p class="subhead">LAIRA is the intelligence that performs the inspection the FAA requires, drafts the condition report the rule demands, and keeps the 12-month record the audit checks, from one continuous drive published into your Esri. For engineering teams, the same engine produces the survey-grade deliverable you are contractually on the hook for.</p>
         <div class="cta-row">
           <a class="btn primary" href="/contact/">Schedule a pilot &rarr;</a>
           <a class="btn secondary" href="#datasheet">See the technical data sheet</a>
@@ -421,9 +421,9 @@ footer .grid-12 { align-items: start; }
         <div class="cite">The current ceiling for your inspectors</div>
       </div>
       <div class="stat">
-        <div class="num">2M+</div>
-        <div class="label">Data points captured per LAIRA pass</div>
-        <div class="cite">Continuous-scan, your operator drive</div>
+        <div class="num">3&ndash;7&times;</div>
+        <div class="label">More anomalies detected vs. manual</div>
+        <div class="cite">SBD, Esri case study 2026</div>
       </div>
       <div class="stat">
         <div class="num">7</div>
@@ -459,7 +459,7 @@ footer .grid-12 { align-items: start; }
         <div class="n">02 &middot; Per-mile pavement data</div>
         <h3>Recurring contracts for data you should own.</h3>
         <p>RAS, Pathway, Mandli, or another ARAN-class vendor runs a truck across your network and bills you per lane-mile. Every cycle. The data lands in their portal, in their format, on their timeline. Your engineers can't easily query it. <strong>Costs compound with every re-inspection.</strong></p>
-        <div class="cost"><strong>Cost:</strong> $95+/lane-mile recurring, plus mobilization, plus reformat-to-our-systems labor.</div>
+        <div class="cost"><strong>Cost:</strong> Per-lane-mile billing every cycle, plus mobilization, plus reformat-to-our-systems labor.</div>
       </article>
       <article class="pain">
         <div class="n">03 &middot; Separate sidewalk + ADA</div>
@@ -481,41 +481,30 @@ footer .grid-12 { align-items: start; }
 <section>
   <div class="container">
     <p class="eyebrow">How LAIRA works</p>
-    <h2 class="display-lg">Three ways to feed it.<br/>Pick the one that matches<br/>your operational footprint<span class="navy">.</span></h2>
-    <p class="body-lg" style="margin-top: 24px; max-width: 800px; color: var(--ink); opacity: 0.78;">LAIRA is software. We use commercial off-the-shelf hardware to deliver each tier. All three publish to the same ESRI schema with an <span class="mono navy">accuracy_tier</span> field on every record &mdash; so you can mix tiers across the same network without data-merge headaches.</p>
+    <h2 class="display-lg">One intelligence.<br/>Two ways to feed it<span class="navy">.</span></h2>
+    <p class="body-lg" style="margin-top: 24px; max-width: 800px; color: var(--ink); opacity: 0.78;">LAIRA is software. The determination engine does the work; commercial off-the-shelf hardware only feeds it. Both tiers publish to the same ESRI schema with an <span class="mono navy">accuracy_tier</span> field on every record, so you can mix them across one network without data-merge headaches. Only the Rig certifies.</p>
 
     <div class="tier-row">
       <article class="tier">
-        <div class="badge">Tier &middot; Cloud SaaS</div>
-        <h3>Vision Lite</h3>
-        <div class="for-you">For teams with <strong>archived dashcam, drone, or fleet video</strong> already on the shelf. Upload it; we publish screening-grade detections to your ArcGIS feature service.</div>
+        <div class="badge">Screening &middot; software</div>
+        <h3>Screening</h3>
+        <div class="for-you">First-pass triage for a fast condition read. <strong>Upload</strong> video you already have (dashcam, drone, fleet, CCTV), or <strong>Capture</strong> in the field on an iPhone Pro. Screening-grade, published to your Esri.</div>
         <ul class="features">
-          <li>No hardware shipped &mdash; cloud-only ingest</li>
-          <li>Geo-tagged detections in your ESRI environment</li>
+          <li>Point the data you already have at the determination engine</li>
+          <li>Geo-tagged results published to your ESRI environment</li>
           <li>Screening-grade output; not for compliance audits</li>
-          <li>Best for AEC archive mining and fleet-operator passive use</li>
+          <li>Best for triage, portfolio scoping, and interim monitoring</li>
         </ul>
       </article>
       <article class="tier">
-        <div class="badge">Tier &middot; iOS</div>
-        <h3>Capture</h3>
-        <div class="for-you">For your <strong>field inspectors who currently walk with a clipboard</strong>. We ship an iPhone Pro with a ruggedized mount. They walk the route; LAIRA does the rest.</div>
+        <div class="badge">Compliance-grade</div>
+        <h3>LAIRA Rig</h3>
+        <div class="for-you">When the obligation needs a defensible record. The Rig is the evidence-grade input the engine uses to produce the audit-ready result the FAA inspection turns on, delivered as a service on a vehicle you already operate. See the technical data sheet below.</div>
         <ul class="features">
-          <li>Sensor fusion: camera + GPS + IMU + ARKit/LiDAR</li>
-          <li>Walking-pace or vehicle-mounted</li>
-          <li>Works in GPS-denied environments (bridge, tunnel, hangar)</li>
-          <li>Per-device monthly subscription</li>
-        </ul>
-      </article>
-      <article class="tier">
-        <div class="badge">Tier &middot; Vehicle-mounted</div>
-        <h3>LAIRA</h3>
-        <div class="for-you">For <strong>compliance-grade output</strong>. The Rig mounts on any operations vehicle your team already drives and captures everything in one pass. See the technical data sheet below.</div>
-        <ul class="features">
-          <li>COTS sensor stack: Ouster LiDAR + Septentrio GNSS + Premio compute + Lucid camera</li>
-          <li>NVIDIA-accelerated edge inference &lt; 200 ms / frame</li>
-          <li>&plusmn;0.7 mm crack, &plusmn;3 mm elevation, &plusmn;2 cm RTK</li>
-          <li>35 lb on any operations vehicle &middot; 10&ndash;15 min install</li>
+          <li>The only tier that certifies: audit-traced to D6433 / D5340 / 23 CFR 490 / PROWAG / MUTCD</li>
+          <li>Published straight into your ArcGIS, no dashboard to build</li>
+          <li>Edge-accelerated inference; no cloud dependency at ingest</li>
+          <li>Delivered as a service; no capital outlay</li>
         </ul>
       </article>
     </div>
@@ -528,7 +517,7 @@ footer .grid-12 { align-items: start; }
 <section class="cool" id="datasheet">
   <div class="container">
     <p class="eyebrow">LAIRA Rig &middot; Technical specifications</p>
-    <h2 class="display-lg">When you need<br/>compliance-grade output<span class="navy">.</span></h2>
+    <h2 class="display-lg">The evidence tier:<br/>what the audit requires<span class="navy">.</span></h2>
     <p class="body-lg" style="margin-top: 24px; max-width: 800px; color: var(--ink); opacity: 0.78;">The Rig is the deployment tier you contract for when your reporting requires ASTM D5340, ASTM D6433, UFC 3-260-03, UFC 3-270-08, FAA AC 150/53xx, or 23 CFR 490 compliance. Built on a COTS sensor stack; runs on your operations vehicle; publishes to your ArcGIS.</p>
 
     <div class="datasheet">
@@ -545,7 +534,7 @@ footer .grid-12 { align-items: start; }
             <dt>RGB camera</dt><dd>Lucid &middot; 4K, <span class="accent">1.67 mm/pix @ 3 m</span></dd>
             <dt>GNSS</dt><dd>Septentrio RTK &middot; <span class="accent">&plusmn;2 cm WGS84</span></dd>
             <dt>Inertial</dt><dd>6-axis IMU + VIO</dd>
-            <dt>Compute</dt><dd>Premio &middot; NVIDIA-accelerated edge</dd>
+            <dt>Compute</dt><dd>Edge-accelerated inference</dd>
             <dt>Inference</dt><dd><span class="accent">&lt; 200 ms / frame</span></dd>
           </dl>
         </div>
@@ -593,9 +582,9 @@ footer .grid-12 { align-items: start; }
         <div class="ds-label">Resolution vs. standard threshold</div>
         <div class="ds-resolution-row">
           <div class="ds-resolution">
-            <div class="v">&plusmn;0.7 mm</div>
-            <div class="desc">Crack-width resolution</div>
-            <div class="cite">14&times; finer than D6433 &sect;X1.14.2.2</div>
+            <div class="v">D6433</div>
+            <div class="desc">Crack class &amp; severity, per method</div>
+            <div class="cite">ASTM D6433 &sect;X1.14</div>
           </div>
           <div class="ds-resolution">
             <div class="v">&plusmn;3 mm</div>
