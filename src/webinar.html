@@ -1,0 +1,271 @@
+<!-- @meta
+title: Esri × Airwai · The Data-Driven Airfield
+description: Register for the co-hosted Esri × Airwai webinar — run your Part 139 airfield inspections inside the ArcGIS you already have.
+body-class: webinar-lp
+@meta-end -->
+
+<style>
+  /* Webinar registration — page-specific, on top of airwai.css tokens */
+  .wb-lockup { margin-bottom:34px; }
+  .wb-epn { height:74px; width:auto; display:block; }
+
+  .wb-metarow { display:flex; flex-direction:column; align-items:flex-start; gap:12px; margin-bottom:32px; }
+  .wb-chip { font-family:var(--font-mono); font-size:14px; letter-spacing:0.02em; padding:11px 18px; border:1px solid rgba(255,255,255,0.25); color:var(--chalk); display:inline-flex; align-items:center; gap:8px; }
+  .wb-chip.free { background:var(--signal-lime); color:var(--federal-navy); border-color:var(--signal-lime); font-weight:700; }
+
+  /* Registration card (light surface on the navy hero) */
+  .reg-card { background:var(--chalk); border:1px solid var(--rule-strong); padding:28px; }
+  .reg-head { font-family:var(--font-primary); font-size:20px; font-weight:700; letter-spacing:-0.02em; color:var(--ink); }
+  .reg-sub { font-size:13px; color:var(--stone); margin-top:6px; line-height:1.5; }
+  #regform { margin-top:20px; display:flex; flex-direction:column; gap:14px; }
+  .reg-field label { display:block; font-family:var(--font-utility); font-size:10.5px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--stone); margin-bottom:7px; }
+  .reg-field input, .reg-field select { width:100%; background:#fff; border:1px solid var(--rule-strong); padding:12px 13px; font-family:var(--font-primary); font-size:15px; color:var(--ink); transition:border-color 180ms var(--ease), box-shadow 180ms var(--ease); }
+  .reg-field input:focus, .reg-field select:focus { outline:none; border-color:var(--federal-navy); box-shadow:0 0 0 3px rgba(14,26,51,0.10); }
+  .reg-btn { margin-top:4px; width:100%; border:1px solid var(--federal-navy); background:var(--federal-navy); color:var(--chalk); font-family:var(--font-primary); font-size:16px; font-weight:600; letter-spacing:-0.005em; padding:15px 20px; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:9px; transition:background 200ms var(--ease), border-color 200ms var(--ease); }
+  .reg-btn:hover { background:var(--ink); border-color:var(--ink); }
+  .reg-btn:focus-visible { outline:3px solid var(--signal-lime); outline-offset:2px; }
+  .reg-consent { font-size:11px; color:var(--stone); line-height:1.45; margin-top:2px; }
+
+  .reg-success { display:none; text-align:center; padding:18px 4px; }
+  .reg-tick { width:52px; height:52px; background:var(--signal-lime); color:var(--federal-navy); display:grid; place-items:center; font-size:26px; font-weight:800; margin:4px auto 16px; }
+  .reg-success h3 { font-size:20px; font-weight:700; color:var(--ink); margin-bottom:8px; }
+  .reg-success p { font-size:14px; color:var(--stone); max-width:34ch; margin:0 auto; line-height:1.5; }
+  .reg-card.done #regform, .reg-card.done .reg-head, .reg-card.done .reg-sub { display:none; }
+  .reg-card.done .reg-success { display:block; }
+  /* Beat section.dark's !important text overrides bleeding into the light card */
+  section.dark .reg-card p { color:var(--stone) !important; opacity:1 !important; }
+  section.dark .reg-card h3 { color:var(--ink) !important; }
+
+  /* Speaker cards */
+  .spk { margin-top:56px; display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+  @media (max-width:900px) { .spk { grid-template-columns:1fr 1fr; } }
+  @media (max-width:520px) { .spk { grid-template-columns:1fr; } }
+  .scard { background:var(--chalk); border-top:2px solid var(--federal-navy); padding:20px; position:relative; overflow:hidden; }
+  .scard .avatar { display:block; width:calc(100% + 40px); margin:-20px -20px 18px; aspect-ratio:1/1; background:var(--federal-navy); }
+  .scard div.avatar { display:grid; place-items:center; color:var(--chalk); font-family:var(--font-primary); font-weight:700; font-size:66px; letter-spacing:-0.02em; }
+  img.avatar { object-fit:cover; object-position:center 20%; }
+  .scard .role { position:absolute; top:14px; right:14px; font-family:var(--font-mono); font-size:9.5px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; padding:5px 9px; background:rgba(14,26,51,0.85); color:#fff; border:0; z-index:2; }
+  .scard .role.mod { background:var(--signal-lime); color:var(--federal-navy); }
+  .scard .nm { font-size:17px; font-weight:600; letter-spacing:-0.01em; color:var(--ink); }
+  .scard .ti { font-size:13px; color:var(--stone); margin-top:3px; }
+  .scard .co { font-family:var(--font-mono); font-size:11px; color:var(--federal-navy); letter-spacing:0.02em; margin-top:12px; }
+
+  /* Closing CTA */
+  .wb-closing { text-align:center; }
+  .wb-closing .eyebrow { justify-content:center; }
+
+  /* Sticky mobile CTA */
+  .wb-sticky { position:fixed; left:0; right:0; bottom:0; z-index:60; display:none; padding:12px 16px; background:rgba(250,250,247,0.94); backdrop-filter:blur(10px); border-top:1px solid var(--rule); }
+  .wb-sticky a { display:flex; width:100%; justify-content:center; }
+  @media (max-width:900px) { .wb-sticky { display:block; } body.webinar-lp { padding-bottom:78px; } }
+</style>
+
+<section class="hero dark">
+  <div class="container">
+    <div class="grid-12" style="align-items:center; row-gap:44px;">
+      <div class="col-7">
+        <div class="wb-lockup">
+          <img class="wb-epn" src="/assets/webinar/esri-partner-emblem-rev.png" alt="Esri Partner Network Member" />
+        </div>
+        <div class="wb-metarow">
+          <span class="wb-chip free">Free Webinar · 45 min</span>
+          <span class="wb-chip">Date to be announced</span>
+        </div>
+        <h1 class="display-lg">The mandated map you already run can <span class="navy">inspect your airfield for you.</span></h1>
+        <p class="subhead">A working session for Part 139 airport operations and GIS teams. See how one airport turned its ArcGIS into a live, self-updating inspection record — then learn how to switch on the same automation for your own airfield, free.</p>
+      </div>
+      <div class="col-5">
+        <div class="reg-card" id="regcard">
+          <div class="reg-head">Save your spot</div>
+          <p class="reg-sub">We'll email you the date, the link, and a calendar invite the moment it's set.</p>
+          <form id="regform" novalidate>
+            <div class="reg-field"><label for="fn">First name</label><input id="fn" name="fn" type="text" autocomplete="given-name" required></div>
+            <div class="reg-field"><label for="em">Work email</label><input id="em" name="em" type="email" autocomplete="email" required></div>
+            <div class="reg-field"><label for="org">Airport / organization</label><input id="org" name="org" type="text" autocomplete="organization" required></div>
+            <div class="reg-field"><label for="role">Your role</label>
+              <select id="role" name="role" required>
+                <option value="" selected disabled>Select one</option>
+                <option>Airport operations</option>
+                <option>GIS / geospatial</option>
+                <option>Engineering / AEC</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <button class="reg-btn" type="submit">Save my spot →</button>
+            <p class="reg-consent">By registering, you agree that Esri and Airwai may email you about this session and related airfield-automation resources. No spam; unsubscribe anytime.</p>
+            <p class="reg-error" role="alert" style="display:none; color:var(--critical); font-size:12.5px; margin-top:2px;"></p>
+          </form>
+          <div class="reg-success" role="status" aria-live="polite">
+            <div class="reg-tick">✓</div>
+            <h3>You're on the list</h3>
+            <p id="successmsg">We'll email you the date, the link, and a calendar invite as soon as it's confirmed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <p class="eyebrow">What you'll walk away with</p>
+    <h2 class="display-md">Leave with a clear path to a self-running airfield record</h2>
+    <div class="pillar-row">
+      <div class="pillar">
+        <div class="n">01</div>
+        <h3>How an airport actually did it</h3>
+        <p>A real before-and-after: how a Part 139 airport turned its ArcGIS into a <strong>live inspection record</strong> instead of a periodic paperwork chore.</p>
+      </div>
+      <div class="pillar">
+        <div class="n">02</div>
+        <h3>How to turn it on, free</h3>
+        <p>Connect the automation to the ArcGIS you already run in about 15 minutes. <strong>No new system</strong>, additive to your Survey123 and Field Maps.</p>
+      </div>
+      <div class="pillar">
+        <div class="n">03</div>
+        <h3>Where it fits your compliance</h3>
+        <p>What screening automation does and doesn't do, and how it helps you <strong>achieve and maintain</strong> Part 139 and SMS readiness. A qualified person still signs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="warm">
+  <div class="container">
+    <p class="eyebrow">The panel</p>
+    <h2 class="display-md">Two operators comparing notes, moderated</h2>
+    <p class="body-lg stone-c" style="margin-top:16px; max-width:56ch;">The people who actually run it day to day — not a vendor pitch.</p>
+    <div class="spk">
+      <div class="scard">
+        <span class="role mod">Moderator</span>
+        <img class="avatar" src="/assets/webinar/head-beavers.jpg" alt="Mike Beavers" />
+        <div class="nm">Mike Beavers</div>
+        <div class="ti">Aviation industry lead</div>
+        <div class="co">Esri</div>
+      </div>
+      <div class="scard">
+        <span class="role">Operator</span>
+        <div class="avatar">BK</div>
+        <div class="nm">Brandon Knight</div>
+        <div class="ti">Airfield operations</div>
+        <div class="co">San Bernardino Intl</div>
+      </div>
+      <div class="scard">
+        <span class="role">Operator</span>
+        <img class="avatar" src="/assets/webinar/head-wiggins.jpg" alt="Austin Wiggins" />
+        <div class="nm">Austin Wiggins</div>
+        <div class="ti">Engineering &amp; deployment</div>
+        <div class="co">Airwai</div>
+      </div>
+      <div class="scard">
+        <span class="role">Support</span>
+        <img class="avatar" src="/assets/webinar/head-emadi.jpg" alt="Amir Emadi" />
+        <div class="nm">Amir Emadi</div>
+        <div class="ti">Chief Executive</div>
+        <div class="co">Airwai</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="container">
+    <div class="grid-12" style="align-items:center; row-gap:32px;">
+      <div class="col-7">
+        <p class="eyebrow">The reference</p>
+        <h2 class="display-sm">San Bernardino International runs its airfield inspections inside ArcGIS today.</h2>
+        <p class="body-lg" style="margin-top:18px; max-width:50ch;">The airport's LAIRA-in-Esri deployment is a published Esri customer story. On this session, its operator walks through what changed — in his own words.</p>
+      </div>
+      <div class="col-5">
+        <div class="stat-band" style="grid-template-columns:1fr; margin-top:0; gap:24px;">
+          <div class="stat"><div class="num">3–7×</div><div class="label">more surface anomalies found per mile vs. manual</div></div>
+          <div class="stat"><div class="num">~50%</div><div class="label">less field-validation time</div><div class="cite">Esri estimate</div></div>
+          <div class="stat"><div class="num">2M+</div><div class="label">data points per pass vs. 20–40 manual observations</div></div>
+        </div>
+      </div>
+    </div>
+    <p class="mono" style="font-size:11px; opacity:0.6; margin-top:36px; max-width:80ch;">Figures from Esri's published San Bernardino International customer story. Screening automation supports — it does not replace — the required self-inspection; a qualified person signs.</p>
+  </div>
+</section>
+
+<section class="warm wb-closing">
+  <div class="container">
+    <p class="eyebrow">Reserve your seat</p>
+    <h2 class="display-md">Register now for the date drop.</h2>
+    <p class="body-lg stone-c" style="max-width:46ch; margin:16px auto 36px;">We'll send you the date, the link, and a calendar invite the moment it's set.</p>
+    <div class="cta-row" style="justify-content:center;">
+      <a class="btn primary" href="#regcard" data-scroll>Save my spot →</a>
+    </div>
+  </div>
+</section>
+
+<div class="wb-sticky"><a class="btn primary" href="#regcard" data-scroll>Save my spot →</a></div>
+
+<script>
+  (function () {
+    // HubSpot capture — posts to HubSpot's public Forms submission endpoint (no backend needed).
+    // Portal is live; create the form in HubSpot › Marketing › Forms with fields
+    // Email, First name, Company name, Job title, then paste its GUID below to go live.
+    var PORTAL_ID = "47691083";
+    var FORM_GUID = "2a95e81d-0b18-42eb-ab2e-568ab80754db";
+
+    var form = document.getElementById('regform');
+    var card = document.getElementById('regcard');
+    var errEl = card ? card.querySelector('.reg-error') : null;
+    var btn = card ? card.querySelector('.reg-btn') : null;
+
+    function scrollToForm(e) {
+      if (e) e.preventDefault();
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      var fn = document.getElementById('fn');
+      if (fn) setTimeout(function () { fn.focus(); }, 420);
+    }
+    document.querySelectorAll('[data-scroll]').forEach(function (b) { b.addEventListener('click', scrollToForm); });
+
+    function showSuccess() {
+      var fn = document.getElementById('fn').value.trim();
+      var em = document.getElementById('em').value.trim();
+      document.getElementById('successmsg').textContent =
+        'Thanks' + (fn ? ', ' + fn : '') + " — we'll email the date, the link, and a calendar invite to " + em + ' as soon as it’s confirmed.';
+      card.classList.add('done');
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    function showError() {
+      if (errEl) { errEl.textContent = 'Something went wrong — please try again in a moment.'; errEl.style.display = 'block'; }
+      if (btn) { btn.disabled = false; btn.textContent = 'Save my spot →'; }
+    }
+
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+        if (errEl) errEl.style.display = 'none';
+        if (btn) { btn.disabled = true; btn.textContent = 'Saving…'; }
+
+        // Not yet pointed at a real form — keep the page demoable without posting.
+        if (FORM_GUID.indexOf('PASTE_') === 0) { showSuccess(); return; }
+
+        var payload = {
+          fields: [
+            { objectTypeId: '0-1', name: 'email',     value: document.getElementById('em').value.trim() },
+            { objectTypeId: '0-1', name: 'firstname', value: document.getElementById('fn').value.trim() },
+            { objectTypeId: '0-1', name: 'company',   value: document.getElementById('org').value.trim() },
+            { objectTypeId: '0-1', name: 'jobtitle',  value: document.getElementById('role').value }
+          ],
+          context: { pageUri: location.href, pageName: document.title },
+          legalConsentOptions: {
+            consent: {
+              consentToProcess: true,
+              text: 'I agree that Esri and Airwai may email me about this session and related airfield-automation resources.'
+            }
+          }
+        };
+        fetch('https://api.hsforms.com/submissions/v3/integration/submit/' + PORTAL_ID + '/' + FORM_GUID, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).then(function (r) { r.ok ? showSuccess() : showError(); }).catch(showError);
+      });
+    }
+  })();
+</script>
