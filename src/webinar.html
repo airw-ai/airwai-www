@@ -71,8 +71,9 @@ body-class: webinar-lp
           <span class="wb-chip free">Free Webinar · 45 min</span>
           <span class="wb-chip">Date to be announced</span>
         </div>
+        <p class="eyebrow" style="color:var(--chalk); opacity:0.9; margin-bottom:14px;">Co-hosted by Esri's aviation team</p>
         <h1 class="display-lg">The mandated map you already run can <span class="navy">inspect your airfield for you.</span></h1>
-        <p class="subhead">A working session for Part 139 airport operations and GIS teams. See how one airport turned its ArcGIS into a live, self-updating inspection record — then learn how to switch on the same automation for your own airfield, free.</p>
+        <p class="subhead">Keep your airfield inspection-ready year-round, right in ArcGIS. A working session for Part 139 airport operations and GIS teams: see how one airport turned its ArcGIS into a live, self-updating inspection record, then switch on the same automation for your own airfield, free.</p>
       </div>
       <div class="col-5">
         <div class="reg-card" id="regcard">
@@ -80,6 +81,7 @@ body-class: webinar-lp
           <p class="reg-sub">We'll email you the date, the link, and a calendar invite the moment it's set.</p>
           <form id="regform" novalidate>
             <div class="reg-field"><label for="fn">First name</label><input id="fn" name="fn" type="text" autocomplete="given-name" required></div>
+            <div class="reg-field"><label for="ln">Last name</label><input id="ln" name="ln" type="text" autocomplete="family-name" required></div>
             <div class="reg-field"><label for="em">Work email</label><input id="em" name="em" type="email" autocomplete="email" required></div>
             <div class="reg-field"><label for="org">Airport / organization</label><input id="org" name="org" type="text" autocomplete="organization" required></div>
             <div class="reg-field"><label for="role">Your role</label>
@@ -145,7 +147,7 @@ body-class: webinar-lp
       </div>
       <div class="scard">
         <span class="role">Operator</span>
-        <div class="avatar">BK</div>
+        <img class="avatar" src="/assets/webinar/head-knight.jpg" alt="Brandon Knight" />
         <div class="nm">Brandon Knight</div>
         <div class="ti">Airfield operations</div>
         <div class="co">San Bernardino Intl</div>
@@ -249,6 +251,7 @@ body-class: webinar-lp
           fields: [
             { objectTypeId: '0-1', name: 'email',     value: document.getElementById('em').value.trim() },
             { objectTypeId: '0-1', name: 'firstname', value: document.getElementById('fn').value.trim() },
+            { objectTypeId: '0-1', name: 'lastname',  value: document.getElementById('ln').value.trim() },
             { objectTypeId: '0-1', name: 'company',   value: document.getElementById('org').value.trim() },
             { objectTypeId: '0-1', name: 'jobtitle',  value: document.getElementById('role').value }
           ],
