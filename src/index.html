@@ -1,422 +1,491 @@
 <!-- @meta
-title: Airwai · The autonomous civil engineer
-description: The federal inspection you can't skip, run automatically. LAIRA produces the daily self-inspection, condition report, and 12-month audit trail Part 139 airports owe the FAA, in the Esri you already run.
+title: Airwai · Your turnkey intelligence platform
+description: LAIRA turns an ordinary drive into compliance-grade condition data, captured, scored, and routed into the maps your agency already runs. NDAA-Compliant, FAA-accepted, Esri-native.
 @meta-end -->
 
 <style>
-.placeholder {
-  background: var(--surface-warm);
-  border: 1px dashed var(--rule-strong);
-  display: flex; align-items: center; justify-content: center; flex-direction: column;
-  gap: 8px; padding: 16px;
-  color: var(--stone); text-align: center;
-}
-.placeholder-label {
-  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--federal-navy);
-  padding: 4px 12px; background: var(--chalk); border: 0.5pt solid var(--rule);
-}
-.placeholder-desc { font-family: var(--font-utility); font-size: 12px; color: var(--stone); max-width: 84%; line-height: 1.45; font-style: italic; }
-section.dark .placeholder { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.18); }
-section.dark .placeholder-label { background: var(--surface-dark); color: var(--signal-lime); border-color: rgba(255,255,255,0.15); }
-section.dark .placeholder-desc { color: rgba(255,255,255,0.55); }
-.ph-hero { aspect-ratio: 16/10; }
-.ph-square { aspect-ratio: 1/1; }
-.ph-wide { aspect-ratio: 21/9; }
-.tier-row { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-@media (max-width: 900px) { .tier-row { grid-template-columns: 1fr; } }
-.tier {
-  background: var(--chalk);
-  border: 1px solid var(--rule);
-  padding: 36px 32px;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-.tier .badge {
-  font-family: var(--font-utility); font-size: 10px;
-  letter-spacing: 0.2em; text-transform: uppercase; color: var(--stone);
-  font-weight: 500; margin-bottom: 12px;
-}
-.tier h3 { font-size: 28px; font-weight: 700; letter-spacing: -0.018em; line-height: 1; margin-bottom: 12px; color: var(--ink); }
-.tier .price {
-  font-family: var(--font-mono); font-size: 13px;
-  color: var(--federal-navy); margin-bottom: 24px; font-weight: 500;
-}
-.tier .price small { color: var(--stone); font-weight: 400; }
-.tier .features { list-style: none; margin: 0 0 32px; padding: 0; border-top: 1px solid var(--rule); padding-top: 20px; }
-.tier .features li {
-  padding: 8px 0; font-size: 14px; color: var(--ink); line-height: 1.5;
-  display: flex; align-items: flex-start; gap: 12px;
-}
-.tier .features li::before {
-  content: ""; width: 5px; height: 5px; background: var(--federal-navy);
-  display: inline-block; margin-top: 8px; flex-shrink: 0;
-}
-.tier .cta-tier { margin-top: auto; }
-.tier.featured { background: var(--federal-navy); color: var(--chalk); border-color: var(--federal-navy); }
-.tier.featured .badge { color: var(--signal-lime); }
-.tier.featured h3 { color: var(--chalk); }
-.tier.featured .price { color: var(--signal-lime); }
-.tier.featured .price small { color: rgba(255,255,255,0.55); }
-.tier.featured .features { border-top-color: rgba(255,255,255,0.18); }
-.tier.featured .features li { color: rgba(255,255,255,0.88); }
-.tier.featured .features li::before { background: var(--signal-lime); }
-.segment-grid {
-  margin-top: 56px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--rule);
-  border: 1px solid var(--rule);
-}
-@media (max-width: 900px) { .segment-grid { grid-template-columns: 1fr; } }
-.segment {
-  background: var(--chalk);
-  padding: 32px 28px;
-  text-decoration: none;
-  color: var(--ink);
-  display: flex; flex-direction: column;
-  transition: background 200ms var(--ease);
-  position: relative;
-}
-.segment:hover { background: var(--surface-warm); }
-.segment .icon {
-  width: 28px; height: 28px;
-  border: 1px solid var(--federal-navy);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-mono); font-size: 11px;
-  color: var(--federal-navy); margin-bottom: 16px;
-}
-.segment h4 { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.25; margin-bottom: 8px; }
-.segment p { font-size: 13px; color: var(--stone); line-height: 1.55; flex: 1; }
-.segment .more {
-  margin-top: 16px; font-family: var(--font-utility); font-size: 11px;
-  font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--federal-navy);
-}
-.deploy-list { margin-top: 56px; border-top: 1px solid var(--rule); }
-.deploy {
-  display: grid;
-  grid-template-columns: 280px 1fr 200px;
-  gap: 32px;
-  padding: 32px 0;
-  border-bottom: 1px solid var(--rule);
-  align-items: start;
-}
-@media (max-width: 900px) { .deploy { grid-template-columns: 1fr; gap: 12px; } }
-.deploy .stage {
-  font-family: var(--font-utility); font-size: 11px;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--federal-navy); font-weight: 500;
-}
-.deploy .name { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; margin-top: 6px; line-height: 1.2; }
-.deploy .what { font-size: 14px; color: var(--ink); line-height: 1.55; }
-.deploy .marker {
-  font-family: var(--font-mono); font-size: 12px; color: var(--federal-navy);
-  letter-spacing: 0.04em;
-}
-.honesty-list { margin-top: 32px; display: flex; flex-direction: column; gap: 18px; }
-.honesty-item {
-  display: grid;
-  grid-template-columns: 32px 1fr;
-  gap: 16px;
-  align-items: baseline;
-  padding-bottom: 18px;
-  border-bottom: 1px solid var(--rule);
-}
-.honesty-item .mark {
-  font-family: var(--font-mono); font-size: 14px;
-  color: var(--federal-navy); font-weight: 500;
-}
-.honesty-item .text { font-size: 15px; line-height: 1.55; color: var(--ink); }
-.honesty-item .text strong { font-weight: 600; }
-.cta-block .body-lg { margin-top: 24px; max-width: 680px; }
-footer .grid-12 { align-items: start; }
-section:not(.dark) .pillar { border-top-color: var(--federal-navy); }
-section:not(.dark) .pillar .n { color: var(--federal-navy); }
-section:not(.dark) .pillar h3 { color: var(--ink); }
-section:not(.dark) .pillar p { color: var(--stone); }
-section:not(.dark) .pillar p strong { color: var(--ink); }
-section.dark .segment-grid { background: rgba(255,255,255,0.08) !important; border-color: rgba(255,255,255,0.18) !important; }
+  #lp{ font-family:var(--f); color:var(--ink); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  :root{
+    /* palette — mirrors airwai.com */
+    --navy:#0E1A33; --navy-deep:#0E1A33; --lime:#D8FF3C; --chalk:#FAFAF7;
+    --ink:#16181B; --stone:#6B6B70; --rule:#E3E1DC; --rule-strong:#C9C4BB;
+    --surface-warm:#F4F0E8; --surface-cool:#EEEBE3;
+    /* type stacks — mirrors airwai.com (licensed faces fall back to Inter/JetBrains) */
+    --f: "Söhne", "Inter", system-ui, -apple-system, sans-serif;
+    --util: "Suisse Int'l", "Inter", system-ui, sans-serif;
+    --m: "Suisse Screen", "JetBrains Mono", ui-monospace, monospace;
+    /* CANONICAL SPACING SYSTEM (mirrors airwai.com) */
+    --sp-section: clamp(72px, 10vw, 128px);  /* every content section, top & bottom */
+    --sp-divider: clamp(56px, 7vw, 88px);    /* thin divider bands */
+    --sp-seam: clamp(40px, 5vw, 64px);       /* paired same-tone sections: the shared break between them */
+    --sp-gutter: 56px;     /* horizontal page gutter (--margin) */
+    --sp-maxw: 1366px;     /* content max width (--container) */
+    --sp-lp-eyebrow: 24px;    /* lp-eyebrow -> heading */
+    --sp-lead: 28px;       /* heading -> lead */
+    --sp-block: 56px;      /* intro block -> content grid */
+    --ease: cubic-bezier(0.2, 0, 0, 1);
+  }
+  #lp *{ box-sizing:border-box; margin:0; }
+  
+  
+  #lp h1,#lp h2,#lp h3{ margin:0; letter-spacing:-0.025em; line-height:1.03; text-wrap:balance; }
+  #lp p{ margin:0; text-wrap:pretty; }
+  #lp img{ display:block; max-width:100%; }
+  #lp .mono{ font-family:var(--m); }
+  .wrap{ max-width:var(--sp-maxw); margin:0 auto; padding:0 var(--sp-gutter); }
+  section{ position:relative; }
+  .lp-eyebrow{ display:inline-flex; align-items:center; gap:14px; font-family:var(--util); font-size:11px; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--stone); }
+  .lp-eyebrow::before{ content:""; display:block; width:32px; height:1px; background:var(--navy); }
+  .lp-eyebrow.lime{ color:var(--lime); }
+  .band.navy .lp-eyebrow::before, .band.deep .lp-eyebrow::before, .lp-eyebrow.lime::before{ background:var(--lime); }
+  .lp-btn{ display:inline-block; border-radius:6px; font-weight:600; font-size:17px; padding:15px 30px; }
+  .lp-btn-primary{ background:var(--navy); color:var(--chalk); }
+  .lp-btn-lime{ background:var(--lime); color:var(--navy); font-weight:700; }
+  .lp-btn-ghost{ color:var(--navy); border:1px solid #d3d3cc; }
+  .lp-btn-ghost-d{ color:var(--chalk); border:1px solid #2b3a58; }
+
+  /* NAV — sticky solid bar (airwai) */
+  
+  
+  
+  
+  
+  
+  
+
+  /* HERO — rig image bleeds off the right, text left on the canonical grid */
+  .lp-hero{ position:relative; min-height:92vh; display:flex; align-items:center; overflow:hidden; background:#e9e9ee; }
+  .lp-hero .bg{ position:absolute; inset:0; z-index:0; background-size:cover; background-position:center; }
+  .lp-hero .scrim{ position:absolute; inset:0; z-index:1; background:linear-gradient(90deg, #e9e9ee 0%, #e9e9ee 24%, rgba(233,233,238,0.7) 44%, rgba(233,233,238,0) 64%); }
+  .lp-hero .inner{ position:relative; z-index:2; width:100%; max-width:var(--sp-maxw); margin:0 auto; padding:0 var(--sp-gutter); }
+  .lp-hero .text{ max-width:520px; text-align:left; }
+  .lp-hero h1{ font-size:clamp(40px,4.6vw,72px); font-weight:700; letter-spacing:-0.026em; line-height:1.03; color:var(--ink); }
+  .lp-hero .subh{ font-size:clamp(22px,3vw,36px); font-weight:600; color:var(--stone); line-height:1.14; margin-top:12px; letter-spacing:-0.016em; }
+  .lp-hero .lead{ font-size:18px; line-height:1.6; color:var(--stone); max-width:480px; margin:28px 0 0; }
+  .lp-hero .actions{ display:flex; gap:14px; margin-top:32px; flex-wrap:wrap; }
+  .chips{ display:flex; flex-wrap:wrap; gap:10px 24px; margin-top:28px; justify-content:flex-start; }
+  .chip{ font-family:var(--m); font-size:12px; letter-spacing:0.1em; color:var(--stone); display:inline-flex; align-items:center; gap:7px; }
+  .chip i{ width:6px; height:6px; border-radius:50%; background:#7fae2f; display:inline-block; }
+  @media(max-width:820px){
+    .lp-hero{ text-align:center; }
+    .lp-hero .scrim{ background:linear-gradient(180deg, #e9e9ee 0%, rgba(233,233,238,.72) 48%, #e9e9ee 100%); }
+    .lp-hero .text{ text-align:center; margin:0 auto; } .lp-hero .actions, .lp-hero .chips{ justify-content:center; }
+  }
+
+  /* DATA-MACHINE band (scan-wipe, below hero) */
+  .dm{ position:relative; height:100vh; min-height:640px; overflow:hidden; background:#05264a; }
+  .dm .layer{ position:absolute; inset:-6% 0; width:100%; height:112%; object-fit:cover; }
+  .dm .base{ z-index:1; }
+  .dm .machine{ z-index:2; clip-path:inset(0 0 100% 0); }
+  .dm .scanline{ position:absolute; left:0; right:0; height:3px; z-index:3; top:0;
+      background:linear-gradient(90deg, transparent, var(--lime) 20%, #fff 50%, var(--lime) 80%, transparent);
+      box-shadow:0 0 24px 6px rgba(216,255,60,.7); opacity:0; }
+  .dm .grad{ position:absolute; inset:0; z-index:4; background:linear-gradient(90deg, rgba(5,20,40,.6) 0%, rgba(5,20,40,.25) 40%, rgba(5,20,40,0) 70%); }
+  .dm .cap{ position:absolute; z-index:5; left:0; right:0; top:50%; transform:translateY(-50%); }
+  .dm .cap h2{ font-size:clamp(30px,4.4vw,54px); font-weight:800; color:#fff; max-width:720px; text-shadow:0 2px 24px rgba(5,20,40,.55); }
+  .dm .cap p{ font-size:clamp(16px,2vw,20px); line-height:1.5; color:#e4e8ef; max-width:600px; margin-top:16px; text-shadow:0 2px 20px rgba(5,20,40,.5); }
+
+  /* generic sections — canonical vertical rhythm + 1px rule divider (airwai) */
+  .band{ padding-block: var(--sp-section); border-bottom:1px solid var(--rule); }
+  .band.navy, .band.deep{ border-bottom-color: rgba(255,255,255,0.08); }
+  .band.white{ background:var(--chalk); }
+  .band.stone{ background:var(--surface-warm); }
+  .band.navy{ background:var(--navy); color:var(--chalk); }
+  .band.deep{ background:var(--navy-deep); color:var(--chalk); }
+  /* PIN RULE (canonical): every scroll-pinned section is a full viewport tall so it locks flush — no gap peeking below the pin. */
+  .pin-vh{ min-height:100vh; }
+  /* SEAM RULE (canonical): when two same-tone sections read as one pair, they share ONE break (no rule divider), not two full section pads. Trim the upper section's bottom and the lower section's top. */
+  .band.seam-below{ padding-bottom: var(--sp-seam); border-bottom:none; }
+  .band.seam-above{ padding-top: var(--sp-seam); }
+  h2.big{ font-size:clamp(36px,4.5vw,64px); font-weight:700; letter-spacing:-0.024em; line-height:1.05; }
+  .band.white h2.big, .band.stone h2.big{ color:var(--ink); }
+  .band.navy h2.big, .band.deep h2.big{ color:var(--chalk); }
+  .lead{ font-size:18px; line-height:1.6; color:var(--stone); max-width:640px; margin-top:24px; }
+  .band.navy .lead, .band.deep .lead{ color:#c7cdd8; }
+
+  .reinforce{ display:flex; gap:14px; align-items:baseline; flex-wrap:wrap; justify-content:center; font-size:clamp(22px,3.2vw,30px); font-weight:800; letter-spacing:-.02em; }
+  .reinforce .dim{ color:#9aa0aa; }
+
+  .modes{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:56px; }
+  .mode{ border-radius:12px; padding:32px; display:flex; flex-direction:column; gap:14px; border:1px solid var(--rule); background:var(--chalk); }
+  .mode.dark{ background:var(--navy); border-color:var(--navy); color:var(--chalk); }
+  .mode h3{ font-size:24px; font-weight:700; }
+  .mode p{ font-size:16px; line-height:1.55; color:var(--stone); flex-grow:1; }
+  .mode.dark p{ color:#c7cdd8; }
+  .mode .tag{ font-family:var(--m); font-size:12px; letter-spacing:.1em; color:#8f97a6; border-top:1px solid var(--rule); padding-top:16px; }
+  .mode.dark .tag{ border-color:#24314d; color:var(--lime); }
+  .mode .ic{ width:30px;height:30px; }
+
+  .device{ max-width:1000px; margin:60px auto 0; }
+  .laptop{ background:#1b1d23; border-radius:12px 12px 4px 4px; padding:12px 12px 9px; box-shadow:0 44px 90px rgba(14,26,51,.24); position:relative; overflow:hidden; }
+  .laptop img{ width:100%; border-radius:2px; }
+  .laptop .dot{ position:absolute; width:16px; height:16px; border-radius:50%; transform:translate(-50%,-50%) scale(0); }
+  .laptop .dot::after{ content:""; position:absolute; inset:4px; border-radius:50%; }
+  .laptop .dot.h::after{ background:#ff5247; } .laptop .dot.h{ box-shadow:0 0 0 2px rgba(255,82,71,.3); }
+  .laptop .dot.m::after{ background:#ffb020; } .laptop .dot.l::after{ background:#37d67a; }
+  .laptop-base{ height:14px; width:112%; margin-left:-6%; background:linear-gradient(#d4d7dd,#b4b8c0); border-radius:0 0 10px 10px; }
+
+  .flowhead{ margin-bottom:8px; }
+  .flowpin{ min-height:100vh; display:flex; align-items:center; }
+  .flowinner{ width:100%; }
+  .flowstage{ position:relative; width:100%; max-width:940px; margin:0 auto; aspect-ratio:16/8; max-height:42vh; border-radius:14px; overflow:hidden; box-shadow:0 40px 90px rgba(0,0,0,.42); background:#0b1428; }
+  .flowstage .fs{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .55s ease; }
+  .flowstage .fs.on{ opacity:1; }
+  .flow{ display:grid; grid-template-columns:repeat(4,1fr); gap:28px; width:100%; margin-top:44px; }
+  .step{ opacity:.28; transition:opacity .35s; }
+  .step .n{ font-family:var(--m); font-size:13px; letter-spacing:.14em; color:var(--lime); }
+  .step h4{ font-size:23px; font-weight:800; color:#fff; margin:12px 0 8px; }
+  .step p{ font-size:16px; line-height:1.5; color:#c7cdd8; }
+  .step.on{ opacity:1; }
+  .flowbar{ height:2px; background:#22304e; margin-top:40px; position:relative; }
+  .flowbar i{ position:absolute; left:0; top:0; height:100%; width:0; background:var(--lime); }
+
+  .fleet{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:52px; }
+  .fleet figure{ display:flex; flex-direction:column; gap:12px; }
+  .fleet img{ width:100%; height:190px; object-fit:cover; border-radius:10px; }
+  .fleet .cap{ font-family:var(--m); font-size:12px; letter-spacing:.12em; color:#a7aebd; }
+
+  .trip{ display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:52px; }
+  .trip figure{ display:flex; flex-direction:column; gap:12px; }
+  .trip img{ width:100%; height:340px; object-fit:cover; border-radius:10px; }
+  .trip .cap{ font-family:var(--m); font-size:12px; letter-spacing:.12em; color:var(--stone); }
+
+  .quotes{ display:grid; grid-template-columns:1fr 1fr; gap:56px; }
+  .quote p{ font-size:clamp(22px,2.6vw,30px); font-weight:700; line-height:1.28; color:var(--ink); letter-spacing:-.02em; }
+  .quote .who{ display:flex; align-items:center; gap:14px; margin-top:30px; }
+  .quote .av{ width:44px; height:44px; border-radius:50%; background:#e6e6de; }
+  .quote .nm{ font-size:16px; font-weight:700; }
+  .quote .rl{ font-family:var(--m); font-size:12px; color:var(--stone); }
+
+  .rigrow{ display:grid; grid-template-columns:0.82fr 1.18fr; gap:56px; align-items:center; }
+  .rigrow img{ width:100%; border-radius:12px; }
+  .spec{ display:flex; flex-wrap:wrap; gap:10px 22px; margin-top:28px; }
+  .spec span{ font-family:var(--m); font-size:13px; letter-spacing:.06em; color:var(--stone); }
+  .spec b{ color:#cfcfc7; font-weight:400; }
+
+  .lp-stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:36px; margin-top:64px; }
+  .lp-stat .num{ font-size:clamp(40px,5vw,56px); font-weight:800; color:var(--ink); line-height:1; }
+  .lp-stat .lab{ font-size:15px; color:var(--stone); margin-top:12px; line-height:1.4; }
+
+  .cta-band{ text-align:center; }
+  .cta-band h2{ font-size:clamp(38px,5vw,58px); font-weight:800; color:#fff; }
+  .cta-band .actions{ display:flex; gap:14px; justify-content:center; margin-top:34px; flex-wrap:wrap; }
+
+  /* STAY-CLOSE lead-capture (mirrors airwai.com's pre-footer form band) */
+  .signup{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; align-items:center; }
+  .signup h2.big{ max-width:520px; }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  @media(max-width:820px){ .signup{ grid-template-columns:1fr; gap:40px; }  }
+
+  /* FOOTER — airwai (light chalk, wide container, boxed social) */
+  
+  
+  
+  
+  
+  
+  
+  /* footer lists: reset the UA <ul> indent so items sit flush-left under their header */
+  
+  
+  
+  
+   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  .reveal{ opacity:0; transform:translateY(34px); }
+  .no-motion .reveal{ opacity:1; transform:none; }
+  .no-motion .dm .machine{ clip-path:none; }
+
+  @media(max-width:820px){
+    :root{ --sp-section:78px; --sp-divider:56px; --sp-gutter:24px; }
+    .modes,.fleet,.trip,.flow,.lp-stats,.quotes,.rigrow,
+    .fleet{ grid-template-columns:1fr 1fr; }
+     
+    .flowpin{ min-height:auto; padding-block:78px; } .flow{ gap:40px; }
+  }
 </style>
 
-<!-- ============================================================
- * HERO
- * ============================================================ -->
-<section class="hero dark">
-  <div class="container">
-    <div class="grid-12" style="align-items: center; gap: 48px;">
-      <div class="col-7">
-        <p class="eyebrow">LAIRA · Live at San Bernardino International · Featured by Esri</p>
-        <h1 class="display-xl">The federal inspection you can&rsquo;t skip.<br/><span class="accent">Now it runs itself.</span></h1>
-        <p class="subhead">The daily self-inspection, condition report, and audit trail the FAA requires, produced automatically in the Esri you already run.</p>
-        <div class="cta-row">
-          <a class="btn primary" href="/contact/">Schedule a pilot &rarr;</a>
-          <a class="btn secondary" href="https://docs.airwai.com">Read the D6433 matrix</a>
-        </div>
+<main id="lp">
+<!-- HERO (full-bleed rig background, text left) -->
+<section class="lp-hero" id="hero">
+  <div class="bg" style="background-image:url(assets/laira/hero-rig.jpg)"></div>
+  <div class="scrim"></div>
+  <div class="inner">
+    <div class="text">
+      <div class="lp-eyebrow" data-hero>Turnkey &middot; Vehicle-agnostic &middot; Esri-native</div>
+      <h1 data-hero style="margin-top:22px">Your turnkey intelligence platform</h1>
+      <div class="subh" data-hero>to automate pavement and airfield operations.</div>
+      <p class="lead" data-hero>LAIRA turns an ordinary drive into compliance-grade condition data, captured, scored, and routed straight into the maps your agency already runs.</p>
+      <div class="actions" data-hero>
+        <a class="lp-btn lp-btn-primary">Request a demo</a>
+        <a class="lp-btn lp-btn-ghost">See the platform</a>
       </div>
-      <div class="col-5">
-        <img src="assets/media/hero-laira-rig.jpg" alt="LAIRA Rig mounted on an operations vehicle at golden hour" style="width:100%; aspect-ratio:16/10; object-fit:cover; display:block;" />
-      </div>
-    </div>
-
-    <!-- STAT BAND -->
-    <div class="stat-band">
-      <div class="stat">
-        <div class="num">&sect;139.327</div>
-        <div class="label">Daily self-inspection, satisfied automatically</div>
-        <div class="cite">14 CFR Part 139</div>
-      </div>
-      <div class="stat">
-        <div class="num">3&ndash;7&times;</div>
-        <div class="label">More anomalies detected vs. manual</div>
-        <div class="cite">SBD, Esri case study 2026</div>
-      </div>
-      <div class="stat">
-        <div class="num">50%+</div>
-        <div class="label">Less field-validation time</div>
-        <div class="cite">SBD, Esri case study 2026</div>
-      </div>
-      <div class="stat">
-        <div class="num">12 mo</div>
-        <div class="label">Audit trail retained by design</div>
-        <div class="cite">14 CFR 139.301</div>
+      <div class="chips" data-hero>
+        <span class="chip"><i></i>FAA-ACCEPTED</span><span class="chip"><i></i>NDAA-COMPLIANT</span>
+        <span class="chip"><i></i>SAM.GOV REGISTERED</span><span class="chip"><i></i>ESRI-NATIVE</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================
- * THREE PILLARS — DARK section (cognitive break)
- * ============================================================ -->
-<section>
-  <div class="container">
-    <p class="eyebrow">Why it's unavoidable</p>
-    <h2 class="display-lg" style="max-width: 920px;">The obligation is not optional. The labor should be<span class="navy">.</span></h2>
-    <p class="body-lg" style="margin-top: 24px; max-width: 720px; color: var(--ink); opacity: 0.82;">Daily self-inspection and condition reporting are federal requirements, not preferences. LAIRA does the required work, decides what the field condition means, and files the record, so the compliance spend you already carry buys an outcome instead of hours.</p>
-
-    <div class="pillar-row">
-      <article class="pillar">
-        <div class="n">01</div>
-        <h3>The obligation, discharged.</h3>
-        <p>Daily self-inspection (&sect;139.327) and condition reporting (&sect;139.339) are federal requirements. LAIRA runs the inspection and files the record, from one drive of a vehicle you already operate.</p>
-      </article>
-      <article class="pillar">
-        <div class="n">02</div>
-        <h3>The audit trail is the insurance.</h3>
-        <p>Every result carries a citation back to the section it satisfies. When the FAA inspection lands, the coverage report is already assembled. That trail moves risk off your desk.</p>
-      </article>
-      <article class="pillar">
-        <div class="n">03</div>
-        <h3>You redirect spend, not add it.</h3>
-        <p>The money already leaves the building through ops hours, consultants, and emergency callouts. LAIRA consolidates it into one predictable subscription, in the Esri system you already run. <strong>No new budget line.</strong></p>
-      </article>
-    </div>
+<!-- DATA-MACHINE band (POV below the hero) -->
+<section class="dm pin-vh" id="dmband">
+  <img class="layer base" src="assets/laira/runway-base.jpg" alt="">
+  <img class="layer machine" id="machine" src="assets/laira/dm-runway.jpg" alt="A runway resolving into a live LiDAR and computer-vision scan">
+  <div class="scanline" id="scanline"></div>
+  <div class="grad"></div>
+  <div class="cap wrap">
+    <div class="lp-eyebrow lime">Live perception</div>
+    <h2 style="margin-top:16px">Every drive becomes a live scan.</h2>
+    <p>Every crack, marking and hazard detected, scored, and routed the instant you drive past, no walk-around, no back-office wait.</p>
   </div>
 </section>
 
-<!-- ============================================================
- * TIER CARDS
- * ============================================================ -->
-<section class="warm">
-  <div class="container">
-    <div class="grid-12" style="align-items: end; margin-bottom: 24px;">
-      <div class="col-7">
-        <p class="eyebrow">The platform</p>
-        <h2 class="display-lg">One intelligence.<br/>Two ways to feed it<span class="navy">.</span></h2>
-      </div>
-      <div class="col-5" style="padding-bottom: 8px;">
-        <p style="font-size: 14px; color: var(--stone); line-height: 1.6;">Both tiers publish to the same ESRI feature service with an <span class="mono navy">accuracy_tier</span> field on every record. One schema, no migration. Only the Rig certifies.</p>
-      </div>
-    </div>
-
-    <div class="tier-row">
-      <article class="tier">
-        <div class="badge">Screening &middot; software</div>
-        <h3>Screening</h3>
-        <div class="price">Upload or capture &middot; screening-grade</div>
-        <ul class="features">
-          <li>Point the data you already have at the determination engine</li>
-          <li>Geo-tagged results published to your ESRI feature service</li>
-          <li>Screening-grade output; not for compliance audits</li>
-          <li>First-pass triage, portfolio scoping, interim monitoring</li>
-        </ul>
-        <a class="btn secondary cta-tier" href="/contact/">Talk to us &rarr;</a>
-      </article>
-      <article class="tier featured">
-        <div class="badge">Compliance-grade</div>
-        <h3>LAIRA Rig</h3>
-        <div class="price">The audit-ready tier <small style="color: rgba(255,255,255,0.55);">&middot; Available now</small></div>
-        <ul class="features">
-          <li>The only tier that certifies: audit-traced to D6433, 23 CFR 490, PROWAG, MUTCD</li>
-          <li>The evidence-grade input the engine uses for a defensible record</li>
-          <li>Published straight into your Esri, no dashboard to build</li>
-          <li>Delivered as a service on a vehicle you already operate</li>
-        </ul>
-        <a class="btn" style="background: var(--signal-lime); color: var(--ink); border-color: var(--signal-lime);" href="/laira/">See the product page &rarr;</a>
-      </article>
-    </div>
+<!-- REINFORCE -->
+<section class="band white" style="padding-block:var(--sp-divider)">
+  <div class="wrap reinforce reveal">
+    <span class="dim">Less inspection.</span><span class="dim">Less admin.</span><span>Better decisions.</span>
   </div>
 </section>
 
-<!-- ============================================================
- * SEGMENT GRID
- * ============================================================ -->
-<section class="cool">
-  <div class="container">
-    <p class="eyebrow">Who it's for</p>
-    <h2 class="display-lg">Built for the people responsible<br/>when the audit lands<span class="navy">.</span></h2>
-
-    <div class="segment-grid">
-      <a class="segment" href="/customers/#sbd">
-        <div class="icon">01</div>
-        <h4>Part 139 Airports</h4>
-        <p>Discharge the daily self-inspection (139.327), condition reporting (139.339), and the SMS program (Subpart E) the FAA requires, on the Esri you already run. Live at San Bernardino.</p>
-        <span class="more">Read the brief &rarr;</span>
-      </a>
-      <a class="segment" href="/customers/#dow">
-        <div class="icon">02</div>
-        <h4>Department of War</h4>
-        <p>The airfield inspection and pavement-condition record UFC 3-260 and Air Force airfield-management directives require, from one drive of a vehicle the base already operates.</p>
-        <span class="more">Read the brief &rarr;</span>
-      </a>
-      <a class="segment" href="/customers/">
-        <div class="icon">03</div>
-        <h4>The next mandated verticals</h4>
-        <p>State DOT condition reporting, ADA sidewalks, bridges, and ports: the same playbook wherever a federal standard, real liability, and a manual incumbent meet. Plus the engineering firms on the hook for a survey-grade record.</p>
-        <span class="more">See where it&rsquo;s headed &rarr;</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
- * DEPLOYMENTS — WPAFB first per CMO direction
- * ============================================================ -->
-<section>
-  <div class="container">
-    <div class="grid-12" style="align-items: end; margin-bottom: 32px;">
-      <div class="col-7">
-        <p class="eyebrow">In deployment</p>
-        <h2 class="display-lg">Running at real sites<br/>today<span class="navy">.</span></h2>
+<!-- THREE MODES -->
+<section class="band stone">
+  <div class="wrap">
+    <div class="lp-eyebrow reveal">Three ways to run it</div>
+    <h2 class="big reveal" style="margin-top:20px;max-width:820px">LAIRA is AI-enabled software.</h2>
+    <p class="lead reveal">The same engine reads your pavement three ways. Start with the model on data you already have, or let us put the whole system on your truck.</p>
+    <div class="modes">
+      <div class="mode dark reveal">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#D8FF3C" stroke-width="1.6" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/><circle cx="7" cy="6" r="1.4" fill="#D8FF3C" stroke="none"/><circle cx="14" cy="12" r="1.4" fill="#D8FF3C" stroke="none"/><circle cx="10" cy="18" r="1.4" fill="#D8FF3C" stroke="none"/></svg>
+        <div class="tag" style="border:0;padding:0;color:#D8FF3C">SOFTWARE ONLY</div>
+        <h3>Bring your own capture.</h3>
+        <p>The engine is sensor-agnostic. Feed it imagery or LiDAR from the vehicles you already run, and it returns scored, geolocated findings in Esri.</p>
+        <div class="tag">NO NEW HARDWARE</div>
       </div>
-      <div class="col-5" style="padding-bottom: 8px;">
-        <p style="font-size: 14px; color: var(--stone); line-height: 1.6;">Named airfields, installations, and partners where LAIRA is deployed today. Listed below as it stands.</p>
+      <div class="mode reveal">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#0E1A33" stroke-width="1.6" stroke-linecap="round"><path d="M3 13l2-5a2 2 0 0 1 1.9-1.4h6.6a2 2 0 0 1 1.8 1.1L19 13"/><path d="M2 13h18v4H2z"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="15.5" cy="17.5" r="1.8"/></svg>
+        <div class="tag" style="border:0;padding:0;color:#5b606b">AUTOMATION</div>
+        <h3>We run the drive.</h3>
+        <p>A managed capture-to-report service. We deploy the rig, drive your network, and hand back the findings and the audit trail.</p>
+        <div class="tag">FULLY MANAGED</div>
       </div>
-    </div>
-
-    <div class="deploy-list">
-      <div class="deploy">
-        <div>
-          <div class="stage">Active deployment &middot; LOA signed</div>
-          <div class="name">Wright-Patterson AFB</div>
-        </div>
-        <p class="what">Active beta deployment with the 88th Operations Support Squadron airfield-management office, run off an operations vehicle and filed where the base already works. Letter of Agreement signed.</p>
-        <div class="marker">$49.5B DoW backlog</div>
-      </div>
-      <div class="deploy">
-        <div>
-          <div class="stage">Beta operating partner &middot; featured by Esri</div>
-          <div class="name">San Bernardino International Airport</div>
-        </div>
-        <p class="what">San Bernardino&rsquo;s FAA Part 139 self-inspection and condition reporting running on the airport&rsquo;s own operator drives since 2025, with a citation-backed record. 3&ndash;7&times; more anomalies detected vs. manual, 50%+ less field-validation time. Featured in Esri&rsquo;s 2026 case study.</p>
-        <div class="marker">FAA Part 139 baseline</div>
-      </div>
-      <div class="deploy">
-        <div>
-          <div class="stage">Defense aviation partner</div>
-          <div class="name">Moog Inc. &middot; Defense Aviation</div>
-        </div>
-        <p class="what">Partnership with Moog&rsquo;s defense-aviation group, an established prime in the defense-aviation market.</p>
-        <div class="marker">Defense-aviation prime</div>
-      </div>
-      <div class="deploy">
-        <div>
-          <div class="stage">Screening POC</div>
-          <div class="name">Serve Robotics</div>
-        </div>
-        <p class="what">Sidewalk-robot fleet generates passive sidewalk imagery at scale. Screening ingest produces geo-tagged results published to ESRI. Validates the sensor-agnostic platform thesis.</p>
-        <div class="marker">Fleet-scale ingest</div>
+      <div class="mode reveal">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#0E1A33" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="7" width="18" height="11" rx="1.5"/><path d="M8 21h8M12 18v3"/><circle cx="12" cy="12" r="2.4"/></svg>
+        <div class="tag" style="border:0;padding:0;color:#5b606b">HARDWARE + SOFTWARE</div>
+        <h3>The LAIRA Rig.</h3>
+        <p>One roof-mounted rig, end to end: survey-grade sensors, edge compute, and the platform in a single unit your crew mounts and drives.</p>
+        <div class="tag" style="color:#0E1A33">See the hardware &rarr;</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================
- * HONESTY BLOCK
- * ============================================================ -->
-<section class="cool">
-  <div class="container">
-    <div class="grid-12">
-      <div class="col-5">
-        <p class="eyebrow">Honesty block</p>
-        <h2 class="display-md">What LAIRA Rig does not do<span class="navy">.</span></h2>
-        <p style="font-size: 14px; color: var(--stone); line-height: 1.6; margin-top: 20px; max-width: 360px;">Stated upfront, before the buyer asks. Borrowed from the D6433 matrix &sect;9.</p>
+<!-- SOFTWARE / DASHBOARD -->
+<section class="band white">
+  <div class="wrap">
+    <div class="lp-eyebrow reveal">The platform</div>
+    <h2 class="big reveal" style="margin-top:20px">Every finding, on one map.</h2>
+    <p class="lead reveal">The moment a drive ends, every crack, spall and faded marking is plotted on your network, geolocated and severity-scored, ready to act on.</p>
+  </div>
+  <div class="device reveal" id="deviceMap">
+    <div class="laptop">
+      <img src="assets/laira/dash-map.jpg" alt="LAIRA dashboard, findings across the network map">
+      <span class="dot h" style="left:31%;top:38%"></span><span class="dot m" style="left:52%;top:55%"></span>
+      <span class="dot l" style="left:44%;top:44%"></span><span class="dot h" style="left:66%;top:60%"></span>
+      <span class="dot m" style="left:24%;top:64%"></span><span class="dot l" style="left:74%;top:36%"></span>
+    </div>
+    <div class="laptop-base"></div>
+  </div>
+</section>
+
+<!-- FIELD -> ESRI (pinned scrub) — header scrolls away; only the stage + 1>2>3>4 lock in frame -->
+<section class="band deep" id="flowSection">
+  <div class="wrap flowhead">
+    <div class="lp-eyebrow lime reveal">The data does the walking</div>
+    <h2 class="big reveal" style="margin-top:14px;max-width:840px">From the field to your system of record, automatically.</h2>
+  </div>
+  <div class="wrap flowpin pin-vh" id="flowpin">
+    <div class="flowinner">
+      <div class="flowstage">
+        <img class="fs on" data-i="0" src="assets/laira/runway-base.jpg" alt="A clean road surface">
+        <img class="fs" data-i="1" src="assets/laira/dm-runway.jpg" alt="The surface resolving into a live scan with detected distresses">
+        <img class="fs" data-i="2" src="assets/laira/dash-report.jpg" alt="A scored condition report">
+        <img class="fs" data-i="3" src="assets/laira/dash-map.jpg" alt="Findings published onto the Esri map">
       </div>
-      <div class="col-7">
-        <ul class="honesty-list">
-          <li class="honesty-item">
-            <span class="mark">01</span>
-            <span class="text"><strong>Not a certified Class-1 inertial profiler.</strong> The Rig accepts your existing Greenwood, AMES, or ICC profiler IRI with cert chain preserved.</span>
-          </li>
-          <li class="honesty-item">
-            <span class="mark">02</span>
-            <span class="text"><strong>Not a Falling Weight Deflectometer.</strong> Subsurface structural evaluation requires physical loading.</span>
-          </li>
-          <li class="honesty-item">
-            <span class="mark">03</span>
-            <span class="text"><strong>Not a friction tester.</strong> Friction requires tire contact.</span>
-          </li>
-          <li class="honesty-item">
-            <span class="mark">04</span>
-            <span class="text"><strong>Retroreflectivity is a calibrated screening estimate.</strong> Compliance audits still need handheld ASTM E1710 instrument readings.</span>
-          </li>
-        </ul>
+      <div class="flow">
+        <div class="step" data-step="0"><div class="n">01 &middot; DRIVE</div><h4>Any vehicle</h4><p>Any capture, at normal operating speed.</p></div>
+        <div class="step" data-step="1"><div class="n">02 &middot; DETECT</div><h4>Every distress</h4><p>The model finds and classifies each one on the surface.</p></div>
+        <div class="step" data-step="2"><div class="n">03 &middot; DETERMINE</div><h4>Scored &amp; called</h4><p>Severity, score and the recommended action, drafted for review.</p></div>
+        <div class="step" data-step="3"><div class="n">04 &middot; PUBLISH</div><h4>Into Esri</h4><p>Findings land in the map, the PMS, and an open work order.</p></div>
       </div>
+      <div class="flowbar"><i id="flowfill"></i></div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================
- * CLOSING CTA
- * ============================================================ -->
-<section class="cta-block dark">
-  <div class="container">
-    <div class="grid-12">
-      <div class="col-8">
-        <p class="eyebrow">Next step</p>
-        <h2 class="display-lg">30 days. One airfield or corridor.<br/>Your vehicle. Your Esri endpoint<span class="navy">.</span></h2>
-        <p class="body-lg" style="color: var(--ink); opacity: 0.78;">The pilot is an audit-ready condition report against the airfield, corridor, or apron of your choice, with the per-section record delivered to your ArcGIS feature service.</p>
-        <div class="cta-row" style="margin-top: 40px;">
-          <a class="btn primary" href="/contact/">Schedule a pilot &rarr;</a>
-          <a class="btn secondary" href="/contact/">RFP / federal contracting</a>
-        </div>
-      </div>
+<!-- FLEET -->
+<section class="band navy">
+  <div class="wrap">
+    <div class="lp-eyebrow lime reveal">Fleet-agnostic</div>
+    <h2 class="big reveal" style="margin-top:20px;max-width:840px">Runs on whatever you already drive.</h2>
+    <p class="lead reveal">The rig clamps to a standard roof rack. A public-works pickup, a contractor truck, or a tactical vehicle downrange, mount it, drive, and the inspection captures itself.</p>
+    <div class="fleet">
+      <figure class="reveal"><img src="assets/laira/veh-dot.jpg" alt="LAIRA on a State DOT public-works truck"><div class="cap">STATE DOT &middot; PUBLIC WORKS</div></figure>
+      <figure class="reveal"><img src="assets/laira/veh-construction.jpg" alt="LAIRA on a contractor pickup"><div class="cap">CONTRACTOR &middot; CONSTRUCTION FLEET</div></figure>
+      <figure class="reveal"><img src="assets/laira/veh-humvee.jpg" alt="LAIRA on a military Humvee"><div class="cap">DEFENSE &middot; TACTICAL VEHICLE</div></figure>
+      <figure class="reveal"><img src="assets/laira/veh-mrap.jpg" alt="LAIRA on an MRAP"><div class="cap">EXPEDITIONARY &middot; ARMORED</div></figure>
     </div>
   </div>
 </section>
 
-<!-- ============================================================
- * FOOTER — emulates the existing airwai.com footer
- * 4 columns · light background · v2 brand
- * ============================================================ -->
-<!-- FOOTER — mirrors docs.airwai.com -->
-
-<!-- ============================================================
- * FORM B — Compact capture (site-wide footer-region widget)
- * ============================================================ -->
-<section class="cool">
-  <div class="container">
-    <div class="grid-12" style="gap: 48px; align-items: center;">
-      <div class="col-5">
-        <p class="eyebrow">Stay close to Airwai</p>
-        <h3 class="display-md">Product updates, deployment news, white-paper releases<span class="navy">.</span></h3>
-      </div>
-      <div class="col-7">
-        <script src="https://js-na2.hsforms.net/forms/embed/47691083.js" defer></script>
-        <div class="hs-form-frame" data-region="na2" data-form-id="a745f6b4-5d1b-40ed-9116-63bd54492e33" data-portal-id="47691083"></div>
-      </div>
+<!-- TRIPTYCH (city + highway; runway lives in the hero band) -->
+<section class="band white">
+  <div class="wrap">
+    <div class="lp-eyebrow reveal">Wherever it rolls</div>
+    <h2 class="big reveal" style="margin-top:20px;max-width:840px">Every surface, reading itself.</h2>
+    <p class="lead reveal">The same engine turns a city street or an interstate into a live, scored record, the instant you drive it.</p>
+    <div class="trip">
+      <figure class="reveal"><img src="assets/laira/dm-city.jpg" alt="City scan"><div class="cap">CITY STREET &middot; PCI &middot; ASTM D6433</div></figure>
+      <figure class="reveal"><img src="assets/laira/dm-highway.jpg" alt="Interstate scan"><div class="cap">INTERSTATE &middot; PCC &middot; ASTM D6433</div></figure>
     </div>
   </div>
 </section>
+
+<!-- QUOTES -->
+<section class="band stone">
+  <div class="wrap quotes">
+    <div class="quote reveal">
+      <p>&ldquo;By deploying AI-driven airfield intelligence within our GIS environment, we are demonstrating how airports can move from reactive operations to predictive, data-led management.&rdquo;</p>
+      <div class="who"><div class="av"></div><div><div class="nm">Mike Burrows</div><div class="rl">CEO, San Bernardino International Airport &middot; via Esri</div></div></div>
+    </div>
+    <div class="quote reveal">
+      <p>&ldquo;A system that rides the vehicles we already drive and turns every pass into an objective, auditable record would let my team spend less time collecting data and more time acting on it.&rdquo;</p>
+      <div class="who"><div class="av"></div><div><div class="nm">Maj Ryan Samolewski</div><div class="rl">88th Operations Support Squadron &middot; Wright-Patterson AFB</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- RIG -->
+<section class="band white seam-below">
+  <div class="wrap rigrow">
+    <div class="reveal">
+      <div class="lp-eyebrow">The sensor that feeds it</div>
+      <h2 class="big" style="margin-top:20px">One rig<br>roof-installed</h2>
+      <p class="lead">When you want the hardware too, the LAIRA Rig carries survey-grade LiDAR, a global-shutter camera, dual-antenna GNSS/INS, edge compute, and blind-mate batteries in one weather-sealed unit, mounted by one person.</p>
+      <div class="spec">
+        <span>OUSTER OS1 LiDAR</span><b>/</b><span>DUAL-ANTENNA GNSS/INS</span><b>/</b><span>GLOBAL-SHUTTER CAMERA</span><b>/</b><span>EDGE COMPUTE</span>
+      </div>
+    </div>
+    <img class="reveal" data-parallax="-40" src="assets/laira/env-airbase.jpg" alt="LAIRA Rig on a truck at a flightline">
+  </div>
+</section>
+
+<!-- STATS (light, matches the rig section) -->
+<section class="band white seam-above">
+  <div class="wrap">
+    <div class="lp-eyebrow reveal">The math</div>
+    <h2 class="big reveal" style="margin-top:20px;max-width:900px">Skip the million-dollar survey van.</h2>
+    <p class="lead reveal">The usual way to measure pavement is a fleet of laser-outfitted survey vans that roll through once a year or two, at consultant rates. LAIRA delivers a compliance-grade read on every drive, priced to the network.</p>
+    <div class="lp-stats">
+      <div class="lp-stat reveal"><div class="num"><span class="count" data-to="60">0</span>&times;</div><div class="lab">the ground a manual walking survey covers in a day</div></div>
+      <div class="lp-stat reveal"><div class="num">1 drive</div><div class="lab">replaces a ~$1M van you would wait weeks to months for</div></div>
+      <div class="lp-stat reveal"><div class="num">~$0<span style="font-size:22px;font-weight:600">/mi</span></div><div class="lab">your own truck and driver, vs $100&ndash;1,000/mi contracted</div></div>
+      <div class="lp-stat reveal"><div class="num"><span class="count" data-to="3.0" data-dec="1">0</span>&times;</div><div class="lab">project multiplier &mdash; freed field days become billable work</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="band deep cta-band">
+  <div class="wrap reveal">
+    <h2>Bring autonomous inspection<br>to your infrastructure.</h2>
+    <div class="actions"><a class="lp-btn lp-btn-lime">Request a demo</a><a class="lp-btn lp-btn-ghost-d">Talk to the team</a></div>
+  </div>
+</section>
+
+<!-- STAY CLOSE (lead capture — mirrors airwai.com; real HubSpot embed wired in airwai-www) -->
+<section class="band stone" id="signup">
+  <div class="wrap signup">
+    <div class="reveal">
+      <div class="lp-eyebrow">Stay close to Airwai</div>
+      <h2 class="big" style="margin-top:20px">Product updates, deployment news, white-paper releases<span class="navy">.</span></h2>
+    </div>
+    <div class="reveal"><div class="hs-form-frame" data-region="na2" data-form-id="a745f6b4-5d1b-40ed-9116-63bd54492e33" data-portal-id="47691083"></div></div>
+  </div>
+</section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.14/lenis.min.js"></script>
+<script src="https://js-na2.hsforms.net/forms/embed/47691083.js" defer></script>
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasGSAP = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
+  if(reduce || !hasGSAP){ document.documentElement.classList.add('no-motion'); return; }
+  gsap.registerPlugin(ScrollTrigger);
+  try{
+    if(typeof Lenis !== 'undefined'){
+      var lenis = new Lenis({ duration:1.1, smoothWheel:true });
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add(function(t){ lenis.raf(t*1000); });
+      gsap.ticker.lagSmoothing(0);
+    }
+  }catch(e){}
+  gsap.from('.lp-hero [data-hero]',{ y:26, opacity:0, duration:.9, stagger:.1, ease:'power3.out', delay:.12 });
+  gsap.set('.dm .cap > *', { opacity:0, y:20 });
+  gsap.set('#scanline', { top:'0%', opacity:0 });
+  gsap.timeline({ scrollTrigger:{ trigger:'#dmband', start:'top top', end:'+=1100', scrub:0.5, pin:true, anticipatePin:1 }})
+    .to('#scanline',{ opacity:1, duration:.06 })
+    .to('#scanline',{ top:'100%', duration:1, ease:'none' }, '<')
+    .to('.dm .machine',{ clipPath:'inset(0 0 0% 0)', duration:1, ease:'none' }, '<')
+    .to('#scanline',{ opacity:0, duration:.12 })
+    .to('.dm .cap > *',{ opacity:1, y:0, duration:.5, stagger:.12, ease:'power2.out' }, '-=.35');
+  gsap.utils.toArray('.reveal').forEach(function(el){
+    gsap.to(el,{ y:0, opacity:1, duration:.9, ease:'power3.out', scrollTrigger:{ trigger:el, start:'top 86%' } });
+  });
+  gsap.utils.toArray('[data-parallax]').forEach(function(el){
+    gsap.to(el,{ y:parseFloat(el.dataset.parallax), ease:'none', scrollTrigger:{ trigger:el, start:'top bottom', end:'bottom top', scrub:true } });
+  });
+  ScrollTrigger.create({ trigger:'#deviceMap', start:'top 70%', once:true, onEnter:function(){
+    gsap.to('#deviceMap .dot',{ scale:1, duration:.5, stagger:.09, ease:'back.out(2)' });
+  }});
+  var steps=gsap.utils.toArray('#flowpin .step');
+  var ft=gsap.timeline({ scrollTrigger:{ trigger:'#flowpin', start:'top top', end:'+=2000', scrub:.6, pin:'#flowpin' }});
+  steps.forEach(function(s,i){ ft.to(s,{ onStart:function(){ setStep(i); }, onReverseComplete:function(){ setStep(i-1); }, duration:1 }); });
+  ft.to('#flowfill',{ width:'100%', ease:'none', duration:steps.length }, 0);
+  var fsImgs = gsap.utils.toArray('.flowstage .fs');
+  function setStep(i){
+    steps.forEach(function(s,j){ s.classList.toggle('on', j<=i); });
+    fsImgs.forEach(function(im){ im.classList.toggle('on', parseInt(im.dataset.i,10)===i); });
+  }
+  setStep(0);
+  gsap.utils.toArray('.count').forEach(function(el){
+    var to=parseFloat(el.dataset.to), dec=parseInt(el.dataset.dec||'0'), o={v:0};
+    ScrollTrigger.create({ trigger:el, start:'top 88%', once:true, onEnter:function(){
+      gsap.to(o,{ v:to, duration:1.6, ease:'power2.out', onUpdate:function(){ el.textContent=o.v.toFixed(dec); }});
+    }});
+  });
+  ScrollTrigger.refresh();
+})();
+</script>
