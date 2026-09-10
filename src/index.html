@@ -172,7 +172,7 @@ description: LAIRA turns an ordinary drive into compliance-grade condition data,
   .cta-band .actions{ display:flex; gap:14px; justify-content:center; margin-top:34px; flex-wrap:wrap; }
 
   /* STAY-CLOSE lead-capture (mirrors airwai.com's pre-footer form band) */
-  .signup{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; align-items:center; }
+  .signup{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; align-items:start; }
   .signup h2.big{ max-width:520px; }
   
   
@@ -453,14 +453,16 @@ description: LAIRA turns an ordinary drive into compliance-grade condition data,
     }
   }catch(e){}
   gsap.from('.lp-hero [data-hero]',{ y:26, opacity:0, duration:.9, stagger:.1, ease:'power3.out', delay:.12 });
-  gsap.set('.dm .cap > *', { opacity:0, y:20 });
-  gsap.set('#scanline', { top:'0%', opacity:0 });
-  gsap.timeline({ scrollTrigger:{ trigger:'#dmband', start:'top top', end:'+=1100', scrub:0.5, pin:true, anticipatePin:1 }})
-    .to('#scanline',{ opacity:1, duration:.06 })
-    .to('#scanline',{ top:'100%', duration:1, ease:'none' }, '<')
-    .to('.dm .machine',{ clipPath:'inset(0 0 0% 0)', duration:1, ease:'none' }, '<')
-    .to('#scanline',{ opacity:0, duration:.12 })
-    .to('.dm .cap > *',{ opacity:1, y:0, duration:.5, stagger:.12, ease:'power2.out' }, '-=.35');
+  if(document.getElementById('dmband')){
+    gsap.set('.dm .cap > *', { opacity:0, y:20 });
+    gsap.set('#scanline', { top:'0%', opacity:0 });
+    gsap.timeline({ scrollTrigger:{ trigger:'#dmband', start:'top top', end:'+=1100', scrub:0.5, pin:true, anticipatePin:1 }})
+      .to('#scanline',{ opacity:1, duration:.06 })
+      .to('#scanline',{ top:'100%', duration:1, ease:'none' }, '<')
+      .to('.dm .machine',{ clipPath:'inset(0 0 0% 0)', duration:1, ease:'none' }, '<')
+      .to('#scanline',{ opacity:0, duration:.12 })
+      .to('.dm .cap > *',{ opacity:1, y:0, duration:.5, stagger:.12, ease:'power2.out' }, '-=.35');
+  }
   gsap.utils.toArray('.reveal').forEach(function(el){
     gsap.to(el,{ y:0, opacity:1, duration:.9, ease:'power3.out', scrollTrigger:{ trigger:el, start:'top 86%' } });
   });
@@ -470,16 +472,18 @@ description: LAIRA turns an ordinary drive into compliance-grade condition data,
   ScrollTrigger.create({ trigger:'#deviceMap', start:'top 70%', once:true, onEnter:function(){
     gsap.to('#deviceMap .dot',{ scale:1, duration:.5, stagger:.09, ease:'back.out(2)' });
   }});
-  var steps=gsap.utils.toArray('#flowpin .step');
-  var ft=gsap.timeline({ scrollTrigger:{ trigger:'#flowpin', start:'top top', end:'+=2000', scrub:.6, pin:'#flowpin' }});
-  steps.forEach(function(s,i){ ft.to(s,{ onStart:function(){ setStep(i); }, onReverseComplete:function(){ setStep(i-1); }, duration:1 }); });
-  ft.to('#flowfill',{ width:'100%', ease:'none', duration:steps.length }, 0);
-  var fsImgs = gsap.utils.toArray('.flowstage .fs');
-  function setStep(i){
-    steps.forEach(function(s,j){ s.classList.toggle('on', j<=i); });
-    fsImgs.forEach(function(im){ im.classList.toggle('on', parseInt(im.dataset.i,10)===i); });
+  if(document.getElementById('flowpin')){
+    var steps=gsap.utils.toArray('#flowpin .step');
+    var ft=gsap.timeline({ scrollTrigger:{ trigger:'#flowpin', start:'top top', end:'+=2000', scrub:.6, pin:'#flowpin' }});
+    var fsImgs = gsap.utils.toArray('.flowstage .fs');
+    var setStep=function(i){
+      steps.forEach(function(s,j){ s.classList.toggle('on', j<=i); });
+      fsImgs.forEach(function(im){ im.classList.toggle('on', parseInt(im.dataset.i,10)===i); });
+    };
+    steps.forEach(function(s,i){ ft.to(s,{ onStart:function(){ setStep(i); }, onReverseComplete:function(){ setStep(i-1); }, duration:1 }); });
+    ft.to('#flowfill',{ width:'100%', ease:'none', duration:steps.length }, 0);
+    setStep(0);
   }
-  setStep(0);
   gsap.utils.toArray('.count').forEach(function(el){
     var to=parseFloat(el.dataset.to), dec=parseInt(el.dataset.dec||'0'), o={v:0};
     ScrollTrigger.create({ trigger:el, start:'top 88%', once:true, onEnter:function(){
