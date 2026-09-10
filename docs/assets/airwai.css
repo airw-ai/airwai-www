@@ -133,8 +133,23 @@ nav.site-nav .links .cta {
   font-weight: 500;
 }
 nav.site-nav .links .cta:hover { background: var(--ink); border-color: var(--ink); color: var(--chalk); }
+/* "Who it's for" dropdown */
+nav.site-nav .navdrop { position: relative; display: inline-flex; }
+nav.site-nav .navdrop-menu {
+  position: absolute; top: 100%; left: 50%; margin-top: 10px;
+  background: var(--chalk); border: 1px solid var(--rule); border-radius: 8px;
+  box-shadow: 0 18px 44px rgba(20,20,19,0.12); padding: 8px; min-width: 224px;
+  display: flex; flex-direction: column;
+  opacity: 0; visibility: hidden; transform: translateX(-50%) translateY(-4px);
+  transition: opacity .16s ease, transform .16s ease, visibility .16s; z-index: 60;
+}
+nav.site-nav .navdrop:hover .navdrop-menu,
+nav.site-nav .navdrop:focus-within .navdrop-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+nav.site-nav .navdrop-menu a { display: block; padding: 9px 14px; font-size: 14px; color: var(--ink); border-radius: 5px; white-space: nowrap; }
+nav.site-nav .navdrop-menu a:hover { background: var(--surface-warm); color: var(--federal-navy); }
 @media (max-width: 900px) {
   nav.site-nav .links a:not(.cta) { display: none; }
+  nav.site-nav .navdrop { display: none; }
 }
 
 /* ----------------------------------------------------------

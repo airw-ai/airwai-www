@@ -1,0 +1,389 @@
+<!-- @meta
+title: Airwai · The LAIRA platform
+description: One drive automates every downstream action — LAIRA turns a single finding into a work order, a NOTAM, an evidence record, and a report, published into the Esri you already run.
+@meta-end -->
+
+<style>
+  #lp{ font-family:var(--f); color:var(--ink); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  :root{
+    /* palette — mirrors airwai.com */
+    --navy:#0E1A33; --navy-deep:#0E1A33; --lime:#D8FF3C; --chalk:#FAFAF7;
+    --ink:#16181B; --stone:#6B6B70; --rule:#E3E1DC; --rule-strong:#C9C4BB;
+    --surface-warm:#F4F0E8; --surface-cool:#EEEBE3;
+    /* type stacks — mirrors airwai.com (licensed faces fall back to Inter/JetBrains) */
+    --f: "Söhne", "Inter", system-ui, -apple-system, sans-serif;
+    --util: "Suisse Int'l", "Inter", system-ui, sans-serif;
+    --m: "Suisse Screen", "JetBrains Mono", ui-monospace, monospace;
+    /* CANONICAL SPACING SYSTEM (mirrors airwai.com) */
+    --sp-section: clamp(72px, 10vw, 128px);  /* every content section, top & bottom */
+    --sp-divider: clamp(56px, 7vw, 88px);    /* thin divider bands */
+    --sp-seam: clamp(40px, 5vw, 64px);       /* paired same-tone sections: the shared break between them */
+    --sp-gutter: 56px;     /* horizontal page gutter (--margin) */
+    --sp-maxw: 1366px;     /* content max width (--container) */
+    --sp-lp-eyebrow: 24px;    /* lp-eyebrow -> heading */
+    --sp-lead: 28px;       /* heading -> lead */
+    --sp-block: 56px;      /* intro block -> content grid */
+    --ease: cubic-bezier(0.2, 0, 0, 1);
+  }
+  #lp *{ box-sizing:border-box; margin:0; }
+  
+  
+  #lp h1,#lp h2,#lp h3{ margin:0; letter-spacing:-0.025em; line-height:1.03; text-wrap:balance; }
+  #lp p{ margin:0; text-wrap:pretty; }
+  #lp img{ display:block; max-width:100%; }
+  #lp .mono{ font-family:var(--m); }
+  .wrap{ max-width:var(--sp-maxw); margin:0 auto; padding:0 var(--sp-gutter); }
+  section{ position:relative; }
+  .lp-eyebrow{ display:inline-flex; align-items:center; gap:14px; font-family:var(--util); font-size:11px; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--stone); }
+  .lp-eyebrow::before{ content:""; display:block; width:32px; height:1px; background:var(--navy); }
+  .lp-eyebrow.lime{ color:var(--lime); }
+  .band.navy .lp-eyebrow::before, .band.deep .lp-eyebrow::before, .lp-eyebrow.lime::before{ background:var(--lime); }
+  .lp-btn{ display:inline-block; border-radius:6px; font-weight:600; font-size:17px; padding:15px 30px; }
+  .lp-btn-primary{ background:var(--navy); color:var(--chalk); }
+  .lp-btn-lime{ background:var(--lime); color:var(--navy); font-weight:700; }
+  .lp-btn-ghost{ color:var(--navy); border:1px solid #d3d3cc; }
+  .lp-btn-ghost-d{ color:var(--chalk); border:1px solid #2b3a58; }
+
+  /* NAV — sticky solid bar (airwai) */
+  
+  
+  
+  
+  
+  
+  
+
+  /* HERO — rig image bleeds off the right, text left on the canonical grid */
+  .lp-hero{ position:relative; min-height:92vh; display:flex; align-items:center; overflow:hidden; background:#e9e9ee; }
+  .lp-hero .bg{ position:absolute; inset:0; z-index:0; background-size:cover; background-position:center; }
+  .lp-hero .scrim{ position:absolute; inset:0; z-index:1; background:linear-gradient(90deg, #e9e9ee 0%, #e9e9ee 24%, rgba(233,233,238,0.7) 44%, rgba(233,233,238,0) 64%); }
+  .lp-hero .inner{ position:relative; z-index:2; width:100%; max-width:var(--sp-maxw); margin:0 auto; padding:0 var(--sp-gutter); }
+  .lp-hero .text{ max-width:520px; text-align:left; }
+  .lp-hero h1{ font-size:clamp(40px,4.6vw,72px); font-weight:700; letter-spacing:-0.026em; line-height:1.03; color:var(--ink); }
+  .lp-hero .subh{ font-size:clamp(22px,3vw,36px); font-weight:600; color:var(--stone); line-height:1.14; margin-top:12px; letter-spacing:-0.016em; }
+  .lp-hero .lead{ font-size:18px; line-height:1.6; color:var(--stone); max-width:480px; margin:28px 0 0; }
+  .lp-hero .actions{ display:flex; gap:14px; margin-top:32px; flex-wrap:wrap; }
+  .chips{ display:flex; flex-wrap:wrap; gap:10px 24px; margin-top:28px; justify-content:flex-start; }
+  .chip{ font-family:var(--m); font-size:12px; letter-spacing:0.1em; color:var(--stone); display:inline-flex; align-items:center; gap:7px; }
+  .chip i{ width:6px; height:6px; border-radius:50%; background:#7fae2f; display:inline-block; }
+  @media(max-width:820px){
+    .lp-hero{ text-align:center; }
+    .lp-hero .scrim{ background:linear-gradient(180deg, #e9e9ee 0%, rgba(233,233,238,.72) 48%, #e9e9ee 100%); }
+    .lp-hero .text{ text-align:center; margin:0 auto; } .lp-hero .actions, .lp-hero .chips{ justify-content:center; }
+  }
+
+  /* GROW-ON-SCROLL — a hero photo below the fold expands to full-bleed as you scroll (horizontal only, no vertical move) */
+  .growimg{ display:block; width:100vw; max-width:100vw; margin-left:calc(50% - 50vw); height:clamp(320px,46vw,620px); object-fit:cover; transform:scale(0.84); transform-origin:center bottom; border-radius:22px; will-change:transform; }
+  .no-motion .growimg{ transform:scale(0.92); }
+  /* a hero grow-image sits flush on the section divider ONLY when the next section is a solid band; if the next section is itself a full-bleed image, keep the padding so the two images don't press together */
+  .band:has(> .growimg):has(+ .band){ padding-bottom:0; }
+
+  /* DATA-MACHINE band (scan-wipe, below hero) */
+  .dm{ position:relative; height:100vh; min-height:640px; overflow:hidden; background:#05264a; }
+  .dm .layer{ position:absolute; inset:-6% 0; width:100%; height:112%; object-fit:cover; }
+  .dm .base{ z-index:1; }
+  .dm .machine{ z-index:2; clip-path:inset(0 0 100% 0); }
+  .dm .scanline{ position:absolute; left:0; right:0; height:3px; z-index:3; top:0;
+      background:linear-gradient(90deg, transparent, var(--lime) 20%, #fff 50%, var(--lime) 80%, transparent);
+      box-shadow:0 0 24px 6px rgba(216,255,60,.7); opacity:0; }
+  .dm .grad{ position:absolute; inset:0; z-index:4; background:linear-gradient(90deg, rgba(5,20,40,.6) 0%, rgba(5,20,40,.25) 40%, rgba(5,20,40,0) 70%); }
+  .dm .cap{ position:absolute; z-index:5; left:0; right:0; top:50%; transform:translateY(-50%); }
+  .dm .cap h2{ font-size:clamp(30px,4.4vw,54px); font-weight:800; color:#fff; max-width:720px; text-shadow:0 2px 24px rgba(5,20,40,.55); }
+  .dm .cap p{ font-size:clamp(16px,2vw,20px); line-height:1.5; color:#e4e8ef; max-width:600px; margin-top:16px; text-shadow:0 2px 20px rgba(5,20,40,.5); }
+
+  /* generic sections — canonical vertical rhythm + 1px rule divider (airwai) */
+  .band{ padding-block: var(--sp-section); border-bottom:1px solid var(--rule); }
+  .band.navy, .band.deep{ border-bottom-color: rgba(255,255,255,0.08); }
+  .band.white{ background:var(--chalk); }
+  .band.stone{ background:var(--surface-warm); }
+  .band.navy{ background:var(--navy); color:var(--chalk); }
+  .band.deep{ background:var(--navy-deep); color:var(--chalk); }
+  /* PIN RULE (canonical): every scroll-pinned section is a full viewport tall so it locks flush — no gap peeking below the pin. */
+  .pin-vh{ min-height:100vh; }
+  /* SEAM RULE (canonical): when two same-tone sections read as one pair, they share ONE break (no rule divider), not two full section pads. Trim the upper section's bottom and the lower section's top. */
+  .band.seam-below{ padding-bottom: var(--sp-seam); border-bottom:none; }
+  .band.seam-above{ padding-top: var(--sp-seam); }
+  h2.big{ font-size:clamp(36px,4.5vw,64px); font-weight:700; letter-spacing:-0.024em; line-height:1.05; }
+  .band.white h2.big, .band.stone h2.big{ color:var(--ink); }
+  .band.navy h2.big, .band.deep h2.big{ color:var(--chalk); }
+  .lead{ font-size:18px; line-height:1.6; color:var(--stone); max-width:640px; margin-top:24px; }
+  .band.navy .lead, .band.deep .lead{ color:#c7cdd8; }
+
+  .reinforce{ display:flex; gap:14px; align-items:baseline; flex-wrap:wrap; justify-content:center; font-size:clamp(22px,3.2vw,30px); font-weight:800; letter-spacing:-.02em; }
+  .reinforce .dim{ color:#9aa0aa; }
+
+  .modes{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:56px; }
+  .mode{ border-radius:12px; padding:32px; display:flex; flex-direction:column; gap:14px; border:1px solid var(--rule); background:var(--chalk); }
+  .mode.dark{ background:var(--navy); border-color:var(--navy); color:var(--chalk); }
+  .mode h3{ font-size:24px; font-weight:700; }
+  .mode p{ font-size:16px; line-height:1.55; color:var(--stone); flex-grow:1; }
+  .mode.dark p{ color:#c7cdd8; }
+  .mode .tag{ font-family:var(--m); font-size:12px; letter-spacing:.1em; color:#8f97a6; border-top:1px solid var(--rule); padding-top:16px; }
+  .mode.dark .tag{ border-color:#24314d; color:var(--lime); }
+  .mode .ic{ width:30px;height:30px; }
+
+  .device{ max-width:1000px; margin:60px auto 0; }
+  .laptop{ background:#1b1d23; border-radius:12px 12px 4px 4px; padding:12px 12px 9px; box-shadow:0 44px 90px rgba(14,26,51,.24); position:relative; overflow:hidden; }
+  .laptop img{ width:100%; border-radius:2px; }
+  .laptop .dot{ position:absolute; width:16px; height:16px; border-radius:50%; transform:translate(-50%,-50%) scale(0); }
+  .laptop .dot::after{ content:""; position:absolute; inset:4px; border-radius:50%; }
+  .laptop .dot.h::after{ background:#ff5247; } .laptop .dot.h{ box-shadow:0 0 0 2px rgba(255,82,71,.3); }
+  .laptop .dot.m::after{ background:#ffb020; } .laptop .dot.l::after{ background:#37d67a; }
+  .laptop-base{ height:14px; width:112%; margin-left:-6%; background:linear-gradient(#d4d7dd,#b4b8c0); border-radius:0 0 10px 10px; }
+
+  .flowhead{ margin-bottom:8px; }
+  .flowpin{ min-height:100vh; display:flex; align-items:center; }
+  .flowinner{ width:100%; }
+  .flowstage{ position:relative; width:100%; max-width:940px; margin:0 auto; aspect-ratio:16/8; max-height:42vh; border-radius:14px; overflow:hidden; box-shadow:0 40px 90px rgba(0,0,0,.42); background:#0b1428; }
+  .flowstage .fs{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .55s ease; }
+  .flowstage .fs.on{ opacity:1; }
+  .flow{ display:grid; grid-template-columns:repeat(4,1fr); gap:28px; width:100%; margin-top:44px; }
+  .step{ opacity:.28; transition:opacity .35s; }
+  .step .n{ font-family:var(--m); font-size:13px; letter-spacing:.14em; color:var(--lime); }
+  .step h4{ font-size:23px; font-weight:800; color:#fff; margin:12px 0 8px; }
+  .step p{ font-size:16px; line-height:1.5; color:#c7cdd8; }
+  .step.on{ opacity:1; }
+  .flowbar{ height:2px; background:#22304e; margin-top:40px; position:relative; }
+  .flowbar i{ position:absolute; left:0; top:0; height:100%; width:0; background:var(--lime); }
+
+  .fleet{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:52px; }
+  .fleet figure{ display:flex; flex-direction:column; gap:12px; }
+  .fleet img{ width:100%; height:190px; object-fit:cover; border-radius:10px; }
+  .fleet .cap{ font-family:var(--m); font-size:12px; letter-spacing:.12em; color:#a7aebd; }
+
+  .trip{ display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:52px; }
+  .trip figure{ display:flex; flex-direction:column; gap:12px; }
+  .trip img{ width:100%; height:340px; object-fit:cover; border-radius:10px; }
+  .trip .cap{ font-family:var(--m); font-size:12px; letter-spacing:.12em; color:var(--stone); }
+
+  .quotes{ display:grid; grid-template-columns:1fr 1fr; gap:56px; }
+  .quote p{ font-size:clamp(22px,2.6vw,30px); font-weight:700; line-height:1.28; color:var(--ink); letter-spacing:-.02em; }
+  .quote .who{ display:flex; align-items:center; gap:14px; margin-top:30px; }
+  .quote .av{ width:44px; height:44px; border-radius:50%; background:#e6e6de; }
+  .quote .nm{ font-size:16px; font-weight:700; }
+  .quote .rl{ font-family:var(--m); font-size:12px; color:var(--stone); }
+
+  .rigrow{ display:grid; grid-template-columns:0.82fr 1.18fr; gap:56px; align-items:center; }
+  .rigrow img{ width:100%; border-radius:12px; }
+  .spec{ display:flex; flex-wrap:wrap; gap:10px 22px; margin-top:28px; }
+  .spec span{ font-family:var(--m); font-size:13px; letter-spacing:.06em; color:var(--stone); }
+  .spec b{ color:#cfcfc7; font-weight:400; }
+
+  .lp-stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:36px; margin-top:64px; }
+  .lp-stat .num{ font-size:clamp(40px,5vw,56px); font-weight:800; color:var(--ink); line-height:1; }
+  .lp-stat .lab{ font-size:15px; color:var(--stone); margin-top:12px; line-height:1.4; }
+
+  .cta-band{ text-align:center; }
+  .cta-band h2{ font-size:clamp(38px,5vw,58px); font-weight:800; color:#fff; }
+  .cta-band .actions{ display:flex; gap:14px; justify-content:center; margin-top:34px; flex-wrap:wrap; }
+
+  /* STAY-CLOSE lead-capture (mirrors airwai.com's pre-footer form band) */
+  .signup{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; align-items:start; }
+  .signup h2.big{ max-width:520px; }
+  .sform{ display:grid; grid-template-columns:1fr 1fr; gap:20px 20px; }
+  .field{ display:flex; flex-direction:column; gap:8px; }
+  .field.full{ grid-column:1 / -1; }
+  .field label{ font-size:14px; font-weight:500; color:var(--ink); }
+  .field label .req{ color:#c0392b; margin-left:2px; }
+  .field input{ height:46px; border:1px solid var(--rule-strong); border-radius:6px; background:var(--chalk); padding:0 14px; font-family:var(--f); font-size:15px; color:var(--ink); transition:border-color .15s var(--ease); }
+  .field input:focus{ outline:none; border-color:var(--navy); }
+  .sform .actions{ grid-column:1 / -1; display:flex; justify-content:flex-end; margin-top:4px; }
+  .sform button{ cursor:pointer; }
+  @media(max-width:820px){ .signup{ grid-template-columns:1fr; gap:40px; } .sform{ grid-template-columns:1fr 1fr; } }
+
+  /* FOOTER — airwai (light chalk, wide container, boxed social) */
+  
+  
+  
+  
+  
+  
+  
+  /* footer lists: reset the UA <ul> indent so items sit flush-left under their header */
+  
+  
+  
+  
+   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  .reveal{ opacity:0; transform:translateY(34px); }
+  .no-motion .reveal{ opacity:1; transform:none; }
+  .no-motion .dm .machine{ clip-path:none; }
+
+  @media(max-width:820px){
+    :root{ --sp-section:78px; --sp-divider:56px; --sp-gutter:24px; }
+    .modes,.fleet,.trip,.flow,.lp-stats,.quotes,.rigrow,
+    .fleet{ grid-template-columns:1fr 1fr; }
+     
+    .flowpin{ min-height:auto; padding-block:78px; } .flow{ gap:40px; }
+  }
+</style>
+
+<main id="lp">
+<!-- ============ PLATFORM — ports canvas Platform.dc.html into the parallax treatment ============ -->
+
+<!-- HERO (centered, chalk) -->
+<section class="band white seam-below" id="hero" style="padding-top:clamp(64px,7vw,100px)">
+  <div class="wrap" style="max-width:940px;text-align:center">
+    <div class="lp-eyebrow reveal" style="justify-content:center">The platform</div>
+    <h1 class="reveal" style="font-size:clamp(40px,5vw,66px);font-weight:800;line-height:1.03;letter-spacing:-0.026em;margin-top:22px">One drive automates<br>every downstream action.</h1>
+    <p class="lead reveal" style="max-width:660px;margin:24px auto 0">The rig captures the pavement. The platform does the rest, turning a single finding into a work order, a NOTAM, an evidence record, and a report, without a person retyping any of it.</p>
+  </div>
+  <div class="wrap reveal" style="max-width:1000px;margin-top:52px">
+    <img data-parallax="-24" src="/assets/laira/dataflow.gif" alt="LAIRA data flowing from finding to outputs" style="width:100%;border-radius:10px;border:1px solid var(--rule);box-shadow:0 30px 80px rgba(14,26,51,.10)">
+  </div>
+</section>
+
+<!-- FAN-OUT (chalk) -->
+<section class="band white seam-above">
+  <div class="wrap">
+    <h2 class="big reveal" style="max-width:820px">One finding fans out on its own.</h2>
+    <p class="lead reveal">A detected crack is not the end of the job, it is the start. LAIRA opens the finding, drafts the determination, and routes every output your program already produces.</p>
+    <div class="reveal" style="display:flex;align-items:center;gap:22px;margin-top:56px;flex-wrap:wrap">
+      <div style="background:var(--navy);color:var(--chalk);border-radius:10px;padding:20px 24px;min-width:190px">
+        <div class="mono" style="font-size:12px;letter-spacing:.14em;color:var(--lime)">FINDING</div>
+        <div style="font-size:19px;font-weight:700;margin-top:8px">Alligator cracking</div>
+        <div style="font-size:14px;color:#a7aebd;margin-top:4px">Sev High &middot; conf 0.88</div>
+      </div>
+      <div class="mono" style="color:#b7bcc6;font-size:22px">&rarr;</div>
+      <div style="background:var(--chalk);border:1px solid var(--rule-strong);border-radius:10px;padding:20px 24px;min-width:170px">
+        <div class="mono" style="font-size:12px;letter-spacing:.14em;color:var(--stone)">DETERMINATION</div>
+        <div style="font-size:19px;font-weight:700;color:var(--ink);margin-top:8px">Full-depth patch</div>
+      </div>
+      <div class="mono" style="color:#b7bcc6;font-size:22px">&rarr;</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;flex:1;min-width:320px">
+        <div style="border:1px solid var(--rule-strong);border-radius:8px;padding:14px 16px;font-weight:600;color:var(--ink)">Work order</div>
+        <div style="border:1px solid var(--rule-strong);border-radius:8px;padding:14px 16px;font-weight:600;color:var(--ink)">NOTAM draft</div>
+        <div style="border:1px solid var(--rule-strong);border-radius:8px;padding:14px 16px;font-weight:600;color:var(--ink)">Evidence record</div>
+        <div style="border:1px solid var(--rule-strong);border-radius:8px;padding:14px 16px;font-weight:600;color:var(--ink)">PCI report</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESRI (navy) -->
+<section class="band deep">
+  <div class="wrap" style="display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px;align-items:center">
+    <div>
+      <div class="lp-eyebrow lime reveal">Esri Partner Network</div>
+      <h2 class="big reveal" style="margin-top:18px">It lands in ArcGIS. The system you already run.</h2>
+      <p class="lead reveal">Findings publish as native Esri layers, into the maps, dashboards, and workflows your agency already operates. No new system of record to stand up, no data to re-key.</p>
+      <div class="reveal" style="margin-top:30px"><img src="/assets/laira/esri-partner-rev.png" alt="Esri Partner Network" style="height:92px;width:auto"></div>
+    </div>
+    <img class="reveal" data-parallax="-24" src="/assets/laira/field-to-esri.png" alt="Field to Esri dataflow" style="width:100%;border-radius:10px;background:var(--chalk);padding:10px">
+  </div>
+</section>
+
+<!-- SENSOR-AGNOSTIC (chalk) -->
+<section class="band white">
+  <div class="wrap">
+    <div class="lp-eyebrow reveal">Sensor-agnostic</div>
+    <h2 class="big reveal" style="margin-top:18px;max-width:820px">Any sensor in. Any system out.</h2>
+    <p class="lead reveal">LAIRA is the intelligence layer between the field and your stack. A rig, a phone, a dashcam, a drone, or an archive goes in; Esri, a report, a PMS, or an API comes out.</p>
+  </div>
+  <div class="wrap reveal" style="max-width:1040px;margin-top:52px"><img data-parallax="-20" src="/assets/laira/dg-hub.png" alt="Sensor-agnostic hub: any sensor in through the LAIRA intelligence layer, out to any stack" style="width:100%"></div>
+</section>
+
+<!-- DASHBOARD TOUR (chalk) -->
+<section class="band white">
+  <div class="wrap">
+    <div class="lp-eyebrow reveal">The dashboard</div>
+    <h2 class="big reveal" style="margin-top:18px;max-width:820px">See the whole airfield, and every finding on it.</h2>
+    <p class="lead reveal">Coverage, condition, safety, and evidence in one place, from the daily map down to a single sealed record.</p>
+  </div>
+  <div class="device reveal"><div class="laptop"><img src="/assets/laira/dash-map.jpg" alt="LAIRA findings map"></div><div class="laptop-base"></div></div>
+  <div class="wrap reveal" style="margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:24px">
+    <div><img src="/assets/laira/dash-safety.jpg" alt="Safety overview" style="width:100%;border-radius:9px;border:1px solid var(--rule);box-shadow:0 24px 60px rgba(14,26,51,.09)"><div class="mono" style="font-size:12px;letter-spacing:.12em;color:var(--stone);margin-top:14px">SAFETY OVERVIEW</div></div>
+    <div><img src="/assets/laira/dash-report.jpg" alt="Report generation" style="width:100%;border-radius:9px;border:1px solid var(--rule);box-shadow:0 24px 60px rgba(14,26,51,.09)"><div class="mono" style="font-size:12px;letter-spacing:.12em;color:var(--stone);margin-top:14px">PUSH-BUTTON REPORT</div></div>
+  </div>
+</section>
+
+<!-- HUMAN IN THE LOOP (warm) -->
+<section class="band stone">
+  <div class="wrap">
+    <div class="lp-eyebrow reveal">Accountable by design</div>
+    <h2 class="big reveal" style="margin-top:18px;max-width:820px">A human still signs. Every time.</h2>
+    <p class="lead reveal" style="max-width:700px">LAIRA stages the finding, the determination, and the exact NOTAM wording. A qualified person reviews and approves. The model does the work; the accountable human keeps the pen.</p>
+  </div>
+  <div class="device reveal"><div class="laptop"><img src="/assets/laira/dash-notam.jpg" alt="NOTAM console with human approval"></div><div class="laptop-base"></div></div>
+</section>
+
+<!-- PREDICT (navy) -->
+<section class="band deep">
+  <div class="wrap">
+    <div class="lp-eyebrow lime reveal">Predict, don't just measure</div>
+    <h2 class="big reveal" style="margin-top:18px;max-width:820px">See the failure before it happens.</h2>
+    <p class="lead reveal" style="max-width:760px">LAIRA does not just score today's condition. It projects each surface forward across the year, so you schedule the fix while it is still cheap, not after it fails an inspection.</p>
+    <div class="reveal" style="margin-top:52px;border:1px solid #22304e;border-radius:10px;overflow:hidden"><img data-parallax="-18" src="/assets/laira/dash-forecast.jpg" alt="Pavement degradation prediction chart, condition score forecast by month with severity bands" style="width:100%;display:block"></div>
+  </div>
+</section>
+
+<!-- CTA (deep) -->
+<section class="band deep cta-band">
+  <div class="wrap reveal">
+    <h2>The rig captures it. The platform runs with it.</h2>
+    <div class="actions"><a class="lp-btn lp-btn-lime">Request a demo</a><a class="lp-btn lp-btn-ghost-d">Talk to the team</a></div>
+  </div>
+</section>
+
+<!-- STAY CLOSE (lead capture) -->
+<section class="band stone" id="signup">
+  <div class="wrap signup">
+    <div class="reveal">
+      <div class="lp-eyebrow">Stay close to Airwai</div>
+      <h2 class="big" style="margin-top:20px">Product updates, deployment news, white-paper releases.</h2>
+    </div>
+    <div class="reveal"><div class="hs-form-frame" data-region="na2" data-form-id="a745f6b4-5d1b-40ed-9116-63bd54492e33" data-portal-id="47691083"></div></div>
+  </div>
+</section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.14/lenis.min.js"></script>
+<script src="https://js-na2.hsforms.net/forms/embed/47691083.js" defer></script>
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasGSAP = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
+  if(reduce || !hasGSAP){ document.documentElement.classList.add('no-motion'); return; }
+  gsap.registerPlugin(ScrollTrigger);
+  try{ if(typeof Lenis !== 'undefined'){ var lenis=new Lenis({duration:1.1,smoothWheel:true});
+    lenis.on('scroll',ScrollTrigger.update); gsap.ticker.add(function(t){lenis.raf(t*1000);}); gsap.ticker.lagSmoothing(0);} }catch(e){}
+  gsap.from('.lp-hero [data-hero]',{ y:26, opacity:0, duration:.9, stagger:.1, ease:'power3.out', delay:.12 });
+  if(document.getElementById('dmband')){
+    gsap.set('.dm .cap > *',{opacity:0,y:20}); gsap.set('#scanline',{top:'0%',opacity:0});
+    gsap.timeline({ scrollTrigger:{ trigger:'#dmband', start:'top top', end:'+=1100', scrub:0.5, pin:true, anticipatePin:1 }})
+      .to('#scanline',{opacity:1,duration:.06}).to('#scanline',{top:'100%',duration:1,ease:'none'},'<')
+      .to('.dm .machine',{clipPath:'inset(0 0 0% 0)',duration:1,ease:'none'},'<')
+      .to('#scanline',{opacity:0,duration:.12})
+      .to('.dm .cap > *',{opacity:1,y:0,duration:.5,stagger:.12,ease:'power2.out'},'-=.35');
+  }
+  gsap.utils.toArray('.reveal').forEach(function(el){ gsap.to(el,{y:0,opacity:1,duration:.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 86%'}}); });
+  gsap.utils.toArray('[data-parallax]').forEach(function(el){ gsap.to(el,{y:parseFloat(el.dataset.parallax),ease:'none',scrollTrigger:{trigger:el,start:'top bottom',end:'bottom top',scrub:true}}); });
+  gsap.utils.toArray('.growimg').forEach(function(im){ gsap.fromTo(im,{scale:0.84,borderRadius:22},{scale:1,borderRadius:0,ease:'none',scrollTrigger:{trigger:(im.closest('section')||im),start:'top top',end:'+=560',scrub:.5}}); });
+  ScrollTrigger.create({ trigger:'#deviceMap', start:'top 70%', once:true, onEnter:function(){ gsap.to('#deviceMap .dot',{scale:1,duration:.5,stagger:.09,ease:'back.out(2)'}); }});
+  if(document.getElementById('flowpin')){
+    var steps=gsap.utils.toArray('#flowpin .step');
+    var ft=gsap.timeline({ scrollTrigger:{ trigger:'#flowpin', start:'top top', end:'+=2000', scrub:.6, pin:'#flowpin' }});
+    var fsImgs=gsap.utils.toArray('.flowstage .fs');
+    var setStep=function(i){ steps.forEach(function(s,j){s.classList.toggle('on',j<=i);}); fsImgs.forEach(function(im){im.classList.toggle('on',parseInt(im.dataset.i,10)===i);}); };
+    steps.forEach(function(s,i){ ft.to(s,{onStart:function(){setStep(i);},onReverseComplete:function(){setStep(i-1);},duration:1}); });
+    ft.to('#flowfill',{width:'100%',ease:'none',duration:steps.length},0); setStep(0);
+  }
+  gsap.utils.toArray('.count').forEach(function(el){ var to=parseFloat(el.dataset.to),dec=parseInt(el.dataset.dec||'0'),o={v:0};
+    ScrollTrigger.create({trigger:el,start:'top 88%',once:true,onEnter:function(){ gsap.to(o,{v:to,duration:1.6,ease:'power2.out',onUpdate:function(){el.textContent=o.v.toFixed(dec);}}); }}); });
+  ScrollTrigger.refresh();
+})();
+</script>
