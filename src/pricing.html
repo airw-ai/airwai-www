@@ -1,577 +1,428 @@
 <!-- @meta
-title: Pricing & Procurement · Airwai
-description: Annual LAIRA contracts with 30-day deployment. Direct subscription sale, federal-ready under FAR Part 12, SBIR Phase III, and multi-year service agreement. ArcGIS-native, NDAA-compliant, audit-traced.
+title: Airwai · LAIRA pricing
+description: Priced to pay for itself — fewer inspection hours, avoided penalties, and more billable field-days. Start free, screen your network, or run it as your audit-ready system of record.
 @meta-end -->
 
 <style>
-.body { font-size: 16px; line-height: 1.6; font-weight: 400; }
-.stone { color: var(--stone); }
-.rig-card {
-  background: var(--federal-navy);
-  color: var(--chalk);
-  padding: clamp(40px, 5vw, 64px);
-  border: 1px solid var(--federal-navy);
-  position: relative;
-  margin-top: 56px;
-}
-.rig-card::before {
-  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: var(--signal-lime);
-}
-.rig-card .meta-row {
-  display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
-  font-family: var(--font-utility); font-size: 11px;
-  letter-spacing: 0.22em; text-transform: uppercase;
-  margin-bottom: 32px;
-}
-.rig-card .meta-row .badge {
-  color: var(--signal-lime); font-weight: 500;
-  display: inline-flex; align-items: center; gap: 8px;
-}
-.rig-card .meta-row .badge::before {
-  content: ""; width: 7px; height: 7px; background: var(--signal-lime);
-  display: inline-block;
-}
-.rig-card .meta-row .status { color: rgba(255,255,255,0.5); }
-.rig-card h2 {
-  font-size: clamp(36px, 5vw, 64px);
-  line-height: 1.04; font-weight: 700; letter-spacing: -0.026em;
-  color: var(--chalk); margin-bottom: 20px;
-}
-.rig-card .lede {
-  font-size: clamp(17px, 1.6vw, 21px); line-height: 1.5;
-  color: rgba(255,255,255,0.82); max-width: 720px; margin-bottom: 48px;
-}
-.rig-card .rig-grid {
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px;
-  border-top: 1px solid rgba(255,255,255,0.18); padding-top: 40px;
-}
-@media (max-width: 900px) { .rig-card .rig-grid { grid-template-columns: 1fr; gap: 32px; } }
-.rig-card .col-label {
-  font-family: var(--font-utility); font-size: 10px; font-weight: 500;
-  letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--signal-lime); margin-bottom: 18px;
-}
-.rig-card ul { list-style: none; padding: 0; margin: 0; }
-.rig-card ul li {
-  padding: 7px 0; font-size: 15px; line-height: 1.55;
-  color: rgba(255,255,255,0.88);
-  display: flex; align-items: flex-start; gap: 12px;
-}
-.rig-card ul li::before {
-  content: ""; width: 5px; height: 5px; background: var(--signal-lime);
-  display: inline-block; margin-top: 8px; flex-shrink: 0;
-}
-.rig-card .cta-row { margin-top: 48px; }
-.rig-card .anchor-note {
-  margin-top: 32px; padding-top: 24px;
-  border-top: 1px solid rgba(255,255,255,0.18);
-  font-family: var(--font-mono); font-size: 12px;
-  color: rgba(255,255,255,0.6); letter-spacing: 0.04em;
-}
-.roadmap-row {
-  margin-top: 40px;
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
-}
-@media (max-width: 900px) { .roadmap-row { grid-template-columns: 1fr; } }
-.roadmap-card {
-  background: var(--chalk);
-  border: 1px solid var(--rule);
-  padding: 28px 28px 32px;
-}
-.roadmap-card .badge {
-  font-family: var(--font-utility); font-size: 10px;
-  letter-spacing: 0.2em; text-transform: uppercase; color: var(--stone);
-  font-weight: 500; margin-bottom: 10px;
-}
-.roadmap-card h3 {
-  font-size: 22px; font-weight: 700; letter-spacing: -0.014em;
-  line-height: 1.1; color: var(--ink); margin-bottom: 8px;
-}
-.roadmap-card .status {
-  font-family: var(--font-mono); font-size: 11px;
-  color: var(--federal-navy); letter-spacing: 0.04em;
-  margin-bottom: 20px; font-weight: 500;
-}
-.roadmap-card p {
-  font-size: 14px; line-height: 1.55; color: var(--stone);
-  margin-bottom: 24px;
-}
-.roadmap-card .ea-link {
-  font-family: var(--font-utility); font-size: 12px;
-  font-weight: 500; letter-spacing: 0.04em;
-  color: var(--federal-navy); text-decoration: none;
-  border-bottom: 1px solid var(--rule-strong); padding-bottom: 2px;
-  transition: border-color 200ms var(--ease);
-}
-.roadmap-card .ea-link:hover { border-color: var(--federal-navy); }
-.pathway-grid {
-  margin-top: 48px;
-  border-top: 2px solid var(--ink);
-}
-.pathway-row {
-  display: grid; grid-template-columns: 1fr 2fr; gap: 32px;
-  padding: 24px 0; border-bottom: 1px solid var(--rule);
-  align-items: start;
-}
-@media (max-width: 700px) {
-  .pathway-row { grid-template-columns: 1fr; gap: 8px; }
-}
-.pathway-row .k {
-  font-family: var(--font-utility);
-  font-size: 12px; font-weight: 600;
-  letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--ink);
-}
-.pathway-row .k .ref {
-  display: block; margin-top: 4px;
-  font-family: var(--font-mono); font-size: 11px; font-weight: 400;
-  letter-spacing: 0.04em; text-transform: none;
-  color: var(--federal-navy);
-}
-.pathway-row .v {
-  font-size: 15px; line-height: 1.6; color: var(--ink);
-}
-.pathway-row.status-pending .k { color: var(--stone); }
-.pathway-row.status-pending .v { color: var(--stone); }
-.pathway-status-header {
-  font-family: var(--font-utility);
-  font-size: 11px; letter-spacing: 0.22em;
-  text-transform: uppercase; color: var(--stone);
-  margin: 40px 0 -8px;
-}
-.deliverable-list {
-  list-style: none; padding: 0; margin: 24px 0 0;
-}
-.deliverable-list li {
-  padding: 14px 0; border-top: 1px solid var(--rule);
-  display: flex; gap: 16px; align-items: flex-start;
-  font-size: 16px; line-height: 1.55; color: var(--ink);
-}
-.deliverable-list li::before {
-  content: ""; width: 6px; height: 6px;
-  background: var(--federal-navy);
-  margin-top: 9px; flex-shrink: 0;
-}
-.deliverable-list li:last-child { border-bottom: 1px solid var(--rule); }
-.timeline {
-  margin-top: 40px;
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
-}
-@media (max-width: 700px) { .timeline { grid-template-columns: repeat(2, 1fr); } }
-.timeline .step {
-  border-top: 2px solid var(--ink); padding-top: 16px;
-}
-.timeline .step .n {
-  font-family: var(--font-mono); font-size: 11px;
-  color: var(--federal-navy); letter-spacing: 0.18em;
-  text-transform: uppercase; margin-bottom: 8px;
-}
-.timeline .step h4 {
-  font-size: 17px; font-weight: 600; letter-spacing: -0.01em;
-  line-height: 1.25; color: var(--ink); margin-bottom: 8px;
-}
-.timeline .step p {
-  font-size: 13px; line-height: 1.55; color: var(--stone);
-}
-.proof-block {
-  margin-top: 56px;
-  padding: 32px 36px;
-  display: flex; align-items: center; gap: 32px;
-  background: var(--surface-warm);
-  border: 1px solid var(--rule-strong);
-  border-left: 3px solid var(--federal-navy);
-  text-decoration: none;
-  color: var(--ink);
-  transition: background 200ms var(--ease);
-}
-.proof-block:hover { background: var(--chalk); }
-.proof-block .label {
-  font-family: var(--font-utility); font-size: 11px; font-weight: 600;
-  letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--federal-navy); margin-bottom: 6px;
-}
-.proof-block .headline {
-  font-family: var(--font-primary); font-size: 19px;
-  font-weight: 600; line-height: 1.3; color: var(--ink);
-  letter-spacing: -0.012em;
-}
-.proof-block .content { flex: 1; }
-.proof-block .arrow {
-  font-family: var(--font-mono); font-size: 24px;
-  color: var(--federal-navy); margin-left: auto; flex-shrink: 0;
-  transition: transform 200ms var(--ease);
-}
-.proof-block:hover .arrow { transform: translate(4px, -4px); }
-@media (max-width: 700px) {
-  .proof-block { flex-direction: column; align-items: flex-start; gap: 20px; }
-  .proof-block .arrow { margin-left: 0; }
-}
-.faq-list {
-  margin-top: 24px;
-  border-top: 2px solid var(--ink);
-}
-.faq-list details {
-  border-bottom: 1px solid var(--rule);
-}
-.faq-list details summary {
-  list-style: none;
-  cursor: pointer;
-  padding: 24px 0;
-  display: flex; justify-content: space-between; align-items: center;
-  gap: 24px;
-  font-family: var(--font-primary);
-  font-size: 17px; font-weight: 600; letter-spacing: -0.008em;
-  line-height: 1.35; color: var(--ink);
-}
-.faq-list details summary::-webkit-details-marker { display: none; }
-.faq-list details summary::after {
-  content: "+"; font-family: var(--font-mono);
-  font-size: 24px; color: var(--federal-navy);
-  font-weight: 400; line-height: 1;
-  flex-shrink: 0;
-  transition: transform 200ms var(--ease);
-}
-.faq-list details[open] summary::after { transform: rotate(45deg); }
-.faq-list details .answer {
-  padding: 0 0 24px;
-  font-size: 15px; line-height: 1.65; color: var(--ink);
-  opacity: 0.82; max-width: 760px;
-}
-.faq-list details .answer p + p { margin-top: 12px; }
-.faq-list details .answer .mono-key {
-  font-family: var(--font-mono); font-size: 13px;
-  color: var(--federal-navy);
-}
-.form-block {
-  padding: 32px;
-  border: 1px solid var(--rule);
-  background: var(--surface-warm);
-}
-.form-block .ui-label { color: var(--federal-navy); }
-.form-block .embed-note {
-  margin-top: 16px;
-  font-family: var(--font-mono);
-  font-size: 13px; color: var(--stone); line-height: 1.6;
-}
-@media print {
-  :root { --margin: 0.5in; }
-  @page { size: letter portrait; margin: 0.5in; }
-  body { background: white; color: var(--ink); font-size: 10pt; line-height: 1.5; }
-  section { background: white !important; color: var(--ink) !important; padding: 18pt 0; page-break-inside: avoid; border-bottom: 1px solid var(--rule); }
-  section.warm, section.cool, section.dark { background: white !important; color: var(--ink) !important; }
-  .rig-card { background: white !important; color: var(--ink) !important; border-color: var(--rule) !important; }
-  .rig-card h2, .rig-card ul li { color: var(--ink) !important; }
-  .rig-card .meta-row .badge, .rig-card .col-label { color: var(--federal-navy) !important; }
-  .rig-card ul li::before { background: var(--federal-navy) !important; }
-  .display-xl { font-size: 36pt; }
-  .display-lg { font-size: 28pt; }
-  .display-md { font-size: 20pt; }
-  .btn { display: none; }
-  .faq-list details { break-inside: avoid; }
-  .faq-list details:not([open]) .answer { display: block; }
-  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-}
+  #lp{ font-family:var(--f); color:var(--ink); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  :root{
+    /* palette — mirrors airwai.com */
+    --navy:#0E1A33; --navy-deep:#0E1A33; --lime:#D8FF3C; --chalk:#FAFAF7;
+    --ink:#16181B; --stone:#6B6B70; --rule:#E3E1DC; --rule-strong:#C9C4BB;
+    --surface-warm:#F4F0E8; --surface-cool:#EEEBE3;
+    /* type stacks — mirrors airwai.com (licensed faces fall back to Inter/JetBrains) */
+    --f: "Söhne", "Inter", system-ui, -apple-system, sans-serif;
+    --util: "Suisse Int'l", "Inter", system-ui, sans-serif;
+    --m: "Suisse Screen", "JetBrains Mono", ui-monospace, monospace;
+    /* CANONICAL SPACING SYSTEM (mirrors airwai.com) */
+    --sp-section: clamp(72px, 10vw, 128px);  /* every content section, top & bottom */
+    --sp-divider: clamp(56px, 7vw, 88px);    /* thin divider bands */
+    --sp-seam: clamp(40px, 5vw, 64px);       /* paired same-tone sections: the shared break between them */
+    --sp-gutter: 56px;     /* horizontal page gutter (--margin) */
+    --sp-maxw: 1366px;     /* content max width (--container) */
+    --sp-lp-eyebrow: 24px;    /* lp-eyebrow -> heading */
+    --sp-lead: 28px;       /* heading -> lead */
+    --sp-block: 56px;      /* intro block -> content grid */
+    --ease: cubic-bezier(0.2, 0, 0, 1);
+  }
+  #lp *{ box-sizing:border-box; margin:0; }
+  
+  
+  #lp h1,#lp h2,#lp h3{ margin:0; letter-spacing:-0.025em; line-height:1.03; text-wrap:balance; }
+  #lp p{ margin:0; text-wrap:pretty; }
+  #lp img{ display:block; max-width:100%; }
+  #lp .mono{ font-family:var(--m); }
+  .wrap{ max-width:var(--sp-maxw); margin:0 auto; padding:0 var(--sp-gutter); }
+  section{ position:relative; }
+  .lp-eyebrow{ display:inline-flex; align-items:center; gap:14px; font-family:var(--util); font-size:11px; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--stone); }
+  .lp-eyebrow::before{ content:""; display:block; width:32px; height:1px; background:var(--navy); }
+  .lp-eyebrow.lime{ color:var(--lime); }
+  .band.navy .lp-eyebrow::before, .band.deep .lp-eyebrow::before, .lp-eyebrow.lime::before{ background:var(--lime); }
+  .lp-btn{ display:inline-block; border-radius:6px; font-weight:600; font-size:17px; padding:15px 30px; }
+  .lp-btn-primary{ background:var(--navy); color:var(--chalk); }
+  .lp-btn-lime{ background:var(--lime); color:var(--navy); font-weight:700; }
+  .lp-btn-ghost{ color:var(--navy); border:1px solid #d3d3cc; }
+  .lp-btn-ghost-d{ color:var(--chalk); border:1px solid #2b3a58; }
+
+  /* NAV — sticky solid bar (airwai) */
+  
+  
+  
+  
+  
+  
+  
+
+  /* HERO — rig image bleeds off the right, text left on the canonical grid */
+  .lp-hero{ position:relative; min-height:92vh; display:flex; align-items:center; overflow:hidden; background:#e9e9ee; }
+  .lp-hero .bg{ position:absolute; inset:0; z-index:0; background-size:cover; background-position:center; }
+  .lp-hero .scrim{ position:absolute; inset:0; z-index:1; background:linear-gradient(90deg, #e9e9ee 0%, #e9e9ee 24%, rgba(233,233,238,0.7) 44%, rgba(233,233,238,0) 64%); }
+  .lp-hero .inner{ position:relative; z-index:2; width:100%; max-width:var(--sp-maxw); margin:0 auto; padding:0 var(--sp-gutter); }
+  .lp-hero .text{ max-width:520px; text-align:left; }
+  .lp-hero h1{ font-size:clamp(40px,4.6vw,72px); font-weight:700; letter-spacing:-0.026em; line-height:1.03; color:var(--ink); }
+  .lp-hero .subh{ font-size:clamp(22px,3vw,36px); font-weight:600; color:var(--stone); line-height:1.14; margin-top:12px; letter-spacing:-0.016em; }
+  .lp-hero .lead{ font-size:18px; line-height:1.6; color:var(--stone); max-width:480px; margin:28px 0 0; }
+  .lp-hero .actions{ display:flex; gap:14px; margin-top:32px; flex-wrap:wrap; }
+  .chips{ display:flex; flex-wrap:wrap; gap:10px 24px; margin-top:28px; justify-content:flex-start; }
+  .chip{ font-family:var(--m); font-size:12px; letter-spacing:0.1em; color:var(--stone); display:inline-flex; align-items:center; gap:7px; }
+  .chip i{ width:6px; height:6px; border-radius:50%; background:#7fae2f; display:inline-block; }
+  @media(max-width:820px){
+    .lp-hero{ text-align:center; }
+    .lp-hero .scrim{ background:linear-gradient(180deg, #e9e9ee 0%, rgba(233,233,238,.72) 48%, #e9e9ee 100%); }
+    .lp-hero .text{ text-align:center; margin:0 auto; } .lp-hero .actions, .lp-hero .chips{ justify-content:center; }
+  }
+
+  /* GROW-ON-SCROLL — a hero photo below the fold expands to full-bleed as you scroll (horizontal only, no vertical move) */
+  .growimg{ display:block; width:100vw; max-width:100vw; margin-left:calc(50% - 50vw); height:clamp(320px,46vw,620px); object-fit:cover; transform:scale(0.84); transform-origin:center bottom; border-radius:22px; will-change:transform; }
+  .no-motion .growimg{ transform:scale(0.92); }
+  /* a hero grow-image sits flush on the section divider ONLY when the next section is a solid band; if the next section is itself a full-bleed image, keep the padding so the two images don't press together */
+  .band:has(> .growimg):has(+ .band){ padding-bottom:0; }
+
+  /* DATA-MACHINE band (scan-wipe, below hero) */
+  .dm{ position:relative; height:100vh; min-height:640px; overflow:hidden; background:#05264a; }
+  .dm .layer{ position:absolute; inset:-6% 0; width:100%; height:112%; object-fit:cover; }
+  .dm .base{ z-index:1; }
+  .dm .machine{ z-index:2; clip-path:inset(0 0 100% 0); }
+  .dm .scanline{ position:absolute; left:0; right:0; height:3px; z-index:3; top:0;
+      background:linear-gradient(90deg, transparent, var(--lime) 20%, #fff 50%, var(--lime) 80%, transparent);
+      box-shadow:0 0 24px 6px rgba(216,255,60,.7); opacity:0; }
+  .dm .grad{ position:absolute; inset:0; z-index:4; background:linear-gradient(90deg, rgba(5,20,40,.6) 0%, rgba(5,20,40,.25) 40%, rgba(5,20,40,0) 70%); }
+  .dm .cap{ position:absolute; z-index:5; left:0; right:0; top:50%; transform:translateY(-50%); }
+  .dm .cap h2{ font-size:clamp(30px,4.4vw,54px); font-weight:800; color:#fff; max-width:720px; text-shadow:0 2px 24px rgba(5,20,40,.55); }
+  .dm .cap p{ font-size:clamp(16px,2vw,20px); line-height:1.5; color:#e4e8ef; max-width:600px; margin-top:16px; text-shadow:0 2px 20px rgba(5,20,40,.5); }
+
+  /* generic sections — canonical vertical rhythm + 1px rule divider (airwai) */
+  .band{ padding-block: var(--sp-section); border-bottom:1px solid var(--rule); }
+  .band.navy, .band.deep{ border-bottom-color: rgba(255,255,255,0.08); }
+  .band.white{ background:var(--chalk); }
+  .band.stone{ background:var(--surface-warm); }
+  .band.navy{ background:var(--navy); color:var(--chalk); }
+  .band.deep{ background:var(--navy-deep); color:var(--chalk); }
+  /* PIN RULE (canonical): every scroll-pinned section is a full viewport tall so it locks flush — no gap peeking below the pin. */
+  .pin-vh{ min-height:100vh; }
+  /* SEAM RULE (canonical): when two same-tone sections read as one pair, they share ONE break (no rule divider), not two full section pads. Trim the upper section's bottom and the lower section's top. */
+  .band.seam-below{ padding-bottom: var(--sp-seam); border-bottom:none; }
+  .band.seam-above{ padding-top: var(--sp-seam); }
+  h2.big{ font-size:clamp(36px,4.5vw,64px); font-weight:700; letter-spacing:-0.024em; line-height:1.05; }
+  .band.white h2.big, .band.stone h2.big{ color:var(--ink); }
+  .band.navy h2.big, .band.deep h2.big{ color:var(--chalk); }
+  .lead{ font-size:18px; line-height:1.6; color:var(--stone); max-width:640px; margin-top:24px; }
+  .band.navy .lead, .band.deep .lead{ color:#c7cdd8; }
+
+  .reinforce{ display:flex; gap:14px; align-items:baseline; flex-wrap:wrap; justify-content:center; font-size:clamp(22px,3.2vw,30px); font-weight:800; letter-spacing:-.02em; }
+  .reinforce .dim{ color:#9aa0aa; }
+
+  .modes{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:56px; }
+  .mode{ border-radius:12px; padding:32px; display:flex; flex-direction:column; gap:14px; border:1px solid var(--rule); background:var(--chalk); }
+  .mode.dark{ background:var(--navy); border-color:var(--navy); color:var(--chalk); }
+  .mode h3{ font-size:24px; font-weight:700; }
+  .mode p{ font-size:16px; line-height:1.55; color:var(--stone); flex-grow:1; }
+  .mode.dark p{ color:#c7cdd8; }
+  .mode .tag{ font-family:var(--m); font-size:12px; letter-spacing:.1em; color:#8f97a6; border-top:1px solid var(--rule); padding-top:16px; }
+  .mode.dark .tag{ border-color:#24314d; color:var(--lime); }
+  .mode .ic{ width:30px;height:30px; }
+
+  .device{ max-width:1000px; margin:60px auto 0; }
+  .laptop{ background:#1b1d23; border-radius:12px 12px 4px 4px; padding:12px 12px 9px; box-shadow:0 44px 90px rgba(14,26,51,.24); position:relative; overflow:hidden; }
+  .laptop img{ width:100%; border-radius:2px; }
+  .laptop .dot{ position:absolute; width:16px; height:16px; border-radius:50%; transform:translate(-50%,-50%) scale(0); }
+  .laptop .dot::after{ content:""; position:absolute; inset:4px; border-radius:50%; }
+  .laptop .dot.h::after{ background:#ff5247; } .laptop .dot.h{ box-shadow:0 0 0 2px rgba(255,82,71,.3); }
+  .laptop .dot.m::after{ background:#ffb020; } .laptop .dot.l::after{ background:#37d67a; }
+  .laptop-base{ height:14px; width:112%; margin-left:-6%; background:linear-gradient(#d4d7dd,#b4b8c0); border-radius:0 0 10px 10px; }
+
+  .flowhead{ margin-bottom:8px; }
+  .flowpin{ min-height:100vh; display:flex; align-items:center; }
+  .flowinner{ width:100%; }
+  .flowstage{ position:relative; width:100%; max-width:940px; margin:0 auto; aspect-ratio:16/8; max-height:42vh; border-radius:14px; overflow:hidden; box-shadow:0 40px 90px rgba(0,0,0,.42); background:#0b1428; }
+  .flowstage .fs{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .55s ease; }
+  .flowstage .fs.on{ opacity:1; }
+  .flow{ display:grid; grid-template-columns:repeat(4,1fr); gap:28px; width:100%; margin-top:44px; }
+  .step{ opacity:.28; transition:opacity .35s; }
+  .step .n{ font-family:var(--m); font-size:13px; letter-spacing:.14em; color:var(--lime); }
+  .step h4{ font-size:23px; font-weight:800; color:#fff; margin:12px 0 8px; }
+  .step p{ font-size:16px; line-height:1.5; color:#c7cdd8; }
+  .step.on{ opacity:1; }
+  .flowbar{ height:2px; background:#22304e; margin-top:40px; position:relative; }
+  .flowbar i{ position:absolute; left:0; top:0; height:100%; width:0; background:var(--lime); }
+
+  .fleet{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:52px; }
+  .fleet figure{ display:flex; flex-direction:column; gap:12px; }
+  .fleet img{ width:100%; height:190px; object-fit:cover; border-radius:10px; }
+  .fleet .cap{ font-family:var(--m); font-size:12px; letter-spacing:.12em; color:#a7aebd; }
+
+  .trip{ display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:52px; }
+  .trip figure{ display:flex; flex-direction:column; gap:12px; }
+  .trip img{ width:100%; height:340px; object-fit:cover; border-radius:10px; }
+  .trip .cap{ font-family:var(--m); font-size:12px; letter-spacing:.12em; color:var(--stone); }
+
+  .quotes{ display:grid; grid-template-columns:1fr 1fr; gap:56px; }
+  .quote p{ font-size:clamp(22px,2.6vw,30px); font-weight:700; line-height:1.28; color:var(--ink); letter-spacing:-.02em; }
+  .quote .who{ display:flex; align-items:center; gap:14px; margin-top:30px; }
+  .quote .av{ width:44px; height:44px; border-radius:50%; background:#e6e6de; }
+  .quote .nm{ font-size:16px; font-weight:700; }
+  .quote .rl{ font-family:var(--m); font-size:12px; color:var(--stone); }
+
+  .rigrow{ display:grid; grid-template-columns:0.82fr 1.18fr; gap:56px; align-items:center; }
+  .rigrow img{ width:100%; border-radius:12px; }
+  .spec{ display:flex; flex-wrap:wrap; gap:10px 22px; margin-top:28px; }
+  .spec span{ font-family:var(--m); font-size:13px; letter-spacing:.06em; color:var(--stone); }
+  .spec b{ color:#cfcfc7; font-weight:400; }
+
+  .lp-stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:36px; margin-top:64px; }
+  .lp-stat .num{ font-size:clamp(40px,5vw,56px); font-weight:800; color:var(--ink); line-height:1; }
+  .lp-stat .lab{ font-size:15px; color:var(--stone); margin-top:12px; line-height:1.4; }
+
+  .cta-band{ text-align:center; }
+  .cta-band h2{ font-size:clamp(38px,5vw,58px); font-weight:800; color:#fff; }
+  .cta-band .actions{ display:flex; gap:14px; justify-content:center; margin-top:34px; flex-wrap:wrap; }
+
+  /* STAY-CLOSE lead-capture (mirrors airwai.com's pre-footer form band) */
+  .signup{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; align-items:start; }
+  .signup h2.big{ max-width:520px; }
+  .sform{ display:grid; grid-template-columns:1fr 1fr; gap:20px 20px; }
+  .field{ display:flex; flex-direction:column; gap:8px; }
+  .field.full{ grid-column:1 / -1; }
+  .field label{ font-size:14px; font-weight:500; color:var(--ink); }
+  .field label .req{ color:#c0392b; margin-left:2px; }
+  .field input{ height:46px; border:1px solid var(--rule-strong); border-radius:6px; background:var(--chalk); padding:0 14px; font-family:var(--f); font-size:15px; color:var(--ink); transition:border-color .15s var(--ease); }
+  .field input:focus{ outline:none; border-color:var(--navy); }
+  .sform .actions{ grid-column:1 / -1; display:flex; justify-content:flex-end; margin-top:4px; }
+  .sform button{ cursor:pointer; }
+  @media(max-width:820px){ .signup{ grid-template-columns:1fr; gap:40px; } .sform{ grid-template-columns:1fr 1fr; } }
+
+  /* FOOTER — airwai (light chalk, wide container, boxed social) */
+  
+  
+  
+  
+  
+  
+  
+  /* footer lists: reset the UA <ul> indent so items sit flush-left under their header */
+  
+  
+  
+  
+   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  .reveal{ opacity:0; transform:translateY(34px); }
+  .no-motion .reveal{ opacity:1; transform:none; }
+  .no-motion .dm .machine{ clip-path:none; }
+
+  @media(max-width:820px){
+    :root{ --sp-section:78px; --sp-divider:56px; --sp-gutter:24px; }
+    .modes,.fleet,.trip,.flow,.lp-stats,.quotes,.rigrow,
+    .fleet{ grid-template-columns:1fr 1fr; }
+     
+    .flowpin{ min-height:auto; padding-block:78px; } .flow{ gap:40px; }
+  }
 </style>
 
-<!-- 1. HERO — direct sale framing -->
-<section class="hero dark">
-  <div class="container">
-    <p class="eyebrow">Pricing &middot; Procurement</p>
-    <h1 class="display-xl">Annual contracts.<br/>30-day deployment<span class="navy">.</span></h1>
-    <p class="subhead">Direct subscription sale. Federal-ready under FAR Part 12 commercial-item, SBIR Phase III, and multi-year service agreement. The form below routes to the federal accounts lead — we respond inside two business days.</p>
-    <div class="cta-row">
-      <a class="btn primary" href="#scope">Start a contract scope &rarr;</a>
-      <a class="btn secondary" href="/customers/sbd/">See the SBD deployment</a>
+<main id="lp">
+<!-- ============ PRICING — ports canvas Pricing.dc.html into the parallax treatment ============ -->
+
+<!-- HERO (centered, chalk) -->
+<section class="band white seam-below" id="hero" style="padding-top:clamp(64px,7vw,100px)">
+  <div class="wrap" style="max-width:940px;text-align:center">
+    <div class="lp-eyebrow reveal" style="justify-content:center">Pricing</div>
+    <h1 class="reveal" style="font-size:clamp(42px,5.4vw,74px);font-weight:800;line-height:1.02;letter-spacing:-0.026em;margin-top:22px">Priced to pay for itself.</h1>
+    <p class="lead reveal" style="max-width:700px;margin:26px auto 0">LAIRA is measured in what it returns: fewer inspection hours, avoided penalties, and more billable field-days.</p>
+    <div class="reveal" style="display:flex;gap:14px;justify-content:center;margin-top:36px;flex-wrap:wrap">
+      <a class="lp-btn lp-btn-primary">Request pricing</a><a class="lp-btn lp-btn-ghost">Start a pilot</a>
     </div>
   </div>
 </section>
 
-<!-- 2. THE PRODUCT — Rig (primary, full-width) + Roadmap pair -->
-<section class="warm">
-  <div class="container">
-    <p class="eyebrow">The product</p>
-    <h2 class="display-lg">Sensor-agnostic platform.<br/>Three ways to ingest<span class="navy">.</span></h2>
-
-    <!-- Primary: LAIRA Rig -->
-    <article class="rig-card">
-      <div class="meta-row">
-        <span class="badge">Available now</span>
-        <span class="status">Annual subscription &middot; vehicle-mounted</span>
-      </div>
-      <h2>LAIRA</h2>
-      <p class="lede">The compliance-grade tier. COTS sensor stack mounts to your operations vehicle. Continuous-scan capture, edge-first inference, ArcGIS-native publishing. Outputs audit-traced to D6433, D5340, 23 CFR Part 490, PROWAG, and MUTCD.</p>
-
-      <div class="rig-grid">
-        <div>
-          <div class="col-label">What's included</div>
-          <ul>
-            <li>Compliance-grade output (D6433 / D5340 / 23 CFR 490 / PROWAG / MUTCD)</li>
-            <li>COTS sensor stack: 128-channel LiDAR + GNSS/INS + camera</li>
-            <li>Edge inference under 200&nbsp;ms; no cloud dependency at ingest</li>
-            <li>ArcGIS-native feature-service publishing to your tenant</li>
-            <li>Annual platform license &middot; on-site install &middot; support &middot; updates</li>
-          </ul>
+<!-- TIER PICKER (warm) -->
+<section class="band stone seam-above">
+  <div class="wrap">
+    <div class="lp-eyebrow reveal">Plans</div>
+    <h2 class="big reveal" style="margin-top:20px;max-width:720px">Which tier is right for you?</h2>
+    <p class="lead reveal">Start free, screen your whole network, or run it as your audit-ready system of record. Every tier lands in Esri.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:52px;align-items:stretch">
+      <!-- FREE -->
+      <div class="reveal" style="background:var(--chalk);border:1px solid var(--rule);border-radius:12px;padding:34px;display:flex;flex-direction:column">
+        <div class="mono" style="font-size:13px;letter-spacing:.14em;color:var(--stone)">FREE</div>
+        <h3 style="font-size:27px;font-weight:700;color:var(--ink);margin-top:12px">See it work</h3>
+        <p style="font-size:15px;line-height:1.5;color:var(--stone);margin-top:10px">Prove the value on your own pavement before anything changes hands.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;margin:26px 0 30px">
+          <div style="display:flex;gap:11px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#16181B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:2px"><path d="M20 6L9 17l-5-5"></path></svg><span style="font-size:15px;color:#2b2e34;line-height:1.4">A sample capture on one of your assets</span></div>
+          <div style="display:flex;gap:11px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#16181B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:2px"><path d="M20 6L9 17l-5-5"></path></svg><span style="font-size:15px;color:#2b2e34;line-height:1.4">A condition preview in your Esri environment</span></div>
+          <div style="display:flex;gap:11px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#16181B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:2px"><path d="M20 6L9 17l-5-5"></path></svg><span style="font-size:15px;color:#2b2e34;line-height:1.4">No hardware to buy, no commitment</span></div>
         </div>
-        <div>
-          <div class="col-label">Buyer fit</div>
-          <ul>
-            <li>Federal contracting officers running DAF / DoW pavement networks</li>
-            <li>State DOT pavement-management programs</li>
-            <li>FAA Part 139 airports needing audit-ready PCI deliverables</li>
-            <li>AEC primes owning the pre-bid baseline</li>
-          </ul>
+        <span style="margin-top:auto;text-align:center;color:var(--navy);font-size:15px;font-weight:600;border:1px solid #d3d3cc;padding:13px;border-radius:5px">Start free</span>
+      </div>
+      <!-- SCREENING -->
+      <div class="reveal" style="background:var(--chalk);border:2px solid var(--navy);border-radius:12px;padding:34px;display:flex;flex-direction:column;position:relative">
+        <span class="mono" style="position:absolute;top:-12px;left:34px;background:var(--lime);color:var(--navy);font-size:11px;font-weight:700;letter-spacing:.1em;padding:5px 10px;border-radius:4px">MOST POPULAR</span>
+        <div class="mono" style="font-size:13px;letter-spacing:.14em;color:var(--stone)">SCREENING</div>
+        <h3 style="font-size:27px;font-weight:700;color:var(--ink);margin-top:12px">Continuous condition</h3>
+        <p style="font-size:15px;line-height:1.5;color:var(--stone);margin-top:10px">Screening-grade condition across your whole network, refreshed on every drive.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;margin:26px 0 30px">
+          <div style="display:flex;gap:11px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#16181B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:2px"><path d="M20 6L9 17l-5-5"></path></svg><span style="font-size:15px;color:#2b2e34;line-height:1.4">Whole-network condition, refreshed weekly</span></div>
+          <div style="display:flex;gap:11px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#16181B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:2px"><path d="M20 6L9 17l-5-5"></path></svg><span style="font-size:15px;color:#2b2e34;line-height:1.4">3&ndash;7&times; more anomalies than a manual walk</span></div>
+          <div style="display:flex;gap:11px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#16181B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:2px"><path d="M20 6L9 17l-5-5"></path></svg><span style="font-size:15px;color:#2b2e34;line-height:1.4">Severity-scored findings, native in Esri</span></div>
+          <div style="display:flex;gap:11px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#16181B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:2px"><path d="M20 6L9 17l-5-5"></path></svg><span style="font-size:15px;color:#2b2e34;line-height:1.4">Runs on the truck you already own</span></div>
         </div>
+        <span style="margin-top:auto;text-align:center;background:var(--navy);color:var(--chalk);font-size:15px;font-weight:600;padding:13px;border-radius:5px">Request a demo</span>
       </div>
-
-      <div class="cta-row">
-        <a class="btn lime-primary" href="#scope">Start a contract scope &rarr;</a>
-        <a class="btn lime-secondary" href="/customers/sbd/">See SBD deployment</a>
+      <!-- COMPLIANCE -->
+      <div class="reveal" style="background:var(--navy);border:2px solid var(--navy);border-radius:12px;padding:34px;display:flex;flex-direction:column">
+        <div class="mono" style="font-size:13px;letter-spacing:.14em;color:var(--lime)">COMPLIANCE</div>
+        <h3 style="font-size:27px;font-weight:700;color:var(--chalk);margin-top:12px">Audit-ready</h3>
+        <p style="font-size:15px;line-height:1.5;color:#c7cdd8;margin-top:10px">Your compliance-grade system of record for the regulator and the program.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;margin:26px 0 30px">
+          <div style="display:flex;gap:11px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#D8FF3C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:2px"><path d="M20 6L9 17l-5-5"></path></svg><span style="font-size:15px;color:#e4e7ec;line-height:1.4">Everything in Screening</span></div>
+          <div style="display:flex;gap:11px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#D8FF3C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:2px"><path d="M20 6L9 17l-5-5"></path></svg><span style="font-size:15px;color:#e4e7ec;line-height:1.4">FAA-accepted compliance-grade reporting</span></div>
+          <div style="display:flex;gap:11px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#D8FF3C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:2px"><path d="M20 6L9 17l-5-5"></path></svg><span style="font-size:15px;color:#e4e7ec;line-height:1.4">Part 139 self-inspection + pavement programs</span></div>
+          <div style="display:flex;gap:11px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#D8FF3C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:2px"><path d="M20 6L9 17l-5-5"></path></svg><span style="font-size:15px;color:#e4e7ec;line-height:1.4">NOTAM-ready records, human-approved, full evidence chain</span></div>
+        </div>
+        <span style="margin-top:auto;text-align:center;background:var(--lime);color:var(--navy);font-size:15px;font-weight:700;padding:13px;border-radius:5px">Talk to sales</span>
       </div>
+    </div>
+    <p class="mono reveal" style="font-size:12px;letter-spacing:.04em;color:#9aa0aa;margin-top:24px">Pricing is scoped to your network and delivered in a quote &mdash; ask and we will build the ROI with you.</p>
+  </div>
+</section>
 
-      <p class="anchor-note">Annual subscription replaces the up-front capital expenditure of a single-purpose ARAN-class survey vehicle. One contract covers platform, install, and support.</p>
-    </article>
+<!-- ROI VALUE (chalk) -->
+<section class="band white">
+  <div class="wrap">
+    <div class="lp-eyebrow reveal">The math</div>
+    <h2 class="big reveal" style="margin-top:20px;max-width:800px">It earns its keep on the first drive.</h2>
+    <p class="lead reveal">Every pass replaces manual walking inspections and the periodic survey bill, and turns field hours into billable decisions. Here is where the money comes back.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px 30px;margin-top:64px">
+      <div class="reveal"><div class="mono" style="font-size:13px;color:var(--stone);letter-spacing:.08em">One rebuild pays for</div><div style="font-size:clamp(40px,5vw,58px);font-weight:800;color:var(--ink);line-height:1.02;margin-top:6px">4&ndash;7 yrs</div><div style="font-size:15px;color:var(--stone);margin-top:8px;line-height:1.4">of LAIRA, from a single avoided premature reconstruction</div></div>
+      <div class="reveal"><div class="mono" style="font-size:13px;color:var(--stone);letter-spacing:.08em">Marginal cost</div><div style="font-size:clamp(40px,5vw,58px);font-weight:800;color:var(--ink);line-height:1.02;margin-top:6px">~$0<span style="font-size:26px;font-weight:600">/mi</span></div><div style="font-size:15px;color:var(--stone);margin-top:8px;line-height:1.4">your own truck and driver, vs $100&ndash;1,000/mi for a contracted survey</div></div>
+      <div class="reveal"><div class="mono" style="font-size:13px;color:var(--stone);letter-spacing:.08em">Fix it early</div><div style="font-size:clamp(40px,5vw,58px);font-weight:800;color:var(--ink);line-height:1.02;margin-top:6px">4&ndash;8&times;</div><div style="font-size:15px;color:var(--stone);margin-top:8px;line-height:1.4">cheaper in the preventive window than a deferred rebuild</div></div>
+      <div class="reveal"><div class="mono" style="font-size:13px;color:var(--stone);letter-spacing:.08em">Throughput</div><div style="font-size:clamp(40px,5vw,58px);font-weight:800;color:var(--ink);line-height:1.02;margin-top:6px">60&times;</div><div style="font-size:15px;color:var(--stone);margin-top:8px;line-height:1.4">the ground a walking survey covers in a day</div></div>
+      <div class="reveal"><div class="mono" style="font-size:13px;color:var(--stone);letter-spacing:.08em">Billable lift</div><div style="font-size:clamp(40px,5vw,58px);font-weight:800;color:var(--ink);line-height:1.02;margin-top:6px">2.6&ndash;3.0&times;</div><div style="font-size:15px;color:var(--stone);margin-top:8px;line-height:1.4">realized project multiplier for engineering firms</div></div>
+      <div class="reveal"><div class="mono" style="font-size:13px;color:var(--stone);letter-spacing:.08em">Cadence</div><div style="font-size:clamp(40px,5vw,58px);font-weight:800;color:var(--ink);line-height:1.02;margin-top:6px">Weekly</div><div style="font-size:15px;color:var(--stone);margin-top:8px;line-height:1.4">condition refresh, not a snapshot every three years</div></div>
+    </div>
+    <div class="reveal" style="max-width:1000px;margin:60px auto 0"><img data-parallax="-18" src="/assets/laira/dg-multiplier.png" alt="LAIRA project-multiplier math: freed field days become billable work" style="width:100%;display:block"></div>
+    <p class="reveal" style="font-size:17px;line-height:1.5;color:#8a8f99;max-width:820px;margin-top:44px">The alternative is a million-dollar laser survey van that visits once a year or two. LAIRA rides the truck you already own, and refreshes on every drive. <span class="mono" style="font-size:12px">Figures from Airwai's ROI model; sources on file. Your numbers scoped in the quote.</span></p>
+  </div>
+</section>
 
-    <!-- Roadmap: Vision Lite + Capture -->
-    <p class="ui-label" style="margin-top: 64px; margin-bottom: 20px;">Roadmap &middot; early-access cohorts</p>
-
-    <div class="roadmap-row">
-
-      <article class="roadmap-card">
-        <div class="badge">Cloud SaaS</div>
-        <h3>Vision Lite</h3>
-        <div class="status">In active development &middot; design partners</div>
-        <p>Customer-supplied video ingest, cloud inference, screening-grade output. Converts archived corridor footage into LAIRA-ready data without a rig install. Intended for AEC teams entering the LAIRA platform via existing assets.</p>
-        <a class="ea-link" href="#scope">Express early-access interest &rarr;</a>
-      </article>
-
-      <article class="roadmap-card">
-        <div class="badge">iOS</div>
-        <h3>Capture</h3>
-        <div class="status">In active development &middot; design partners</div>
-        <p>iPhone Pro plus ruggedized mount, per-device subscription, field-inspector workflow. Screening-grade output published ArcGIS-native. For walk-through workflows where vehicle install is not practical.</p>
-        <a class="ea-link" href="#scope">Express early-access interest &rarr;</a>
-      </article>
-
+<!-- EASY TO BUY (navy) -->
+<section class="band deep">
+  <div class="wrap">
+    <div class="lp-eyebrow lime reveal">Procurement</div>
+    <h2 class="big reveal" style="margin-top:20px;max-width:840px">Simple and fast. Use the contract vehicles you know.</h2>
+    <p class="lead reveal" style="max-width:760px">You do not need a new contract. LAIRA is available on the vehicles your team already holds, sole-source-justifiable through the Esri integration, and pre-cleared on IT security. Think days, not a year.</p>
+    <div class="reveal" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:40px">
+      <span class="mono" style="font-size:13px;letter-spacing:.06em;color:var(--chalk);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);padding:9px 16px;border-radius:4px">GSA MAS</span>
+      <span class="mono" style="font-size:13px;letter-spacing:.06em;color:var(--chalk);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);padding:9px 16px;border-radius:4px">SEWP</span>
+      <span class="mono" style="font-size:13px;letter-spacing:.06em;color:var(--chalk);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);padding:9px 16px;border-radius:4px">Sourcewell</span>
+      <span class="mono" style="font-size:13px;letter-spacing:.06em;color:var(--chalk);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);padding:9px 16px;border-radius:4px">OMNIA Partners</span>
+      <span class="mono" style="font-size:13px;letter-spacing:.06em;color:var(--chalk);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);padding:9px 16px;border-radius:4px">NASPO ValuePoint</span>
+      <span class="mono" style="font-size:13px;letter-spacing:.06em;color:var(--chalk);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);padding:9px 16px;border-radius:4px">Vertosoft (ISV)</span>
+    </div>
+    <div class="reveal" style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin-top:56px">
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:22px"><div class="mono" style="font-size:12px;color:var(--lime);letter-spacing:.12em">01</div><h3 style="font-size:18px;font-weight:700;color:var(--chalk);margin-top:14px">Scope the pilot</h3><p style="font-size:14px;line-height:1.45;color:#a7aebd;margin-top:8px">One asset, one drive, a clear deliverable.</p></div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:22px"><div class="mono" style="font-size:12px;color:var(--lime);letter-spacing:.12em">02</div><h3 style="font-size:18px;font-weight:700;color:var(--chalk);margin-top:14px">Pick a vehicle you hold</h3><p style="font-size:14px;line-height:1.45;color:#a7aebd;margin-top:8px">Buy through paper you already have.</p></div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:22px"><div class="mono" style="font-size:12px;color:var(--lime);letter-spacing:.12em">03</div><h3 style="font-size:18px;font-weight:700;color:var(--chalk);margin-top:14px">Sole-source or task order</h3><p style="font-size:14px;line-height:1.45;color:#a7aebd;margin-top:8px">Esri-native and unique; we supply the justification input.</p></div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:22px"><div class="mono" style="font-size:12px;color:var(--lime);letter-spacing:.12em">04</div><h3 style="font-size:18px;font-weight:700;color:var(--chalk);margin-top:14px">Issue the PO</h3><p style="font-size:14px;line-height:1.45;color:#a7aebd;margin-top:8px">Annual, renew-by-PO. No lock-in.</p></div>
+      <div style="background:rgba(216,255,60,.1);border:1px solid rgba(216,255,60,.4);border-radius:8px;padding:22px"><div class="mono" style="font-size:12px;color:var(--lime);letter-spacing:.12em">05</div><h3 style="font-size:18px;font-weight:700;color:var(--chalk);margin-top:14px">Live in the field</h3><p style="font-size:14px;line-height:1.45;color:#c7cdd8;margin-top:8px">Driving and reporting in days.</p></div>
+    </div>
+    <div class="reveal" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:40px">
+      <div><h3 style="font-size:19px;font-weight:700;color:var(--chalk)">Sole-source ready</h3><p style="font-size:15px;line-height:1.5;color:#a7aebd;margin-top:10px">The Esri-native determination engine is a defensible basis for sole-source; we provide the salient-characteristics input.</p></div>
+      <div><h3 style="font-size:19px;font-weight:700;color:var(--chalk)">IT-security pre-cleared</h3><p style="font-size:15px;line-height:1.5;color:#a7aebd;margin-top:10px">Security documentation is on hand for your review, so the review clock starts early.</p></div>
+      <div><h3 style="font-size:19px;font-weight:700;color:var(--chalk)">No new contract</h3><p style="font-size:15px;line-height:1.5;color:#a7aebd;margin-top:10px">Ride the cooperative or federal vehicle you already use, and skip the standalone solicitation.</p></div>
     </div>
   </div>
 </section>
 
-<!-- 3. PROCUREMENT PATHWAYS -->
-<section>
-  <div class="container">
-    <p class="eyebrow">How buyers procure LAIRA</p>
-    <h2 class="display-lg">Procurement vehicles, named<span class="navy">.</span></h2>
-    <p class="body-lg" style="margin-top: 20px; max-width: 760px; color: var(--ink); opacity: 0.78;">A federal KO doesn&rsquo;t buy software; they execute a contract under a buying authority. Airwai is structured to be bought under the vehicles your contracting officer already knows how to run.</p>
-
-    <div class="pathway-grid">
-
-      <div class="pathway-row">
-        <div class="k">Commercial Item<span class="ref">FAR Part 12 &middot; subpart 12.207</span></div>
-        <div class="v">Direct subscription purchase under commercial-item rules. Fastest path. NDAA-compliant by construction; covered-foreign-technology vetted under &sect;889. No GSA schedule required.</div>
+<!-- LEAD FORM + CONTACT (warm) -->
+<section class="band stone">
+  <div class="wrap" style="display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:start">
+    <div>
+      <div class="lp-eyebrow reveal">Get your number</div>
+      <h2 class="big reveal" style="margin-top:20px;font-size:clamp(32px,4vw,52px)">Bring the ROI model to your first call.</h2>
+      <p class="lead reveal">Tell us the asset and we will build the payback on your lane-miles, not a generic quote. Then pick the fastest way to talk.</p>
+      <div class="reveal" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:32px">
+        <a class="lp-btn lp-btn-primary" href="/contact/" style="font-size:16px;padding:14px 24px">Book a demo</a>
+        <a class="lp-btn lp-btn-ghost" href="/contact/" style="font-size:16px;padding:14px 22px">Talk to sales</a>
+        <a class="lp-btn lp-btn-ghost" href="https://www.linkedin.com/company/airwai" target="_blank" rel="noopener" style="font-size:16px;padding:14px 22px">Connect on LinkedIn</a>
       </div>
-
-      <div class="pathway-row">
-        <div class="k">Simplified Acquisition<span class="ref">FAR Part 13 &middot; micro &amp; SAP</span></div>
-        <div class="v">Micro-purchase up to $15K (P-card), SAP up to $250K. Useful for first install, partial-year scope, or single-installation procurement before a multi-year vehicle is in place.</div>
-      </div>
-
-      <div class="pathway-row">
-        <div class="k">SBIR Phase III<span class="ref">15 U.S.C. &sect;638</span></div>
-        <div class="v">Sole-source continuation pathway. Available for qualifying agencies with prior SBIR work. Carries the SBIR data-rights protection through deployment.</div>
-      </div>
-
-      <div class="pathway-row">
-        <div class="k">Multi-year service<span class="ref">FAR 17.1 &middot; option years</span></div>
-        <div class="v">Annual base year with option years. Standard structure for ongoing customers — runs the subscription on a procurement vehicle the agency already understands.</div>
-      </div>
-
-      <div class="pathway-row">
-        <div class="k">State DOT purchase<span class="ref">State procurement code</span></div>
-        <div class="v">Direct purchase against pavement-management line items. Subscription billable as a service under the operations side of the capital + ops budget.</div>
-      </div>
-
-      <div class="pathway-row">
-        <div class="k">AEC subcontract<span class="ref">Prime &rarr; sub task</span></div>
-        <div class="v">Assigned task under an AEC prime&rsquo;s contract with the end customer. Used where the prime owns the relationship and Airwai delivers the data layer.</div>
-      </div>
-
-      <p class="pathway-status-header">In development</p>
-
-      <div class="pathway-row status-pending">
-        <div class="k">GSA MAS<span class="ref">Schedule pending</span></div>
-        <div class="v">Available via teaming agreement with a Schedule-holding partner in the interim. Reach out for the current routing.</div>
-      </div>
-
-      <div class="pathway-row status-pending">
-        <div class="k">OTA<span class="ref">AFWERX / DIU</span></div>
-        <div class="v">Prototype-to-production OTA pathways available for qualifying programs. Discuss program fit on the scope call.</div>
-      </div>
-
     </div>
+    <form class="reveal" onsubmit="return false" novalidate style="background:var(--chalk);border:1px solid var(--rule);border-radius:10px;padding:34px;display:flex;flex-direction:column;gap:16px">
+      <div class="field"><label>Organization</label><input type="text" placeholder="Airport authority, agency, or firm"></div>
+      <div class="field"><label>Your role</label><input type="text" placeholder="Ops, engineering, procurement…"></div>
+      <div class="field"><label>Asset type</label>
+        <div style="display:flex;gap:8px">
+          <span style="flex:1;text-align:center;height:44px;line-height:44px;border:1px solid var(--navy);border-radius:8px;background:var(--navy);color:var(--chalk);font-size:14px;font-weight:600">Airfield</span>
+          <span style="flex:1;text-align:center;height:44px;line-height:44px;border:1px solid #d3d3cc;border-radius:8px;color:var(--stone);font-size:14px">Roadway</span>
+          <span style="flex:1;text-align:center;height:44px;line-height:44px;border:1px solid #d3d3cc;border-radius:8px;color:var(--stone);font-size:14px">Port</span>
+        </div>
+      </div>
+      <div class="field"><label>Work email</label><input type="email" placeholder="you@agency.gov"></div>
+      <div style="display:flex;gap:10px;margin-top:6px">
+        <a class="lp-btn lp-btn-primary" href="/contact/" style="flex:1;text-align:center">Request pricing</a>
+        <a class="lp-btn lp-btn-ghost" href="/contact/" style="flex:1;text-align:center">Start a pilot</a>
+      </div>
+    </form>
   </div>
 </section>
 
-<!-- 4. WHAT SHIPS -->
-<section class="warm">
-  <div class="container">
-    <div class="grid-12" style="gap: 48px; align-items: start;">
-      <div class="col-5">
-        <p class="eyebrow">What ships</p>
-        <h2 class="display-lg">A working deliverable<br/>by week four<span class="navy">.</span></h2>
-        <p class="body-lg" style="margin-top: 24px; color: var(--ink); opacity: 0.82;">Every contract produces the same artifact: an ArcGIS-published feature service of detected anomalies on your scoped surface, audit-traced back to the standard it implements. No PDF reports. No spreadsheet hand-off. The data is the deliverable.</p>
-      </div>
-
-      <div class="col-7">
-        <ul class="deliverable-list">
-          <li>ArcGIS feature service hosted in <strong>your tenant</strong>, with detection geometries, attributes, and citation metadata</li>
-          <li>Citation chain &mdash; every detection traces to its standard section (e.g., D6433 &sect;X1.14) and the sensor measurement that produced it</li>
-          <li>PCI-equivalent severity grading aligned to ASTM D6433 / D5340 and FHWA 23 CFR Part 490</li>
-          <li>PROWAG and MUTCD compliance attributes on sidewalk + marking surfaces</li>
-          <li>Re-audit cadence on your schedule &mdash; quarterly, semi-annual, or event-driven (post-construction, post-storm)</li>
-          <li>Operator dashboard with delta-tracking against prior scans</li>
-        </ul>
-      </div>
+<!-- STAY CLOSE (lead capture) -->
+<section class="band white" id="signup">
+  <div class="wrap signup">
+    <div class="reveal">
+      <div class="lp-eyebrow">Stay close to Airwai</div>
+      <h2 class="big" style="margin-top:20px">Product updates, deployment news, white-paper releases.</h2>
     </div>
-
-    <!-- Timeline -->
-    <div class="timeline">
-      <div class="step">
-        <div class="n">Week 1</div>
-        <h4>Install</h4>
-        <p>On-site rig install on your operations vehicle. One day per vehicle, conducted by Airwai engineers.</p>
-      </div>
-      <div class="step">
-        <div class="n">Week 2&ndash;3</div>
-        <h4>Scan</h4>
-        <p>Continuous-scan capture across your scoped surface. Edge inference runs on-rig at ingest.</p>
-      </div>
-      <div class="step">
-        <div class="n">Week 3&ndash;4</div>
-        <h4>Audit-trace</h4>
-        <p>Citation chain assembled, severity grading applied, deliverable QA'd against the contract scope.</p>
-      </div>
-      <div class="step">
-        <div class="n">Week 4</div>
-        <h4>Publish</h4>
-        <p>Feature service published to your ArcGIS tenant. Re-audit cadence begins on schedule.</p>
-      </div>
-    </div>
-
-    <!-- Proof -->
-    <a class="proof-block" href="/customers/sbd/">
-      <div class="content">
-        <div class="label">Deployed &middot; featured by Esri</div>
-        <div class="headline">San Bernardino International Airport &mdash; LAIRA running on the airport&rsquo;s ops vehicles, ArcGIS-published, in operation today.</div>
-      </div>
-      <span class="arrow">&#8599;</span>
-    </a>
+    <div class="reveal"><div class="hs-form-frame" data-region="na2" data-form-id="a745f6b4-5d1b-40ed-9116-63bd54492e33" data-portal-id="47691083"></div></div>
   </div>
 </section>
+</main>
 
-<!-- 5. FAQ -->
-<section>
-  <div class="container">
-    <p class="eyebrow">Procurement &amp; contracting</p>
-    <h2 class="display-lg">What contracting officers ask<span class="navy">.</span></h2>
-
-    <div class="faq-list">
-
-      <details>
-        <summary>What does a typical contract look like?</summary>
-        <div class="answer">
-          <p>Annual base year with option years. Multi-year service-contract structure that rolls under FAR Part 12 commercial-item terms. The contract covers platform, on-site install, support, and ongoing updates. Re-audit cadence is set in the SOW.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>How does the install actually work?</summary>
-        <div class="answer">
-          <p>Airwai engineers deploy the rig on your operations vehicle on-site. One day per vehicle. The rig is sensor-agnostic and bolts to standard roof or bed mounting points. No vehicle retrofit, no body modification, no permanent attachment required.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>Who owns the data?</summary>
-        <div class="answer">
-          <p>You do. Outputs publish to your ArcGIS feature service, in your tenant, on your storage. Airwai retains no copy of customer data without explicit written authorization. SBIR-protected data rights apply where contracts are executed under SBIR Phase III.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>Is the supply chain NDAA-compliant?</summary>
-        <div class="answer">
-          <p>Yes. COTS hardware stack vetted against &sect;889 covered-foreign-technology restrictions. No prohibited equipment, period. Component-level supply chain documentation available under NDA on request.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>Who else is deployed?</summary>
-        <div class="answer">
-          <p>San Bernardino International Airport &mdash; the customer story is public and was featured by Esri. Additional deployments are confirmed under NDA and available on request during the scope call.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>Can we run a validation engagement before signing the full contract?</summary>
-        <div class="answer">
-          <p>Yes &mdash; if your acquisition rules require it. A 30-day scoped engagement on one corridor, one apron, or one parking lot can be executed under SAP / P-card thresholds, with the engagement fee credited toward the Year 1 contract value when the customer moves to the full agreement. Most customers buy directly.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>What about insurance, indemnification, and standard reps?</summary>
-        <div class="answer">
-          <p>Commercial general liability, errors &amp; omissions, and cyber coverage in place. Airwai accepts standard federal acquisition reps and certifications. Mutual indemnification on commercial contracts; federal reps standard under FAR 52.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>What happens at renewal?</summary>
-        <div class="answer">
-          <p>Annual renewal at the option-year structure agreed in the base contract. Scope adjustments (more vehicles, more surfaces, expanded cadence) go through a written contract mod &mdash; not a re-negotiation. Customers running multi-year agreements see no per-renewal contracting drag.</p>
-        </div>
-      </details>
-
-    </div>
-  </div>
-</section>
-
-<!-- 6. SCOPE CONVERSATION FORM -->
-<section id="scope" class="warm">
-  <div class="container">
-    <div class="grid-12" style="gap: 48px; align-items: start;">
-      <div class="col-5">
-        <p class="eyebrow">Start a contract scope</p>
-        <h2 class="display-lg">Tell us about the network.<br/>We&rsquo;ll respond in two business days<span class="navy">.</span></h2>
-        <p class="body-lg" style="margin-top: 24px; color: var(--ink); opacity: 0.82;">The form routes to the federal accounts lead. We&rsquo;ll schedule a 30-minute scope call to align on surface, vehicle, timeline, and procurement vehicle. You&rsquo;ll leave the call with a draft scope of work and a Year-1 contract structure.</p>
-        <p class="body-lg" style="margin-top: 20px; color: var(--ink); opacity: 0.82;">No purchase order required up front. No spec-sheet shopping. One scope conversation, one defensible deliverable.</p>
-      </div>
-      <div class="col-7">
-        <div class="form-block">
-          <p class="body-lg" style="color: var(--ink); opacity: 0.82; margin-bottom: 24px;">Tell us about the network. Routes to the federal accounts lead. Response inside two business days.</p>
-          <a class="btn primary" href="/contact/">Open the scope form &rarr;</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- FOOTER — mirrors docs.airwai.com -->
-
-<!-- ============================================================
- * FORM B — Compact capture (site-wide footer-region widget)
- * ============================================================ -->
-<section class="cool">
-  <div class="container">
-    <div class="grid-12" style="gap: 48px; align-items: center;">
-      <div class="col-5">
-        <p class="eyebrow">Stay close to Airwai</p>
-        <h3 class="display-md">Product updates, deployment news, white-paper releases<span class="navy">.</span></h3>
-      </div>
-      <div class="col-7">
-        <script src="https://js-na2.hsforms.net/forms/embed/47691083.js" defer></script>
-        <div class="hs-form-frame" data-region="na2" data-form-id="a745f6b4-5d1b-40ed-9116-63bd54492e33" data-portal-id="47691083"></div>
-      </div>
-    </div>
-  </div>
-</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.14/lenis.min.js"></script>
+<script src="https://js-na2.hsforms.net/forms/embed/47691083.js" defer></script>
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasGSAP = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
+  if(reduce || !hasGSAP){ document.documentElement.classList.add('no-motion'); return; }
+  gsap.registerPlugin(ScrollTrigger);
+  try{ if(typeof Lenis !== 'undefined'){ var lenis=new Lenis({duration:1.1,smoothWheel:true});
+    lenis.on('scroll',ScrollTrigger.update); gsap.ticker.add(function(t){lenis.raf(t*1000);}); gsap.ticker.lagSmoothing(0);} }catch(e){}
+  gsap.from('.lp-hero [data-hero]',{ y:26, opacity:0, duration:.9, stagger:.1, ease:'power3.out', delay:.12 });
+  if(document.getElementById('dmband')){
+    gsap.set('.dm .cap > *',{opacity:0,y:20}); gsap.set('#scanline',{top:'0%',opacity:0});
+    gsap.timeline({ scrollTrigger:{ trigger:'#dmband', start:'top top', end:'+=1100', scrub:0.5, pin:true, anticipatePin:1 }})
+      .to('#scanline',{opacity:1,duration:.06}).to('#scanline',{top:'100%',duration:1,ease:'none'},'<')
+      .to('.dm .machine',{clipPath:'inset(0 0 0% 0)',duration:1,ease:'none'},'<')
+      .to('#scanline',{opacity:0,duration:.12})
+      .to('.dm .cap > *',{opacity:1,y:0,duration:.5,stagger:.12,ease:'power2.out'},'-=.35');
+  }
+  gsap.utils.toArray('.reveal').forEach(function(el){ gsap.to(el,{y:0,opacity:1,duration:.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 86%'}}); });
+  gsap.utils.toArray('[data-parallax]').forEach(function(el){ gsap.to(el,{y:parseFloat(el.dataset.parallax),ease:'none',scrollTrigger:{trigger:el,start:'top bottom',end:'bottom top',scrub:true}}); });
+  gsap.utils.toArray('.growimg').forEach(function(im){ gsap.fromTo(im,{scale:0.84,borderRadius:22},{scale:1,borderRadius:0,ease:'none',scrollTrigger:{trigger:(im.closest('section')||im),start:'top top',end:'+=560',scrub:.5}}); });
+  ScrollTrigger.create({ trigger:'#deviceMap', start:'top 70%', once:true, onEnter:function(){ gsap.to('#deviceMap .dot',{scale:1,duration:.5,stagger:.09,ease:'back.out(2)'}); }});
+  if(document.getElementById('flowpin')){
+    var steps=gsap.utils.toArray('#flowpin .step');
+    var ft=gsap.timeline({ scrollTrigger:{ trigger:'#flowpin', start:'top top', end:'+=2000', scrub:.6, pin:'#flowpin' }});
+    var fsImgs=gsap.utils.toArray('.flowstage .fs');
+    var setStep=function(i){ steps.forEach(function(s,j){s.classList.toggle('on',j<=i);}); fsImgs.forEach(function(im){im.classList.toggle('on',parseInt(im.dataset.i,10)===i);}); };
+    steps.forEach(function(s,i){ ft.to(s,{onStart:function(){setStep(i);},onReverseComplete:function(){setStep(i-1);},duration:1}); });
+    ft.to('#flowfill',{width:'100%',ease:'none',duration:steps.length},0); setStep(0);
+  }
+  gsap.utils.toArray('.count').forEach(function(el){ var to=parseFloat(el.dataset.to),dec=parseInt(el.dataset.dec||'0'),o={v:0};
+    ScrollTrigger.create({trigger:el,start:'top 88%',once:true,onEnter:function(){ gsap.to(o,{v:to,duration:1.6,ease:'power2.out',onUpdate:function(){el.textContent=o.v.toFixed(dec);}}); }}); });
+  ScrollTrigger.refresh();
+})();
+</script>
