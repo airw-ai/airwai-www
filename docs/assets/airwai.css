@@ -300,8 +300,9 @@ section.dark .pillar p strong { color: var(--chalk); }
 .nform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .nform .nfield-full { grid-column: 1 / -1; }
 .nform label { display: block; font-family: var(--font-utility); font-size: 10.5px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--stone); margin-bottom: 7px; }
-.nform input { width: 100%; background: #fff; border: 1px solid var(--rule-strong); padding: 12px 13px; font-family: var(--font-primary); font-size: 15px; color: var(--ink); transition: border-color 180ms var(--ease), box-shadow 180ms var(--ease); }
-.nform input:focus { outline: none; border-color: var(--federal-navy); box-shadow: 0 0 0 3px rgba(14,26,51,0.10); }
+.nform input, .nform select { width: 100%; background: #fff; border: 1px solid var(--rule-strong); padding: 12px 13px; font-family: var(--font-primary); font-size: 15px; color: var(--ink); transition: border-color 180ms var(--ease), box-shadow 180ms var(--ease); }
+.nform select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B6B70' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; cursor: pointer; }
+.nform input:focus, .nform select:focus { outline: none; border-color: var(--federal-navy); box-shadow: 0 0 0 3px rgba(14,26,51,0.10); }
 .nform-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 .nform-btn { margin-top: 16px; width: 100%; border: 1px solid var(--federal-navy); background: var(--federal-navy); color: var(--chalk); font-family: var(--font-primary); font-size: 16px; font-weight: 600; padding: 14px 20px; cursor: pointer; transition: background 200ms var(--ease), border-color 200ms var(--ease); }
 .nform-btn:hover { background: var(--ink); border-color: var(--ink); }
