@@ -116,11 +116,14 @@ def asset_prefix_for(out_path):
     return "../" * depth
 
 
-def build_page(src_path, base_tpl, nav_tpl, footer_tpl):
+def build_page(src_path, base_tpl, nav_tpl, footer_tpl, signup_tpl=""):
     text = read(src_path)
     meta, text = parse_meta(text)
     style, text = extract_style(text)
     text = strip_hidden(text)
+
+    # Shared reusable snippets injected into page content
+    text = text.replace("{{SIGNUP_FORM}}", signup_tpl.strip())
 
     out_path = output_path(src_path)
     out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -158,6 +161,7 @@ def main():
     base = read(PARTIALS / "base.html")
     nav = read(PARTIALS / "nav.html")
     footer = read(PARTIALS / "footer.html")
+    signup = read(PARTIALS / "signup-form.html")
 
     # Wipe and recreate docs/ except for CNAME, .nojekyll, and assets/ which we want to preserve
     preserved = {DOCS / "CNAME", DOCS / ".nojekyll", DOCS / "assets"}
@@ -176,7 +180,7 @@ def main():
 
     print(f"Building {len(sources)} page(s) from {SRC}/ → {DOCS}/\n")
     for src_path in sources:
-        out_path, size = build_page(src_path, base, nav, footer)
+        out_path, size = build_page(src_path, base, nav, footer, signup)
         rel_src = src_path.relative_to(ROOT)
         rel_out = out_path.relative_to(ROOT)
         print(f"  {rel_src}  →  {rel_out}  ({size:,} bytes)")
