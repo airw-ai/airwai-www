@@ -94,7 +94,9 @@
   .dm .scanline{ position:absolute; left:0; right:0; height:3px; z-index:3; top:0;
       background:linear-gradient(90deg, transparent, var(--lime) 20%, #fff 50%, var(--lime) 80%, transparent);
       box-shadow:0 0 24px 6px rgba(216,255,60,.7); opacity:0; }
-  .dm .grad{ position:absolute; inset:0; z-index:4; background:linear-gradient(90deg, rgba(5,20,40,.6) 0%, rgba(5,20,40,.25) 40%, rgba(5,20,40,0) 70%); }
+  .dm .grad{ position:absolute; inset:0; z-index:4; background:
+    linear-gradient(90deg, rgba(5,20,40,.9) 0%, rgba(5,20,40,.74) 32%, rgba(5,20,40,.38) 56%, rgba(5,20,40,0) 82%),
+    linear-gradient(rgba(5,20,40,.2), rgba(5,20,40,.2)); }
   .dm .cap{ position:absolute; z-index:5; left:0; right:0; top:50%; transform:translateY(-50%); }
   .dm .cap h2{ font-size:clamp(30px,4.4vw,54px); font-weight:800; color:#fff; max-width:720px; text-shadow:0 2px 24px rgba(5,20,40,.55); }
   .dm .cap p{ font-size:clamp(16px,2vw,20px); line-height:1.5; color:#e4e8ef; max-width:600px; margin-top:16px; text-shadow:0 2px 20px rgba(5,20,40,.5); }
