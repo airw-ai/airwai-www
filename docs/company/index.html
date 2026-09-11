@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Company · Airwai</title>
-<meta name="description" content="Airwai is building the autonomous civil engineer for critical infrastructure. Audit-ready engineering decisions for pavement and physical assets at military installations and other secure sites." />
+<meta name="description" content="Airwai builds the software that reads infrastructure automatically, turning an ordinary drive into audit-ready engineering decisions. Our values, and a note from founder Amir Emadi." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,87 +12,40 @@
 <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
 <link rel="stylesheet" href="../assets/airwai.css">
 <style>
-.body { font-size: 16px; line-height: 1.6; font-weight: 400; }
-.stone { color: var(--stone); }
-.value-card {
-  border-top: 2px solid var(--ink);
-  padding-top: 20px;
-}
-.value-card .n {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--federal-navy);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-.value-card h3 {
-  font-size: 22px;
-  font-weight: 600;
-  line-height: 1.25;
-  letter-spacing: -0.012em;
-  color: var(--ink);
-  margin-bottom: 16px;
-}
-.value-card p {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--ink);
-  opacity: 0.78;
-}
-.security-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.security-list li {
-  border-top: 1px solid rgba(255,255,255,0.18);
-  padding: 20px 0;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 32px;
-  align-items: start;
-}
-.security-list li:last-child { border-bottom: 1px solid rgba(255,255,255,0.18); }
-.security-list .k {
-  font-family: var(--font-utility);
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--signal-lime);
-  font-weight: 500;
-}
-.security-list .v {
-  font-size: 15px;
-  color: rgba(255,255,255,0.85);
-  line-height: 1.6;
-}
-@media (max-width: 700px) {
-  .security-list li { grid-template-columns: 1fr; gap: 8px; }
-}
-.fed-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
-@media (max-width: 700px) { .fed-grid { grid-template-columns: repeat(2, 1fr); } }
-.fed-grid .item .ui-label { margin-bottom: 8px; }
-.fed-grid .item .mono { font-size: 18px; color: var(--federal-navy); font-weight: 500; }
-.fed-grid .item .mono.compact { font-size: 14px; color: var(--ink); }
-@media print {
-  :root { --margin: 0.5in; }
-  @page { size: letter portrait; margin: 0.5in; }
-  body { background: white; color: var(--ink); font-size: 10pt; line-height: 1.5; }
-  section { background: white !important; color: var(--ink) !important; padding: 18pt 0; page-break-inside: avoid; border-bottom: 1px solid var(--rule); }
-  section.warm, section.cool, section.dark { background: white !important; color: var(--ink) !important; }
-  section.dark .body-lg { color: var(--ink) !important; }
-  section.dark .security-list .k { color: var(--federal-navy) !important; }
-  section.dark .security-list .v { color: var(--ink) !important; }
-  section.dark .security-list li { border-color: var(--rule) !important; }
-  section.dark h2 { color: var(--ink) !important; }
-  section.dark h2 .navy { color: var(--federal-navy) !important; }
-  .display-xl { font-size: 36pt; }
-  .display-lg { font-size: 28pt; }
-  .display-md { font-size: 20pt; }
-  .btn { display: none; }
-  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-}
+  #lp{ font-family:"Inter", system-ui, -apple-system, sans-serif; color:#16181B; -webkit-font-smoothing:antialiased; overflow-x:hidden; background:#0b1428; }
+  :where(#lp *){ box-sizing:border-box; margin:0; }
+  :where(#lp) h1,:where(#lp) h2,:where(#lp) h3{ margin:0; letter-spacing:-0.025em; text-wrap:balance; }
+  :where(#lp) p{ margin:0; text-wrap:pretty; }
+  :where(#lp) img{ display:block; max-width:100%; }
+  :where(#lp) a{ color:inherit; text-decoration:none; }
+  :where(#lp) .mono{ font-family:"JetBrains Mono", ui-monospace, monospace; }
+
+  #lp .sec{ padding:clamp(72px,10vw,120px) clamp(22px,6vw,80px); }
+  #lp .hero{ padding:clamp(76px,8vw,104px) clamp(22px,6vw,80px) clamp(56px,6vw,72px); }
+  #lp .eyebrow{ font-family:"JetBrains Mono", ui-monospace, monospace; font-size:13px; letter-spacing:0.22em; color:#5b606b; text-transform:uppercase; }
+
+  #lp .h1{ font-size:clamp(38px,5.2vw,68px); font-weight:800; line-height:1.03; color:#16181B; }
+  #lp .h2{ font-size:clamp(34px,4.6vw,54px); font-weight:800; line-height:1.04; color:#16181B; }
+  #lp .lead{ font-size:clamp(18px,2.2vw,22px); line-height:1.5; color:#5b606b; }
+
+  #lp .values{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(40px,5vw,56px) 64px; margin-top:68px; }
+  #lp .value{ border-top:2px solid #0E1A33; padding-top:24px; }
+  #lp .value h3{ font-size:clamp(22px,2.6vw,26px); font-weight:700; color:#16181B; }
+  #lp .value p{ font-size:17px; line-height:1.6; color:#5b606b; margin-top:14px; }
+
+  #lp .founder{ display:grid; grid-template-columns:340px 1fr; gap:64px; align-items:center; max-width:1080px; margin:0 auto; }
+  #lp .founder img{ width:100%; height:420px; object-fit:cover; object-position:center 20%; border-radius:12px; }
+  #lp .founder .q{ font-size:clamp(23px,3vw,30px); font-weight:600; line-height:1.4; color:#FAFAF7; letter-spacing:-0.015em; }
+  #lp .founder .connect{ display:inline-flex; align-items:center; gap:9px; color:#FAFAF7; font-size:14px; font-weight:600; border:1px solid #2b3a58; border-radius:5px; padding:9px 16px; }
+
+  #lp .cta-h2{ font-size:clamp(34px,4.4vw,54px); font-weight:800; line-height:1.04; color:#FAFAF7; }
+  #lp .btn{ font-size:17px; font-weight:600; padding:16px 30px; border-radius:5px; display:inline-block; }
+
+  @media (max-width:820px){
+    #lp .values{ grid-template-columns:1fr; }
+    #lp .founder{ grid-template-columns:1fr; gap:36px; }
+    #lp .founder img{ height:360px; }
+  }
 </style>
 </head>
 <body>
@@ -101,163 +54,102 @@
   <div class="row">
     <a href="/"><img class="wordmark" src="../assets/airwai-wordmark.svg" alt="AIRWAI" /></a>
     <div class="links">
-      <a href="/laira/">LAIRA</a>
+      <a href="/platform/">Platform</a>
+      <a href="/product/">Product</a>
+      <span class="navdrop">
+        <a href="/airport/" class="navdrop-label">Who it's for</a>
+        <span class="navdrop-menu">
+          <a href="/airport/">Airport operators</a>
+          <a href="/defense/">Defense airfield teams</a>
+          <a href="/engineers/">Engineers &amp; P.E.s</a>
+        </span>
+      </span>
       <a href="/pricing/">Pricing</a>
-      <a href="/customers/">Customers</a>
-      <a href="/company/">Company</a>
-      <a href="https://docs.airwai.com">Docs</a>
       <a href="/contact/" class="cta">Schedule a pilot</a>
     </div>
   </div>
 </nav>
 
-<!-- 1. HERO -->
-<section class="hero dark">
-  <div class="container">
-    <p class="eyebrow">Company</p>
-    <h1 class="display-xl">We&rsquo;re building the<br/>autonomous civil engineer<br/>for critical infrastructure<span class="navy">.</span></h1>
-    <p class="body-lg subhead">Audit-ready engineering decisions from inspection data, for pavement and physical assets at military installations and other secure sites.</p>
-  </div>
-</section>
+<main id="lp">
 
-<!-- 2. THESIS -->
-<section>
-  <div class="container">
-    <div class="grid-12" style="gap: 48px; align-items: start;">
-      <div class="col-5">
-        <p class="eyebrow">Thesis</p>
-        <h2 class="display-lg">The data is the asset.<br/>The platform is the leverage<span class="navy">.</span></h2>
-      </div>
-      <div class="col-7">
-        <p class="body-lg" style="color: var(--ink); opacity: 0.82;">Airwai is a software platform. The rig is one of three ingest tiers &mdash; the value is the engineering decision, not the device. Every output cites its standard. Every claim terminates at a public source. The condition data we produce on day one is the asset on day five hundred.</p>
-        <p class="body-lg" style="color: var(--ink); opacity: 0.82; margin-top: 20px;">We sell defensible outcomes &mdash; not sensors. Federal contracting officers, state DOT engineers, and AEC primes don&rsquo;t buy a model. They buy a deliverable that survives the audit.</p>
-      </div>
+  <!-- HERO -->
+  <section class="hero" style="background:#FAFAF7;">
+    <div style="max-width:940px; margin:0 auto; text-align:center;">
+      <div class="eyebrow" style="margin-bottom:26px;">About Airwai</div>
+      <h1 class="h1">The infrastructure holds the country up. We keep it read.</h1>
+      <p class="lead" style="max-width:720px; margin:30px auto 0;">Every runway, road, and airfield in the country still gets inspected by someone walking it with a clipboard, weeks behind. Airwai builds the software that reads infrastructure automatically, turning an ordinary drive into audit-ready engineering decisions, so the people who keep it safe spend their day on judgment.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- 3. VALUES -->
-<section class="warm">
-  <div class="container">
-    <p class="eyebrow">How we operate</p>
-    <h2 class="display-lg">Confident. Specific.<br/>Citation-forward<span class="navy">.</span></h2>
+  <!-- MISSION STATEMENT -->
+  <section class="sec" style="background:#f2f2ec;">
+    <div style="max-width:1000px; margin:0 auto; text-align:center;">
+      <div class="eyebrow" style="margin-bottom:28px;">Why we exist</div>
+      <p style="font-size:clamp(24px,3.4vw,34px); font-weight:700; line-height:1.28; color:#16181B; letter-spacing:-0.02em;">The mandate to inspect keeps growing. The teams that carry it do not. We close that gap with software, not headcount, so a shrinking workforce can hold a rising standard.</p>
+    </div>
+  </section>
 
-    <div class="grid-12" style="margin-top: 64px; gap: 32px;">
-      <div class="col-4">
-        <div class="value-card">
-          <div class="n">01 &middot; Evidence over assertion</div>
-          <h3>Name the standard. Name the sensor. Name the resolution.</h3>
-          <p>Every measurement cites the section it implements (ASTM D6433 &sect;X1.14, 23 CFR Part 490, UFC 3-260). If a claim doesn&rsquo;t terminate at a public source, it doesn&rsquo;t ship.</p>
+  <!-- VALUES -->
+  <section class="sec" style="background:#FAFAF7;">
+    <div style="max-width:1120px; margin:0 auto;">
+      <div class="eyebrow" style="margin-bottom:22px;">What we believe</div>
+      <h2 class="h2" style="max-width:760px;">Four things we won&rsquo;t compromise.</h2>
+      <div class="values">
+        <div class="value">
+          <div class="mono" style="font-size:13px; letter-spacing:0.14em; color:#5b606b; margin-bottom:14px;">01</div>
+          <h3>The record has to hold up.</h3>
+          <p>Compliance is the product, not a feature bolted on. Every finding is geolocated, time-stamped, and scored to the standard the inspector already answers to, so the record survives an audit years later.</p>
         </div>
-      </div>
-      <div class="col-4">
-        <div class="value-card">
-          <div class="n">02 &middot; Decisive, not severe</div>
-          <h3>Software for the engineer responsible when the audit lands.</h3>
-          <p>Generous space, decisive answers, no hand-waving. The brand carries institutional weight without trading away clarity. We build for the buyer who has to defend the deliverable in writing.</p>
+        <div class="value">
+          <div class="mono" style="font-size:13px; letter-spacing:0.14em; color:#5b606b; margin-bottom:14px;">02</div>
+          <h3>A qualified person signs.</h3>
+          <p>The software does the reading; a licensed engineer owns the decision. We deliver engineering outcomes for a human to approve, never a black-box score that no one will put their name to.</p>
         </div>
-      </div>
-      <div class="col-4">
-        <div class="value-card">
-          <div class="n">03 &middot; Contrarian where earned</div>
-          <h3>ARAN-class incumbents are roadway-only. The default is paper.</h3>
-          <p>Sidewalk, curb-ramp, and marking inspection is a separate procurement today. LAIRA collapses three procurements into one &mdash; and produces output ArcGIS-native, not a PDF.</p>
+        <div class="value">
+          <div class="mono" style="font-size:13px; letter-spacing:0.14em; color:#5b606b; margin-bottom:14px;">03</div>
+          <h3>Augment the engineer.</h3>
+          <p>Automation gives field days back, not pink slips. The hours LAIRA saves on data collection become billable engineering work, so teams win more of it with the people they already have.</p>
+        </div>
+        <div class="value">
+          <div class="mono" style="font-size:13px; letter-spacing:0.14em; color:#5b606b; margin-bottom:14px;">04</div>
+          <h3>Built for secure ground.</h3>
+          <p>We build for military installations and critical infrastructure from the start: NDAA-compliant hardware, SAM-registered, data that stays where it belongs. Security is a precondition, not an upgrade.</p>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- 4. SECURITY POSTURE — the one dark moment -->
-<section class="dark">
-  <div class="container">
-    <p class="eyebrow">Security posture</p>
-    <h2 class="display-lg" style="color: var(--chalk);">Built for secure sites<br/>from the ground up<span class="navy">.</span></h2>
-
-    <div class="grid-12" style="margin-top: 56px; gap: 32px; align-items: start;">
-      <div class="col-5">
-        <p class="body-lg">Secure-site customers don&rsquo;t have the luxury of trial-and-error procurement. Airwai is built to clear federal acquisition review on its first pass &mdash; supply chain, data tenancy, and operational posture.</p>
-      </div>
-      <div class="col-7">
-        <ul class="security-list">
-          <li>
-            <span class="k">NDAA-compliant</span>
-            <span class="v">COTS hardware stack vetted against &sect;889 covered-foreign-technology restrictions. No prohibited equipment, period.</span>
-          </li>
-          <li>
-            <span class="k">Edge-first inference</span>
-            <span class="v">Detection runs on-rig at the airfield. No internet dependency during ingest, no telemetry off-site without operator authorization.</span>
-          </li>
-          <li>
-            <span class="k">Customer-owned data</span>
-            <span class="v">Outputs publish to your ArcGIS feature service, your tenant, your storage. Airwai is the platform &mdash; the data is yours.</span>
-          </li>
-          <li>
-            <span class="k">Citation chain</span>
-            <span class="v">Every detection traces to a standard section and a sensor measurement. Auditors and contracting officers can verify any claim end-to-end.</span>
-          </li>
-          <li>
-            <span class="k">US-based team</span>
-            <span class="v">Delaware C-Corp, California-headquartered, US-citizen team for any work touching CUI or controlled-installation data.</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 5. MISSION · DoW + INFRASTRUCTURE -->
-<section class="cool">
-  <div class="container">
-    <div class="grid-12" style="gap: 48px; align-items: start;">
-      <div class="col-5">
-        <p class="eyebrow">The mission</p>
-        <h2 class="display-lg">Intelligence for the<br/>infrastructure that matters<span class="navy">.</span></h2>
-      </div>
-      <div class="col-7">
-        <p class="body-lg" style="color: var(--ink); opacity: 0.82;">We operate at airfields, military installations, and roadway networks that carry national-level operations. The condition of that infrastructure is a national-security data layer &mdash; not a paperwork artifact.</p>
-        <p class="body-lg" style="color: var(--ink); opacity: 0.82; margin-top: 20px;">Department of War installations alone manage thousands of miles of runway, taxiway, apron, and access pavement. The current default is hand-walked inspections on a slow cadence, paper records, and reactive maintenance. We&rsquo;re building the platform that turns continuous-scan data into decisions, in the workflow operators already use.</p>
-        <p class="body-lg" style="color: var(--ink); opacity: 0.82; margin-top: 20px;">The same pattern carries through to FAA Part 139 airports, state DOTs, and AEC primes who own the pre-design baseline. One platform, sensor-agnostic, citation-chained, audit-ready by construction.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 6. FEDERAL REGISTRATION -->
-<section class="warm">
-  <div class="container">
-    <p class="eyebrow">Federal registration</p>
-    <h2 class="display-md">SAM.gov registered. NDAA-compliant<span class="navy">.</span></h2>
-    <div class="fed-grid">
-      <div class="item"><p class="ui-label">UEI</p><p class="mono">YAD4JA8BN6N6</p></div>
-      <div class="item"><p class="ui-label">CAGE</p><p class="mono">07Z17</p></div>
-      <div class="item"><p class="ui-label">NAICS</p><p class="mono">541330</p></div>
-      <div class="item"><p class="ui-label">Entity</p><p class="mono compact">Delaware C-Corp &middot; Small Business</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- 7. ENGAGE + Form B (combined, dark) -->
-<section class="dark">
-  <div class="container">
-    <div class="grid-12" style="gap: 48px; align-items: start;">
-      <div class="col-5">
-        <p class="eyebrow">Engage</p>
-        <h2 class="display-md">Pilot. Procure. Partner<span class="navy">.</span></h2>
-        <p class="body-lg" style="margin-top: 24px;">A pilot is one corridor, one parking lot, or one apron &mdash; run on your operations vehicle, delivered to your existing ArcGIS endpoint, in 30 days.</p>
-        <p class="body-lg" style="margin-top: 16px;">Drop a note for product updates, deployment news, and white-paper releases &mdash; or go straight to the contract scope form.</p>
-      </div>
-      <div class="col-7">
-        <script src="https://js-na2.hsforms.net/forms/embed/47691083.js" defer></script>
-        <div class="hs-form-frame" data-region="na2" data-form-id="a745f6b4-5d1b-40ed-9116-63bd54492e33" data-portal-id="47691083"></div>
-        <div class="cta-row" style="margin-top: 32px;">
-          <a class="btn primary" href="/contact/">Schedule a pilot &rarr;</a>
-          <a class="btn secondary" href="mailto:gov@airwai.com">Federal contracting &middot; DoW</a>
+  <!-- FOUNDER QUOTE -->
+  <section class="sec" style="background:#0E1A33;">
+    <div class="founder">
+      <img src="/assets/laira/amir.jpg" alt="Amir Emadi, Founder and CEO of Airwai">
+      <div>
+        <div class="eyebrow" style="color:#D8FF3C; margin-bottom:28px;">From the founder</div>
+        <p class="q">&ldquo;The people who keep our infrastructure safe still inspect it by hand, weeks behind. We built LAIRA so the inspection runs itself and the engineer&rsquo;s day goes back to judgment. The standard never moves. The work should still get easier.&rdquo;</p>
+        <div style="margin-top:32px; display:flex; align-items:center; gap:20px; flex-wrap:wrap;">
+          <div>
+            <div style="font-size:17px; font-weight:700; color:#FAFAF7;">Amir Emadi</div>
+            <div class="mono" style="font-size:13px; letter-spacing:0.06em; color:#a7aebd; margin-top:5px;">Founder &amp; CEO</div>
+          </div>
+          <a class="connect" href="https://www.linkedin.com/in/amiremadi/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>Connect with me</a>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- CTA -->
+  <section class="sec" style="background:#0b1428; text-align:center;">
+    <div style="max-width:820px; margin:0 auto;">
+      <h2 class="cta-h2">See what an autonomous<br>inspection looks like.</h2>
+      <p style="font-size:clamp(17px,2vw,20px); line-height:1.5; color:#c7cdd8; margin:24px auto 0; max-width:600px;">Start with a sample run on your own asset. See a scored map before you buy anything.</p>
+      <div style="display:flex; gap:16px; justify-content:center; margin-top:38px; flex-wrap:wrap;">
+        <a class="btn" href="/contact/" style="background:#D8FF3C; color:#0E1A33; font-weight:700;">Request a demo</a>
+        <a class="btn" href="/contact/" style="color:#FAFAF7; border:1px solid #2b3a58;">Talk to the team</a>
+      </div>
+    </div>
+  </section>
+
+</main>
 
 <footer class="airwai-site-footer">
   <div class="airwai-footer-container">
@@ -275,6 +167,7 @@
           <li><a href="/customers/">Customers</a></li>
           <li><a href="/brand/">Brand</a></li>
           <li><a href="https://docs.airwai.com">Documentation</a></li>
+          <li><a href="/trust/">Trust &amp; Security</a></li>
         </ul>
       </div>
       <div class="airwai-footer-col airwai-footer-col--federal">
@@ -310,7 +203,7 @@
         <a href="/terms/">Terms of Service</a>
         <a href="/cookies/">Cookie Preferences</a>
       </div>
-      <span class="airwai-footer-tagline">Airwai: the autonomous civil engineer.</span>
+      <span class="airwai-footer-tagline">Airwai: Intelligence for critical infrastructure.</span>
     </div>
   </div>
 </footer>
