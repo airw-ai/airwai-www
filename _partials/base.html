@@ -21,5 +21,43 @@
 
 {{FOOTER}}
 
+<script>
+/* Native lead-form handler — submits any .nform to HubSpot's Forms API.
+   Fields are read from [data-hs] inputs (data-hs = HubSpot internal name,
+   data-ot = objectTypeId, default 0-1 contact). No HubSpot embed/iframe. */
+(function () {
+  function post(form) {
+    var portal = form.getAttribute('data-hsportal');
+    var guid = form.getAttribute('data-hsform');
+    var hp = form.querySelector('.nform-hp');
+    var errEl = form.querySelector('.nform-error');
+    var okEl = form.querySelector('.nform-success');
+    function showErr(msg) { if (errEl) { errEl.textContent = msg || 'Something went wrong. Please try again.'; errEl.hidden = false; } }
+    function showOk() { form.classList.add('done'); if (okEl) okEl.hidden = false; }
+    if (errEl) errEl.hidden = true;
+    var fields = [], invalid = false;
+    form.querySelectorAll('[data-hs]').forEach(function (el) {
+      var v = (el.value || '').trim();
+      if (el.hasAttribute('required') && !v) { invalid = true; el.style.borderColor = '#c0392b'; }
+      else { el.style.borderColor = ''; }
+      if (v) fields.push({ objectTypeId: el.getAttribute('data-ot') || '0-1', name: el.getAttribute('data-hs'), value: v });
+    });
+    if (invalid) { showErr('Please fill in the required fields.'); return; }
+    if (hp && hp.value) { showOk(); return; } // honeypot tripped — treat as done, drop silently
+    var btn = form.querySelector('.nform-btn'); if (btn) { btn.disabled = true; btn.style.opacity = '0.6'; }
+    fetch('https://api.hsforms.com/submissions/v3/integration/submit/' + portal + '/' + guid, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ fields: fields, context: { pageUri: location.href, pageName: document.title } })
+    }).then(function (r) { r.ok ? showOk() : showErr(); })
+      .catch(function () { showErr(); })
+      .then(function () { if (btn) { btn.disabled = false; btn.style.opacity = ''; } });
+  }
+  document.addEventListener('submit', function (e) {
+    var f = e.target;
+    if (f && f.classList && f.classList.contains('nform')) { e.preventDefault(); post(f); }
+  });
+})();
+</script>
+
 </body>
 </html>

@@ -288,3 +288,29 @@ section.dark .pillar p strong { color: var(--chalk); }
 .airwai-footer-legal a:hover { color: var(--federal-navy); }
 .airwai-footer-tagline { font-family: var(--font-primary); font-style: italic; color: var(--federal-navy); font-size: 13px; }
 @media (max-width: 700px) { .airwai-footer-bottom { flex-direction: column; align-items: flex-start; } }
+
+/* ============================================================
+   Native lead-capture forms (.nform)
+   Styled to match the site; submit to HubSpot's Forms API via
+   the shared handler in _partials/base.html. Replaces the
+   HubSpot embed iframe (no HubSpot styling / free-tier badge).
+   Self-contained light card so it reads on any band.
+   ============================================================ */
+.nform { position: relative; background: var(--chalk); border: 1px solid var(--rule-strong); padding: 26px; }
+.nform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.nform .nfield-full { grid-column: 1 / -1; }
+.nform label { display: block; font-family: var(--font-utility); font-size: 10.5px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--stone); margin-bottom: 7px; }
+.nform input { width: 100%; background: #fff; border: 1px solid var(--rule-strong); padding: 12px 13px; font-family: var(--font-primary); font-size: 15px; color: var(--ink); transition: border-color 180ms var(--ease), box-shadow 180ms var(--ease); }
+.nform input:focus { outline: none; border-color: var(--federal-navy); box-shadow: 0 0 0 3px rgba(14,26,51,0.10); }
+.nform-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.nform-btn { margin-top: 16px; width: 100%; border: 1px solid var(--federal-navy); background: var(--federal-navy); color: var(--chalk); font-family: var(--font-primary); font-size: 16px; font-weight: 600; padding: 14px 20px; cursor: pointer; transition: background 200ms var(--ease), border-color 200ms var(--ease); }
+.nform-btn:hover { background: var(--ink); border-color: var(--ink); }
+.nform-btn:focus-visible { outline: 3px solid var(--signal-lime); outline-offset: 2px; }
+.nform-consent { font-size: 11px; color: var(--stone); line-height: 1.45; margin-top: 12px; }
+.nform-error { color: #c0392b; font-size: 12.5px; margin-top: 10px; }
+.nform-success { text-align: center; padding: 14px 4px; }
+.nform-tick { width: 48px; height: 48px; background: var(--signal-lime); color: var(--federal-navy); display: grid; place-items: center; font-size: 24px; font-weight: 800; margin: 4px auto 14px; }
+.nform-sh { font-family: var(--font-primary); font-size: 19px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.nform-success p { font-size: 14px; color: var(--stone); max-width: 34ch; margin: 0 auto; line-height: 1.5; }
+.nform.done .nform-grid, .nform.done .nform-btn, .nform.done .nform-consent, .nform.done .nform-error { display: none; }
+@media (max-width: 520px) { .nform-grid { grid-template-columns: 1fr; } }
