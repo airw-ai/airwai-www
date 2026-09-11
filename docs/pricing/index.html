@@ -33,13 +33,13 @@
     --sp-block: 56px;      /* intro block -> content grid */
     --ease: cubic-bezier(0.2, 0, 0, 1);
   }
-  #lp *{ box-sizing:border-box; margin:0; }
+  :where(#lp *){ box-sizing:border-box; margin:0; }
   
   
-  #lp h1,#lp h2,#lp h3{ margin:0; letter-spacing:-0.025em; line-height:1.03; text-wrap:balance; }
-  #lp p{ margin:0; text-wrap:pretty; }
-  #lp img{ display:block; max-width:100%; }
-  #lp .mono{ font-family:var(--m); }
+  :where(#lp) h1,:where(#lp) h2,:where(#lp) h3{ margin:0; letter-spacing:-0.025em; line-height:1.03; text-wrap:balance; }
+  :where(#lp) p{ margin:0; text-wrap:pretty; }
+  :where(#lp) img{ display:block; max-width:100%; }
+  :where(#lp) .mono{ font-family:var(--m); }
   .wrap{ max-width:var(--sp-maxw); margin:0 auto; padding:0 var(--sp-gutter); }
   section{ position:relative; }
   .lp-eyebrow{ display:inline-flex; align-items:center; gap:14px; font-family:var(--util); font-size:11px; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--stone); }
