@@ -240,7 +240,7 @@ description: Priced to pay for itself — fewer inspection hours, avoided penalt
     <h1 class="reveal" style="font-size:clamp(42px,5.4vw,74px);font-weight:800;line-height:1.02;letter-spacing:-0.026em;margin-top:22px">Priced to pay for itself.</h1>
     <p class="lead reveal" style="max-width:700px;margin:26px auto 0">LAIRA is measured in what it returns: fewer inspection hours, avoided penalties, and more billable field-days.</p>
     <div class="reveal" style="display:flex;gap:14px;justify-content:center;margin-top:36px;flex-wrap:wrap">
-      <a class="lp-btn lp-btn-primary" href="/contact/">Request pricing</a><a class="lp-btn lp-btn-ghost" href="/contact/">Schedule a pilot</a>
+      <a class="lp-btn lp-btn-primary" href="/contact/">Request pricing</a><a class="lp-btn lp-btn-ghost" href="/contact/">Start a pilot</a>
     </div>
   </div>
 </section>
@@ -276,7 +276,7 @@ description: Priced to pay for itself — fewer inspection hours, avoided penalt
           <div style="display:flex;gap:11px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#16181B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:2px"><path d="M20 6L9 17l-5-5"></path></svg><span style="font-size:15px;color:#2b2e34;line-height:1.4">Severity-scored findings, native in Esri</span></div>
           <div style="display:flex;gap:11px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#16181B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:2px"><path d="M20 6L9 17l-5-5"></path></svg><span style="font-size:15px;color:#2b2e34;line-height:1.4">Runs on the truck you already own</span></div>
         </div>
-        <a href="/contact/" style="margin-top:auto;text-align:center;background:var(--navy);color:var(--chalk);font-size:15px;font-weight:600;padding:13px;border-radius:5px">Schedule a pilot</a>
+        <a href="/contact/" style="margin-top:auto;text-align:center;background:var(--navy);color:var(--chalk);font-size:15px;font-weight:600;padding:13px;border-radius:5px">Request a demo</a>
       </div>
       <!-- COMPLIANCE -->
       <div class="reveal" style="background:var(--navy);border:2px solid var(--navy);border-radius:12px;padding:34px;display:flex;flex-direction:column">
@@ -315,34 +315,106 @@ description: Priced to pay for itself — fewer inspection hours, avoided penalt
   </div>
 </section>
 
-<!-- EASY TO BUY (navy) -->
-<section class="band deep">
+<!-- EASY TO BUY (buyer-segmented lanes) -->
+<section class="band stone" id="buypaths">
   <div class="wrap">
-    <div class="lp-eyebrow lime reveal">Procurement</div>
-    <h2 class="big reveal" style="margin-top:20px;max-width:840px">Simple and fast. Use the contract vehicles you know.</h2>
-    <p class="lead reveal" style="max-width:760px">You do not need a new contract. LAIRA is available on the vehicles your team already holds, sole-source-justifiable through the Esri integration, and pre-cleared on IT security. Think days, not a year.</p>
-    <div class="reveal" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:40px">
-      <span class="mono" style="font-size:13px;letter-spacing:.06em;color:var(--chalk);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);padding:9px 16px;border-radius:4px">GSA MAS</span>
-      <span class="mono" style="font-size:13px;letter-spacing:.06em;color:var(--chalk);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);padding:9px 16px;border-radius:4px">SEWP</span>
-      <span class="mono" style="font-size:13px;letter-spacing:.06em;color:var(--chalk);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);padding:9px 16px;border-radius:4px">Sourcewell</span>
-      <span class="mono" style="font-size:13px;letter-spacing:.06em;color:var(--chalk);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);padding:9px 16px;border-radius:4px">OMNIA Partners</span>
-      <span class="mono" style="font-size:13px;letter-spacing:.06em;color:var(--chalk);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);padding:9px 16px;border-radius:4px">NASPO ValuePoint</span>
-      <span class="mono" style="font-size:13px;letter-spacing:.06em;color:var(--chalk);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);padding:9px 16px;border-radius:4px">Vertosoft (ISV)</span>
+    <div class="lp-eyebrow reveal">Procurement · choose your lane</div>
+    <h2 class="big reveal" style="margin-top:20px;max-width:900px">Your buy path, your paper.</h2>
+    <p class="lead reveal">Choose your lane. LAIRA is acquired the way you already buy, with no new contract and no pricing surprises.</p>
+    <div class="reveal" id="bp-tabs" role="tablist" style="display:inline-flex;background:var(--surface-cool);border:1px solid var(--rule);border-radius:999px;padding:5px;gap:4px;flex-wrap:wrap;margin-top:40px">
+      <button type="button" data-lane="airports">Airports</button>
+      <button type="button" data-lane="authorities">Authorities &amp; Ports</button>
+      <button type="button" data-lane="dot">State DOT</button>
+      <button type="button" data-lane="federal">Federal &amp; Defense</button>
+      <button type="button" data-lane="aec">AEC / Engineering</button>
     </div>
-    <div class="reveal" style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin-top:56px">
-      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:22px"><div class="mono" style="font-size:12px;color:var(--lime);letter-spacing:.12em">01</div><h3 style="font-size:18px;font-weight:700;color:var(--chalk);margin-top:14px">Scope the pilot</h3><p style="font-size:14px;line-height:1.45;color:#a7aebd;margin-top:8px">One asset, one drive, a clear deliverable.</p></div>
-      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:22px"><div class="mono" style="font-size:12px;color:var(--lime);letter-spacing:.12em">02</div><h3 style="font-size:18px;font-weight:700;color:var(--chalk);margin-top:14px">Pick a vehicle you hold</h3><p style="font-size:14px;line-height:1.45;color:#a7aebd;margin-top:8px">Buy through paper you already have.</p></div>
-      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:22px"><div class="mono" style="font-size:12px;color:var(--lime);letter-spacing:.12em">03</div><h3 style="font-size:18px;font-weight:700;color:var(--chalk);margin-top:14px">Sole-source or task order</h3><p style="font-size:14px;line-height:1.45;color:#a7aebd;margin-top:8px">Esri-native and unique; we supply the justification input.</p></div>
-      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:22px"><div class="mono" style="font-size:12px;color:var(--lime);letter-spacing:.12em">04</div><h3 style="font-size:18px;font-weight:700;color:var(--chalk);margin-top:14px">Issue the PO</h3><p style="font-size:14px;line-height:1.45;color:#a7aebd;margin-top:8px">Annual, renew-by-PO. No lock-in.</p></div>
-      <div style="background:rgba(216,255,60,.1);border:1px solid rgba(216,255,60,.4);border-radius:8px;padding:22px"><div class="mono" style="font-size:12px;color:var(--lime);letter-spacing:.12em">05</div><h3 style="font-size:18px;font-weight:700;color:var(--chalk);margin-top:14px">Live in the field</h3><p style="font-size:14px;line-height:1.45;color:#c7cdd8;margin-top:8px">Driving and reporting in days.</p></div>
-    </div>
-    <div class="reveal" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:40px">
-      <div><h3 style="font-size:19px;font-weight:700;color:var(--chalk)">Sole-source ready</h3><p style="font-size:15px;line-height:1.5;color:#a7aebd;margin-top:10px">The Esri-native determination engine is a defensible basis for sole-source; we provide the salient-characteristics input.</p></div>
-      <div><h3 style="font-size:19px;font-weight:700;color:var(--chalk)">IT-security pre-cleared</h3><p style="font-size:15px;line-height:1.5;color:#a7aebd;margin-top:10px">Security documentation is on hand for your review, so the review clock starts early.</p></div>
-      <div><h3 style="font-size:19px;font-weight:700;color:var(--chalk)">No new contract</h3><p style="font-size:15px;line-height:1.5;color:#a7aebd;margin-top:10px">Ride the cooperative or federal vehicle you already use, and skip the standalone solicitation.</p></div>
-    </div>
+    <div class="reveal" id="bp-panel" style="margin-top:40px"></div>
   </div>
 </section>
+<script>
+(function(){
+  var DATA = {
+    airports: { full: 'Airports (Part 139)', vehicles: ['Sourcewell','OMNIA Partners','Vertosoft (ISV)'],
+      steps: [
+        { h:'Start at $0', p:'No-cost, no-PO evaluation. Nothing to procure to begin.' },
+        { h:'Confirm value together', p:'Agree the success criteria up front.' },
+        { h:'Direct or cooperative', p:'Annual subscription, signature-level under your bid and board thresholds, or Sourcewell / OMNIA via Vertosoft.' },
+        { h:'Issue the PO', p:'Annual, renew-by-PO. No new contract.' },
+        { h:'Live in the field', p:'Feeding your inspection software in days.' } ],
+      roi: [ { v:'$0', l:'to start — evaluate before anything changes hands' }, { v:'4–8×', l:'cheaper caught in the preventive window' }, { v:'Weekly', l:'whole-airfield condition, not a 3-year snapshot' } ],
+      note: 'No Esri required. Runs on the truck you already own, and feeds the software you already run.' },
+    authorities: { full: 'Airport & Port Authorities', vehicles: ['Sourcewell','OMNIA Partners','NASPO ValuePoint'],
+      steps: [
+        { h:'Scope a pilot', p:'One facility, one drive.' },
+        { h:'Ride a cooperative vehicle', p:'Sourcewell, OMNIA, or NASPO ValuePoint.' },
+        { h:'Board-aware approval', p:'Annual subscription sized under your thresholds.' },
+        { h:'Issue the PO', p:'Annual, renew-by-PO.' },
+        { h:'Pilot to program', p:'Expand across the portfolio.' } ],
+      roi: [ { v:'One system', l:'results in the GIS you already run' }, { v:'60×', l:'the ground a walking survey covers in a day' }, { v:'4–8×', l:'preventive vs. a deferred rebuild' } ],
+      note: 'Pilot-to-program path; annual renew-by-PO, no lock-in.' },
+    dot: { full: 'State DOT', vehicles: ['Sourcewell','OMNIA Partners','NASPO ValuePoint'],
+      steps: [
+        { h:'Collect now', p:'Start capturing on the fleet you already run.' },
+        { h:'Ride a cooperative or master agreement', p:'Sourcewell, OMNIA, NASPO, or a DOT master agreement.' },
+        { h:'Esri-native', p:'Where you run ArcGIS enterprise.' },
+        { h:'Issue the PO', p:'Annual, renew-by-PO.' },
+        { h:'Network rollout', p:'Scale across the system.' } ],
+      roi: [ { v:'~$0/mi', l:'your own truck and driver vs $100–1,000/mi for a contracted survey' }, { v:'60×', l:'the ground a walking survey covers in a day' }, { v:'Weekly', l:'condition refresh, not a snapshot' } ],
+      note: 'IT-security documentation on hand; Esri-native where the DOT runs ArcGIS.' },
+    federal: { full: 'Federal & Defense', vehicles: ['GSA MAS','SEWP','DLA TLS','Vertosoft (ISV)'],
+      steps: [
+        { h:'Scope the pilot', p:'One asset, one drive, a clear deliverable.' },
+        { h:'Buy on paper you hold', p:'GSA MAS, SEWP, or DLA TLS through a prime holder such as SupplyCore. No new contract.' },
+        { h:'Sole-source or task order', p:'Esri-native engine; we supply the justification input.' },
+        { h:'Issue the PO', p:'Annual, renew-by-PO.' },
+        { h:'Live in the field', p:'Driving and reporting in days.' } ],
+      roi: [ { v:'60×', l:'the ground a walking survey covers in a day' }, { v:'4–8×', l:'cheaper caught in the preventive window than a deferred rebuild' }, { v:'Weekly', l:'condition refresh, not a once-a-year survey' } ],
+      note: 'IT-security documentation on hand, so the review clock starts early.' },
+    aec: { full: 'AEC / Engineering firms', vehicles: ['Commercial MSA','Per-project','Portfolio license'],
+      steps: [
+        { h:'Scope a project', p:'One site, one drive.' },
+        { h:'Commercial MSA', p:'No public procurement.' },
+        { h:'Per-project or portfolio license', p:'Match it to how you bill.' },
+        { h:'Kick off', p:'Sign and go.' },
+        { h:'Win more work', p:'Freed field-days become billable.' } ],
+      roi: [ { v:'2.6–3.0×', l:'realized project multiplier for engineering firms' }, { v:'60×', l:'the ground a walking survey covers in a day' }, { v:'~$0/mi', l:'marginal cost vs. a contracted survey' } ],
+      note: 'Commercial terms. No cooperative vehicle or sole-source needed.' }
+  };
+  var tabs = document.getElementById('bp-tabs');
+  var panel = document.getElementById('bp-panel');
+  if (!tabs || !panel) return;
+  var btns = tabs.querySelectorAll('button');
+  var seg = 'border:none;cursor:pointer;font-family:var(--f);font-size:14px;font-weight:600;padding:11px 20px;border-radius:999px;white-space:nowrap;transition:background .15s,color .15s;';
+  function setActive(lane){ for (var i=0;i<btns.length;i++){ var on = btns[i].getAttribute('data-lane')===lane; btns[i].setAttribute('style', seg + (on ? 'background:var(--navy);color:var(--chalk);' : 'background:transparent;color:var(--stone);')); } }
+  function step(n,h,p){ return '<div style="display:flex;gap:20px;align-items:flex-start"><div class="mono" style="font-size:13px;color:var(--navy);background:var(--surface-warm);border-radius:999px;width:30px;height:30px;display:flex;align-items:center;justify-content:center;flex:none">'+n+'</div><div style="padding-top:3px"><div style="font-size:17px;font-weight:700;color:var(--ink)">'+h+'</div><div style="font-size:15px;color:var(--stone);line-height:1.5;margin-top:3px">'+p+'</div></div></div>'; }
+  function tile(v,l){ return '<div style="background:var(--surface-warm);border-radius:14px;padding:22px 24px"><div style="font-size:36px;font-weight:800;letter-spacing:-.02em;color:var(--navy);line-height:1">'+v+'</div><div style="font-size:14.5px;color:var(--stone);margin-top:9px;line-height:1.4">'+l+'</div></div>'; }
+  function pill(v){ return '<span class="mono" style="font-size:12px;color:var(--navy);background:var(--surface-warm);border:1px solid var(--rule);padding:7px 13px;border-radius:6px">'+v+'</span>'; }
+  function render(lane){
+    var d = DATA[lane] || DATA.airports;
+    var steps = d.steps.map(function(s,i){ return step(i+1, s.h, s.p); }).join('');
+    var tiles = d.roi.map(function(r){ return tile(r.v, r.l); }).join('');
+    var pills = d.vehicles.map(pill).join('');
+    panel.innerHTML =
+      '<div style="background:#fff;border:1px solid var(--rule);border-radius:20px;padding:48px 52px;box-shadow:0 1px 2px rgba(14,26,51,.04)">'+
+        '<div style="display:flex;flex-wrap:wrap;gap:56px">'+
+          '<div style="flex:1 1 380px">'+
+            '<div class="mono" style="font-size:11px;letter-spacing:.14em;color:var(--stone);margin-bottom:26px">HOW YOU ACQUIRE IT · '+d.full+'</div>'+
+            '<div style="display:flex;flex-direction:column;gap:22px">'+steps+'</div>'+
+            '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:32px">'+pills+'</div>'+
+          '</div>'+
+          '<div style="flex:1 1 260px">'+
+            '<div class="mono" style="font-size:11px;letter-spacing:.14em;color:var(--stone);margin-bottom:26px">BENEFITS</div>'+
+            '<div style="display:flex;flex-direction:column;gap:14px">'+tiles+'</div>'+
+            '<div style="font-size:14px;color:var(--ink);margin-top:22px;line-height:1.55;border-left:3px solid var(--lime);padding-left:14px">'+d.note+'</div>'+
+          '</div>'+
+        '</div>'+
+      '</div>';
+    setActive(lane);
+  }
+  for (var i=0;i<btns.length;i++){ (function(b){ b.addEventListener('click', function(){ render(b.getAttribute('data-lane')); }); })(btns[i]); }
+  render('airports');
+})();
+</script>
 
 <!-- LEAD FORM + CONTACT (warm) -->
 <section class="band stone">
@@ -352,7 +424,7 @@ description: Priced to pay for itself — fewer inspection hours, avoided penalt
       <h2 class="big reveal" style="margin-top:20px;font-size:clamp(32px,4vw,52px)">Bring the ROI model to your first call.</h2>
       <p class="lead reveal">Tell us the asset and we will build the payback on your lane-miles, not a generic quote. Then pick the fastest way to talk.</p>
       <div class="reveal" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:32px">
-        <a class="lp-btn lp-btn-primary" href="/contact/" style="font-size:16px;padding:14px 24px">Schedule a pilot</a>
+        <a class="lp-btn lp-btn-primary" href="/contact/" style="font-size:16px;padding:14px 24px">Book a demo</a>
         <a class="lp-btn lp-btn-ghost" href="/contact/" style="font-size:16px;padding:14px 22px">Talk to sales</a>
         <a class="lp-btn lp-btn-ghost" href="https://www.linkedin.com/company/airwai" target="_blank" rel="noopener" style="font-size:16px;padding:14px 22px">Connect on LinkedIn</a>
       </div>
@@ -370,7 +442,7 @@ description: Priced to pay for itself — fewer inspection hours, avoided penalt
       <div class="field"><label>Work email</label><input type="email" placeholder="you@agency.gov"></div>
       <div style="display:flex;gap:10px;margin-top:6px">
         <a class="lp-btn lp-btn-primary" href="/contact/" style="flex:1;text-align:center">Request pricing</a>
-        <a class="lp-btn lp-btn-ghost" href="/contact/" style="flex:1;text-align:center">Schedule a pilot</a>
+        <a class="lp-btn lp-btn-ghost" href="/contact/" style="flex:1;text-align:center">Start a pilot</a>
       </div>
     </form>
   </div>
