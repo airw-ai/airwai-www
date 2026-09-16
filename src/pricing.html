@@ -316,7 +316,7 @@ description: Priced to pay for itself — fewer inspection hours, avoided penalt
 </section>
 
 <!-- EASY TO BUY (buyer-segmented lanes) -->
-<section class="band stone" id="buypaths">
+<section class="band stone" id="buypaths" style="scroll-margin-top:80px">
   <div class="wrap">
     <div class="lp-eyebrow reveal">Procurement · choose your lane</div>
     <h2 class="big reveal" style="margin-top:20px;max-width:900px">Your buy path, your paper.</h2>
@@ -338,7 +338,7 @@ description: Priced to pay for itself — fewer inspection hours, avoided penalt
       steps: [
         { h:'Start at $0', p:'No-cost, no-PO evaluation. Nothing to procure to begin.' },
         { h:'Confirm value together', p:'Agree the success criteria up front.' },
-        { h:'Direct or cooperative', p:'Annual subscription, signature-level under your bid and board thresholds, or Sourcewell / OMNIA via Vertosoft.' },
+        { h:'Direct or cooperative', p:'By direct award or a cooperative vehicle (Sourcewell / OMNIA via Vertosoft). Your purchasing office picks the route.' },
         { h:'Issue the PO', p:'Annual, renew-by-PO. No new contract.' },
         { h:'Live in the field', p:'Feeding your inspection software in days.' } ],
       roi: [ { v:'$0', l:'to start — evaluate before anything changes hands' }, { v:'4–8×', l:'cheaper caught in the preventive window' }, { v:'Weekly', l:'whole-airfield condition, not a 3-year snapshot' } ],
@@ -347,7 +347,7 @@ description: Priced to pay for itself — fewer inspection hours, avoided penalt
       steps: [
         { h:'Scope a pilot', p:'One facility, one drive.' },
         { h:'Ride a cooperative vehicle', p:'Sourcewell, OMNIA, or NASPO ValuePoint.' },
-        { h:'Board-aware approval', p:'Annual subscription sized under your thresholds.' },
+        { h:'Standard approval', p:'Your purchasing office applies its usual approval path.' },
         { h:'Issue the PO', p:'Annual, renew-by-PO.' },
         { h:'Pilot to program', p:'Expand across the portfolio.' } ],
       roi: [ { v:'One system', l:'results in the GIS you already run' }, { v:'60×', l:'the ground a walking survey covers in a day' }, { v:'4–8×', l:'preventive vs. a deferred rebuild' } ],
@@ -411,8 +411,15 @@ description: Priced to pay for itself — fewer inspection hours, avoided penalt
       '</div>';
     setActive(lane);
   }
-  for (var i=0;i<btns.length;i++){ (function(b){ b.addEventListener('click', function(){ render(b.getAttribute('data-lane')); }); })(btns[i]); }
-  render('airports');
+  var LANES = { airports:1, authorities:1, dot:1, federal:1, aec:1 };
+  var ALIAS = { 'state-dot':'dot', statedot:'dot', ports:'authorities', 'authorities-ports':'authorities', defense:'federal', 'federal-defense':'federal', engineering:'aec', 'aec-engineering':'aec' };
+  function laneFromHash(){ var h = (location.hash||'').replace(/^#/,'').toLowerCase(); if (!h) return null; if (LANES[h]) return h; if (ALIAS[h]) return ALIAS[h]; return null; }
+  function scrollToBuy(){ var s = document.getElementById('buypaths'); if (s) s.scrollIntoView({ behavior:'smooth', block:'start' }); }
+  for (var i=0;i<btns.length;i++){ (function(b){ b.addEventListener('click', function(){ var lane=b.getAttribute('data-lane'); render(lane); if (history.replaceState) history.replaceState(null,'','#'+lane); }); })(btns[i]); }
+  var initial = laneFromHash();
+  render(initial || 'airports');
+  if (initial) setTimeout(scrollToBuy, 60);
+  window.addEventListener('hashchange', function(){ var lane = laneFromHash(); if (lane){ render(lane); scrollToBuy(); } });
 })();
 </script>
 
