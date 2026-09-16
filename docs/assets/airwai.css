@@ -336,3 +336,11 @@ section.dark .pillar p strong { color: var(--chalk); }
 .nform-success p { font-size: 14px; color: var(--stone); max-width: 34ch; margin: 0 auto; line-height: 1.5; }
 .nform.done .nform-grid, .nform.done .nform-btn, .nform.done .nform-consent, .nform.done .nform-error { display: none; }
 @media (max-width: 520px) { .nform-grid { grid-template-columns: 1fr; } }
+
+/* ---- MOBILE SAFETY NET (phones) — added for mobile-friendliness pass ----
+   Cap media to the viewport and stack inline multi-column grids. Class-based
+   grids are stacked per-page (see each page's <style>). Desktop/tablet unaffected. */
+@media (max-width: 640px) {
+  img { max-width: 100%; height: auto; }
+  [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+}

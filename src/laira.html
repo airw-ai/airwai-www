@@ -389,6 +389,11 @@ section.dark .stat .num.signal { color: var(--signal-lime); }
 }
 .cta-block .body-lg { margin-top: 24px; max-width: 680px; }
 footer .grid-12 { align-items: start; }
+
+  /* mobile: stack multi-column grids (mobile-friendliness pass) */
+  @media (max-width: 640px) {
+    .pain-row, .tier-row, .datasheet .ds-body, .ds-block dl, .ds-detection-row, .ds-resolution-row, .ds-standards-list, .proof-grid, .proof .quote-block { grid-template-columns: 1fr !important; }
+  }
 </style>
 
 <!-- ============================================================

@@ -265,6 +265,11 @@ section.dark .customer-card .quote-pending {
 section.dark .customer-card .cta-link { color: var(--signal-lime); border-bottom-color: var(--signal-lime); }
 .cta-block .body-lg { margin-top: 24px; max-width: 680px; }
 footer .grid-12 { align-items: start; }
+
+  /* mobile: stack multi-column grids (mobile-friendliness pass) */
+  @media (max-width: 640px) {
+    .logo-wall, .customer-section.reversed .customer-card, .customer-card, .customer-card .metric-row, .customer-card .quote-block { grid-template-columns: 1fr !important; }
+  }
 </style>
 
 <!-- ============================================================

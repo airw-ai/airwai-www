@@ -228,6 +228,12 @@ description: Every foot of pavement, measured at driving speed. One roof-mounted
      
     .flowpin{ min-height:auto; padding-block:78px; } .flow{ gap:40px; }
   }
+
+  /* mobile: stack multi-column grids (mobile-friendliness pass) */
+  @media (max-width: 640px) {
+    .modes, .flow, .fleet, .trip, .quotes, .rigrow, .lp-stats, /* STAY-CLOSE lead-capture (mirrors airwai.com's pre-footer form band) */
+  .signup, .sform { grid-template-columns: 1fr !important; }
+  }
 </style>
 
 <main id="lp">
