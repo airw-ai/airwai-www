@@ -11,6 +11,10 @@ How to create and change pages on Airwai's public marketing site. This is the pr
 5. **No secrets, ever.** Worker secrets are write-only via `wrangler secret put`. A credential that lands in a commit or in chat is rotated immediately.
 6. **No internal-only content in the repo.** That means: no product prices (pricing is ROI-first and delivered in a quote — a public rate card that conflicts with a customer's quote undercuts the deal); no CUI / FOUO / controlled material (it lives outside the repo and loads into KV at runtime from an external path); no internal security-posture / gap registers, insurance status, or unreleased-engagement disclosures. When in doubt, keep it out and load it into KV.
 
+## Design first
+
+Design new pages and any visual / layout change on **claude.ai/design** first (the Airwai design system is the org default there); pull the locked markup into `src/` and finalize in code (APIs, env, version control). Copy fixes and tooling changes skip the canvas. Never build production-wired code on the canvas, and never do early aesthetic brainstorming in raw repo files.
+
 ## Make a change
 
 ```bash
@@ -58,3 +62,10 @@ The Worker/API, its templates, D1 migrations, and KV loader scripts live in a **
 - **`docs/` is a build artifact.** CI rebuilds it on every deploy, so it does not need to be committed. Recommended follow-up: `git rm -r --cached docs/` and add `docs/` to `.gitignore` (done in a dedicated PR, since it is a large diff). Until then, if you do commit `docs/`, rebuild it in the same commit as the `src/` change so the two never drift.
 - **Legal pages** (`src/legal/*`) are reviewed by counsel before they go live. Do not publish a new legal page (AUP, ToS, disclaimer) without that review.
 - **Design-canvas working files** belong in the design-system repo, not here (git-ignored via `_design-canvas/`).
+
+## Sibling sites
+
+Three sibling public sites — one family, one set of house conventions, three separate repos:
+- **airwai.com** — `airw-ai/airwai-www` (custom `build.py` static site) — this repo.
+- **docs.airwai.com** — `airw-ai/airwai-documentation` (MkDocs).
+- **partners.airwai.com** — `airw-ai/laira-partners` (MkDocs).
