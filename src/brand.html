@@ -40,6 +40,13 @@ description: Airwai brand guidelines — logo, color, typography, and voice for 
 .voice .k { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--signal-lime); margin-bottom: 12px; }
 .voice h3 { font-size: 20px; font-weight: 600; color: var(--chalk); margin-bottom: 10px; letter-spacing: -0.01em; }
 .voice p { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.78); }
+
+  /* mobile: stack multi-column grids (mobile-friendliness pass) */
+  @media (max-width: 640px) {
+    .logo-rules, /* color */
+.swatch-grid, /* voice */
+.voice-row { grid-template-columns: 1fr !important; }
+  }
 </style>
 
 <!-- HERO -->
