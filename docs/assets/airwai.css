@@ -337,10 +337,19 @@ section.dark .pillar p strong { color: var(--chalk); }
 .nform.done .nform-grid, .nform.done .nform-btn, .nform.done .nform-consent, .nform.done .nform-error { display: none; }
 @media (max-width: 520px) { .nform-grid { grid-template-columns: 1fr; } }
 
-/* ---- MOBILE SAFETY NET (phones) — added for mobile-friendliness pass ----
-   Cap media to the viewport and stack inline multi-column grids. Class-based
-   grids are stacked per-page (see each page's <style>). Desktop/tablet unaffected. */
-@media (max-width: 640px) {
+/* ---- MOBILE / TABLET SAFETY NET — mobile-friendliness pass ----
+   Cap media to the viewport and make inline multi-column grids fluid (auto-fit)
+   across phones and tablets. Class-based grids are handled per-page (see each
+   page's <style>). Only applies <=900px, so desktop is unaffected. */
+@media (max-width: 900px) {
   img { max-width: 100%; height: auto; }
-  [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns"] { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)) !important; }
 }
+
+/* Responsive grid utilities — responsive by construction (auto-fit). Prefer these
+   on NEW pages over inline grid-template-columns, so mobile/tablet are automatic.
+   Density tunes with --r-min (min column width) and --r-gap. */
+.r-grid { display: grid; gap: var(--r-gap, 24px);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--r-min, 280px)), 1fr)); }
+.r-grid.tight { --r-min: 180px; }   /* stat rows, small cards */
+.r-grid.wide  { --r-min: 360px; }   /* feature cards, big tiles */

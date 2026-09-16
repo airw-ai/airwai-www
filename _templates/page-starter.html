@@ -1,0 +1,57 @@
+<!-- @meta
+title: <Page title> · Airwai
+description: <One-sentence description for search and social.>
+@meta-end -->
+
+<!--
+  NEW-PAGE STARTER — copy to src/<name>.html (or src/<folder>/<name>.html for a
+  nested route), then edit. build.py wraps this with the shared nav/footer/base.
+
+  RESPONSIVE BY DEFAULT (do this, and mobile + tablet come for free):
+  1. Multi-column layouts use the shared .r-grid utility — NEVER a hand-rolled
+     inline `style="grid-template-columns: repeat(3,1fr)"` (those don't reflow).
+       <div class="r-grid">…cards…</div>                 auto 1→2→3 cols
+       <div class="r-grid tight">…stats…</div>            denser (min 180px)
+       <div class="r-grid wide" style="--r-min:360px">…</div>  tune per use
+  2. Type scales with clamp():  font-size: clamp(28px, 5vw, 48px);
+  3. Images: <img> caps to the viewport automatically (<=900px). For background
+     images set a sane mobile height and background-position.
+  4. Side padding via the shared .container (never a fixed page width).
+  5. Breakpoints in use site-wide: phone <=640px, tablet <=900px, desktop >900px.
+  VERIFY before PR: preview at 390 / 768 / 1280 px (see PUBLISHING.md "Responsive
+  by default" for the true-viewport iframe harness — do NOT trust a resized
+  desktop window; headless/desktop clips below ~500px).
+-->
+
+<style>
+  /* Page-local styles. Keep multi-column layouts on .r-grid; only add @media
+     here for page-specific tweaks (phone <=640 / tablet <=900). */
+  .starter-hero h1 { font-size: clamp(32px, 5.2vw, 60px); line-height: 1.05; letter-spacing: -0.02em; }
+  .starter-hero p  { font-size: clamp(16px, 2vw, 20px); color: var(--stone); max-width: 640px; margin-top: 20px; }
+  .card { background: var(--surface-warm); border: 1px solid var(--rule); border-radius: 14px; padding: 24px; }
+</style>
+
+<section class="hero">
+  <div class="container starter-hero">
+    <p class="eyebrow">Eyebrow</p>
+    <h1>Headline that wraps cleanly on a phone<span class="navy">.</span></h1>
+    <p>Supporting line. Uses clamp() so it scales from phone to desktop without a media query.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="/contact/">Primary CTA</a>
+      <a class="btn secondary" href="#">Secondary</a>
+    </div>
+  </div>
+</section>
+
+<section class="warm">
+  <div class="container">
+    <p class="eyebrow">A responsive section</p>
+    <h2 class="display-lg">Cards that reflow<span class="navy">.</span></h2>
+    <!-- .r-grid = 3 cols on desktop, 2 on tablet, 1 on phone, automatically -->
+    <div class="r-grid" style="margin-top:40px">
+      <div class="card"><h3>One</h3><p>Body.</p></div>
+      <div class="card"><h3>Two</h3><p>Body.</p></div>
+      <div class="card"><h3>Three</h3><p>Body.</p></div>
+    </div>
+  </div>
+</section>

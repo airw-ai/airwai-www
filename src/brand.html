@@ -42,10 +42,10 @@ description: Airwai brand guidelines — logo, color, typography, and voice for 
 .voice p { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.78); }
 
   /* mobile: stack multi-column grids (mobile-friendliness pass) */
-  @media (max-width: 640px) {
+  @media (max-width: 900px) {
     .logo-rules, /* color */
 .swatch-grid, /* voice */
-.voice-row { grid-template-columns: 1fr !important; }
+.voice-row { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)) !important; }
   }
 </style>
 

@@ -60,9 +60,9 @@ body-class: webinar-lp
   @media (max-width:900px) { .wb-sticky { display:block; } body.webinar-lp { padding-bottom:78px; } }
 
   /* mobile: stack multi-column grids (mobile-friendliness pass) */
-  @media (max-width: 640px) {
+  @media (max-width: 900px) {
     /* Speaker cards */
-  .spk { grid-template-columns: 1fr !important; }
+  .spk { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)) !important; }
   }
 </style>
 
