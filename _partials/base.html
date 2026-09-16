@@ -22,6 +22,19 @@
 {{FOOTER}}
 
 <script>
+/* Mobile nav toggle — show/hide the collapsed menu at <=900px */
+(function () {
+  var nav = document.querySelector('nav.site-nav');
+  var btn = nav && nav.querySelector('.nav-toggle');
+  if (!btn) return;
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.querySelectorAll('.links a').forEach(function (a) {
+    a.addEventListener('click', function () { nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); });
+  });
+})();
 /* Native lead-form handler — submits any .nform to HubSpot's Forms API.
    Fields are read from [data-hs] inputs (data-hs = HubSpot internal name,
    data-ot = objectTypeId, default 0-1 contact). No HubSpot embed/iframe. */

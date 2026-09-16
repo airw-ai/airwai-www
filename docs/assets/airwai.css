@@ -133,6 +133,13 @@ nav.site-nav .links .cta {
   font-weight: 500;
 }
 nav.site-nav .links .cta:hover { background: var(--ink); border-color: var(--ink); color: var(--chalk); }
+/* Mobile hamburger — hidden on desktop, shown at <=900px */
+nav.site-nav .nav-toggle { display: none; background: none; border: 0; padding: 8px; cursor: pointer; }
+nav.site-nav .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: transform .2s ease, opacity .2s ease; }
+nav.site-nav .nav-toggle span + span { margin-top: 5px; }
+nav.site-nav.open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+nav.site-nav.open .nav-toggle span:nth-child(2) { opacity: 0; }
+nav.site-nav.open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 /* "Who it's for" dropdown */
 nav.site-nav .navdrop { position: relative; display: inline-flex; }
 nav.site-nav .navdrop-menu {
@@ -148,8 +155,22 @@ nav.site-nav .navdrop:focus-within .navdrop-menu { opacity: 1; visibility: visib
 nav.site-nav .navdrop-menu a { display: block; padding: 9px 14px; font-size: 14px; color: var(--ink); border-radius: 5px; white-space: nowrap; }
 nav.site-nav .navdrop-menu a:hover { background: var(--surface-warm); color: var(--federal-navy); }
 @media (max-width: 900px) {
-  nav.site-nav .links a:not(.cta) { display: none; }
-  nav.site-nav .navdrop { display: none; }
+  nav.site-nav .row { flex-wrap: wrap; }
+  nav.site-nav .nav-toggle { display: block; }
+  nav.site-nav .links {
+    display: none; flex-direction: column; align-items: stretch; gap: 0;
+    width: 100%; order: 3; margin-top: 8px;
+  }
+  nav.site-nav.open .links { display: flex; }
+  nav.site-nav .links a { padding: 13px 2px; font-size: 16px; border-top: 1px solid var(--rule); }
+  nav.site-nav .links .cta { text-align: center; margin-top: 12px; padding: 13px 18px; border-radius: 6px; }
+  nav.site-nav .navdrop { display: flex; flex-direction: column; }
+  nav.site-nav .navdrop-menu {
+    position: static; opacity: 1; visibility: visible; transform: none;
+    box-shadow: none; border: 0; border-radius: 0; padding: 0 0 8px 16px; margin-top: 0; min-width: 0;
+  }
+  nav.site-nav .navdrop-menu a { border-top: 0; padding: 9px 2px; font-size: 15px; }
+  nav.site-nav .navdrop-label { padding: 13px 2px; border-top: 1px solid var(--rule); }
 }
 
 /* ----------------------------------------------------------
