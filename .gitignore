@@ -17,3 +17,16 @@ venv/
 
 # OS / Office leftovers
 ~$*
+
+# Node
+node_modules/
+
+# Local dev / Cloudflare artifacts (the Worker itself lives in a private repo;
+# real secrets are write-only via `wrangler secret put` and are never committed).
+.wrangler/
+.dev.vars
+.dev.vars.local
+
+# Design-canvas scratch — belongs in the design-system repo, not this public
+# marketing repo. Kept out to avoid shipping large working files publicly.
+_design-canvas/
