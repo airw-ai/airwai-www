@@ -40,8 +40,8 @@ description: Airwai builds the software that reads infrastructure automatically,
   }
 
   /* mobile: stack multi-column grids (mobile-friendliness pass) */
-  @media (max-width: 640px) {
-    #lp .values, #lp .founder { grid-template-columns: 1fr !important; }
+  @media (max-width: 900px) {
+    #lp .values, #lp .founder { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)) !important; }
   }
 </style>
 

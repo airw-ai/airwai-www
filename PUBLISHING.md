@@ -32,6 +32,20 @@ gh pr create --base main                 # PR → review → merge → auto-depl
 - **Commit `src/`, not `docs/`.** CI runs `build.py` and deploys the fresh build, so committing generated `docs/` only adds diff noise and merge conflicts. (See "Conventions" — `docs/` is a build artifact.)
 - **A new page** is just a new `src/<name>.html` (or `src/<folder>/<name>.html` for a nested route). `build.py` maps it to `docs/<name>/index.html`. Add nav/footer links in `_partials/` if it should be discoverable.
 
+## Responsive by default (every new page ships mobile + tablet)
+
+A page is not done until it works on phones and tablets. Build it responsive from the start rather than retrofitting.
+
+- **Start from the template:** copy **`_templates/page-starter.html`** to `src/<name>.html`. It bakes in the rules below.
+- **Multi-column layouts use the shared `.r-grid` utility, never a hand-rolled inline `grid-template-columns: repeat(N, …)`.** Inline fixed grids do not reflow and overlap on narrow screens (the exact bug this pass fixed).
+  - `.r-grid` → auto 1→2→3 columns as width allows. `.r-grid.tight` (stats/small cards), `.r-grid.wide` (big tiles), or `style="--r-min: 320px"` to tune density.
+- **Type scales with `clamp()`** (e.g., `clamp(28px, 5vw, 48px)`), so it fits without a media query.
+- **Images** are auto-capped to the viewport (`max-width:100%` at ≤900px). For background images, set a mobile height + `background-position`.
+- **Side padding** comes from `.container` — never a fixed page width.
+- **Breakpoints in use site-wide:** phone `≤640px`, tablet `≤900px`, desktop `>900px`. A shared safety net (`airwai.css`) also caps images and fluidly stacks any inline grids ≤900px, but don't rely on it — use `.r-grid`.
+
+**Verify before every PR at a *true* viewport — 390 / 768 / 1280 px.** Do **not** just resize a desktop window or screenshot headless at a narrow size: headless Chrome has a ~500px minimum viewport and will silently render at 500px and clip, faking both problems and passes. Use a real device, DevTools device mode, or render the page inside a fixed-width iframe (`<iframe src="…" width="390">`) and screenshot that — the iframe gives the embedded page a genuine phone viewport.
+
 ## Deploy
 
 - **Static site:** `.github/workflows/docs.yml` fires on push to `main`. It runs `python3 build.py` and deploys `docs/` to GitHub Pages (custom domain via Cloudflare). No manual step.

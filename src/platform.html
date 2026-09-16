@@ -230,9 +230,9 @@ description: One drive automates every downstream action — LAIRA turns a singl
   }
 
   /* mobile: stack multi-column grids (mobile-friendliness pass) */
-  @media (max-width: 640px) {
+  @media (max-width: 900px) {
     .modes, .flow, .fleet, .trip, .quotes, .rigrow, .lp-stats, /* STAY-CLOSE lead-capture (mirrors airwai.com's pre-footer form band) */
-  .signup, .sform { grid-template-columns: 1fr !important; }
+  .signup, .sform { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)) !important; }
   }
 </style>
 

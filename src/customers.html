@@ -267,8 +267,8 @@ section.dark .customer-card .cta-link { color: var(--signal-lime); border-bottom
 footer .grid-12 { align-items: start; }
 
   /* mobile: stack multi-column grids (mobile-friendliness pass) */
-  @media (max-width: 640px) {
-    .logo-wall, .customer-section.reversed .customer-card, .customer-card, .customer-card .metric-row, .customer-card .quote-block { grid-template-columns: 1fr !important; }
+  @media (max-width: 900px) {
+    .logo-wall, .customer-section.reversed .customer-card, .customer-card, .customer-card .metric-row, .customer-card .quote-block { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)) !important; }
   }
 </style>
 
