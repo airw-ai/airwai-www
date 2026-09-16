@@ -1,6 +1,13 @@
 # MkDocs build artifact
 site/
 
+# Generated pages — build.py writes docs/<page>/index.html from src/ + _partials/;
+# CI rebuilds them on every deploy, so they are not tracked (source of truth is src/).
+# NOTE: docs/assets/, docs/CNAME, and docs/.nojekyll ARE tracked — build.py preserves
+# (does not regenerate) them, so they must stay in the repo.
+docs/index.html
+docs/**/index.html
+
 # Python
 __pycache__/
 *.pyc
