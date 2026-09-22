@@ -55,11 +55,9 @@ robots: noindex, nofollow
 #ml .formcard{ background:var(--chalk); border-radius:14px; padding:26px; box-shadow:0 30px 70px rgba(0,0,0,.34); }
 #ml .formcard h2{ font-size:22px; font-weight:800; color:var(--ink); letter-spacing:-.02em; }
 #ml .formcard .sub{ font-size:14.5px; line-height:1.5; color:var(--stone); margin-top:8px; }
-#ml .formhost{ margin-top:18px; position:relative; border:1px solid var(--rule); border-radius:10px; overflow:hidden; background:#fff; }
-#ml .formwrap{ height:clamp(500px,64vh,700px); overflow-y:auto; overscroll-behavior:contain; -webkit-overflow-scrolling:touch; background:#fff; }
-#ml .formwrap iframe{ display:block; width:100%; height:2052px; border:0; background:#fff; }
-#ml .formfallback{ position:absolute; z-index:2; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; text-align:center; padding:28px; color:var(--stone); font-size:14px; background:var(--chalk); }
-#ml .formopen{ display:block; margin-top:12px; font-family:var(--m); font-size:12px; letter-spacing:.04em; text-transform:uppercase; color:var(--stone); text-decoration:none; text-align:center; }
+#ml .formbox{ margin-top:18px; height:clamp(400px,54vh,500px); border:1px solid var(--rule); border-radius:10px; overflow-y:auto; overscroll-behavior:contain; -webkit-overflow-scrolling:touch; background:#fff; }
+#ml .formbox iframe{ display:block; width:100%; height:2052px; border:0; background:#fff; }
+#ml .formopen{ display:block; margin-top:14px; font-family:var(--m); font-size:12px; letter-spacing:.04em; text-transform:uppercase; color:var(--stone); text-decoration:none; text-align:center; }
 #ml .formopen:hover{ color:var(--ink); }
 
 /* full-bleed image band */
@@ -125,21 +123,15 @@ robots: noindex, nofollow
             <span class="chip"><i></i>CVAT platform</span>
             <span class="chip"><i></i>Real ML pipeline</span>
           </div>
-          <p class="eligible fade d3">Open to students and recent graduates from engineering and coding programs across Albania, Holberton School and others alike. No prior machine-learning experience required.</p>
+          <p class="eligible fade d3">Open to students and recent graduates across Albania. No prior machine-learning experience required.</p>
         </div>
         <div class="formcard fade d3" id="apply">
           <h2>Join the Albania Talent Network</h2>
           <p class="sub">Share your background and interests. Our team reaches out with a first project and your CVAT seat.</p>
-          <div class="formhost">
-            <div class="formwrap">
-              <iframe id="applyframe" src="https://docs.google.com/forms/d/e/1FAIpQLSdLduvSZHKABKXrqfWI2WnK_ztDc3kM_QjfHrL1n7m0CebnbQ/viewform?embedded=true" title="Airwai Talent Network Albania application form" loading="lazy">Loading…</iframe>
-            </div>
-            <div class="formfallback" id="applyfallback">
-              <div>Loading the application form. If it does not appear, open it in a new tab.</div>
-              <a class="btn btn-lime" href="https://docs.google.com/forms/d/e/1FAIpQLSdLduvSZHKABKXrqfWI2WnK_ztDc3kM_QjfHrL1n7m0CebnbQ/viewform" target="_blank" rel="noopener">Open the form</a>
-            </div>
+          <div class="formbox">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdLduvSZHKABKXrqfWI2WnK_ztDc3kM_QjfHrL1n7m0CebnbQ/viewform?embedded=true" title="Airwai Talent Network Albania application form" loading="eager">Loading…</iframe>
           </div>
-          <a class="formopen" href="https://docs.google.com/forms/d/e/1FAIpQLSdLduvSZHKABKXrqfWI2WnK_ztDc3kM_QjfHrL1n7m0CebnbQ/viewform" target="_blank" rel="noopener">Open the form in a new tab &#8599;</a>
+          <a class="formopen" href="https://docs.google.com/forms/d/e/1FAIpQLSdLduvSZHKABKXrqfWI2WnK_ztDc3kM_QjfHrL1n7m0CebnbQ/viewform" target="_blank" rel="noopener">Open the full form in a new tab &#8599;</a>
         </div>
       </div>
     </div>
@@ -242,12 +234,3 @@ robots: noindex, nofollow
   </section>
 </main>
 
-<script>
-/* Reveal the embedded form only when it actually loads. If the frame is
-   blocked or slow, the fallback with its "Open the form" button stays visible. */
-(function () {
-  var f = document.getElementById('applyframe');
-  var fb = document.getElementById('applyfallback');
-  if (f && fb) { f.addEventListener('load', function () { fb.hidden = true; }); }
-})();
-</script>
