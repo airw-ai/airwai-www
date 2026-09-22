@@ -137,10 +137,16 @@ def build_page(src_path, base_tpl, nav_tpl, footer_tpl, signup_tpl=""):
     body_cls = meta.get("body-class", "").strip()
     body_class_attr = f' class="{body_cls}"' if body_cls else ""
 
+    # optional per-page robots directive (e.g. "noindex, nofollow" for unlisted pages).
+    # Empty by default so existing pages render byte-identically (token drops to nothing).
+    robots = meta.get("robots", "").strip()
+    robots_tag = f'<meta name="robots" content="{robots}" />' if robots else ""
+
     page = (
         base_tpl
         .replace("{{TITLE}}", meta.get("title", "Airwai"))
         .replace("{{DESCRIPTION}}", meta.get("description", ""))
+        .replace("{{ROBOTS}}", robots_tag)
         .replace("{{ASSET_PREFIX}}", prefix)
         .replace("{{PAGE_CSS}}", style)
         .replace("{{BODY_CLASS}}", body_class_attr)
