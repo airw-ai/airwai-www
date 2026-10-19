@@ -33,6 +33,36 @@ description: Airwai builds the software that reads infrastructure automatically,
   #lp .cta-h2{ font-size:clamp(34px,4.4vw,54px); font-weight:800; line-height:1.04; color:#FAFAF7; }
   #lp .btn{ font-size:17px; font-weight:600; padding:16px 30px; border-radius:5px; display:inline-block; }
 
+  /* team: navy duotone at rest; hover/focus runs a lime scan line that wipes to full color and locks detection brackets */
+  #lp .team{ --r-min:200px; --r-gap:clamp(28px,4vw,48px); margin-top:64px; }
+  #lp .tm-photo{ position:relative; aspect-ratio:1/1; border-radius:10px; overflow:hidden; background:#0E1A33; }
+  #lp .tm-photo img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 22%; }
+  #lp .tm-color{ transform:scale(1.06); transition:transform .9s cubic-bezier(.22,1,.36,1); }
+  #lp .tm-duo{ position:absolute; inset:0; background:#0E1A33; clip-path:inset(0 0 0 0); transition:clip-path .75s cubic-bezier(.65,0,.35,1); }
+  #lp .tm-duo img{ filter:grayscale(1) contrast(1.15) brightness(1.05); mix-blend-mode:screen; opacity:.88; }
+  #lp .tm-scan{ position:absolute; left:0; right:0; top:-3px; height:2px; background:#D8FF3C; box-shadow:0 0 14px 2px rgba(216,255,60,.55); opacity:0; transition:top .75s cubic-bezier(.65,0,.35,1), opacity .2s; }
+  #lp .tm-bk{ position:absolute; width:22px; height:22px; border:0 solid #D8FF3C; opacity:0; transform:scale(1.25); transition:opacity .25s, transform .4s cubic-bezier(.22,1,.36,1); }
+  #lp .tm-bk.tl{ top:14%; left:24%; border-top-width:2px; border-left-width:2px; transform-origin:top left; }
+  #lp .tm-bk.tr{ top:14%; right:24%; border-top-width:2px; border-right-width:2px; transform-origin:top right; }
+  #lp .tm-bk.bl{ bottom:30%; left:24%; border-bottom-width:2px; border-left-width:2px; transform-origin:bottom left; }
+  #lp .tm-bk.br{ bottom:30%; right:24%; border-bottom-width:2px; border-right-width:2px; transform-origin:bottom right; }
+  #lp .tm-tag{ position:absolute; left:14px; bottom:14px; font-family:"JetBrains Mono", ui-monospace, monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#D8FF3C; background:rgba(14,26,51,.88); padding:6px 10px; border-radius:3px; opacity:0; transform:translateY(8px); transition:opacity .3s, transform .4s cubic-bezier(.22,1,.36,1); }
+  #lp .tm-tag::before{ content:""; display:inline-block; width:6px; height:6px; border-radius:50%; background:#D8FF3C; margin-right:8px; vertical-align:1px; }
+  #lp .tm:hover .tm-duo, #lp .tm:focus-within .tm-duo{ clip-path:inset(100% 0 0 0); }
+  #lp .tm:hover .tm-color, #lp .tm:focus-within .tm-color{ transform:scale(1); }
+  #lp .tm:hover .tm-scan, #lp .tm:focus-within .tm-scan{ top:100%; opacity:1; }
+  #lp .tm:hover .tm-bk, #lp .tm:focus-within .tm-bk{ opacity:1; transform:scale(1); transition-delay:.35s; }
+  #lp .tm:hover .tm-tag, #lp .tm:focus-within .tm-tag{ opacity:1; transform:none; transition-delay:.5s; }
+  #lp .tm-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-top:22px; }
+  #lp .tm-name{ font-size:20px; font-weight:700; color:#16181B; letter-spacing:-0.01em; }
+  #lp .tm-role{ font-family:"JetBrains Mono", ui-monospace, monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#5b606b; margin-top:6px; }
+  #lp .tm-li{ flex:none; display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border:1px solid #E3E1DC; border-radius:4px; color:#16181B; transition:background .2s, color .2s, border-color .2s; }
+  #lp .tm-li:hover, #lp .tm-li:focus-visible{ background:#0E1A33; border-color:#0E1A33; color:#FAFAF7; }
+  #lp .tm-bio{ font-size:16px; line-height:1.6; color:#5b606b; margin-top:14px; }
+  /* touch screens have no hover: show the color photo as-is */
+  @media (hover:none){ #lp .tm-duo, #lp .tm-scan, #lp .tm-bk{ display:none; } #lp .tm-color{ transform:none; } }
+  @media (prefers-reduced-motion:reduce){ #lp .tm-photo *{ transition-duration:.01s !important; transition-delay:0s !important; } #lp .tm-scan{ display:none; } }
+
   @media (max-width:820px){
     #lp .values{ grid-template-columns:1fr; }
     #lp .founder{ grid-template-columns:1fr; gap:36px; }
@@ -107,6 +137,58 @@ description: Airwai builds the software that reads infrastructure automatically,
             <div class="mono" style="font-size:13px; letter-spacing:0.06em; color:#a7aebd; margin-top:5px;">Founder &amp; CEO</div>
           </div>
           <a class="connect" href="https://www.linkedin.com/in/amiremadi/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>Connect with me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="sec" style="background:#FAFAF7;">
+    <div style="max-width:1120px; margin:0 auto;">
+      <div class="eyebrow" style="margin-bottom:22px;">The team</div>
+      <h2 class="h2" style="max-width:760px;">The people building Airwai.</h2>
+      <div class="team r-grid">
+        <div class="tm">
+          <div class="tm-photo">
+            <img class="tm-color" src="/assets/laira/amir.jpg" alt="Amir Emadi, Founder and CEO of Airwai">
+            <div class="tm-duo" aria-hidden="true"><img src="/assets/laira/amir.jpg" alt=""></div>
+            <span class="tm-scan" aria-hidden="true"></span>
+            <span class="tm-bk tl" aria-hidden="true"></span><span class="tm-bk tr" aria-hidden="true"></span><span class="tm-bk bl" aria-hidden="true"></span><span class="tm-bk br" aria-hidden="true"></span>
+            <span class="tm-tag" aria-hidden="true">Founder</span>
+          </div>
+          <div class="tm-head">
+            <div><div class="tm-name">Amir Emadi</div><div class="tm-role">Founder &amp; CEO</div></div>
+            <a class="tm-li" href="https://www.linkedin.com/in/amiremadi/" target="_blank" rel="noopener noreferrer" aria-label="Amir Emadi on LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg></a>
+          </div>
+          <p class="tm-bio">Co-founded Soaring, whose system flew the U.S. Army&rsquo;s first autonomous resupply missions, after running the research spin-out studio at Caltech&rsquo;s Center for Autonomous Systems and Technologies.</p>
+        </div>
+        <div class="tm">
+          <div class="tm-photo">
+            <img class="tm-color" src="/assets/laira/austin.jpg" alt="Austin Wiggins, Lead Engineer at Airwai">
+            <div class="tm-duo" aria-hidden="true"><img src="/assets/laira/austin.jpg" alt=""></div>
+            <span class="tm-scan" aria-hidden="true"></span>
+            <span class="tm-bk tl" aria-hidden="true"></span><span class="tm-bk tr" aria-hidden="true"></span><span class="tm-bk bl" aria-hidden="true"></span><span class="tm-bk br" aria-hidden="true"></span>
+            <span class="tm-tag" aria-hidden="true">Engineering</span>
+          </div>
+          <div class="tm-head">
+            <div><div class="tm-name">Austin Wiggins</div><div class="tm-role">Lead Engineer</div></div>
+            <a class="tm-li" href="https://www.linkedin.com/in/austin-wiggins/" target="_blank" rel="noopener noreferrer" aria-label="Austin Wiggins on LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg></a>
+          </div>
+          <p class="tm-bio">Builds the cloud, deployment, and telemetry systems that carry LAIRA from the lab to the field, drawing on about a decade in DevOps and robotic automation at Discovery Robotics and SRT Labs.</p>
+        </div>
+        <div class="tm">
+          <div class="tm-photo">
+            <img class="tm-color" src="/assets/laira/behr.jpg" alt="Behr Borhani, Go-to-Market and Enablement at Airwai">
+            <div class="tm-duo" aria-hidden="true"><img src="/assets/laira/behr.jpg" alt=""></div>
+            <span class="tm-scan" aria-hidden="true"></span>
+            <span class="tm-bk tl" aria-hidden="true"></span><span class="tm-bk tr" aria-hidden="true"></span><span class="tm-bk bl" aria-hidden="true"></span><span class="tm-bk br" aria-hidden="true"></span>
+            <span class="tm-tag" aria-hidden="true">Go-to-market</span>
+          </div>
+          <div class="tm-head">
+            <div><div class="tm-name">Behr Borhani</div><div class="tm-role">Go-to-Market &amp; Enablement</div></div>
+            <a class="tm-li" href="https://www.linkedin.com/in/behrangborhani/" target="_blank" rel="noopener noreferrer" aria-label="Behr Borhani on LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg></a>
+          </div>
+          <p class="tm-bio">Runs go-to-market and sales enablement, bringing enterprise product experience from Navy Federal Credit Union and The Hartford to every customer rollout.</p>
         </div>
       </div>
     </div>
