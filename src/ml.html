@@ -394,6 +394,7 @@ robots: noindex, nofollow
   var AGREEMENT_ENTRY = 'entry.1083807319';
   var AGREEMENT_VERSION = 'internship-agreement-v1';
   if (!form) return;
+  var sending = false;
   /* The agreement box stays locked until the applicant opens the agreement.
      Locked from script, so the box still works if JavaScript is off. */
   var agreeLabel = document.getElementById('agree-label');
@@ -409,7 +410,11 @@ robots: noindex, nofollow
     agreeLink.addEventListener('click', unlockAgree);
     agreeLink.addEventListener('auxclick', unlockAgree);
   }
-  var sending = false;
+  /* Apply stays disabled until the agreement box is checked. */
+  var applyBtn = form.querySelector('button[type="submit"]');
+  function syncApply() { if (applyBtn && !sending) applyBtn.disabled = !(agree && agree.checked); }
+  if (agree) agree.addEventListener('change', syncApply);
+  syncApply();
   function succeed() {
     form.hidden = true;
     if (done) { done.hidden = false; try { done.scrollIntoView({ block: 'nearest' }); } catch (_) {} }
