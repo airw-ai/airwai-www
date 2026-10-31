@@ -56,6 +56,7 @@ robots: noindex, nofollow
 #ml .formcard h2{ font-size:22px; font-weight:800; color:var(--ink); letter-spacing:-.02em; }
 #ml .formcard .sub{ font-size:14.5px; line-height:1.5; color:var(--stone); margin-top:8px; }
 #ml .nform{ margin-top:18px; display:flex; flex-direction:column; gap:13px; }
+#ml .nform[hidden]{ display:none; }
 #ml .fld{ display:flex; flex-direction:column; gap:6px; }
 #ml .fld label{ font-size:12.5px; font-weight:600; color:var(--ink); }
 #ml .fld .req{ color:#c0392b; }
@@ -434,7 +435,9 @@ robots: noindex, nofollow
     var btn = form.querySelector('button[type="submit"]');
     if (btn) { btn.disabled = true; btn.textContent = 'Submitting…'; }
     var params = new URLSearchParams();
-    new FormData(form).forEach(function (v, k) { params.append(k, v); });
+    /* Skip blank fields: Google rejects the whole response when an unanswered
+       dropdown or checkbox question arrives as an empty string. */
+    new FormData(form).forEach(function (v, k) { if (String(v).trim() !== '') params.append(k, v); });
     if (AGREEMENT_ENTRY && agree && agree.checked) {
       params.append(AGREEMENT_ENTRY, 'Accepted ' + AGREEMENT_VERSION + ' as "' + name.value.trim() + '" at ' + new Date().toISOString());
     }
