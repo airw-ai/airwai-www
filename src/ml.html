@@ -144,6 +144,21 @@ robots: noindex, nofollow
 #ml .months h3{ font-size:17px; font-weight:700; margin-top:8px; }
 #ml .months p{ font-size:14px; line-height:1.5; color:var(--stone); margin-top:6px; }
 
+/* FAQ (native details/summary accordion) */
+#ml .faqgroup{ margin-top:44px; }
+#ml .faqgroup + .faqgroup{ margin-top:52px; }
+#ml .faqgroup .glabel{ font-family:var(--m); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--stone); padding-bottom:12px; border-bottom:2px solid var(--navy); }
+#ml .faq details{ border-bottom:1px solid var(--rule); }
+#ml .faq summary{ list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:24px; padding:20px 0; font-size:clamp(17px,1.6vw,19px); font-weight:700; line-height:1.3; letter-spacing:-.01em; color:var(--ink); }
+#ml .faq summary::-webkit-details-marker{ display:none; }
+#ml .faq summary::after{ content:"+"; flex:none; font-family:var(--m); font-size:22px; font-weight:400; line-height:1; color:var(--navy); transition:transform .2s var(--ease); }
+#ml .faq details[open] summary::after{ transform:rotate(45deg); }
+#ml .faq summary:focus-visible{ outline:2px solid var(--navy); outline-offset:4px; }
+#ml .faq .a{ padding:0 48px 22px 0; max-width:760px; }
+#ml .faq .a p{ font-size:16px; line-height:1.6; color:var(--stone); }
+#ml .faq .a a{ color:var(--navy); text-decoration:underline; text-underline-offset:2px; }
+@media(max-width:640px){ #ml .faq .a{ padding-right:0; } }
+
 @media(max-width:900px){
   #ml .credit{ grid-template-columns:1fr; }
   #ml .months{ grid-template-columns:1fr; border-top:0; row-gap:24px; }
@@ -283,16 +298,16 @@ robots: noindex, nofollow
   <section class="band stone">
     <div class="wrap">
       <div class="eyebrow">What you'll work on</div>
-      <h2 class="big" style="margin-top:18px;max-width:720px">Three projects, all pavement.</h2>
-      <p class="lead">Pavement is the model Airwai most needs to build out, so that is where your work goes. You are assigned to, or rotate across, the projects below; each has its own label taxonomy and guidelines document.</p>
+      <h2 class="big" style="margin-top:18px;max-width:720px">Three projects on airfield and roadway pavement.</h2>
+      <p class="lead">Pavement, and what lies on it, is where Airwai's models most need to grow, so that is where your work goes. You are assigned to, or rotate across, the projects below; each has its own label taxonomy and guidelines document.</p>
       <div class="modes">
         <div class="mode">
           <img src="/assets/media/airfield-runway.jpg" alt="Airfield runway pavement captured for damage labeling">
           <div class="body">
             <div class="n">Project 01</div>
-            <h3>Airfield pavement</h3>
-            <p>Trace cracks, spalling, joint and slab damage on runways and taxiways so the model learns to find and grade them.</p>
-            <div class="tag">Polygons &middot; polylines</div>
+            <h3>Airfield pavement and debris</h3>
+            <p>Outline loose debris on runways and taxiways, and trace cracks, spalling, joint and slab damage, so the model learns to find and grade them.</p>
+            <div class="tag">Boxes &middot; polygons &middot; polylines</div>
           </div>
         </div>
         <div class="mode">
@@ -314,7 +329,7 @@ robots: noindex, nofollow
           </div>
         </div>
       </div>
-      <p class="note"><b>The model drafts; you make it right.</b> Our current model labels every image first, so you review and correct its work instead of drawing from scratch. A hundred images that once took half a day now take about fifteen minutes for an experienced annotator. After a month of ramp-up, interns work toward about 1,000 corrected images a week, with quality checked before speed.</p>
+      <p class="note"><b>The model drafts; you make it right.</b> Our current model drafts labels on much of the imagery, so you often review and correct its work instead of drawing from scratch. A hundred pre-labeled images that once took half a day can take about fifteen minutes for an experienced annotator. Quality comes before speed.</p>
     </div>
   </section>
 
@@ -323,7 +338,7 @@ robots: noindex, nofollow
       <div class="eyebrow">The three months</div>
       <h2 class="big" style="margin-top:18px;max-width:720px">Month by month, closer to the model.</h2>
       <ol class="months">
-        <li><div class="m">Month 1</div><h3>Onboard and produce</h3><p>Learn the labeling platform and the guidelines, then ramp up to the full weekly target.</p></li>
+        <li><div class="m">Month 1</div><h3>Onboard and produce</h3><p>Learn the labeling platform and the guidelines, pass a short qualifying task, then work through assigned batches.</p></li>
         <li><div class="m">Month 2</div><h3>Annotate and review</h3><p>Label pavement imagery across airfield and roadway sets, help train the models, and audit other interns' work against reference images.</p></li>
         <li><div class="m">Month 3</div><h3>Improve the model and present</h3><p>Turn the model's worst mistakes into training data, then present what you found to the team.</p></li>
       </ol>
@@ -341,7 +356,7 @@ robots: noindex, nofollow
             <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1A33" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>A referral from Airwai for roles you apply to back home.</span></li>
             <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1A33" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>A path to a longer-term engagement with Airwai as we grow.</span></li>
             <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1A33" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Hands-on experience inside a real machine-learning pipeline: how a model is trained, tested, and improved.</span></li>
-            <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1A33" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Weekly feedback from Airwai's AI/ML product owner, plus a monthly technical webinar with Airwai's engineering lead.</span></li>
+            <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1A33" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>A weekly live session with Airwai's engineering lead, plus day-to-day help from Airwai's AI/ML product owner.</span></li>
           </ul>
         </div>
         <div>
@@ -352,11 +367,66 @@ robots: noindex, nofollow
               <dt>Credit</dt><dd>Built to count as a 3-month university internship</dd>
               <dt>Format</dt><dd>Remote</dd>
               <dt>Tools</dt><dd>CVAT, the browser-based labeling platform; your seat is set up for you</dd>
-              <dt>Cadence</dt><dd>Weekly check-in, monthly webinar</dd>
+              <dt>Cadence</dt><dd>Weekly live session, day-to-day help on Slack</dd>
               <dt>Start</dt><dd>By cohort. Apply to be considered for the next one.</dd>
             </dl>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band white" id="faq">
+    <div class="wrap" style="max-width:900px">
+      <div class="eyebrow">FAQ</div>
+      <h2 class="big" style="margin-top:18px;max-width:720px">What students and universities ask us.</h2>
+
+      <div class="faqgroup faq">
+        <div class="glabel">For students</div>
+        <details>
+          <summary>Who can apply?</summary>
+          <div class="a"><p>Students and recent graduates across Albania, from computer science, AI, software engineering and related programs. No machine-learning experience is required: onboarding teaches the labeling platform and the annotation guide, and a short qualifying task confirms you are ready.</p></div>
+        </details>
+        <details>
+          <summary>What will I actually do?</summary>
+          <div class="a"><p>You label real pavement imagery in CVAT, a browser-based labeling platform. Where our model has already drafted labels, you fix what it got wrong and add what it missed. Projects include loose debris on airfield pavement, pavement damage such as cracks, potholes and spalling, and reviewing the model's mistakes. Projects change as the models improve.</p></div>
+        </details>
+        <details>
+          <summary>How many hours a week, and when?</summary>
+          <div class="a"><p>Your weekly hours are set to meet your university's internship requirement. Apart from a weekly live session, there are no fixed hours or days: the work is remote, and you schedule it around your classes.</p></div>
+        </details>
+        <details>
+          <summary>Is it paid?</summary>
+          <div class="a"><p>It is an unpaid educational internship, and it costs you nothing. Airwai provides your platform seat and all computing; you bring a laptop and a stable internet connection. Strong contributors may be offered paid work as Airwai Albania grows.</p></div>
+        </details>
+        <details>
+          <summary>Who supervises me?</summary>
+          <div class="a"><p>Airwai's AI/ML product owner is your day-to-day contact on Slack, in Albanian or English. Airwai's engineering lead runs live sessions with your cohort and reviews the work, so you get feedback as you go.</p></div>
+        </details>
+        <details>
+          <summary>What if I have exams?</summary>
+          <div class="a"><p>Tell your Airwai contact early. Exam weeks can be lighter, and university breaks carry no assigned work.</p></div>
+        </details>
+        <details>
+          <summary>What do I agree to when I apply?</summary>
+          <div class="a"><p>The <a href="/internship-agreement/" target="_blank" rel="noopener">Internship Agreement</a>. You keep Airwai's imagery and data confidential, and the work you create belongs to Airwai; you can still describe your role and skills on your CV. Images are masked for privacy, and all work stays inside Airwai's tools, with no downloads or screenshots.</p></div>
+        </details>
+        <details>
+          <summary>When does the next cohort start?</summary>
+          <div class="a"><p>Cohorts start on university academic calendars. Apply now and we will contact you about the next one.</p></div>
+        </details>
+      </div>
+
+      <div class="faqgroup faq">
+        <div class="glabel">For universities</div>
+        <details>
+          <summary>How does a university take part?</summary>
+          <div class="a"><p>Airwai signs a cooperation agreement with the university, often on the university's own template, and the university then shares this page with its students. If your university is not working with us yet, ask your career office or department to write to <a href="mailto:info@airwai.com">info@airwai.com</a>.</p></div>
+        </details>
+        <details>
+          <summary>What paperwork does Airwai provide?</summary>
+          <div class="a"><p>A weekly log of each student's hours and work, a supervisor evaluation, a completion letter and a copy of the student's Airwai certificate. Airwai also completes the university's own internship forms.</p></div>
+        </details>
       </div>
     </div>
   </section>
