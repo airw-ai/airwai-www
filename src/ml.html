@@ -144,6 +144,21 @@ robots: noindex, nofollow
 #ml .months h3{ font-size:17px; font-weight:700; margin-top:8px; }
 #ml .months p{ font-size:14px; line-height:1.5; color:var(--stone); margin-top:6px; }
 
+/* FAQ (native details/summary accordion) */
+#ml .faqgroup{ margin-top:44px; }
+#ml .faqgroup + .faqgroup{ margin-top:52px; }
+#ml .faqgroup .glabel{ font-family:var(--m); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--stone); padding-bottom:12px; border-bottom:2px solid var(--navy); }
+#ml .faq details{ border-bottom:1px solid var(--rule); }
+#ml .faq summary{ list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:24px; padding:20px 0; font-size:clamp(17px,1.6vw,19px); font-weight:700; line-height:1.3; letter-spacing:-.01em; color:var(--ink); }
+#ml .faq summary::-webkit-details-marker{ display:none; }
+#ml .faq summary::after{ content:"+"; flex:none; font-family:var(--m); font-size:22px; font-weight:400; line-height:1; color:var(--navy); transition:transform .2s var(--ease); }
+#ml .faq details[open] summary::after{ transform:rotate(45deg); }
+#ml .faq summary:focus-visible{ outline:2px solid var(--navy); outline-offset:4px; }
+#ml .faq .a{ padding:0 48px 22px 0; max-width:760px; }
+#ml .faq .a p{ font-size:16px; line-height:1.6; color:var(--stone); }
+#ml .faq .a a{ color:var(--navy); text-decoration:underline; text-underline-offset:2px; }
+@media(max-width:640px){ #ml .faq .a{ padding-right:0; } }
+
 @media(max-width:900px){
   #ml .credit{ grid-template-columns:1fr; }
   #ml .months{ grid-template-columns:1fr; border-top:0; row-gap:24px; }
@@ -357,6 +372,61 @@ robots: noindex, nofollow
             </dl>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band white" id="faq">
+    <div class="wrap" style="max-width:900px">
+      <div class="eyebrow">FAQ</div>
+      <h2 class="big" style="margin-top:18px;max-width:720px">What students and universities ask us.</h2>
+
+      <div class="faqgroup faq">
+        <div class="glabel">For students</div>
+        <details>
+          <summary>Who can apply?</summary>
+          <div class="a"><p>Students and recent graduates across Albania, from computer science, AI, software engineering and related programs. No machine-learning experience is required: onboarding teaches the labeling platform and the annotation guide, and a short qualifying task confirms you are ready.</p></div>
+        </details>
+        <details>
+          <summary>What will I actually do?</summary>
+          <div class="a"><p>You label real pavement imagery in CVAT, a browser-based labeling platform. Where our model has already drafted labels, you fix what it got wrong and add what it missed. Projects include loose debris on airfield pavement, pavement damage such as cracks, potholes and spalling, and reviewing the model's mistakes. Projects change as the models improve.</p></div>
+        </details>
+        <details>
+          <summary>How many hours a week, and when?</summary>
+          <div class="a"><p>Your weekly hours are set to meet your university's internship requirement. Apart from a weekly live session, there are no fixed hours or days: the work is remote, and you schedule it around your classes.</p></div>
+        </details>
+        <details>
+          <summary>Is it paid?</summary>
+          <div class="a"><p>It is an unpaid educational internship, and it costs you nothing. Airwai provides your platform seat and all computing; you bring a laptop and a stable internet connection. Strong contributors may be offered paid work as Airwai Albania grows.</p></div>
+        </details>
+        <details>
+          <summary>Who supervises me?</summary>
+          <div class="a"><p>Airwai's AI/ML product owner is your day-to-day contact on Slack, in Albanian or English. Airwai's engineering lead runs live sessions with your cohort and reviews the work, so you get feedback as you go.</p></div>
+        </details>
+        <details>
+          <summary>What if I have exams?</summary>
+          <div class="a"><p>Tell your Airwai contact early. Exam weeks can be lighter, and university breaks carry no assigned work.</p></div>
+        </details>
+        <details>
+          <summary>What do I agree to when I apply?</summary>
+          <div class="a"><p>The <a href="/internship-agreement/" target="_blank" rel="noopener">Internship Agreement</a>. You keep Airwai's imagery and data confidential, and the work you create belongs to Airwai; you can still describe your role and skills on your CV. Images are masked for privacy, and all work stays inside Airwai's tools, with no downloads or screenshots.</p></div>
+        </details>
+        <details>
+          <summary>When does the next cohort start?</summary>
+          <div class="a"><p>Cohorts start on university academic calendars. Apply now and we will contact you about the next one.</p></div>
+        </details>
+      </div>
+
+      <div class="faqgroup faq">
+        <div class="glabel">For universities</div>
+        <details>
+          <summary>How does a university take part?</summary>
+          <div class="a"><p>Airwai signs a cooperation agreement with the university, often on the university's own template, and the university then shares this page with its students. If your university is not working with us yet, ask your career office or department to write to <a href="mailto:info@airwai.com">info@airwai.com</a>.</p></div>
+        </details>
+        <details>
+          <summary>What paperwork does Airwai provide?</summary>
+          <div class="a"><p>A weekly log of each student's hours and work, a supervisor evaluation, a completion letter and a copy of the student's Airwai certificate. Airwai also completes the university's own internship forms.</p></div>
+        </details>
       </div>
     </div>
   </section>
